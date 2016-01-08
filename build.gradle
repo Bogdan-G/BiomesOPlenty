@@ -49,6 +49,10 @@ group = "com.github.glitchfiend.biomesoplenty"
 version = config.mod_version
 archivesBaseName = "BiomesOPlenty"
 
+// java version
+sourceCompatibility = 1.7
+targetCompatibility = 1.7
+
 minecraft {
     version = config.minecraft_version + "-" + config.forge_version // grab latest forge
 }
@@ -99,7 +103,7 @@ task createChangelog(type: ChangelogTask) {
     setOutput(new DelayedFile(project, 'build/libs/' + project.getName() + '-' + project.version + '-changelog.txt'));
 }
 
-tasks.build.dependsOn('createChangelog')
+//tasks.build.dependsOn('createChangelog')
 
 task sourceJar(type: Jar) {
     from sourceSets.main.allJava

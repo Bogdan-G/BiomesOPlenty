@@ -103,7 +103,7 @@ public class ATGIntegration
 	{
 		if (BOPConfigurationBiomeGen.config.get("Overworld Biomes To Generate", biome.biomeName, true).getBoolean(false))
 		{
-			ATGBiomes.addBiome(group.biomeType, group.toString(), biome, weight);
+			ATGBiomes.addBiome(group.biomeType, String.valueOf(group), biome, weight);
 		}
 	}
 	

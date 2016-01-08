@@ -42,7 +42,7 @@ public class ItemFlowerBand extends ItemArmor
 	@Override
 	public String getUnlocalizedName(ItemStack itemStack)
 	{
-		return super.getUnlocalizedName() + "." + (new StringBuilder()).append(flowerBandTypes[itemStack.getItemDamage()]).toString();
+		return new StringBuilder().append(super.getUnlocalizedName()).append(".").append(flowerBandTypes[itemStack.getItemDamage()]).toString();
 	}
 
 	@Override

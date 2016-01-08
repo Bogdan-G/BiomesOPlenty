@@ -37,7 +37,7 @@ public class BlockBOPStairs extends BlockStairs
 
 		category = cat;
 
-		if (isWoodCategory(category.toString())) 
+		if (isWoodCategory(String.valueOf(category))) 
 		{
 			this.setHardness(2.0F);
 
@@ -57,7 +57,7 @@ public class BlockBOPStairs extends BlockStairs
 	@Override
 	public void registerBlockIcons(IIconRegister iconRegister)
 	{
-		if (isStoneCategory(category.toString()))
+		if (isStoneCategory(String.valueOf(category)))
 		{
 			textures = new IIcon[stoneTypes.length];
 

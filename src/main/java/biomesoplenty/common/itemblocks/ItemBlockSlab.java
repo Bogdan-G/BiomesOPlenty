@@ -23,6 +23,6 @@ public class ItemBlockSlab extends ItemSlab
 	{
 		BlockBOPSlab slab = (BlockBOPSlab)Block.getBlockFromItem(itemStack.getItem());
 
-		return super.getUnlocalizedName() + "." + (new StringBuilder()).append(slab.func_150002_b(itemStack.getItemDamage())).toString();
+		return new StringBuilder().append(super.getUnlocalizedName()).append(".").append(slab.func_150002_b(itemStack.getItemDamage())).toString();
 	}
 }
