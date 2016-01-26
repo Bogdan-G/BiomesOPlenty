@@ -86,38 +86,37 @@ public class ClientProxy extends CommonProxy
 		EntityFX entityfx = null;
 		
 		Random rand = new Random();
-
-		if (string != null) 
-		{
-		if (string == "mud") 
+		
+		if (!(string.equals(null))) {
+		if (string.equals("mud")) 
 		{
 			entityfx = new EntityBreakingFX(minecraft.theWorld, x, y, z, BOPCItems.mudball);
 		} 
-		else if (string == "dart") 
+		if (string.equals("dart")) 
 		{
 			entityfx = new EntityBreakingFX(minecraft.theWorld, x, y, z, BOPCItems.dart, 0);
 		} 
-		else if (string == "poisondart") 
+		if (string.equals("poisondart")) 
 		{
 			entityfx = new EntityBreakingFX(minecraft.theWorld, x, y, z, BOPCItems.dart, 1);
 		} 
-		else if (string == "dandelion") 
+		if (string.equals("dandelion")) 
 		{
 			entityfx = new EntityDandelionFX(minecraft.theWorld, x, y, z, 2.0F);
 		} 
-		else if (string == "steam") 
+		if (string.equals("steam")) 
 		{
 			entityfx = new EntitySteamFX(minecraft.theWorld, x, y, z, 0.0D, 0.0D, 0.0D);
 		}
-		else if (string == "magictree") 
+		if (string.equals("magictree")) 
 		{
 			entityfx = new EntityMagicTreeFX(minecraft.theWorld, x, y, z, MathHelper.getRandomDoubleInRange(rand, -0.03, 0.03), -0.02D, MathHelper.getRandomDoubleInRange(rand, -0.03, 0.03));
 		}
-		else if (string == "pixietrail") 
+		if (string.equals("pixietrail")) 
 		{
 			entityfx = new EntityPixieTrailFX(minecraft.theWorld, x, y, z, MathHelper.getRandomDoubleInRange(rand, -0.03, 0.03), -0.02D, MathHelper.getRandomDoubleInRange(rand, -0.03, 0.03));
 		}
-		else if (string == "flowerscatter")
+		if (string.equals("flowerscatter"))
 		{
 			entityfx = new EntityTrailFX(minecraft.theWorld, x, y, z, (String)args[0]);
 		}

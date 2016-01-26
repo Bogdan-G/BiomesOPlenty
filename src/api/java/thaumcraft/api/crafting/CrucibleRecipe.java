@@ -26,16 +26,16 @@ public class CrucibleRecipe {
 		if (cat instanceof String) {
 			this.catalyst = OreDictionary.getOres((String) cat);
 		}
-		String hc = researchKey + result.toString();
+		String hc = researchKey + String.valueOf(result);
 		for (Aspect tag:tags.getAspects()) {
 			hc += tag.getTag()+tags.getAmount(tag);
 		}
 		if (cat instanceof ItemStack) {
-			hc += ((ItemStack)cat).toString();
+			hc += String.valueOf(((ItemStack)cat));
 		} else
 		if (cat instanceof ArrayList && ((ArrayList<ItemStack>)catalyst).size()>0) {
 			for (ItemStack is :(ArrayList<ItemStack>)catalyst) {
-				hc += is.toString();
+				hc += String.valueOf(is);
 			}
 		}
 		

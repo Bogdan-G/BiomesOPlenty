@@ -130,7 +130,7 @@ public class BlockBOPStairs extends BlockStairs
 	{
 		int adjCat = category.ordinal();
 
-		if (isStoneCategory(category.toString()))
+		if (isStoneCategory(String.valueOf(category)))
 		{
 			adjCat = adjCat - getWoodCategoryAmount();
 		}
