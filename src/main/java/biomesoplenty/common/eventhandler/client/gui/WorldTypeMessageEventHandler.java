@@ -26,7 +26,7 @@ public class WorldTypeMessageEventHandler
         if (event.gui instanceof GuiCreateWorld)
         {
             File nameHashFile = new File(Minecraft.getMinecraft().mcDataDir.getPath() + File.separator + "BOPChecks".hashCode());
-            String nameHash = "" + Minecraft.getMinecraft().getSession().func_148256_e().hashCode();
+            String nameHash = String.valueOf(Minecraft.getMinecraft().getSession().func_148256_e().hashCode());
             
             try
             {

@@ -32,7 +32,7 @@ public class BiomeFeatures
     			{
     				features.add(field.getName());
     			}
-    			else throw new FeatureExistsException(field.getName());
+    			else { throw new FeatureExistsException(field.getName()); }
     		}
     	}
     }

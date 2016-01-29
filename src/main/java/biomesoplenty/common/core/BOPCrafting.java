@@ -406,7 +406,7 @@ public class BOPCrafting
                 String s1 = astring[l];
                 ++k;
                 j = s1.length();
-                s = s + s1;
+                StringBuilder s = new StringBuilder(s).append(s1);
             }
         }
         else
@@ -416,7 +416,7 @@ public class BOPCrafting
                 String s2 = (String)par2ArrayOfObj[i++];
                 ++k;
                 j = s2.length();
-                s = s + s2;
+                StringBuilder s = new StringBuilder(s).append(s2);
             }
         }
 

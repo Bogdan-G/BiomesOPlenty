@@ -153,7 +153,7 @@ public class TreecapitatorIntegration
         tree = new NBTTagCompound();
         tree.setString("treeName", "big_flower");
         tree.setString("logs", String.format("%s,3; %s,7; %s,11", logs3, logs3, logs3));
-        tree.setString("leaves", "" + BOPBlockHelper.getUniqueName(BOPCBlocks.petals));
+        tree.setString("leaves", String.valueOf(BOPBlockHelper.getUniqueName(BOPCBlocks.petals)));
         tree.setBoolean("requireLeafDecayCheck", false);
         treeList.appendTag(tree);
         

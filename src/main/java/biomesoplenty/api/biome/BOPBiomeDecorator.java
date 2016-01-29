@@ -64,11 +64,11 @@ public class BOPBiomeDecorator<T extends BiomeFeatures> extends BiomeDecorator
     	{
             if (featureName.equals("bopFlowersPerChunk"))
             {
-                if (!TerrainGen.decorate(currentWorld, randomGenerator, chunk_X, chunk_Z, FLOWERS)) continue;
+                if (!TerrainGen.decorate(currentWorld, randomGenerator, chunk_X, chunk_Z, FLOWERS)) { continue; }
             }
             else if (featureName.equals("bopGrassPerChunk"))
             {
-                if (!TerrainGen.decorate(currentWorld, randomGenerator, chunk_X, chunk_Z, GRASS)) continue;
+                if (!TerrainGen.decorate(currentWorld, randomGenerator, chunk_X, chunk_Z, GRASS)) { continue; }
             }
 
             WorldGenFieldAssociation.WorldFeature worldFeature = WorldGenFieldAssociation.getAssociatedFeature(featureName);
@@ -101,7 +101,7 @@ public class BOPBiomeDecorator<T extends BiomeFeatures> extends BiomeDecorator
         {
             countWeight += Double.parseDouble(String.valueOf(entry.getValue()));
 
-            if (countWeight >= random) return entry.getKey();
+            if (countWeight >= random) { return entry.getKey(); }
         }
 
         return null;
@@ -109,7 +109,7 @@ public class BOPBiomeDecorator<T extends BiomeFeatures> extends BiomeDecorator
 
     protected int nextInt(int i) 
     {
-        if (i <= 1) return 0;
+        if (i <= 1) { return 0; }
         return this.randomGenerator.nextInt(i);
 	}
 }

@@ -156,7 +156,7 @@ public class GenLayerBiomeBOP extends GenLayerBiome
     {
     	List<Integer> validLists = new ArrayList();
     	
-    	for (int i = 0; i < biomeLists.length; i++) validLists.add(i);
+    	for (int i = 0; i < biomeLists.length; i++) { validLists.add(i); }
     	
     	int list = -1;
     	

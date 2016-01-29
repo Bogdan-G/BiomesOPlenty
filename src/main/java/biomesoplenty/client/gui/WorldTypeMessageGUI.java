@@ -79,14 +79,14 @@ public class WorldTypeMessageGUI extends GuiScreen
     {
         this.drawDefaultBackground();
         
-        this.drawCenteredString(this.fontRendererObj, "" + RED + StatCollector.translateToLocal("warning.bopStartup1"), this.width / 2, 82, 0xFFFFFF);
-        this.drawCenteredString(this.fontRendererObj, "" + RED + StatCollector.translateToLocal("warning.bopStartup2"), this.width / 2, 94, 0xFFFFFF);
-        this.drawCenteredString(this.fontRendererObj, "" + RED + StatCollector.translateToLocal("warning.bopStartup3"), this.width / 2, 106, 0xFFFFFF);
+        this.drawCenteredString(this.fontRendererObj, String.valueOf(RED) + StatCollector.translateToLocal("warning.bopStartup1"), this.width / 2, 82, 0xFFFFFF);
+        this.drawCenteredString(this.fontRendererObj, String.valueOf(RED) + StatCollector.translateToLocal("warning.bopStartup2"), this.width / 2, 94, 0xFFFFFF);
+        this.drawCenteredString(this.fontRendererObj, String.valueOf(RED) + StatCollector.translateToLocal("warning.bopStartup3"), this.width / 2, 106, 0xFFFFFF);
         
-        this.drawCenteredString(this.fontRendererObj, "" + RED + StatCollector.translateToLocal("warning.bopStartup4"), this.width / 2, 132, 0xFFFFFF);
-        this.drawCenteredString(this.fontRendererObj, "" + RED + StatCollector.translateToLocal("warning.bopStartup5"), this.width / 2, 144, 0xFFFFFF);
+        this.drawCenteredString(this.fontRendererObj, String.valueOf(RED) + StatCollector.translateToLocal("warning.bopStartup4"), this.width / 2, 132, 0xFFFFFF);
+        this.drawCenteredString(this.fontRendererObj, String.valueOf(RED) + StatCollector.translateToLocal("warning.bopStartup5"), this.width / 2, 144, 0xFFFFFF);
         
-        this.drawCenteredString(this.fontRendererObj, "" + DARK_RED + StatCollector.translateToLocal("warning.bopStartup6"), this.width / 2, 168, 0xFFFFFF);
+        this.drawCenteredString(this.fontRendererObj, String.valueOf(DARK_RED) + StatCollector.translateToLocal("warning.bopStartup6"), this.width / 2, 168, 0xFFFFFF);
         
         GL11.glEnable(GL11.GL_BLEND);
         this.mc.getTextureManager().bindTexture(bopLogoTexture);

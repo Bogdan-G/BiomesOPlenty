@@ -189,7 +189,7 @@ public class ItemBiomeFinder extends Item
 
                 if (biome != null)
                 {
-                    infoList.add("" + EnumChatFormatting.BOLD + StatCollector.translateToLocal("biomeRadar.target") + " " + EnumChatFormatting.RESET + biome.biomeName);
+                    infoList.add(String.valueOf(EnumChatFormatting.BOLD) + StatCollector.translateToLocal("biomeRadar.target") + " " + EnumChatFormatting.RESET + biome.biomeName);
                     
                     if (itemStack.getTagCompound().hasKey("foundBiome"))
                     {
@@ -198,10 +198,10 @@ public class ItemBiomeFinder extends Item
                         boolean foundBiome = itemStack.getTagCompound().getBoolean("foundBiome");
                         
                         if (foundBiome){
-                        	infoList.add("" + EnumChatFormatting.DARK_GREEN + EnumChatFormatting.ITALIC + StatCollector.translateToLocal("biomeRadar.foundBiome"));
-                        	infoList.add("" + EnumChatFormatting.GRAY + "X: " + EnumChatFormatting.GREEN + biomePositionCompound.getInteger("x") + EnumChatFormatting.GRAY + "  Z: " + EnumChatFormatting.GREEN + biomePositionCompound.getInteger("z"));
+                        	infoList.add(String.valueOf(EnumChatFormatting.DARK_GREEN) + EnumChatFormatting.ITALIC + StatCollector.translateToLocal("biomeRadar.foundBiome"));
+                        	infoList.add(String.valueOf(EnumChatFormatting.GRAY) + "X: " + EnumChatFormatting.GREEN + biomePositionCompound.getInteger("x") + EnumChatFormatting.GRAY + "  Z: " + EnumChatFormatting.GREEN + biomePositionCompound.getInteger("z"));
                         }
-                        else infoList.add("" + EnumChatFormatting.DARK_GRAY + EnumChatFormatting.ITALIC + StatCollector.translateToLocal("biomeRadar.scanBiome"));
+                        else infoList.add(String.valueOf(EnumChatFormatting.DARK_GRAY) + EnumChatFormatting.ITALIC + StatCollector.translateToLocal("biomeRadar.scanBiome"));
                     }
                 }
             }
