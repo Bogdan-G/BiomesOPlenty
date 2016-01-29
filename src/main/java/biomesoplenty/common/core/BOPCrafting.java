@@ -392,7 +392,7 @@ public class BOPCrafting
 	
     public static ShapedRecipes addRecipeToFront(ItemStack par1ItemStack, Object ... par2ArrayOfObj)
     {
-        String s = "";
+        StringBuilder s = new StringBuilder("");
         int i = 0;
         int j = 0;
         int k = 0;
@@ -406,7 +406,7 @@ public class BOPCrafting
                 String s1 = astring[l];
                 ++k;
                 j = s1.length();
-                StringBuilder s = new StringBuilder(s).append(s1);
+                s.append(s1);
             }
         }
         else
@@ -416,7 +416,7 @@ public class BOPCrafting
                 String s2 = (String)par2ArrayOfObj[i++];
                 ++k;
                 j = s2.length();
-                StringBuilder s = new StringBuilder(s).append(s2);
+                s.append(s2);
             }
         }
 
