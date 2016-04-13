@@ -95,7 +95,8 @@ public class EntityDart extends EntityArrow
 		int l;
 		float f1;
 
-		for (l = 0; l < list.size(); ++l)
+		int list_sS=list.size();
+		for (l = 0; l < list_sS; ++l)
 		{
 			Entity entity1 = (Entity)list.get(l);
 
@@ -123,7 +124,7 @@ public class EntityDart extends EntityArrow
 			movingobjectposition = new MovingObjectPosition(entity);
 		}
 
-		if (movingobjectposition != null && movingobjectposition.entityHit != null && movingobjectposition.entityHit instanceof EntityPlayer)
+		if (movingobjectposition != null && movingobjectposition.entityHit instanceof EntityPlayer)
 		{
 			EntityPlayer entityplayer = (EntityPlayer)movingobjectposition.entityHit;
 

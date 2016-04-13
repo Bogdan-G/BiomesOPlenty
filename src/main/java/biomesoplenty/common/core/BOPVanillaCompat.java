@@ -77,12 +77,12 @@ public class BOPVanillaCompat
 	{
 		for (BiomeGenBase biome : BiomeGenBase.getBiomeGenArray())
 		{
-			if (biome != null && biome instanceof BOPBiome)
+			if (biome instanceof BOPBiome)
 			{
 				BOPBiome bopBiome = (BOPBiome)biome;
 				BiomeFeatures biomeFeatures = bopBiome.theBiomeDecorator.bopFeatures;
 
-				if (biomeFeatures.weightedFlowerGen != null && !biomeFeatures.weightedFlowerGen.isEmpty())
+				if (biomeFeatures.weightedFlowerGen != null && (biomeFeatures.weightedFlowerGen.size()>0))//!biomeFeatures.weightedFlowerGen.isEmpty()
 				{
 					HashMap<WorldGenerator, Integer> flowerMap = biomeFeatures.weightedFlowerGen;
 

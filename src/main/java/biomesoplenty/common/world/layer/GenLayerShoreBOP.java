@@ -172,6 +172,6 @@ public class GenLayerShoreBOP extends GenLayer
 
     private boolean func_151633_d(int p_151633_1_)
     {
-        return BiomeGenBase.getBiome(p_151633_1_) != null && BiomeGenBase.getBiome(p_151633_1_) instanceof BiomeGenMesa;
+        return BiomeGenBase.getBiome(p_151633_1_) instanceof BiomeGenMesa;
     }
 }

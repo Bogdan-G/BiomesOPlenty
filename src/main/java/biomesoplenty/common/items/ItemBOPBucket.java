@@ -54,7 +54,7 @@ public class ItemBOPBucket extends ItemFluidContainer
 
         	TileEntity tile = world.getTileEntity(x, y, z);
         	
-        	if(tile != null && tile instanceof IFluidHandler)
+        	if(tile instanceof IFluidHandler)
         	{
         		IFluidHandler tank = (IFluidHandler)tile;
         		if(tank.fill(direction,this.getFluid(itemStack), false) == this.getCapacity(itemStack))

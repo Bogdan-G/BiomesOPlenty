@@ -43,7 +43,7 @@ public class GenLayerMutationBOP extends GenLayer
                 {
                     BiomeGenBase mutatedBiome = BiomeGenBase.getBiome(currentBiomeId + 128);
                 	
-                    if (mutatedBiome != null && mutatedBiome instanceof BiomeGenMutated)
+                    if (mutatedBiome instanceof BiomeGenMutated)
                     {
                         outputBiomeIds[xItr + zItr * length] = currentBiomeId + 128;
                     }
@@ -142,7 +142,7 @@ public class GenLayerMutationBOP extends GenLayer
                     {
                         BiomeGenBase mutatedBiome = BiomeGenBase.getBiome(mutatedBiomeId + 128);
                         
-                        if (mutatedBiome != null && mutatedBiome instanceof BiomeGenMutated)
+                        if (mutatedBiome instanceof BiomeGenMutated)
                         {
                             mutatedBiomeId += 128;
                         }

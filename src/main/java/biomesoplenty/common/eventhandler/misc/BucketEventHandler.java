@@ -46,7 +46,7 @@ public class BucketEventHandler
 		if (fluid == null)
 		{
         	TileEntity tile=event.world.getTileEntity(x, y, z);
-        	if(tile != null && tile instanceof IFluidHandler)
+        	if(tile instanceof IFluidHandler)
         	{
         		IFluidHandler tank = (IFluidHandler)tile;
         		FluidStack fluidStack = tank.drain(ForgeDirection.UNKNOWN, FluidContainerRegistry.BUCKET_VOLUME, false);

@@ -71,16 +71,17 @@ public class BiomeCacheHell
 		{
 			lastCleanupTime = var1;
 
-			for (int var5 = 0; var5 < cache.size(); ++var5)
+			int cache_sS=cache.size();
+			for (int var5 = 0; var5 < cache_sS; ++var5)
 			{
 				BiomeCacheBlockHell var6 = (BiomeCacheBlockHell)cache.get(var5);
 				long var7 = var1 - var6.lastAccessTime;
 
 				if (var7 > 30000L || var7 < 0L)
 				{
-					cache.remove(var5--);
+					cache.remove(var5--);cache_sS=cache.size();
 					long var9 = var6.xPosition & 4294967295L | (var6.zPosition & 4294967295L) << 32;
-					cacheMap.remove(var9);
+					cacheMap.remove(var9);cache_sS=cache.size();
 				}
 			}
 		}
