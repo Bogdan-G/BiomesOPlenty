@@ -94,33 +94,37 @@ public class WorldGenBayou3 extends WorldGenAbstractTree
             }
             else
             {
-                Block block1 = world.getBlock(x, y - 1, z);
+                int y_0 = y - 1;
+                Block block1 = world.getBlock(x, y_0, z);
 
-                boolean isSoil = block1.canSustainPlant(world, x, y - 1, z, ForgeDirection.UP, (BlockSapling)Blocks.sapling);
+                boolean isSoil = block1.canSustainPlant(world, x, y_0, z, ForgeDirection.UP, (BlockSapling)Blocks.sapling);
                 if (isSoil && y < 256 - l - 1)
                 {
-                    block1.onPlantGrow(world, x, y - 1, z, x, y, z);
+                    block1.onPlantGrow(world, x, y_0, z, x, y, z);
 
-                    this.setBlockAndNotifyAdequately(world, x - 1, y, z, this.wood, this.metaWood);
-                    this.setBlockAndNotifyAdequately(world, x + 1, y, z, this.wood, this.metaWood);
-                    this.setBlockAndNotifyAdequately(world, x, y, z - 1, this.wood, this.metaWood);
-                    this.setBlockAndNotifyAdequately(world, x, y, z + 1, this.wood, this.metaWood);
-                    this.setBlockAndNotifyAdequately(world, x - 1, y + 1, z, this.wood, this.metaWood);
-                    this.setBlockAndNotifyAdequately(world, x + 1, y + 1, z, this.wood, this.metaWood);
-                    this.setBlockAndNotifyAdequately(world, x, y + 1, z - 1, this.wood, this.metaWood);
-                    this.setBlockAndNotifyAdequately(world, x, y + 1, z + 1, this.wood, this.metaWood);
-                    this.setBlockAndNotifyAdequately(world, x - 1, y + 2, z, this.wood, this.metaWood);
-                    this.setBlockAndNotifyAdequately(world, x + 1, y + 2, z, this.wood, this.metaWood);
-                    this.setBlockAndNotifyAdequately(world, x, y + 2, z - 1, this.wood, this.metaWood);
-                    this.setBlockAndNotifyAdequately(world, x, y + 2, z + 1, this.wood, this.metaWood);
-                    this.setBlockAndNotifyAdequately(world, x - 1, y + 3, z, this.wood, this.metaWood);
-                    this.setBlockAndNotifyAdequately(world, x + 1, y + 3, z, this.wood, this.metaWood);
-                    this.setBlockAndNotifyAdequately(world, x, y + 3, z - 1, this.wood, this.metaWood);
-                    this.setBlockAndNotifyAdequately(world, x, y + 3, z + 1, this.wood, this.metaWood);
-                    this.setBlockAndNotifyAdequately(world, x - 1, y + 4, z, this.wood, this.metaWood);
-                    this.setBlockAndNotifyAdequately(world, x + 1, y + 4, z, this.wood, this.metaWood);
-                    this.setBlockAndNotifyAdequately(world, x, y + 4, z - 1, this.wood, this.metaWood);
-                    this.setBlockAndNotifyAdequately(world, x, y + 4, z + 1, this.wood, this.metaWood);
+                    int x_0 = x - 1;int x_1 = x + 1;
+                    int y_1 = y + 4;int y_2 = y + 2;int y_3 = y + 3;int y_4 = y + 1;
+                    int z_0 = z - 1;int z_1 = z + 1;
+                    this.setBlockAndNotifyAdequately(world, x_0, y, z, this.wood, this.metaWood);
+                    this.setBlockAndNotifyAdequately(world, x_1, y, z, this.wood, this.metaWood);
+                    this.setBlockAndNotifyAdequately(world, x, y, z_0, this.wood, this.metaWood);
+                    this.setBlockAndNotifyAdequately(world, x, y, z_1, this.wood, this.metaWood);
+                    this.setBlockAndNotifyAdequately(world, x_0, y_4, z, this.wood, this.metaWood);
+                    this.setBlockAndNotifyAdequately(world, x_1, y_4, z, this.wood, this.metaWood);
+                    this.setBlockAndNotifyAdequately(world, x, y_4, z_0, this.wood, this.metaWood);
+                    this.setBlockAndNotifyAdequately(world, x, y_4, z_1, this.wood, this.metaWood);
+                    this.setBlockAndNotifyAdequately(world, x_0, y_2, z, this.wood, this.metaWood);
+                    this.setBlockAndNotifyAdequately(world, x_1, y_2, z, this.wood, this.metaWood);
+                    this.setBlockAndNotifyAdequately(world, x, y_2, z_0, this.wood, this.metaWood);
+                    this.setBlockAndNotifyAdequately(world, x, y_2, z_1, this.wood, this.metaWood);
+                    this.setBlockAndNotifyAdequately(world, x_0, y_3, z, this.wood, this.metaWood);
+                    this.setBlockAndNotifyAdequately(world, x_1, y_3, z, this.wood, this.metaWood);
+                    this.setBlockAndNotifyAdequately(world, x, y_3, z_0, this.wood, this.metaWood);
+                    this.setBlockAndNotifyAdequately(world, x, y_3, z_1, this.wood, this.metaWood);
+                    this.setBlockAndNotifyAdequately(world, x_0, y_1, z, this.wood, this.metaWood);
+                    this.setBlockAndNotifyAdequately(world, x_1, y_1, z, this.wood, this.metaWood);
+                    this.setBlockAndNotifyAdequately(world, x, y_1, z_0, this.wood, this.metaWood);
+                    this.setBlockAndNotifyAdequately(world, x, y_1, z_1, this.wood, this.metaWood);
 
                     int l1;
                     int l2;
@@ -128,11 +132,12 @@ public class WorldGenBayou3 extends WorldGenAbstractTree
 
                     for (k2 = 0; k2 < l; ++k2)
                     {
-                        Block block2 = world.getBlock(x, y + k2, z);
+                        int v_0 = y + k2;
+                        Block block2 = world.getBlock(x, v_0, z);
 
-                        if (block2.isAir(world, x, y + k2, z) || block2.isLeaves(world, x, y + k2, z) || block2 == Blocks.flowing_water || block2 == Blocks.water)
+                        if (block2.isAir(world, x, v_0, z) || block2.isLeaves(world, x, v_0, z) || block2 == Blocks.flowing_water || block2 == Blocks.water)
                         {
-                            this.setBlockAndNotifyAdequately(world, x, y + k2, z, this.wood, this.metaWood);
+                            this.setBlockAndNotifyAdequately(world, x, v_0, z, this.wood, this.metaWood);
                         }
                     }
 

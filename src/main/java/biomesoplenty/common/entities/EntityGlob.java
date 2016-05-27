@@ -42,12 +42,12 @@ public class EntityGlob extends EntityLiving implements IMob
 	protected void entityInit()
 	{
 		super.entityInit();
-		dataWatcher.addObject(16, new Byte((byte)1));
+		dataWatcher.addObject(16, (byte)1);//dataWatcher.addObject(16, new Byte((byte)1));
 	}
 
 	protected void setGlobSize(int par1)
 	{
-        this.dataWatcher.updateObject(16, new Byte((byte)par1));
+        this.dataWatcher.updateObject(16, (byte)par1);//this.dataWatcher.updateObject(16, new Byte((byte)par1));
         this.setSize(0.6F * (float)par1, 0.6F * (float)par1);
         this.setPosition(this.posX, this.posY, this.posZ);
         this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue((double)(par1 * par1));
@@ -204,8 +204,9 @@ public class EntityGlob extends EntityLiving implements IMob
 
 			 for (int k = 0; k < j; ++k)
 			 {
-				 float f = (k % 2 - 0.5F) * i / 4.0F;
-				 float f1 = (k / 2 - 0.5F) * i / 4.0F;
+				 float i_0 = i / 4.0F;
+				 float f = (k % 2 - 0.5F) * i_0;
+				 float f1 = (k / 2 - 0.5F) * i_0;
 				 EntityGlob entityGlob = this.createInstance();
 				 entityGlob.setGlobSize(i / 2);
 				 entityGlob.setLocationAndAngles(posX + f, posY + 0.5D, posZ + f1, rand.nextFloat() * 360.0F, 0.0F);

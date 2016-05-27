@@ -115,14 +115,14 @@ public class ItemBOPFood extends ItemFood
         switch (itemstack.getItemDamage())
         {
         	case 4:
-        		if (!player.inventory.addItemStackToInventory(new ItemStack(Items.bowl)))
-                    player.dropPlayerItemWithRandomChoice(new ItemStack(Items.bowl, 1, 0), false);
-        		break;
+        		//if (!player.inventory.addItemStackToInventory(new ItemStack(Items.bowl)))
+                    //player.dropPlayerItemWithRandomChoice(new ItemStack(Items.bowl, 1, 0), false);
+        		//break;
         		
         	case 5:
-        		if (!player.inventory.addItemStackToInventory(new ItemStack(Items.bowl)))
-                    player.dropPlayerItemWithRandomChoice(new ItemStack(Items.bowl, 1, 0), false);
-        		break;
+        		//if (!player.inventory.addItemStackToInventory(new ItemStack(Items.bowl)))
+                    //player.dropPlayerItemWithRandomChoice(new ItemStack(Items.bowl, 1, 0), false);
+        		//break;
         		
         	case 6:
         		if (!player.inventory.addItemStackToInventory(new ItemStack(Items.bowl)))

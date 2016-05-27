@@ -28,6 +28,7 @@ public class BlockBOPFlower2 extends BOPBlockWorldDecor
 {
 	private static final String[] plants2 = new String[] {"hibiscus", "lilyofthevalley", "burningblossom", "lavender", "goldenrod", "bluebells", "minersdelight", "icyiris", "rose"};
 	private IIcon[] textures;
+	private static final float fzf = 0.5F;private static final double dzero = 0.0D;
 
 	public BlockBOPFlower2()
 	{
@@ -39,7 +40,7 @@ public class BlockBOPFlower2 extends BOPBlockWorldDecor
 		
 		this.setTickRandomly(true);
 		float var4 = 0.2F;
-		this.setBlockBounds(0.5F - var4, 0.0F, 0.5F - var4, 0.5F + var4, var4 * 3.0F, 0.5F + var4);
+		this.setBlockBounds(fzf - var4, 0.0F, fzf - var4, fzf + var4, var4 * 3.0F, fzf + var4);
 
 		this.setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
 	}
@@ -144,11 +145,11 @@ public class BlockBOPFlower2 extends BOPBlockWorldDecor
 		{
 			if (random.nextInt(2) == 0)
 			{
-				world.spawnParticle("smoke", x + random.nextFloat(), y + random.nextFloat(), z + random.nextFloat(), 0.0D, 0.0D, 0.0D);
+				world.spawnParticle("smoke", x + random.nextFloat(), y + random.nextFloat(), z + random.nextFloat(), dzero, dzero, dzero);
 			}
 			if (random.nextInt(4) == 0)
 			{
-				world.spawnParticle("flame", x + random.nextFloat(), y + random.nextFloat(), z + random.nextFloat(), 0.0D, 0.0D, 0.0D);
+				world.spawnParticle("flame", x + random.nextFloat(), y + random.nextFloat(), z + random.nextFloat(), dzero, dzero, dzero);
 			}
 		}
 	}

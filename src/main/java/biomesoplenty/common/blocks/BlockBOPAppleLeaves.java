@@ -27,7 +27,7 @@ import cpw.mods.fml.common.Loader;
 public class BlockBOPAppleLeaves extends BlockLeavesBase implements IShearable
 {
 	private IIcon[][] textures;
-	private IIcon[] betterTextures;
+	private IIcon[] betterTextures;//UuF - UUF_UNUSED_FIELD
 	int[] adjacentTreeBlocks;
 
 	public BlockBOPAppleLeaves()
@@ -267,7 +267,7 @@ public class BlockBOPAppleLeaves extends BlockLeavesBase implements IShearable
 
 			if (!world.isRemote) {
 				world.spawnEntityInWorld(entityitem);
-				if (!(player instanceof FakePlayer))
+				//if (!(player instanceof FakePlayer))
 					entityitem.onCollideWithPlayer(player);
 			}
 			return true;

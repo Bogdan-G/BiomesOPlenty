@@ -167,21 +167,23 @@ public class WorldGenCypress extends WorldGenAbstractTree
 
                     for (k2 = 0; k2 < l - i4; ++k2)
                     {
-                        Block block2 = world.getBlock(x, y + k2, z);
+                        int y_0 = y + k2;
+                        Block block2 = world.getBlock(x, y_0, z);
 
-                        if (block2.isAir(world, x, y + k2, z) || block2.isLeaves(world, x, y + k2, z))
+                        if (block2.isAir(world, x, y_0, z) || block2.isLeaves(world, x, y_0, z))
                         {
-                            this.setBlockAndNotifyAdequately(world, x, y + k2, z, wood, metaWood);
-                            this.setBlockAndNotifyAdequately(world, x, (y + k2), z, wood, metaWood);
-                            this.setBlockAndNotifyAdequately(world, x, (y + k2) - 2, z, wood, metaWood);
-                            this.setBlockAndNotifyAdequately(world, x, (y + k2) - 1, z, wood, metaWood);
-                            this.setBlockAndNotifyAdequately(world, x, (y + k2), z, wood, metaWood);
-                            this.setBlockAndNotifyAdequately(world, x, (y + k2) + 1, z, wood, metaWood);
-                            this.setBlockAndNotifyAdequately(world, x - 1, (y + k2) + 1, z, leaves, metaLeaves);
-                            this.setBlockAndNotifyAdequately(world, x + 1, (y + k2) + 1, z, leaves, metaLeaves);
-                            this.setBlockAndNotifyAdequately(world, x, (y + k2) + 1, z - 1, leaves, metaLeaves);
-                            this.setBlockAndNotifyAdequately(world, x, (y + k2) + 1, z + 1, leaves, metaLeaves);
-                            this.setBlockAndNotifyAdequately(world, x, (y + k2) + 2, z, leaves, metaLeaves);
+                            int y_1 = (y_0) + 1;
+                            this.setBlockAndNotifyAdequately(world, x, y_0, z, wood, metaWood);
+                            this.setBlockAndNotifyAdequately(world, x, (y_0), z, wood, metaWood);
+                            this.setBlockAndNotifyAdequately(world, x, (y_0) - 2, z, wood, metaWood);
+                            this.setBlockAndNotifyAdequately(world, x, (y_0) - 1, z, wood, metaWood);
+                            this.setBlockAndNotifyAdequately(world, x, (y_0), z, wood, metaWood);
+                            this.setBlockAndNotifyAdequately(world, x, y_1, z, wood, metaWood);
+                            this.setBlockAndNotifyAdequately(world, x - 1, y_1, z, leaves, metaLeaves);
+                            this.setBlockAndNotifyAdequately(world, x + 1, y_1, z, leaves, metaLeaves);
+                            this.setBlockAndNotifyAdequately(world, x, y_1, z - 1, leaves, metaLeaves);
+                            this.setBlockAndNotifyAdequately(world, x, y_1, z + 1, leaves, metaLeaves);
+                            this.setBlockAndNotifyAdequately(world, x, (y_0) + 2, z, leaves, metaLeaves);
                         }
                     }
 

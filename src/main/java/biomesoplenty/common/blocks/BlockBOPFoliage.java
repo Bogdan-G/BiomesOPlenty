@@ -162,11 +162,11 @@ public class BlockBOPFoliage extends BOPBlockWorldDecor implements IShearable
 		case 0: //Duckweed
 			return block == Blocks.water;
 			
-		case 14: // Leaf Pile
-			return block == Blocks.grass || block == Blocks.dirt || block == Blocks.farmland || block == BOPCBlocks.longGrass || block == BOPCBlocks.overgrownNetherrack || block.canSustainPlant(world, x, y - 1, z, ForgeDirection.UP, this);
+		//case 14: // Leaf Pile
+			//return block == Blocks.grass || block == Blocks.dirt || block == Blocks.farmland || block == BOPCBlocks.longGrass || block == BOPCBlocks.overgrownNetherrack || block.canSustainPlant(world, x, y - 1, z, ForgeDirection.UP, this);
 			
-		case 15: // Dead Leaf Pile
-			return block == Blocks.grass || block == Blocks.dirt || block == Blocks.farmland || block == BOPCBlocks.longGrass || block == BOPCBlocks.overgrownNetherrack || block.canSustainPlant(world, x, y - 1, z, ForgeDirection.UP, this);
+		//case 15: // Dead Leaf Pile
+			//return block == Blocks.grass || block == Blocks.dirt || block == Blocks.farmland || block == BOPCBlocks.longGrass || block == BOPCBlocks.overgrownNetherrack || block.canSustainPlant(world, x, y - 1, z, ForgeDirection.UP, this);
 
 		default:
 			return block == Blocks.grass || block == Blocks.dirt || block == Blocks.farmland || block == BOPCBlocks.longGrass || block == BOPCBlocks.overgrownNetherrack || block.canSustainPlant(world, x, y - 1, z, ForgeDirection.UP, this);
@@ -323,8 +323,8 @@ public class BlockBOPFoliage extends BOPBlockWorldDecor implements IShearable
 			break;
 			
 		case 13: //Clover Patch
-			this.setBlockBounds(0F, 0F, 0F, 1F, 0.015625F, 1F);
-			break;
+			//this.setBlockBounds(0F, 0F, 0F, 1F, 0.015625F, 1F);
+			//break;
 			
 		case 14: //Leaf Pile
 		case 15: //Dead Leaf Pile
@@ -351,7 +351,7 @@ public class BlockBOPFoliage extends BOPBlockWorldDecor implements IShearable
 			if (!world.isRemote)
 			{
 				world.spawnEntityInWorld(entityitem);
-				if (!(player instanceof FakePlayer))
+				//if (!(player instanceof FakePlayer))
                     entityitem.onCollideWithPlayer(player);
 			}
 			return true;

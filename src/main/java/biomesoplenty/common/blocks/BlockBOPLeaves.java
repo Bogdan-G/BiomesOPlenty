@@ -148,7 +148,7 @@ public class BlockBOPLeaves extends BlockLeavesBase implements IShearable
 	
 	public boolean isType(int metadata, int baseMeta)
 	{
-		for (int type = baseMeta; type <= baseMeta + (4 * 3); type += 4)
+		for (int type = baseMeta; type <= baseMeta + 12; type += 4)//?, emm, go add commentary? and no match 4*3
 		{
 			if (metadata == type) return true;
 		}
@@ -364,7 +364,7 @@ public class BlockBOPLeaves extends BlockLeavesBase implements IShearable
 			this.dropBlockAsItem(world, x, y, z, new ItemStack(item, 1, this.damageDropped(metadata)));
 		}
 
-		if (((metadata & 3) == 0 || (metadata & 3) == 4 || (metadata & 3) == 7) && (world.rand.nextInt(50) == 0)) 
+		if (((metadata & 3) == 0/* || (metadata & 3) == 4 || (metadata & 3) == 7*/) && (world.rand.nextInt(50) == 0)) 
 		{
 			this.dropBlockAsItem(world, x, y, z, new ItemStack(BOPCItems.food, 1, 8));
 		}
@@ -411,7 +411,7 @@ public class BlockBOPLeaves extends BlockLeavesBase implements IShearable
 	private static int getTypeFromMeta(int meta)
 	{
 		meta = meta & 3;
-		if (meta < 0 || meta >= leaves.length) {
+		if (/*meta < 0 || */meta >= leaves.length) {
 			meta = 0;
 		}
 		return meta;

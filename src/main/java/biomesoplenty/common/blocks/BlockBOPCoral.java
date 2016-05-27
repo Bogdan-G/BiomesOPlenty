@@ -121,7 +121,7 @@ public class BlockBOPCoral extends BOPBlock
 			switch (metadata)
 			{
 			case 9: // Kelp Middle
-				return block == this;
+				//return block == this;
 
 			case 10: // Kelp Top
 				return block == this;

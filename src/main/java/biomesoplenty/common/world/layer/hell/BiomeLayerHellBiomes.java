@@ -7,7 +7,7 @@ import net.minecraft.util.WeightedRandom;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.layer.IntCache;
 import net.minecraftforge.common.BiomeManager.BiomeEntry;
-import biomesoplenty.common.world.BOPBiomeManager;
+import biomesoplenty.common.world.BOPBiomeManager;import cpw.mods.fml.common.FMLLog;
 
 public class BiomeLayerHellBiomes extends BiomeLayerHell
 {
@@ -43,6 +43,6 @@ public class BiomeLayerHellBiomes extends BiomeLayerHell
     
     private int getWeightedBiomeFromList(List<BiomeEntry> biomeList)
     {
-    	return ((BiomeEntry)WeightedRandom.getItem(biomeList, (int)this.nextLong(WeightedRandom.getTotalWeight(biomeList) / 10) * 10)).biome.biomeID;
+    	try{ return ((BiomeEntry)WeightedRandom.getItem(biomeList, (int)this.nextLong(WeightedRandom.getTotalWeight(biomeList) / 10) * 10)).biome.biomeID;} catch (Throwable e) {FMLLog.warning("%s", e);return 0;}
     }
 }

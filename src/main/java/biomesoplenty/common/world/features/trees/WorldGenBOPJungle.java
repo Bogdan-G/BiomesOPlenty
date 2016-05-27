@@ -56,84 +56,88 @@ public class WorldGenBOPJungle extends WorldGenHugeTrees
 
             for (int l2 = 0; l2 < l; ++l2)
             {
-                Block block = p_76484_1_.getBlock(p_76484_3_, p_76484_4_ + l2, p_76484_5_);
+                int f_2 = p_76484_4_ + l2;
+                Block block = p_76484_1_.getBlock(p_76484_3_, f_2, p_76484_5_);
 
-                if (block.isAir(p_76484_1_, p_76484_3_, p_76484_4_ + l2, p_76484_5_) || block.isLeaves(p_76484_1_, p_76484_3_, p_76484_4_ + l2, p_76484_5_))
+                if (block.isAir(p_76484_1_, p_76484_3_, f_2, p_76484_5_) || block.isLeaves(p_76484_1_, p_76484_3_, f_2, p_76484_5_))
                 {
-                    this.setBlockAndNotifyAdequately(p_76484_1_, p_76484_3_, p_76484_4_ + l2, p_76484_5_, Blocks.log, this.woodMetadata);
+                    this.setBlockAndNotifyAdequately(p_76484_1_, p_76484_3_, f_2, p_76484_5_, Blocks.log, this.woodMetadata);
 
                     if (l2 > 0)
                     {
-                        if (p_76484_2_.nextInt(3) > 0 && p_76484_1_.isAirBlock(p_76484_3_ - 1, p_76484_4_ + l2, p_76484_5_))
+                        int f_1_0 = p_76484_3_ - 1;
+                        if (p_76484_2_.nextInt(3) > 0 && p_76484_1_.isAirBlock(f_1_0, f_2, p_76484_5_))
                         {
-                            this.setBlockAndNotifyAdequately(p_76484_1_, p_76484_3_ - 1, p_76484_4_ + l2, p_76484_5_, BOPCBlocks.ivy, 8);
+                            this.setBlockAndNotifyAdequately(p_76484_1_, f_1_0, f_2, p_76484_5_, BOPCBlocks.ivy, 8);
                         }
 
-                        if (p_76484_2_.nextInt(3) > 0 && p_76484_1_.isAirBlock(p_76484_3_, p_76484_4_ + l2, p_76484_5_ - 1))
+                        if (p_76484_2_.nextInt(3) > 0 && p_76484_1_.isAirBlock(p_76484_3_, f_2, p_76484_5_ - 1))
                         {
-                            this.setBlockAndNotifyAdequately(p_76484_1_, p_76484_3_, p_76484_4_ + l2, p_76484_5_ - 1, BOPCBlocks.ivy, 1);
+                            this.setBlockAndNotifyAdequately(p_76484_1_, p_76484_3_, f_2, p_76484_5_ - 1, BOPCBlocks.ivy, 1);
                         }
                     }
                 }
 
                 if (l2 < l - 1)
                 {
-                    block = p_76484_1_.getBlock(p_76484_3_ + 1, p_76484_4_ + l2, p_76484_5_);
+                    int f_0 = p_76484_3_ + 1;
+                    block = p_76484_1_.getBlock(f_0, f_2, p_76484_5_);
 
-                    if (block.isAir(p_76484_1_, p_76484_3_ + 1, p_76484_4_ + l2, p_76484_5_) || block.isLeaves(p_76484_1_, p_76484_3_ + 1, p_76484_4_ + l2, p_76484_5_))
+                    if (block.isAir(p_76484_1_, f_0, f_2, p_76484_5_) || block.isLeaves(p_76484_1_, f_0, f_2, p_76484_5_))
                     {
-                        this.setBlockAndNotifyAdequately(p_76484_1_, p_76484_3_ + 1, p_76484_4_ + l2, p_76484_5_, Blocks.log, this.woodMetadata);
+                        this.setBlockAndNotifyAdequately(p_76484_1_, f_0, f_2, p_76484_5_, Blocks.log, this.woodMetadata);
 
                         if (l2 > 0)
                         {
-                            if (p_76484_2_.nextInt(3) > 0 && p_76484_1_.isAirBlock(p_76484_3_ + 2, p_76484_4_ + l2, p_76484_5_))
+                            if (p_76484_2_.nextInt(3) > 0 && p_76484_1_.isAirBlock(p_76484_3_ + 2, f_2, p_76484_5_))
                             {
-                                this.setBlockAndNotifyAdequately(p_76484_1_, p_76484_3_ + 2, p_76484_4_ + l2, p_76484_5_, BOPCBlocks.ivy, 2);
+                                this.setBlockAndNotifyAdequately(p_76484_1_, p_76484_3_ + 2, f_2, p_76484_5_, BOPCBlocks.ivy, 2);
                             }
 
-                            if (p_76484_2_.nextInt(3) > 0 && p_76484_1_.isAirBlock(p_76484_3_ + 1, p_76484_4_ + l2, p_76484_5_ - 1))
+                            if (p_76484_2_.nextInt(3) > 0 && p_76484_1_.isAirBlock(f_0, f_2, p_76484_5_ - 1))
                             {
-                                this.setBlockAndNotifyAdequately(p_76484_1_, p_76484_3_ + 1, p_76484_4_ + l2, p_76484_5_ - 1, BOPCBlocks.ivy, 1);
+                                this.setBlockAndNotifyAdequately(p_76484_1_, f_0, f_2, p_76484_5_ - 1, BOPCBlocks.ivy, 1);
                             }
                         }
                     }
 
-                    block = p_76484_1_.getBlock(p_76484_3_ + 1, p_76484_4_ + l2, p_76484_5_ + 1);
+                    block = p_76484_1_.getBlock(f_0, f_2, p_76484_5_ + 1);
 
-                    if (block.isAir(p_76484_1_, p_76484_3_ + 1, p_76484_4_ + l2, p_76484_5_ + 1) || block.isLeaves(p_76484_1_, p_76484_3_ + 1, p_76484_4_ + l2, p_76484_5_ + 1))
+                    if (block.isAir(p_76484_1_, f_0, f_2, p_76484_5_ + 1) || block.isLeaves(p_76484_1_, f_0, f_2, p_76484_5_ + 1))
                     {
-                        this.setBlockAndNotifyAdequately(p_76484_1_, p_76484_3_ + 1, p_76484_4_ + l2, p_76484_5_ + 1, Blocks.log, this.woodMetadata);
+                        this.setBlockAndNotifyAdequately(p_76484_1_, f_0, f_2, p_76484_5_ + 1, Blocks.log, this.woodMetadata);
 
                         if (l2 > 0)
                         {
-                            if (p_76484_2_.nextInt(3) > 0 && p_76484_1_.isAirBlock(p_76484_3_ + 2, p_76484_4_ + l2, p_76484_5_ + 1))
+                            if (p_76484_2_.nextInt(3) > 0 && p_76484_1_.isAirBlock(p_76484_3_ + 2, f_2, p_76484_5_ + 1))
                             {
-                                this.setBlockAndNotifyAdequately(p_76484_1_, p_76484_3_ + 2, p_76484_4_ + l2, p_76484_5_ + 1, BOPCBlocks.ivy, 2);
+                                this.setBlockAndNotifyAdequately(p_76484_1_, p_76484_3_ + 2, f_2, p_76484_5_ + 1, BOPCBlocks.ivy, 2);
                             }
 
-                            if (p_76484_2_.nextInt(3) > 0 && p_76484_1_.isAirBlock(p_76484_3_ + 1, p_76484_4_ + l2, p_76484_5_ + 2))
+                            if (p_76484_2_.nextInt(3) > 0 && p_76484_1_.isAirBlock(f_0, f_2, p_76484_5_ + 2))
                             {
-                                this.setBlockAndNotifyAdequately(p_76484_1_, p_76484_3_ + 1, p_76484_4_ + l2, p_76484_5_ + 2, BOPCBlocks.ivy, 4);
+                                this.setBlockAndNotifyAdequately(p_76484_1_, f_0, f_2, p_76484_5_ + 2, BOPCBlocks.ivy, 4);
                             }
                         }
                     }
 
-                    block = p_76484_1_.getBlock(p_76484_3_, p_76484_4_ + l2, p_76484_5_ + 1);
+                    block = p_76484_1_.getBlock(p_76484_3_, f_2, p_76484_5_ + 1);
 
-                    if (block.isAir(p_76484_1_, p_76484_3_, p_76484_4_ + l2, p_76484_5_ + 1) || block.isLeaves(p_76484_1_, p_76484_3_, p_76484_4_ + l2, p_76484_5_ + 1))
+                    if (block.isAir(p_76484_1_, p_76484_3_, f_2, p_76484_5_ + 1) || block.isLeaves(p_76484_1_, p_76484_3_, f_2, p_76484_5_ + 1))
                     {
-                        this.setBlockAndNotifyAdequately(p_76484_1_, p_76484_3_, p_76484_4_ + l2, p_76484_5_ + 1, Blocks.log, this.woodMetadata);
+                        this.setBlockAndNotifyAdequately(p_76484_1_, p_76484_3_, f_2, p_76484_5_ + 1, Blocks.log, this.woodMetadata);
 
                         if (l2 > 0)
                         {
-                            if (p_76484_2_.nextInt(3) > 0 && p_76484_1_.isAirBlock(p_76484_3_ - 1, p_76484_4_ + l2, p_76484_5_ + 1))
+                            int f_1_1 = p_76484_3_ - 1;
+                            if (p_76484_2_.nextInt(3) > 0 && p_76484_1_.isAirBlock(f_1_1, f_2, p_76484_5_ + 1))
                             {
-                                this.setBlockAndNotifyAdequately(p_76484_1_, p_76484_3_ - 1, p_76484_4_ + l2, p_76484_5_ + 1, BOPCBlocks.ivy, 8);
+                                this.setBlockAndNotifyAdequately(p_76484_1_, f_1_1, f_2, p_76484_5_ + 1, BOPCBlocks.ivy, 8);
                             }
 
-                            if (p_76484_2_.nextInt(3) > 0 && p_76484_1_.isAirBlock(p_76484_3_, p_76484_4_ + l2, p_76484_5_ + 2))
+                            if (p_76484_2_.nextInt(3) > 0 && p_76484_1_.isAirBlock(p_76484_3_, f_2, p_76484_5_ + 2))
                             {
-                                this.setBlockAndNotifyAdequately(p_76484_1_, p_76484_3_, p_76484_4_ + l2, p_76484_5_ + 2, BOPCBlocks.ivy, 4);
+                                this.setBlockAndNotifyAdequately(p_76484_1_, p_76484_3_, f_2, p_76484_5_ + 2, BOPCBlocks.ivy, 4);
                             }
                         }
                     }

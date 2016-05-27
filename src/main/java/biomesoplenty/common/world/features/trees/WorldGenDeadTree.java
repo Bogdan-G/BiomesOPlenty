@@ -48,7 +48,8 @@ public class WorldGenDeadTree extends WorldGenAbstractTree
             {
                 for (int var8 = -2; var8 <= 2; ++var8)
                 {
-                    if (world.isAirBlock(x + var7, y - 1, z + var8) && world.isAirBlock(x + var7, y - 2, z + var8) && !world.isAirBlock(x + var7, y, z + var8))
+                    int v_0 = x + var7;int v_1 = z + var8;
+                    if (world.isAirBlock(v_0, y - 1, v_1) && world.isAirBlock(v_0, y - 2, v_1) && !world.isAirBlock(v_0, y, v_1))
                     {
                         return false;
                     }
@@ -59,315 +60,339 @@ public class WorldGenDeadTree extends WorldGenAbstractTree
             
             if (var999 == 0)
             {
+            	int y_0  = y + 2;int y_1  = y + 3;int y_2  = y + 4;int y_3  = y + 5;int y_4  = y + 6;int y_5  = y + 7;int y_6  = y + 8;
+            	int x_0  = x + 1;int x_1  = x + 2;int x_2  = x - 1;int x_3  = x - 2;
+            	int z_0  = z + 1;int z_1  = z + 2;int z_2  = z - 1;int z_3  = z - 2;
             	buildBlock(world, x, y + 1, z, BOPCBlocks.logs3, 2);
-	            buildBlock(world, x, y + 2, z, BOPCBlocks.logs3, 2);
-	            buildBlock(world, x, y + 3, z, BOPCBlocks.logs3, 2);
-	            buildBlock(world, x, y + 4, z, BOPCBlocks.logs3, 2);
-	            buildBlock(world, x, y + 5, z, BOPCBlocks.logs3, 2);
-	            buildBlock(world, x, y + 6, z, BOPCBlocks.logs3, 2);
-	            buildBlock(world, x, y + 7, z, BOPCBlocks.logs3, 2);
-	            buildBlock(world, x, y + 8, z, BOPCBlocks.logs3, 2);
+	            buildBlock(world, x, y_0, z, BOPCBlocks.logs3, 2);
+	            buildBlock(world, x, y_1, z, BOPCBlocks.logs3, 2);
+	            buildBlock(world, x, y_2, z, BOPCBlocks.logs3, 2);
+	            buildBlock(world, x, y_3, z, BOPCBlocks.logs3, 2);
+	            buildBlock(world, x, y_4, z, BOPCBlocks.logs3, 2);
+	            buildBlock(world, x, y_5, z, BOPCBlocks.logs3, 2);
+	            buildBlock(world, x, y_6, z, BOPCBlocks.logs3, 2);
 	            buildBlock(world, x, y + 9, z, BOPCBlocks.logs3, 2);
 	            
-	            buildBlock(world, x + 1, y + 3, z, BOPCBlocks.logs3, 6);
-	            buildBlock(world, x + 2, y + 3, z, BOPCBlocks.logs3, 6);
-	            buildBlock(world, x + 1, y + 4, z, BOPCBlocks.logs3, 6);
-	            buildBlock(world, x + 2, y + 5, z, BOPCBlocks.logs3, 6);
-	            buildBlock(world, x + 3, y + 5, z, BOPCBlocks.logs3, 6);
-	            buildBlock(world, x + 1, y + 7, z, BOPCBlocks.logs3, 6);
-	            buildBlock(world, x + 2, y + 7, z, BOPCBlocks.logs3, 6);
+	            buildBlock(world, x_0, y_1, z, BOPCBlocks.logs3, 6);
+	            buildBlock(world, x_1, y_1, z, BOPCBlocks.logs3, 6);
+	            buildBlock(world, x_0, y_2, z, BOPCBlocks.logs3, 6);
+	            buildBlock(world, x_1, y_3, z, BOPCBlocks.logs3, 6);
+	            buildBlock(world, x + 3, y_3, z, BOPCBlocks.logs3, 6);
+	            buildBlock(world, x_0, y_5, z, BOPCBlocks.logs3, 6);
+	            buildBlock(world, x_1, y_5, z, BOPCBlocks.logs3, 6);
 	            
-	            buildBlock(world, x - 1, y + 2, z, BOPCBlocks.logs3, 6);
-	            buildBlock(world, x - 2, y + 4, z, BOPCBlocks.logs3, 6);
-	            buildBlock(world, x - 1, y + 4, z, BOPCBlocks.logs3, 6);
-	            buildBlock(world, x - 1, y + 6, z, BOPCBlocks.logs3, 2);
-	            buildBlock(world, x - 1, y + 7, z, BOPCBlocks.logs3, 2);
-	            buildBlock(world, x - 2, y + 8, z, BOPCBlocks.logs3, 6);
+	            buildBlock(world, x_2, y_0, z, BOPCBlocks.logs3, 6);
+	            buildBlock(world, x_3, y_2, z, BOPCBlocks.logs3, 6);
+	            buildBlock(world, x_2, y_2, z, BOPCBlocks.logs3, 6);
+	            buildBlock(world, x_2, y_4, z, BOPCBlocks.logs3, 2);
+	            buildBlock(world, x_2, y_5, z, BOPCBlocks.logs3, 2);
+	            buildBlock(world, x_3, y_6, z, BOPCBlocks.logs3, 6);
 	            
-	            buildBlock(world, x, y + 3, z + 1, BOPCBlocks.logs3, 10);
-	            buildBlock(world, x, y + 3, z + 2, BOPCBlocks.logs3, 10);
-	            buildBlock(world, x, y + 5, z + 1, BOPCBlocks.logs3, 10);
-	            buildBlock(world, x, y + 6, z + 2, BOPCBlocks.logs3, 10);
-	            buildBlock(world, x, y + 6, z + 3, BOPCBlocks.logs3, 10);
-	            buildBlock(world, x, y + 8, z + 1, BOPCBlocks.logs3, 10);
+	            buildBlock(world, x, y_1, z_0, BOPCBlocks.logs3, 10);
+	            buildBlock(world, x, y_1, z_1, BOPCBlocks.logs3, 10);
+	            buildBlock(world, x, y_3, z_0, BOPCBlocks.logs3, 10);
+	            buildBlock(world, x, y_4, z_1, BOPCBlocks.logs3, 10);
+	            buildBlock(world, x, y_4, z + 3, BOPCBlocks.logs3, 10);
+	            buildBlock(world, x, y_6, z_0, BOPCBlocks.logs3, 10);
 	            
-	            buildBlock(world, x, y + 3, z - 1, BOPCBlocks.logs3, 2);
-	            buildBlock(world, x, y + 4, z - 2, BOPCBlocks.logs3, 10);
-	            buildBlock(world, x, y + 6, z - 1, BOPCBlocks.logs3, 2);
-	            buildBlock(world, x, y + 7, z - 2, BOPCBlocks.logs3, 10);
+	            buildBlock(world, x, y_1, z_2, BOPCBlocks.logs3, 2);
+	            buildBlock(world, x, y_2, z_3, BOPCBlocks.logs3, 10);
+	            buildBlock(world, x, y_4, z_2, BOPCBlocks.logs3, 2);
+	            buildBlock(world, x, y_5, z_3, BOPCBlocks.logs3, 10);
             }
             else if (var999 == 1)
             {
+            	int y_0  = y + 2;int y_1  = y + 3;int y_2  = y + 4;int y_3  = y + 5;int y_4  = y + 6;int y_5  = y + 7;int y_6  = y + 8;
+            	int x_0  = x + 1;int x_1  = x + 2;int x_2  = x - 1;int x_3  = x - 2;
+            	int z_0  = z + 1;int z_1  = z + 2;int z_2  = z - 1;int z_3  = z - 2;
             	buildBlock(world, x, y + 1, z, BOPCBlocks.logs3, 2);
-	            buildBlock(world, x, y + 2, z, BOPCBlocks.logs3, 2);
-	            buildBlock(world, x, y + 3, z, BOPCBlocks.logs3, 2);
-	            buildBlock(world, x, y + 4, z, BOPCBlocks.logs3, 2);
-	            buildBlock(world, x, y + 5, z, BOPCBlocks.logs3, 2);
-	            buildBlock(world, x, y + 6, z, BOPCBlocks.logs3, 2);
-	            buildBlock(world, x, y + 7, z, BOPCBlocks.logs3, 2);
-	            buildBlock(world, x, y + 8, z, BOPCBlocks.logs3, 2);
+	            buildBlock(world, x, y_0, z, BOPCBlocks.logs3, 2);
+	            buildBlock(world, x, y_1, z, BOPCBlocks.logs3, 2);
+	            buildBlock(world, x, y_2, z, BOPCBlocks.logs3, 2);
+	            buildBlock(world, x, y_3, z, BOPCBlocks.logs3, 2);
+	            buildBlock(world, x, y_4, z, BOPCBlocks.logs3, 2);
+	            buildBlock(world, x, y_5, z, BOPCBlocks.logs3, 2);
+	            buildBlock(world, x, y_6, z, BOPCBlocks.logs3, 2);
 	            buildBlock(world, x, y + 9, z, BOPCBlocks.logs3, 2);
 	            
-	            buildBlock(world, x - 1, y + 3, z, BOPCBlocks.logs3, 6);
-	            buildBlock(world, x - 2, y + 3, z, BOPCBlocks.logs3, 6);
-	            buildBlock(world, x - 1, y + 4, z, BOPCBlocks.logs3, 6);
-	            buildBlock(world, x - 2, y + 5, z, BOPCBlocks.logs3, 6);
-	            buildBlock(world, x - 3, y + 5, z, BOPCBlocks.logs3, 6);
-	            buildBlock(world, x - 1, y + 7, z, BOPCBlocks.logs3, 6);
-	            buildBlock(world, x - 2, y + 7, z, BOPCBlocks.logs3, 6);
+	            buildBlock(world, x_2, y_1, z, BOPCBlocks.logs3, 6);
+	            buildBlock(world, x_3, y_1, z, BOPCBlocks.logs3, 6);
+	            buildBlock(world, x_2, y_2, z, BOPCBlocks.logs3, 6);
+	            buildBlock(world, x_3, y_3, z, BOPCBlocks.logs3, 6);
+	            buildBlock(world, x - 3, y_3, z, BOPCBlocks.logs3, 6);
+	            buildBlock(world, x_2, y_5, z, BOPCBlocks.logs3, 6);
+	            buildBlock(world, x_3, y_5, z, BOPCBlocks.logs3, 6);
 	            
-	            buildBlock(world, x + 1, y + 2, z, BOPCBlocks.logs3, 6);
-	            buildBlock(world, x + 2, y + 4, z, BOPCBlocks.logs3, 6);
-	            buildBlock(world, x + 1, y + 4, z, BOPCBlocks.logs3, 6);
-	            buildBlock(world, x + 1, y + 6, z, BOPCBlocks.logs3, 2);
-	            buildBlock(world, x + 1, y + 7, z, BOPCBlocks.logs3, 2);
-	            buildBlock(world, x + 2, y + 8, z, BOPCBlocks.logs3, 6);
+	            buildBlock(world, x_0, y_0, z, BOPCBlocks.logs3, 6);
+	            buildBlock(world, x_1, y_2, z, BOPCBlocks.logs3, 6);
+	            buildBlock(world, x_0, y_2, z, BOPCBlocks.logs3, 6);
+	            buildBlock(world, x_0, y_4, z, BOPCBlocks.logs3, 2);
+	            buildBlock(world, x_0, y_5, z, BOPCBlocks.logs3, 2);
+	            buildBlock(world, x_1, y_6, z, BOPCBlocks.logs3, 6);
 	            
-	            buildBlock(world, x, y + 3, z + 1, BOPCBlocks.logs3, 10);
-	            buildBlock(world, x, y + 3, z + 2, BOPCBlocks.logs3, 10);
-	            buildBlock(world, x, y + 5, z + 1, BOPCBlocks.logs3, 10);
-	            buildBlock(world, x, y + 6, z + 2, BOPCBlocks.logs3, 10);
-	            buildBlock(world, x, y + 6, z + 3, BOPCBlocks.logs3, 10);
-	            buildBlock(world, x, y + 8, z + 1, BOPCBlocks.logs3, 10);
+	            buildBlock(world, x, y_1, z_0, BOPCBlocks.logs3, 10);
+	            buildBlock(world, x, y_1, z_1, BOPCBlocks.logs3, 10);
+	            buildBlock(world, x, y_3, z_0, BOPCBlocks.logs3, 10);
+	            buildBlock(world, x, y_4, z_1, BOPCBlocks.logs3, 10);
+	            buildBlock(world, x, y_4, z + 3, BOPCBlocks.logs3, 10);
+	            buildBlock(world, x, y_6, z_0, BOPCBlocks.logs3, 10);
 	            
-	            buildBlock(world, x, y + 3, z - 1, BOPCBlocks.logs3, 2);
-	            buildBlock(world, x, y + 4, z - 2, BOPCBlocks.logs3, 10);
-	            buildBlock(world, x, y + 6, z - 1, BOPCBlocks.logs3, 2);
-	            buildBlock(world, x, y + 7, z - 2, BOPCBlocks.logs3, 10);
+	            buildBlock(world, x, y_1, z_2, BOPCBlocks.logs3, 2);
+	            buildBlock(world, x, y_2, z_3, BOPCBlocks.logs3, 10);
+	            buildBlock(world, x, y_4, z_2, BOPCBlocks.logs3, 2);
+	            buildBlock(world, x, y_5, z_3, BOPCBlocks.logs3, 10);
             }
             else if (var999 == 2)
             {
+            	int y_0  = y + 2;int y_1  = y + 3;int y_2  = y + 4;int y_3  = y + 5;int y_4  = y + 6;int y_5  = y + 7;int y_6  = y + 8;
+            	int x_0  = x + 1;int x_1  = x + 2;int x_2  = x - 1;int x_3  = x - 2;
+            	int z_0  = z + 1;int z_1  = z + 2;int z_2  = z - 1;int z_3  = z - 2;
             	buildBlock(world, x, y + 1, z, BOPCBlocks.logs3, 2);
-	            buildBlock(world, x, y + 2, z, BOPCBlocks.logs3, 2);
-	            buildBlock(world, x, y + 3, z, BOPCBlocks.logs3, 2);
-	            buildBlock(world, x, y + 4, z, BOPCBlocks.logs3, 2);
-	            buildBlock(world, x, y + 5, z, BOPCBlocks.logs3, 2);
-	            buildBlock(world, x, y + 6, z, BOPCBlocks.logs3, 2);
-	            buildBlock(world, x, y + 7, z, BOPCBlocks.logs3, 2);
-	            buildBlock(world, x, y + 8, z, BOPCBlocks.logs3, 2);
+	            buildBlock(world, x, y_0, z, BOPCBlocks.logs3, 2);
+	            buildBlock(world, x, y_1, z, BOPCBlocks.logs3, 2);
+	            buildBlock(world, x, y_2, z, BOPCBlocks.logs3, 2);
+	            buildBlock(world, x, y_3, z, BOPCBlocks.logs3, 2);
+	            buildBlock(world, x, y_4, z, BOPCBlocks.logs3, 2);
+	            buildBlock(world, x, y_5, z, BOPCBlocks.logs3, 2);
+	            buildBlock(world, x, y_6, z, BOPCBlocks.logs3, 2);
 	            buildBlock(world, x, y + 9, z, BOPCBlocks.logs3, 2);
 	            
-	            buildBlock(world, x + 1, y + 3, z, BOPCBlocks.logs3, 6);
-	            buildBlock(world, x + 2, y + 3, z, BOPCBlocks.logs3, 6);
-	            buildBlock(world, x + 1, y + 4, z, BOPCBlocks.logs3, 6);
-	            buildBlock(world, x + 2, y + 5, z, BOPCBlocks.logs3, 6);
-	            buildBlock(world, x + 3, y + 5, z, BOPCBlocks.logs3, 6);
-	            buildBlock(world, x + 1, y + 7, z, BOPCBlocks.logs3, 6);
-	            buildBlock(world, x + 2, y + 7, z, BOPCBlocks.logs3, 6);
+	            buildBlock(world, x_0, y_1, z, BOPCBlocks.logs3, 6);
+	            buildBlock(world, x_1, y_1, z, BOPCBlocks.logs3, 6);
+	            buildBlock(world, x_0, y_2, z, BOPCBlocks.logs3, 6);
+	            buildBlock(world, x_1, y_3, z, BOPCBlocks.logs3, 6);
+	            buildBlock(world, x + 3, y_3, z, BOPCBlocks.logs3, 6);
+	            buildBlock(world, x_0, y_5, z, BOPCBlocks.logs3, 6);
+	            buildBlock(world, x_1, y_5, z, BOPCBlocks.logs3, 6);
 	            
-	            buildBlock(world, x - 1, y + 2, z, BOPCBlocks.logs3, 6);
-	            buildBlock(world, x - 2, y + 4, z, BOPCBlocks.logs3, 6);
-	            buildBlock(world, x - 1, y + 4, z, BOPCBlocks.logs3, 6);
-	            buildBlock(world, x - 1, y + 6, z, BOPCBlocks.logs3, 2);
-	            buildBlock(world, x - 1, y + 7, z, BOPCBlocks.logs3, 2);
-	            buildBlock(world, x - 2, y + 8, z, BOPCBlocks.logs3, 6);
+	            buildBlock(world, x_2, y_0, z, BOPCBlocks.logs3, 6);
+	            buildBlock(world, x_3, y_2, z, BOPCBlocks.logs3, 6);
+	            buildBlock(world, x_2, y_2, z, BOPCBlocks.logs3, 6);
+	            buildBlock(world, x_2, y_4, z, BOPCBlocks.logs3, 2);
+	            buildBlock(world, x_2, y_5, z, BOPCBlocks.logs3, 2);
+	            buildBlock(world, x_3, y_6, z, BOPCBlocks.logs3, 6);
 	            
-	            buildBlock(world, x, y + 3, z - 1, BOPCBlocks.logs3, 10);
-	            buildBlock(world, x, y + 3, z - 2, BOPCBlocks.logs3, 10);
-	            buildBlock(world, x, y + 5, z - 1, BOPCBlocks.logs3, 10);
-	            buildBlock(world, x, y + 6, z - 2, BOPCBlocks.logs3, 10);
-	            buildBlock(world, x, y + 6, z - 3, BOPCBlocks.logs3, 10);
-	            buildBlock(world, x, y + 8, z - 1, BOPCBlocks.logs3, 10);
+	            buildBlock(world, x, y_1, z_2, BOPCBlocks.logs3, 10);
+	            buildBlock(world, x, y_1, z_3, BOPCBlocks.logs3, 10);
+	            buildBlock(world, x, y_3, z_2, BOPCBlocks.logs3, 10);
+	            buildBlock(world, x, y_4, z_3, BOPCBlocks.logs3, 10);
+	            buildBlock(world, x, y_4, z - 3, BOPCBlocks.logs3, 10);
+	            buildBlock(world, x, y_6, z_2, BOPCBlocks.logs3, 10);
 	            
-	            buildBlock(world, x, y + 3, z + 1, BOPCBlocks.logs3, 2);
-	            buildBlock(world, x, y + 4, z + 2, BOPCBlocks.logs3, 10);
-	            buildBlock(world, x, y + 6, z + 1, BOPCBlocks.logs3, 2);
-	            buildBlock(world, x, y + 7, z + 2, BOPCBlocks.logs3, 10);
+	            buildBlock(world, x, y_1, z_0, BOPCBlocks.logs3, 2);
+	            buildBlock(world, x, y_2, z_1, BOPCBlocks.logs3, 10);
+	            buildBlock(world, x, y_4, z_0, BOPCBlocks.logs3, 2);
+	            buildBlock(world, x, y_5, z_1, BOPCBlocks.logs3, 10);
             }
             else if (var999 == 3)
             {
+            	int y_0  = y + 2;int y_1  = y + 3;int y_2  = y + 4;int y_3  = y + 5;int y_4  = y + 6;int y_5  = y + 7;int y_6  = y + 8;
+            	int x_0  = x + 1;int x_1  = x + 2;int x_2  = x - 1;int x_3  = x - 2;
+            	int z_0  = z + 1;int z_1  = z + 2;int z_2  = z - 1;int z_3  = z - 2;
             	buildBlock(world, x, y + 1, z, BOPCBlocks.logs3, 2);
-	            buildBlock(world, x, y + 2, z, BOPCBlocks.logs3, 2);
-	            buildBlock(world, x, y + 3, z, BOPCBlocks.logs3, 2);
-	            buildBlock(world, x, y + 4, z, BOPCBlocks.logs3, 2);
-	            buildBlock(world, x, y + 5, z, BOPCBlocks.logs3, 2);
-	            buildBlock(world, x, y + 6, z, BOPCBlocks.logs3, 2);
-	            buildBlock(world, x, y + 7, z, BOPCBlocks.logs3, 2);
-	            buildBlock(world, x, y + 8, z, BOPCBlocks.logs3, 2);
+	            buildBlock(world, x, y_0, z, BOPCBlocks.logs3, 2);
+	            buildBlock(world, x, y_1, z, BOPCBlocks.logs3, 2);
+	            buildBlock(world, x, y_2, z, BOPCBlocks.logs3, 2);
+	            buildBlock(world, x, y_3, z, BOPCBlocks.logs3, 2);
+	            buildBlock(world, x, y_4, z, BOPCBlocks.logs3, 2);
+	            buildBlock(world, x, y_5, z, BOPCBlocks.logs3, 2);
+	            buildBlock(world, x, y_6, z, BOPCBlocks.logs3, 2);
 	            buildBlock(world, x, y + 9, z, BOPCBlocks.logs3, 2);
 	            
-	            buildBlock(world, x, y + 3, z - 1, BOPCBlocks.logs3, 10);
-	            buildBlock(world, x, y + 3, z - 2, BOPCBlocks.logs3, 10);
-	            buildBlock(world, x, y + 4, z - 1, BOPCBlocks.logs3, 10);
-	            buildBlock(world, x, y + 5, z - 2, BOPCBlocks.logs3, 10);
-	            buildBlock(world, x, y + 5, z - 3, BOPCBlocks.logs3, 10);
-	            buildBlock(world, x, y + 7, z - 1, BOPCBlocks.logs3, 10);
-	            buildBlock(world, x, y + 7, z - 2, BOPCBlocks.logs3, 10);
+	            buildBlock(world, x, y_1, z_2, BOPCBlocks.logs3, 10);
+	            buildBlock(world, x, y_1, z_3, BOPCBlocks.logs3, 10);
+	            buildBlock(world, x, y_2, z_2, BOPCBlocks.logs3, 10);
+	            buildBlock(world, x, y_3, z_3, BOPCBlocks.logs3, 10);
+	            buildBlock(world, x, y_3, z - 3, BOPCBlocks.logs3, 10);
+	            buildBlock(world, x, y_5, z_2, BOPCBlocks.logs3, 10);
+	            buildBlock(world, x, y_5, z_3, BOPCBlocks.logs3, 10);
 	            
-	            buildBlock(world, x, y + 2, z + 1, BOPCBlocks.logs3, 10);
-	            buildBlock(world, x, y + 4, z + 2, BOPCBlocks.logs3, 10);
-	            buildBlock(world, x, y + 4, z + 1, BOPCBlocks.logs3, 10);
-	            buildBlock(world, x, y + 6, z + 1, BOPCBlocks.logs3, 2);
-	            buildBlock(world, x, y + 7, z + 1, BOPCBlocks.logs3, 2);
-	            buildBlock(world, x, y + 8, z + 2, BOPCBlocks.logs3, 10);
+	            buildBlock(world, x, y_0, z_0, BOPCBlocks.logs3, 10);
+	            buildBlock(world, x, y_2, z_1, BOPCBlocks.logs3, 10);
+	            buildBlock(world, x, y_2, z_0, BOPCBlocks.logs3, 10);
+	            buildBlock(world, x, y_4, z_0, BOPCBlocks.logs3, 2);
+	            buildBlock(world, x, y_5, z_0, BOPCBlocks.logs3, 2);
+	            buildBlock(world, x, y_6, z_1, BOPCBlocks.logs3, 10);
 	            
-	            buildBlock(world, x - 1, y + 3, z, BOPCBlocks.logs3, 6);
-	            buildBlock(world, x - 2, y + 3, z, BOPCBlocks.logs3, 6);
-	            buildBlock(world, x - 1, y + 5, z, BOPCBlocks.logs3, 6);
-	            buildBlock(world, x - 2, y + 6, z, BOPCBlocks.logs3, 6);
-	            buildBlock(world, x - 3, y + 6, z, BOPCBlocks.logs3, 6);
-	            buildBlock(world, x - 1, y + 8, z, BOPCBlocks.logs3, 6);
+	            buildBlock(world, x_2, y_1, z, BOPCBlocks.logs3, 6);
+	            buildBlock(world, x_3, y_1, z, BOPCBlocks.logs3, 6);
+	            buildBlock(world, x_2, y_3, z, BOPCBlocks.logs3, 6);
+	            buildBlock(world, x_3, y_4, z, BOPCBlocks.logs3, 6);
+	            buildBlock(world, x - 3, y_4, z, BOPCBlocks.logs3, 6);
+	            buildBlock(world, x_2, y_6, z, BOPCBlocks.logs3, 6);
 	            
-	            buildBlock(world, x + 1, y + 3, z, BOPCBlocks.logs3, 2);
-	            buildBlock(world, x + 2, y + 4, z, BOPCBlocks.logs3, 6);
-	            buildBlock(world, x + 1, y + 6, z, BOPCBlocks.logs3, 2);
-	            buildBlock(world, x + 2, y + 7, z, BOPCBlocks.logs3, 6);
+	            buildBlock(world, x_0, y_1, z, BOPCBlocks.logs3, 2);
+	            buildBlock(world, x_1, y_2, z, BOPCBlocks.logs3, 6);
+	            buildBlock(world, x_0, y_4, z, BOPCBlocks.logs3, 2);
+	            buildBlock(world, x_1, y_5, z, BOPCBlocks.logs3, 6);
             }
             else if (var999 == 4)
             {
+            	int y_0  = y + 2;int y_1  = y + 3;int y_2  = y + 4;int y_3  = y + 5;int y_4  = y + 6;int y_5  = y + 7;int y_6  = y + 8;
+            	int x_0  = x + 1;int x_1  = x + 2;int x_2  = x - 1;int x_3  = x - 2;
+            	int z_0  = z + 1;int z_1  = z + 2;int z_2  = z - 1;int z_3  = z - 2;
             	buildBlock(world, x, y + 1, z, BOPCBlocks.logs3, 2);
-	            buildBlock(world, x, y + 2, z, BOPCBlocks.logs3, 2);
-	            buildBlock(world, x, y + 3, z, BOPCBlocks.logs3, 2);
-	            buildBlock(world, x, y + 4, z, BOPCBlocks.logs3, 2);
-	            buildBlock(world, x, y + 5, z, BOPCBlocks.logs3, 2);
-	            buildBlock(world, x, y + 6, z, BOPCBlocks.logs3, 2);
-	            buildBlock(world, x, y + 7, z, BOPCBlocks.logs3, 2);
-	            buildBlock(world, x, y + 8, z, BOPCBlocks.logs3, 2);
+	            buildBlock(world, x, y_0, z, BOPCBlocks.logs3, 2);
+	            buildBlock(world, x, y_1, z, BOPCBlocks.logs3, 2);
+	            buildBlock(world, x, y_2, z, BOPCBlocks.logs3, 2);
+	            buildBlock(world, x, y_3, z, BOPCBlocks.logs3, 2);
+	            buildBlock(world, x, y_4, z, BOPCBlocks.logs3, 2);
+	            buildBlock(world, x, y_5, z, BOPCBlocks.logs3, 2);
+	            buildBlock(world, x, y_6, z, BOPCBlocks.logs3, 2);
 	            buildBlock(world, x, y + 9, z, BOPCBlocks.logs3, 2);
 	            
-	            buildBlock(world, x, y + 3, z + 1, BOPCBlocks.logs3, 10);
-	            buildBlock(world, x, y + 3, z + 2, BOPCBlocks.logs3, 10);
-	            buildBlock(world, x, y + 4, z + 1, BOPCBlocks.logs3, 10);
-	            buildBlock(world, x, y + 5, z + 2, BOPCBlocks.logs3, 10);
-	            buildBlock(world, x, y + 5, z + 3, BOPCBlocks.logs3, 10);
-	            buildBlock(world, x, y + 7, z + 1, BOPCBlocks.logs3, 10);
-	            buildBlock(world, x, y + 7, z + 2, BOPCBlocks.logs3, 10);
+	            buildBlock(world, x, y_1, z_0, BOPCBlocks.logs3, 10);
+	            buildBlock(world, x, y_1, z_1, BOPCBlocks.logs3, 10);
+	            buildBlock(world, x, y_2, z_0, BOPCBlocks.logs3, 10);
+	            buildBlock(world, x, y_3, z_1, BOPCBlocks.logs3, 10);
+	            buildBlock(world, x, y_3, z + 3, BOPCBlocks.logs3, 10);
+	            buildBlock(world, x, y_5, z_0, BOPCBlocks.logs3, 10);
+	            buildBlock(world, x, y_5, z_1, BOPCBlocks.logs3, 10);
 	            
-	            buildBlock(world, x, y + 2, z - 1, BOPCBlocks.logs3, 10);
-	            buildBlock(world, x, y + 4, z - 2, BOPCBlocks.logs3, 10);
-	            buildBlock(world, x, y + 4, z - 1, BOPCBlocks.logs3, 10);
-	            buildBlock(world, x, y + 6, z - 1, BOPCBlocks.logs3, 2);
-	            buildBlock(world, x, y + 7, z - 1, BOPCBlocks.logs3, 2);
-	            buildBlock(world, x, y + 8, z - 2, BOPCBlocks.logs3, 10);
+	            buildBlock(world, x, y_0, z_2, BOPCBlocks.logs3, 10);
+	            buildBlock(world, x, y_2, z_3, BOPCBlocks.logs3, 10);
+	            buildBlock(world, x, y_2, z_2, BOPCBlocks.logs3, 10);
+	            buildBlock(world, x, y_4, z_2, BOPCBlocks.logs3, 2);
+	            buildBlock(world, x, y_5, z_2, BOPCBlocks.logs3, 2);
+	            buildBlock(world, x, y_6, z_3, BOPCBlocks.logs3, 10);
 	            
-	            buildBlock(world, x + 1, y + 3, z, BOPCBlocks.logs3, 6);
-	            buildBlock(world, x + 2, y + 3, z, BOPCBlocks.logs3, 6);
-	            buildBlock(world, x + 1, y + 5, z, BOPCBlocks.logs3, 6);
-	            buildBlock(world, x + 2, y + 6, z, BOPCBlocks.logs3, 6);
-	            buildBlock(world, x + 3, y + 6, z, BOPCBlocks.logs3, 6);
-	            buildBlock(world, x + 1, y + 8, z, BOPCBlocks.logs3, 6);
+	            buildBlock(world, x_0, y_1, z, BOPCBlocks.logs3, 6);
+	            buildBlock(world, x_1, y_1, z, BOPCBlocks.logs3, 6);
+	            buildBlock(world, x_0, y_3, z, BOPCBlocks.logs3, 6);
+	            buildBlock(world, x_1, y_4, z, BOPCBlocks.logs3, 6);
+	            buildBlock(world, x + 3, y_4, z, BOPCBlocks.logs3, 6);
+	            buildBlock(world, x_0, y_6, z, BOPCBlocks.logs3, 6);
 	            
-	            buildBlock(world, x - 1, y + 3, z, BOPCBlocks.logs3, 2);
-	            buildBlock(world, x - 2, y + 4, z, BOPCBlocks.logs3, 6);
-	            buildBlock(world, x - 1, y + 6, z, BOPCBlocks.logs3, 2);
-	            buildBlock(world, x - 2, y + 7, z, BOPCBlocks.logs3, 6);
+	            buildBlock(world, x_2, y_1, z, BOPCBlocks.logs3, 2);
+	            buildBlock(world, x_3, y_2, z, BOPCBlocks.logs3, 6);
+	            buildBlock(world, x_2, y_4, z, BOPCBlocks.logs3, 2);
+	            buildBlock(world, x_3, y_5, z, BOPCBlocks.logs3, 6);
             }
             else if (var999 == 5)
             {
+            	int y_0  = y + 2;int y_1  = y + 3;int y_2  = y + 4;int y_3  = y + 5;int y_4  = y + 6;int y_5  = y + 7;int y_6  = y + 8;
+            	int x_0  = x + 1;int x_1  = x + 2;int x_2  = x - 1;int x_3  = x - 2;
+            	int z_0  = z + 1;int z_1  = z + 2;int z_2  = z - 1;int z_3  = z - 2;
             	buildBlock(world, x, y + 1, z, BOPCBlocks.logs3, 2);
-	            buildBlock(world, x, y + 2, z, BOPCBlocks.logs3, 2);
-	            buildBlock(world, x, y + 3, z, BOPCBlocks.logs3, 2);
-	            buildBlock(world, x, y + 4, z, BOPCBlocks.logs3, 2);
-	            buildBlock(world, x, y + 5, z, BOPCBlocks.logs3, 2);
-	            buildBlock(world, x, y + 6, z, BOPCBlocks.logs3, 2);
-	            buildBlock(world, x, y + 7, z, BOPCBlocks.logs3, 2);
-	            buildBlock(world, x, y + 8, z, BOPCBlocks.logs3, 2);
+	            buildBlock(world, x, y_0, z, BOPCBlocks.logs3, 2);
+	            buildBlock(world, x, y_1, z, BOPCBlocks.logs3, 2);
+	            buildBlock(world, x, y_2, z, BOPCBlocks.logs3, 2);
+	            buildBlock(world, x, y_3, z, BOPCBlocks.logs3, 2);
+	            buildBlock(world, x, y_4, z, BOPCBlocks.logs3, 2);
+	            buildBlock(world, x, y_5, z, BOPCBlocks.logs3, 2);
+	            buildBlock(world, x, y_6, z, BOPCBlocks.logs3, 2);
 	            buildBlock(world, x, y + 9, z, BOPCBlocks.logs3, 2);
 	            
-	            buildBlock(world, x, y + 3, z + 1, BOPCBlocks.logs3, 10);
-	            buildBlock(world, x, y + 3, z + 2, BOPCBlocks.logs3, 10);
-	            buildBlock(world, x, y + 4, z + 1, BOPCBlocks.logs3, 10);
-	            buildBlock(world, x, y + 5, z + 2, BOPCBlocks.logs3, 10);
-	            buildBlock(world, x, y + 5, z + 3, BOPCBlocks.logs3, 10);
-	            buildBlock(world, x, y + 7, z + 1, BOPCBlocks.logs3, 10);
-	            buildBlock(world, x, y + 7, z + 2, BOPCBlocks.logs3, 10);
+	            buildBlock(world, x, y_1, z_0, BOPCBlocks.logs3, 10);
+	            buildBlock(world, x, y_1, z_1, BOPCBlocks.logs3, 10);
+	            buildBlock(world, x, y_2, z_0, BOPCBlocks.logs3, 10);
+	            buildBlock(world, x, y_3, z_1, BOPCBlocks.logs3, 10);
+	            buildBlock(world, x, y_3, z + 3, BOPCBlocks.logs3, 10);
+	            buildBlock(world, x, y_5, z_0, BOPCBlocks.logs3, 10);
+	            buildBlock(world, x, y_5, z_1, BOPCBlocks.logs3, 10);
 	            
-	            buildBlock(world, x, y + 2, z - 1, BOPCBlocks.logs3, 10);
-	            buildBlock(world, x, y + 4, z - 2, BOPCBlocks.logs3, 10);
-	            buildBlock(world, x, y + 4, z - 1, BOPCBlocks.logs3, 10);
-	            buildBlock(world, x, y + 6, z - 1, BOPCBlocks.logs3, 2);
-	            buildBlock(world, x, y + 7, z - 1, BOPCBlocks.logs3, 2);
-	            buildBlock(world, x, y + 8, z - 2, BOPCBlocks.logs3, 10);
+	            buildBlock(world, x, y_0, z_2, BOPCBlocks.logs3, 10);
+	            buildBlock(world, x, y_2, z_3, BOPCBlocks.logs3, 10);
+	            buildBlock(world, x, y_2, z_2, BOPCBlocks.logs3, 10);
+	            buildBlock(world, x, y_4, z_2, BOPCBlocks.logs3, 2);
+	            buildBlock(world, x, y_5, z_2, BOPCBlocks.logs3, 2);
+	            buildBlock(world, x, y_6, z_3, BOPCBlocks.logs3, 10);
 	            
-	            buildBlock(world, x - 1, y + 3, z, BOPCBlocks.logs3, 6);
-	            buildBlock(world, x - 2, y + 3, z, BOPCBlocks.logs3, 6);
-	            buildBlock(world, x - 1, y + 5, z, BOPCBlocks.logs3, 6);
-	            buildBlock(world, x - 2, y + 6, z, BOPCBlocks.logs3, 6);
-	            buildBlock(world, x - 3, y + 6, z, BOPCBlocks.logs3, 6);
-	            buildBlock(world, x - 1, y + 8, z, BOPCBlocks.logs3, 6);
+	            buildBlock(world, x_2, y_1, z, BOPCBlocks.logs3, 6);
+	            buildBlock(world, x_3, y_1, z, BOPCBlocks.logs3, 6);
+	            buildBlock(world, x_2, y_3, z, BOPCBlocks.logs3, 6);
+	            buildBlock(world, x_3, y_4, z, BOPCBlocks.logs3, 6);
+	            buildBlock(world, x - 3, y_4, z, BOPCBlocks.logs3, 6);
+	            buildBlock(world, x_2, y_6, z, BOPCBlocks.logs3, 6);
 	            
-	            buildBlock(world, x + 1, y + 3, z, BOPCBlocks.logs3, 2);
-	            buildBlock(world, x + 2, y + 4, z, BOPCBlocks.logs3, 6);
-	            buildBlock(world, x + 1, y + 6, z, BOPCBlocks.logs3, 2);
-	            buildBlock(world, x + 2, y + 7, z, BOPCBlocks.logs3, 6);
+	            buildBlock(world, x_0, y_1, z, BOPCBlocks.logs3, 2);
+	            buildBlock(world, x_1, y_2, z, BOPCBlocks.logs3, 6);
+	            buildBlock(world, x_0, y_4, z, BOPCBlocks.logs3, 2);
+	            buildBlock(world, x_1, y_5, z, BOPCBlocks.logs3, 6);
             }
             else if (var999 == 6)
             {
+            	int y_0  = y + 2;int y_1  = y + 3;int y_2  = y + 4;int y_3  = y + 5;int y_4  = y + 6;int y_5  = y + 7;int y_6  = y + 8;
+            	int x_0  = x + 1;int x_1  = x + 2;int x_2  = x - 1;int x_3  = x - 2;
+            	int z_0  = z + 1;int z_1  = z + 2;int z_2  = z - 1;int z_3  = z - 2;
             	buildBlock(world, x, y + 1, z, BOPCBlocks.logs3, 2);
-	            buildBlock(world, x, y + 2, z, BOPCBlocks.logs3, 2);
-	            buildBlock(world, x, y + 3, z, BOPCBlocks.logs3, 2);
-	            buildBlock(world, x, y + 4, z, BOPCBlocks.logs3, 2);
-	            buildBlock(world, x, y + 5, z, BOPCBlocks.logs3, 2);
-	            buildBlock(world, x, y + 6, z, BOPCBlocks.logs3, 2);
-	            buildBlock(world, x, y + 7, z, BOPCBlocks.logs3, 2);
-	            buildBlock(world, x, y + 8, z, BOPCBlocks.logs3, 2);
+	            buildBlock(world, x, y_0, z, BOPCBlocks.logs3, 2);
+	            buildBlock(world, x, y_1, z, BOPCBlocks.logs3, 2);
+	            buildBlock(world, x, y_2, z, BOPCBlocks.logs3, 2);
+	            buildBlock(world, x, y_3, z, BOPCBlocks.logs3, 2);
+	            buildBlock(world, x, y_4, z, BOPCBlocks.logs3, 2);
+	            buildBlock(world, x, y_5, z, BOPCBlocks.logs3, 2);
+	            buildBlock(world, x, y_6, z, BOPCBlocks.logs3, 2);
 	            buildBlock(world, x, y + 9, z, BOPCBlocks.logs3, 2);
 	            
-	            buildBlock(world, x, y + 3, z - 1, BOPCBlocks.logs3, 10);
-	            buildBlock(world, x, y + 3, z - 2, BOPCBlocks.logs3, 10);
-	            buildBlock(world, x, y + 4, z - 1, BOPCBlocks.logs3, 10);
-	            buildBlock(world, x, y + 5, z - 2, BOPCBlocks.logs3, 10);
-	            buildBlock(world, x, y + 5, z - 3, BOPCBlocks.logs3, 10);
-	            buildBlock(world, x, y + 7, z - 1, BOPCBlocks.logs3, 10);
-	            buildBlock(world, x, y + 7, z - 2, BOPCBlocks.logs3, 10);
+	            buildBlock(world, x, y_1, z_2, BOPCBlocks.logs3, 10);
+	            buildBlock(world, x, y_1, z_3, BOPCBlocks.logs3, 10);
+	            buildBlock(world, x, y_2, z_2, BOPCBlocks.logs3, 10);
+	            buildBlock(world, x, y_3, z_3, BOPCBlocks.logs3, 10);
+	            buildBlock(world, x, y_3, z - 3, BOPCBlocks.logs3, 10);
+	            buildBlock(world, x, y_5, z_2, BOPCBlocks.logs3, 10);
+	            buildBlock(world, x, y_5, z_3, BOPCBlocks.logs3, 10);
 	            
-	            buildBlock(world, x, y + 2, z + 1, BOPCBlocks.logs3, 10);
-	            buildBlock(world, x, y + 4, z + 2, BOPCBlocks.logs3, 10);
-	            buildBlock(world, x, y + 4, z + 1, BOPCBlocks.logs3, 10);
-	            buildBlock(world, x, y + 6, z + 1, BOPCBlocks.logs3, 2);
-	            buildBlock(world, x, y + 7, z + 1, BOPCBlocks.logs3, 2);
-	            buildBlock(world, x, y + 8, z + 2, BOPCBlocks.logs3, 10);
+	            buildBlock(world, x, y_0, z_0, BOPCBlocks.logs3, 10);
+	            buildBlock(world, x, y_2, z_1, BOPCBlocks.logs3, 10);
+	            buildBlock(world, x, y_2, z_0, BOPCBlocks.logs3, 10);
+	            buildBlock(world, x, y_4, z_0, BOPCBlocks.logs3, 2);
+	            buildBlock(world, x, y_5, z_0, BOPCBlocks.logs3, 2);
+	            buildBlock(world, x, y_6, z_1, BOPCBlocks.logs3, 10);
 	            
-	            buildBlock(world, x + 1, y + 3, z, BOPCBlocks.logs3, 6);
-	            buildBlock(world, x + 2, y + 3, z, BOPCBlocks.logs3, 6);
-	            buildBlock(world, x + 1, y + 5, z, BOPCBlocks.logs3, 6);
-	            buildBlock(world, x + 2, y + 6, z, BOPCBlocks.logs3, 6);
-	            buildBlock(world, x + 3, y + 6, z, BOPCBlocks.logs3, 6);
-	            buildBlock(world, x + 1, y + 8, z, BOPCBlocks.logs3, 6);
+	            buildBlock(world, x_0, y_1, z, BOPCBlocks.logs3, 6);
+	            buildBlock(world, x_1, y_1, z, BOPCBlocks.logs3, 6);
+	            buildBlock(world, x_0, y_3, z, BOPCBlocks.logs3, 6);
+	            buildBlock(world, x_1, y_4, z, BOPCBlocks.logs3, 6);
+	            buildBlock(world, x + 3, y_4, z, BOPCBlocks.logs3, 6);
+	            buildBlock(world, x_0, y_6, z, BOPCBlocks.logs3, 6);
 	            
-	            buildBlock(world, x - 1, y + 3, z, BOPCBlocks.logs3, 2);
-	            buildBlock(world, x - 2, y + 4, z, BOPCBlocks.logs3, 6);
-	            buildBlock(world, x - 1, y + 6, z, BOPCBlocks.logs3, 2);
-	            buildBlock(world, x - 2, y + 7, z, BOPCBlocks.logs3, 6);
+	            buildBlock(world, x_2, y_1, z, BOPCBlocks.logs3, 2);
+	            buildBlock(world, x_3, y_2, z, BOPCBlocks.logs3, 6);
+	            buildBlock(world, x_2, y_4, z, BOPCBlocks.logs3, 2);
+	            buildBlock(world, x_3, y_5, z, BOPCBlocks.logs3, 6);
             }
             else
             {
+            	int y_0  = y + 2;int y_1  = y + 3;int y_2  = y + 4;int y_3  = y + 5;int y_4  = y + 6;int y_5  = y + 7;int y_6  = y + 8;
+            	int x_0  = x + 1;int x_1  = x + 2;int x_2  = x - 1;int x_3  = x - 2;
+            	int z_0  = z + 1;int z_1  = z + 2;int z_2  = z - 1;int z_3  = z - 2;
             	buildBlock(world, x, y + 1, z, BOPCBlocks.logs3, 2);
-	            buildBlock(world, x, y + 2, z, BOPCBlocks.logs3, 2);
-	            buildBlock(world, x, y + 3, z, BOPCBlocks.logs3, 2);
-	            buildBlock(world, x, y + 4, z, BOPCBlocks.logs3, 2);
-	            buildBlock(world, x, y + 5, z, BOPCBlocks.logs3, 2);
-	            buildBlock(world, x, y + 6, z, BOPCBlocks.logs3, 2);
-	            buildBlock(world, x, y + 7, z, BOPCBlocks.logs3, 2);
-	            buildBlock(world, x, y + 8, z, BOPCBlocks.logs3, 2);
+	            buildBlock(world, x, y_0, z, BOPCBlocks.logs3, 2);
+	            buildBlock(world, x, y_1, z, BOPCBlocks.logs3, 2);
+	            buildBlock(world, x, y_2, z, BOPCBlocks.logs3, 2);
+	            buildBlock(world, x, y_3, z, BOPCBlocks.logs3, 2);
+	            buildBlock(world, x, y_4, z, BOPCBlocks.logs3, 2);
+	            buildBlock(world, x, y_5, z, BOPCBlocks.logs3, 2);
+	            buildBlock(world, x, y_6, z, BOPCBlocks.logs3, 2);
 	            buildBlock(world, x, y + 9, z, BOPCBlocks.logs3, 2);
 	            
-	            buildBlock(world, x - 1, y + 3, z, BOPCBlocks.logs3, 6);
-	            buildBlock(world, x - 2, y + 3, z, BOPCBlocks.logs3, 6);
-	            buildBlock(world, x - 1, y + 4, z, BOPCBlocks.logs3, 6);
-	            buildBlock(world, x - 2, y + 5, z, BOPCBlocks.logs3, 6);
-	            buildBlock(world, x - 3, y + 5, z, BOPCBlocks.logs3, 6);
-	            buildBlock(world, x - 1, y + 7, z, BOPCBlocks.logs3, 6);
-	            buildBlock(world, x - 2, y + 7, z, BOPCBlocks.logs3, 6);
+	            buildBlock(world, x_2, y_1, z, BOPCBlocks.logs3, 6);
+	            buildBlock(world, x_3, y_1, z, BOPCBlocks.logs3, 6);
+	            buildBlock(world, x_2, y_2, z, BOPCBlocks.logs3, 6);
+	            buildBlock(world, x_3, y_3, z, BOPCBlocks.logs3, 6);
+	            buildBlock(world, x - 3, y_3, z, BOPCBlocks.logs3, 6);
+	            buildBlock(world, x_2, y_5, z, BOPCBlocks.logs3, 6);
+	            buildBlock(world, x_3, y_5, z, BOPCBlocks.logs3, 6);
 	            
-	            buildBlock(world, x + 1, y + 2, z, BOPCBlocks.logs3, 6);
-	            buildBlock(world, x + 2, y + 4, z, BOPCBlocks.logs3, 6);
-	            buildBlock(world, x + 1, y + 4, z, BOPCBlocks.logs3, 6);
-	            buildBlock(world, x + 1, y + 6, z, BOPCBlocks.logs3, 2);
-	            buildBlock(world, x + 1, y + 7, z, BOPCBlocks.logs3, 2);
-	            buildBlock(world, x + 2, y + 8, z, BOPCBlocks.logs3, 6);
+	            buildBlock(world, x_0, y_0, z, BOPCBlocks.logs3, 6);
+	            buildBlock(world, x_1, y_2, z, BOPCBlocks.logs3, 6);
+	            buildBlock(world, x_0, y_2, z, BOPCBlocks.logs3, 6);
+	            buildBlock(world, x_0, y_4, z, BOPCBlocks.logs3, 2);
+	            buildBlock(world, x_0, y_5, z, BOPCBlocks.logs3, 2);
+	            buildBlock(world, x_1, y_6, z, BOPCBlocks.logs3, 6);
 	            
-	            buildBlock(world, x, y + 3, z - 1, BOPCBlocks.logs3, 10);
-	            buildBlock(world, x, y + 3, z - 2, BOPCBlocks.logs3, 10);
-	            buildBlock(world, x, y + 5, z - 1, BOPCBlocks.logs3, 10);
-	            buildBlock(world, x, y + 6, z - 2, BOPCBlocks.logs3, 10);
-	            buildBlock(world, x, y + 6, z - 3, BOPCBlocks.logs3, 10);
-	            buildBlock(world, x, y + 8, z - 1, BOPCBlocks.logs3, 10);
+	            buildBlock(world, x, y_1, z_2, BOPCBlocks.logs3, 10);
+	            buildBlock(world, x, y_1, z_3, BOPCBlocks.logs3, 10);
+	            buildBlock(world, x, y_3, z_2, BOPCBlocks.logs3, 10);
+	            buildBlock(world, x, y_4, z_3, BOPCBlocks.logs3, 10);
+	            buildBlock(world, x, y_4, z - 3, BOPCBlocks.logs3, 10);
+	            buildBlock(world, x, y_6, z_2, BOPCBlocks.logs3, 10);
 	            
-	            buildBlock(world, x, y + 3, z + 1, BOPCBlocks.logs3, 2);
-	            buildBlock(world, x, y + 4, z + 2, BOPCBlocks.logs3, 10);
-	            buildBlock(world, x, y + 6, z + 1, BOPCBlocks.logs3, 2);
-	            buildBlock(world, x, y + 7, z + 2, BOPCBlocks.logs3, 10);
+	            buildBlock(world, x, y_1, z_0, BOPCBlocks.logs3, 2);
+	            buildBlock(world, x, y_2, z_1, BOPCBlocks.logs3, 10);
+	            buildBlock(world, x, y_4, z_0, BOPCBlocks.logs3, 2);
+	            buildBlock(world, x, y_5, z_1, BOPCBlocks.logs3, 10);
             }
             
             return true;

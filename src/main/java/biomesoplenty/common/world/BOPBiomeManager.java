@@ -104,7 +104,7 @@ public class BOPBiomeManager
 		return BOPConfigurationBiomeWeights.config.get(biomeType + " Biome Weights", biome.biomeName, weight).getInt(weight);
 	}
 	
-	public class TemperatureType
+	public static class TemperatureType
 	{
 		public static final int HOT = 0;
 		public static final int WARM = 1;

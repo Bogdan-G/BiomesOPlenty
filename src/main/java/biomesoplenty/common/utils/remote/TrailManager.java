@@ -17,11 +17,11 @@ public class TrailManager
     public static HashMap<UUID, String> trailsMap = new HashMap<UUID, String>();
     public static HashMap<String, ResourceLocation> trailTextures = new HashMap<String, ResourceLocation>();
     
-    public static void retrieveTrails()
+    public static void retrieveTrails()//off
     {
         try
         {
-            URL url = new URL(REMOTE_TRAILS_FILE);
+            /*URL url = new URL(REMOTE_TRAILS_FILE);
             HttpURLConnection connection = (HttpURLConnection)url.openConnection();
             connection.setRequestProperty("User-Agent", "Mozilla/5.0 (Windows; U; Windows NT 6.0; ru; rv:1.9.0.11) Gecko/2009060215 Firefox/3.0.11 (.NET CLR 3.5.30729)");
             connection.connect();
@@ -40,13 +40,17 @@ public class TrailManager
                 if (!trailTextures.containsKey(split[1])) trailTextures.put(split[1], null);
             }
             
-            reader.close();
+            reader.close();*/
             
-        	BOPLogger.info("Trail info successfully received from remote.");
+        	BOPLogger.info("Skip: Trail info successfully received from remote.");
         } 
         catch (Exception e)
         {
         	BOPLogger.warning("There was an issue retrieving trail info from remote!");
         } 
+        finally
+        {
+            //reader.close();
+        }
     }
 }

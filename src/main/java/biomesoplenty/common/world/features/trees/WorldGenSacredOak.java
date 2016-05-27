@@ -374,7 +374,9 @@ public class WorldGenSacredOak extends WorldGenAbstractTree
 	     
 	                            for (int j = -2; j < 3; j++ )
 	                            {
-	                            		if (!(i == -2 && j == -2) && !(i == -2 && j == 2) && !(i == 2 && j == -2) && !(i == 2 && j == 2))
+	                            		//boolean i_0 = i == -2 ? true : false;boolean i_1 = i == 2 ? true : false;
+	                            		//boolean j_0 = j == -2 ? true : false;boolean j_1 = j == 2 ? true : false;
+	                            		if (i != -2 && i != 2)//if (!(i_0 && j_0) && !(i_0 && j_1) && !(i_1 && j_0) && !(i_1 && j_1)) //goto Boolean algebra
 	                                    {
 	                                            var5[2] = var4 + j;
 	                                            var6[2] = var4 + j;

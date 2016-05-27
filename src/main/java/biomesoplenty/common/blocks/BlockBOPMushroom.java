@@ -113,7 +113,7 @@ public class BlockBOPMushroom extends BlockBush
 			return block == Blocks.grass || block == Blocks.dirt || block == Blocks.mycelium || block == Blocks.netherrack || block == BOPCBlocks.overgrownNetherrack;
 
 		case 1: // Portobello
-			return block == Blocks.grass || block == Blocks.dirt || block == Blocks.mycelium;
+			//return block == Blocks.grass || block == Blocks.dirt || block == Blocks.mycelium;
 
 		case 2: // Blue Milk Cap
 			return block == Blocks.grass || block == Blocks.dirt || block == Blocks.mycelium;

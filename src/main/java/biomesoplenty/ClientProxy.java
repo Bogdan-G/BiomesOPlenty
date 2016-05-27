@@ -87,7 +87,7 @@ public class ClientProxy extends CommonProxy
 		
 		Random rand = new Random();
 		
-		if (!(string.equals(null))) {
+		if (!(string == null || string == "null")) {
 		if (string.equals("mud")) 
 		{
 			entityfx = new EntityBreakingFX(minecraft.theWorld, x, y, z, BOPCItems.mudball);

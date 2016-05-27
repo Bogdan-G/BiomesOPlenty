@@ -193,7 +193,7 @@ public class ItemBiomeFinder extends Item
                     
                     if (itemStack.getTagCompound().hasKey("foundBiome"))
                     {
-                    	NBTTagCompound stackCompound = itemStack != null ? itemStack.getTagCompound() : null;
+                    	NBTTagCompound stackCompound = /*itemStack != null ? */itemStack.getTagCompound()/* : null*/;
                     	NBTTagCompound biomePositionCompound = stackCompound.getCompoundTag("biomePosition");
                         boolean foundBiome = itemStack.getTagCompound().getBoolean("foundBiome");
                         

@@ -23,7 +23,7 @@ public class FlowerScatterEventHandler
 	@SubscribeEvent(receiveCanceled = true)
 	public void onEntityUpdate(PlayerTickEvent event)
 	{
-		if (event.phase == TickEvent.Phase.START)
+		/*if (event.phase == TickEvent.Phase.START)
 		{
 			EntityPlayer player = (EntityPlayer)event.player;
 			
@@ -52,6 +52,6 @@ public class FlowerScatterEventHandler
 					}
 				}
 			}
-		}
+		}*/
 	}
 }

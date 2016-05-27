@@ -18,6 +18,8 @@ import biomesoplenty.BiomesOPlenty;
 public class BlockLongGrass extends Block
 {
 	private IIcon[] icons = new IIcon[6];
+	private static final int ione = 1;private static final int itwo = 2;private static final int ithree = 3;private static final int ifour = 4;private static final int izero = 0;
+	private static final float fzf = 0.5F;
 
 	public BlockLongGrass()
 	{
@@ -67,11 +69,11 @@ public class BlockLongGrass extends Block
 			{
 				Block tilledField = Blocks.farmland;
 
-				world.playSoundEffect(x + 0.5F, y + 0.5F, z + 0.5F, tilledField.stepSound.func_150496_b(), (tilledField.stepSound.getVolume() + 1.0F) / 2.0F, tilledField.stepSound.getPitch() * 0.8F);
+				world.playSoundEffect(x + fzf, y + fzf, z + fzf, tilledField.stepSound.func_150496_b(), (tilledField.stepSound.getVolume() + 1.0F) / 2.0F, tilledField.stepSound.getPitch() * 0.8F);
 
 				if (!world.isRemote)
 				{
-					world.setBlock(x, y, z, tilledField, 0, 2);
+					world.setBlock(x, y, z, tilledField, izero, itwo);
 				}
 				
 				return true;
@@ -92,22 +94,22 @@ public class BlockLongGrass extends Block
 	{
 		if (!world.isRemote)
 		{
-			if (world.getBlockLightValue(x, y + 1, z) < 4 && world.getBlockLightOpacity(x, y + 1, z) > 2)
+			if (world.getBlockLightValue(x, y + ione, z) < ifour && world.getBlockLightOpacity(x, y + ione, z) > itwo)
 			{
-				world.setBlock(x, y, z, Blocks.dirt, 0, 2);
+				world.setBlock(x, y, z, Blocks.dirt, izero, itwo);
 			}
-			else if (world.getBlockLightValue(x, y + 1, z) >= 9)
+			else if (world.getBlockLightValue(x, y + ione, z) >= 9)
 			{
-				for (int var6 = 0; var6 < 4; ++var6)
+				for (int var6 = 0; var6 < ifour; ++var6)
 				{
-					int rX = x + random.nextInt(3) - 1;
-					int rY = y + random.nextInt(5) - 3;
-					int rZ = z + random.nextInt(3) - 1;
-                    Block block = world.getBlock(rX, rY + 1, rZ);
+					int rX = x + random.nextInt(ithree) - ione;
+					int rY = y + random.nextInt(5) - ithree;
+					int rZ = z + random.nextInt(ithree) - ione;
+                    Block block = world.getBlock(rX, rY + ione, rZ);
 
-					if (world.getBlock(rX, rY, rZ) == Blocks.dirt && world.getBlockLightValue(rX, rY + 1, rZ) >= 4 && world.getBlockLightOpacity(rX, rY + 1, rZ) <= 2)
+					if (world.getBlock(rX, rY, rZ) == Blocks.dirt && world.getBlockLightValue(rX, rY + ione, rZ) >= ifour && world.getBlockLightOpacity(rX, rY + ione, rZ) <= 2)
 					{
-						world.setBlock(rX, rY, rZ, this, 0, 2);
+						world.setBlock(rX, rY, rZ, this, izero, itwo);
 					}
 				}
 			}
@@ -117,6 +119,6 @@ public class BlockLongGrass extends Block
 	@Override
 	public Item getItemDropped(int metadata, Random random, int fortune)
 	{
-		return Blocks.dirt.getItemDropped(0, random, fortune);
+		return Blocks.dirt.getItemDropped(izero, random, fortune);
 	}
 }

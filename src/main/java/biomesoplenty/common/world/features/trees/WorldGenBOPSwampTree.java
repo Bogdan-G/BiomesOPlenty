@@ -113,12 +113,13 @@ public class WorldGenBOPSwampTree extends WorldGenAbstractTree
             }
             else
             {
-                Block block1 = world.getBlock(x, y - 1, z);
+                int y_0 = y - 1;
+                Block block1 = world.getBlock(x, y_0, z);
 
-                boolean isSoil = block1.canSustainPlant(world, x, y - 1, z, ForgeDirection.UP, (BlockSapling)Blocks.sapling);
+                boolean isSoil = block1.canSustainPlant(world, x, y_0, z, ForgeDirection.UP, (BlockSapling)Blocks.sapling);
                 if (isSoil && y < 256 - l - 1)
                 {
-                    block1.onPlantGrow(world, x, y - 1, z, x, y, z);
+                    block1.onPlantGrow(world, x, y_0, z, x, y, z);
                     int l1;
                     int l2;
                     int k2;

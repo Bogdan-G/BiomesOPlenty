@@ -24,18 +24,21 @@ public class BiomeCacheBlockHell
 
 	/** The BiomeCache object that contains this BiomeCacheBlock */
 	final BiomeCacheHell theBiomeCache;
+	private static final int n_0 = 16;
+	private static final int n_1 = 256;
 
 	public BiomeCacheBlockHell(BiomeCacheHell par1BiomeCache, int par2, int par3)
 	{
 		theBiomeCache = par1BiomeCache;
-		temperatureValues = new float[256];
-		rainfallValues = new float[256];
-		biomes = new BiomeGenBase[256];
+		temperatureValues = new float[n_1];
+		rainfallValues = new float[n_1];
+		biomes = new BiomeGenBase[n_1];
 		xPosition = par2;
 		zPosition = par3;
-		BiomeCacheHell.getChunkManager(par1BiomeCache).getTemperatures(temperatureValues, par2 << 4, par3 << 4, 16, 16);
-		BiomeCacheHell.getChunkManager(par1BiomeCache).getRainfall(rainfallValues, par2 << 4, par3 << 4, 16, 16);
-		BiomeCacheHell.getChunkManager(par1BiomeCache).getBiomeGenAt(biomes, par2 << 4, par3 << 4, 16, 16, false);
+		int p_0 = par2 << 4;int p_1 = par3 << 4;
+		BiomeCacheHell.getChunkManager(par1BiomeCache).getTemperatures(temperatureValues, p_0, p_1, n_0, n_0);
+		BiomeCacheHell.getChunkManager(par1BiomeCache).getRainfall(rainfallValues, p_0, p_1, n_0, n_0);
+		BiomeCacheHell.getChunkManager(par1BiomeCache).getBiomeGenAt(biomes, p_0, p_1, n_0, n_0, false);
 	}
 
 	/**

@@ -35,6 +35,8 @@ public class BlockBOPFlower extends BOPBlockWorldDecor
 
 	private static final int EYEBULBTOP = 14;
 	private static final int EYEBULBBOTTOM = 13;
+	private static final double dzero = 0.0D;private static final float fzf = 0.5F;private static final float fzero = 0.0F;private static final float fzo = 0.1F;
+	private static final float fzt = 0.3F;private static final float fzs = 0.7F;private static final float fze = 0.8F;
 
 	public BlockBOPFlower()
 	{
@@ -47,7 +49,7 @@ public class BlockBOPFlower extends BOPBlockWorldDecor
 		this.setTickRandomly(true);
 
 		float var4 = 0.2F;
-		this.setBlockBounds(0.5F - var4, 0.0F, 0.5F - var4, 0.5F + var4, var4 * 3.0F, 0.5F + var4);
+		this.setBlockBounds(fzf - var4, 0.0F, fzf - var4, fzf + var4, var4 * 3.0F, fzf + var4);
 
 		this.setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
 	}
@@ -98,35 +100,35 @@ public class BlockBOPFlower extends BOPBlockWorldDecor
 		switch (meta)
 		{
 		case 0:
-			this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 0.015625F, 1.0F);
+			this.setBlockBounds(fzero, fzero, fzero, 1.0F, 0.015625F, 1.0F);
 			break;
 
 		case 5:
-			this.setBlockBounds(0.3F, 0.0F, 0.3F, 0.7F, 0.8F, 0.7F);
+			this.setBlockBounds(fzt, fzero, fzt, fzs, fze, fzs);
 			break;
 
 		case 6:
-			this.setBlockBounds(0.3F, 0.0F, 0.3F, 0.7F, 0.6F, 0.7F);
+			this.setBlockBounds(fzt, fzero, fzt, fzs, 0.6F, fzs);
 			break;
 
 		case 9:
-			this.setBlockBounds(0.3F, 0.0F, 0.3F, 0.7F, 0.5F, 0.7F);
+			this.setBlockBounds(fzt, fzero, fzt, fzs, fzf, fzs);
 			break;
 
 		case 10:
-			this.setBlockBounds(0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F);
+			this.setBlockBounds(fzero, fzero, fzero, fzero, fzero, fzero);
 			break;
 
 		case 11:
-			this.setBlockBounds(0.3F, 0.0F, 0.3F, 0.7F, 0.4F, 0.7F);
+			this.setBlockBounds(fzt, fzero, fzt, fzs, 0.4F, fzs);
 			break;
 
 		case 15:
-			this.setBlockBounds(0.3F, 0.0F, 0.3F, 0.7F, 0.6F, 0.7F);
+			this.setBlockBounds(fzt, fzero, fzt, fzs, 0.6F, fzs);
 			break;
 
 		default:
-			this.setBlockBounds(0.1F, 0.0F, 0.1F, 0.9F, 0.8F, 0.9F);
+			this.setBlockBounds(fzo, fzero, fzo, 0.9F, fze, 0.9F);
 			break;
 		}
 	}
@@ -165,11 +167,11 @@ public class BlockBOPFlower extends BOPBlockWorldDecor
 		{
 			if (random.nextInt(4) != 0)
 			{
-				world.spawnParticle("townaura", x + random.nextFloat(), y + random.nextFloat(), z + random.nextFloat(), 0.0D, 0.0D, 0.0D);
+				world.spawnParticle("townaura", x + random.nextFloat(), y + random.nextFloat(), z + random.nextFloat(), dzero, dzero, dzero);
 			}
 			if (random.nextInt(4) == 0)
 			{
-				world.spawnParticle("smoke", x + random.nextFloat(), y, z + random.nextFloat(), 0.0D, 0.0D, 0.0D);
+				world.spawnParticle("smoke", x + random.nextFloat(), y, z + random.nextFloat(), dzero, dzero, dzero);
 			}
 		}
 	}

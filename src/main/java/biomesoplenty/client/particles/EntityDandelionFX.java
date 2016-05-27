@@ -50,11 +50,12 @@ public class EntityDandelionFX extends EntityFX
 		tessellator.startDrawingQuads();
 		tessellator.setBrightness(240);
 
+		float p_0 = par3 * sizeFactor;float p_1 = par6 * sizeFactor;float p_2 = par4 * sizeFactor;float p_5 = par5 * sizeFactor;float p_6 = par7 * sizeFactor;
 		tessellator.setColorRGBA_F(particleRed, particleGreen, particleBlue, 1.0F);
-		tessellator.addVertexWithUV(var13 - par3 * sizeFactor - par6 * sizeFactor, var14 - par4 * sizeFactor, var15 - par5 * sizeFactor - par7 * sizeFactor, 0.0D, 1.0D);
-		tessellator.addVertexWithUV(var13 - par3 * sizeFactor + par6 * sizeFactor, var14 + par4 * sizeFactor, var15 - par5 * sizeFactor + par7 * sizeFactor, 1.0D, 1.0D);
-		tessellator.addVertexWithUV(var13 + par3 * sizeFactor + par6 * sizeFactor, var14 + par4 * sizeFactor, var15 + par5 * sizeFactor + par7 * sizeFactor, 1.0D, 0.0D);
-		tessellator.addVertexWithUV(var13 + par3 * sizeFactor - par6 * sizeFactor, var14 - par4 * sizeFactor, var15 + par5 * sizeFactor - par7 * sizeFactor, 0.0D, 0.0D);
+		tessellator.addVertexWithUV(var13 - p_0 - p_1, var14 - p_2, var15 - p_5 - p_6, 0.0D, 1.0D);
+		tessellator.addVertexWithUV(var13 - p_0 + p_1, var14 + p_2, var15 - p_5 + p_6, 1.0D, 1.0D);
+		tessellator.addVertexWithUV(var13 + p_0 + p_1, var14 + p_2, var15 + p_5 + p_6, 1.0D, 0.0D);
+		tessellator.addVertexWithUV(var13 + p_0 - p_1, var14 - p_2, var15 + p_5 - p_6, 0.0D, 0.0D);
 
 		tessellator.draw();
 

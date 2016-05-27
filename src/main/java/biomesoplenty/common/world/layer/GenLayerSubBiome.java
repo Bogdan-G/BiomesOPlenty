@@ -15,7 +15,7 @@ import biomesoplenty.common.world.noise.SimplexNoise;
 
 public class GenLayerSubBiome extends GenLayer
 {
-	private final int OFFSET_RANGE = 500000;
+	private static final int OFFSET_RANGE = 500000;
 	
 	private Pair<Integer, Integer>[] offsets = new Pair[BiomeGenBase.getBiomeGenArray().length];
 	

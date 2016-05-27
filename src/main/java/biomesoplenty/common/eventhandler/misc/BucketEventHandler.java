@@ -25,14 +25,15 @@ import biomesoplenty.common.items.ItemBOPBucket;
 import cpw.mods.fml.common.eventhandler.Event.Result;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
+import cpw.mods.fml.relauncher.SideOnly;import cpw.mods.fml.common.FMLLog;
 
 public class BucketEventHandler 
 {
 	@SubscribeEvent
 	public void onBucketFill(FillBucketEvent event)
 	{
-		ItemBOPBucket bopBucket = (ItemBOPBucket)BOPCItems.bopBucket;
+		try {
+		ItemBOPBucket bopBucket = (ItemBOPBucket)BOPCItems.bopBucket;//BC - BC_IMPOSSIBLE_CAST
 		ItemStack bopBucketStack = new ItemStack(bopBucket);
 
 		World world = event.world;
@@ -78,7 +79,7 @@ public class BucketEventHandler
 				event.result = bopBucketStack;
 				event.setResult(Result.ALLOW);
 			}
-		}
+		}} catch (Throwable e) {FMLLog.warning("%s", e);}
 	}
 
 	@SubscribeEvent

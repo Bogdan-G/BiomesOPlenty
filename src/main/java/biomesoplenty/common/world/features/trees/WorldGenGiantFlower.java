@@ -37,94 +37,98 @@ public class WorldGenGiantFlower extends WorldGenAbstractTree
 			{
 				for (int var8 = -2; var8 <= 2; ++var8)
 				{
-					if (world.isAirBlock(x + var7, y - 1, z + var8) && world.isAirBlock(x + var7, y - 2, z + var8))
+					int v_0 = x + var7;int v_1 = z + var8;
+					if (world.isAirBlock(v_0, y - 1, v_1) && world.isAirBlock(v_0, y - 2, v_1))
 						return false;
 				}
 			}
 			
+			int y_0 = y + 5;int y_1 = y + 6;int y_2 = y + 7;int y_3 = y + 8;int y_4 = y + 9;
+			int x_0 = x - 1;int x_1 = x + 1;int x_2 = x - 2;int x_3 = x + 2;
+			int z_0 = z - 1;int z_1 = z + 1;int z_2 = z - 2;int z_3 = z + 2;
 			world.setBlock(x, y, z, Blocks.dirt);
 			world.setBlock(x, y + 1, z, BOPCBlocks.logs3, 3, 2);
 			world.setBlock(x, y + 2, z, BOPCBlocks.logs3, 3, 2);
 			world.setBlock(x, y + 3, z, BOPCBlocks.logs3, 3, 2);
 			world.setBlock(x, y + 4, z, BOPCBlocks.logs3, 3, 2);
-			world.setBlock(x, y + 5, z, BOPCBlocks.logs3, 3, 2);
+			world.setBlock(x, y_0, z, BOPCBlocks.logs3, 3, 2);
 
 			//Red
 			if (metadata == 0)
 			{
-				world.setBlock(x - 1, y + 5, z, BOPCBlocks.petals, 0, 2);
-				world.setBlock(x + 1, y + 5, z, BOPCBlocks.petals, 0, 2);
-				world.setBlock(x, y + 5, z - 1, BOPCBlocks.petals, 0, 2);
-				world.setBlock(x, y + 5, z + 1, BOPCBlocks.petals, 0, 2);
+				world.setBlock(x_0, y_0, z, BOPCBlocks.petals, 0, 2);
+				world.setBlock(x_1, y_0, z, BOPCBlocks.petals, 0, 2);
+				world.setBlock(x, y_0, z_0, BOPCBlocks.petals, 0, 2);
+				world.setBlock(x, y_0, z_1, BOPCBlocks.petals, 0, 2);
 
-				world.setBlock(x, y + 6, z, BOPCBlocks.petals, 0, 2);
-				world.setBlock(x - 1, y + 6, z, BOPCBlocks.petals, 0, 2);
-				world.setBlock(x + 1, y + 6, z, BOPCBlocks.petals, 0, 2);
-				world.setBlock(x, y + 6, z - 1, BOPCBlocks.petals, 0, 2);
-				world.setBlock(x, y + 6, z + 1, BOPCBlocks.petals, 0, 2);
-				world.setBlock(x + 1, y + 6, z + 1, BOPCBlocks.petals, 0, 2);
-				world.setBlock(x + 1, y + 6, z - 1, BOPCBlocks.petals, 0, 2);
-				world.setBlock(x - 1, y + 6, z + 1, BOPCBlocks.petals, 0, 2);
-				world.setBlock(x - 1, y + 6, z - 1, BOPCBlocks.petals, 0, 2);
-				world.setBlock(x + 2, y + 6, z, BOPCBlocks.petals, 0, 2);
-				world.setBlock(x - 2, y + 6, z, BOPCBlocks.petals, 0, 2);
-				world.setBlock(x, y + 6, z + 2, BOPCBlocks.petals, 0, 2);
-				world.setBlock(x, y + 6, z - 2, BOPCBlocks.petals, 0, 2);
+				world.setBlock(x, y_1, z, BOPCBlocks.petals, 0, 2);
+				world.setBlock(x_0, y_1, z, BOPCBlocks.petals, 0, 2);
+				world.setBlock(x_1, y_1, z, BOPCBlocks.petals, 0, 2);
+				world.setBlock(x, y_1, z_0, BOPCBlocks.petals, 0, 2);
+				world.setBlock(x, y_1, z_1, BOPCBlocks.petals, 0, 2);
+				world.setBlock(x_1, y_1, z_1, BOPCBlocks.petals, 0, 2);
+				world.setBlock(x_1, y_1, z_0, BOPCBlocks.petals, 0, 2);
+				world.setBlock(x_0, y_1, z_1, BOPCBlocks.petals, 0, 2);
+				world.setBlock(x_0, y_1, z_0, BOPCBlocks.petals, 0, 2);
+				world.setBlock(x_3, y_1, z, BOPCBlocks.petals, 0, 2);
+				world.setBlock(x_2, y_1, z, BOPCBlocks.petals, 0, 2);
+				world.setBlock(x, y_1, z_3, BOPCBlocks.petals, 0, 2);
+				world.setBlock(x, y_1, z_2, BOPCBlocks.petals, 0, 2);
 
-				world.setBlock(x + 1, y + 7, z + 1, BOPCBlocks.petals, 0, 2);
-				world.setBlock(x + 1, y + 7, z - 1, BOPCBlocks.petals, 0, 2);
-				world.setBlock(x - 1, y + 7, z + 1, BOPCBlocks.petals, 0, 2);
-				world.setBlock(x - 1, y + 7, z - 1, BOPCBlocks.petals, 0, 2);
-				world.setBlock(x + 2, y + 7, z, BOPCBlocks.petals, 0, 2);
-				world.setBlock(x - 2, y + 7, z, BOPCBlocks.petals, 0, 2);
-				world.setBlock(x, y + 7, z + 2, BOPCBlocks.petals, 0, 2);
-				world.setBlock(x, y + 7, z - 2, BOPCBlocks.petals, 0, 2);
-				world.setBlock(x + 2, y + 7, z + 2, BOPCBlocks.petals, 0, 2);
-				world.setBlock(x + 2, y + 7, z - 2, BOPCBlocks.petals, 0, 2);
-				world.setBlock(x - 2, y + 7, z + 2, BOPCBlocks.petals, 0, 2);
-				world.setBlock(x - 2, y + 7, z - 2, BOPCBlocks.petals, 0, 2);
+				world.setBlock(x_1, y_2, z_1, BOPCBlocks.petals, 0, 2);
+				world.setBlock(x_1, y_2, z_0, BOPCBlocks.petals, 0, 2);
+				world.setBlock(x_0, y_2, z_1, BOPCBlocks.petals, 0, 2);
+				world.setBlock(x_0, y_2, z_0, BOPCBlocks.petals, 0, 2);
+				world.setBlock(x_3, y_2, z, BOPCBlocks.petals, 0, 2);
+				world.setBlock(x_2, y_2, z, BOPCBlocks.petals, 0, 2);
+				world.setBlock(x, y_2, z_3, BOPCBlocks.petals, 0, 2);
+				world.setBlock(x, y_2, z_2, BOPCBlocks.petals, 0, 2);
+				world.setBlock(x_3, y_2, z_3, BOPCBlocks.petals, 0, 2);
+				world.setBlock(x_3, y_2, z_2, BOPCBlocks.petals, 0, 2);
+				world.setBlock(x_2, y_2, z_3, BOPCBlocks.petals, 0, 2);
+				world.setBlock(x_2, y_2, z_2, BOPCBlocks.petals, 0, 2);
 
-				world.setBlock(x + 2, y + 8, z, BOPCBlocks.petals, 0, 2);
-				world.setBlock(x - 2, y + 8, z, BOPCBlocks.petals, 0, 2);
-				world.setBlock(x, y + 8, z + 2, BOPCBlocks.petals, 0, 2);
-				world.setBlock(x, y + 8, z - 2, BOPCBlocks.petals, 0, 2);
+				world.setBlock(x_3, y_3, z, BOPCBlocks.petals, 0, 2);
+				world.setBlock(x_2, y_3, z, BOPCBlocks.petals, 0, 2);
+				world.setBlock(x, y_3, z_3, BOPCBlocks.petals, 0, 2);
+				world.setBlock(x, y_3, z_2, BOPCBlocks.petals, 0, 2);
 
-				world.setBlock(x + 3, y + 9, z, BOPCBlocks.petals, 0, 2);
-				world.setBlock(x - 3, y + 9, z, BOPCBlocks.petals, 0, 2);
-				world.setBlock(x, y + 9, z + 3, BOPCBlocks.petals, 0, 2);
-				world.setBlock(x, y + 9, z - 3, BOPCBlocks.petals, 0, 2);
+				world.setBlock(x + 3, y_4, z, BOPCBlocks.petals, 0, 2);
+				world.setBlock(x - 3, y_4, z, BOPCBlocks.petals, 0, 2);
+				world.setBlock(x, y_4, z + 3, BOPCBlocks.petals, 0, 2);
+				world.setBlock(x, y_4, z - 3, BOPCBlocks.petals, 0, 2);
 			}
 			else
 			{
 				//Yellow
-				world.setBlock(x - 1, y + 5, z, BOPCBlocks.petals, 1, 2);
-				world.setBlock(x + 1, y + 5, z, BOPCBlocks.petals, 1, 2);
-				world.setBlock(x, y + 5, z - 1, BOPCBlocks.petals, 1, 2);
-				world.setBlock(x, y + 5, z + 1, BOPCBlocks.petals, 1, 2);
-				world.setBlock(x + 2, y + 5, z + 2, BOPCBlocks.petals, 1, 2);
-				world.setBlock(x + 2, y + 5, z - 2, BOPCBlocks.petals, 1, 2);
-				world.setBlock(x - 2, y + 5, z + 2, BOPCBlocks.petals, 1, 2);
-				world.setBlock(x - 2, y + 5, z - 2, BOPCBlocks.petals, 1, 2);
+				world.setBlock(x_0, y_0, z, BOPCBlocks.petals, 1, 2);
+				world.setBlock(x_1, y_0, z, BOPCBlocks.petals, 1, 2);
+				world.setBlock(x, y_0, z_0, BOPCBlocks.petals, 1, 2);
+				world.setBlock(x, y_0, z_1, BOPCBlocks.petals, 1, 2);
+				world.setBlock(x_3, y_0, z_3, BOPCBlocks.petals, 1, 2);
+				world.setBlock(x_3, y_0, z_2, BOPCBlocks.petals, 1, 2);
+				world.setBlock(x_2, y_0, z_3, BOPCBlocks.petals, 1, 2);
+				world.setBlock(x_2, y_0, z_2, BOPCBlocks.petals, 1, 2);
 
-				world.setBlock(x, y + 6, z, BOPCBlocks.petals, 1, 2);
-				world.setBlock(x - 1, y + 6, z, BOPCBlocks.petals, 1, 2);
-				world.setBlock(x + 1, y + 6, z, BOPCBlocks.petals, 1, 2);
-				world.setBlock(x, y + 6, z - 1, BOPCBlocks.petals, 1, 2);
-				world.setBlock(x, y + 6, z + 1, BOPCBlocks.petals, 1, 2);
-				world.setBlock(x + 1, y + 6, z + 1, BOPCBlocks.petals, 1, 2);
-				world.setBlock(x + 1, y + 6, z - 1, BOPCBlocks.petals, 1, 2);
-				world.setBlock(x - 1, y + 6, z + 1, BOPCBlocks.petals, 1, 2);
-				world.setBlock(x - 1, y + 6, z - 1, BOPCBlocks.petals, 1, 2);
-				world.setBlock(x + 2, y + 6, z, BOPCBlocks.petals, 1, 2);
-				world.setBlock(x - 2, y + 6, z, BOPCBlocks.petals, 1, 2);
-				world.setBlock(x, y + 6, z + 2, BOPCBlocks.petals, 1, 2);
-				world.setBlock(x, y + 6, z - 2, BOPCBlocks.petals, 1, 2);
+				world.setBlock(x, y_1, z, BOPCBlocks.petals, 1, 2);
+				world.setBlock(x_0, y_1, z, BOPCBlocks.petals, 1, 2);
+				world.setBlock(x_1, y_1, z, BOPCBlocks.petals, 1, 2);
+				world.setBlock(x, y_1, z_0, BOPCBlocks.petals, 1, 2);
+				world.setBlock(x, y_1, z_1, BOPCBlocks.petals, 1, 2);
+				world.setBlock(x_1, y_1, z_1, BOPCBlocks.petals, 1, 2);
+				world.setBlock(x_1, y_1, z_0, BOPCBlocks.petals, 1, 2);
+				world.setBlock(x_0, y_1, z_1, BOPCBlocks.petals, 1, 2);
+				world.setBlock(x_0, y_1, z_0, BOPCBlocks.petals, 1, 2);
+				world.setBlock(x_3, y_1, z, BOPCBlocks.petals, 1, 2);
+				world.setBlock(x_2, y_1, z, BOPCBlocks.petals, 1, 2);
+				world.setBlock(x, y_1, z_3, BOPCBlocks.petals, 1, 2);
+				world.setBlock(x, y_1, z_2, BOPCBlocks.petals, 1, 2);
 
-				world.setBlock(x, y + 7, z, BOPCBlocks.petals, 1, 2);
-				world.setBlock(x + 3, y + 7, z, BOPCBlocks.petals, 1, 2);
-				world.setBlock(x - 3, y + 7, z, BOPCBlocks.petals, 1, 2);
-				world.setBlock(x, y + 7, z + 3, BOPCBlocks.petals, 1, 2);
-				world.setBlock(x, y + 7, z - 3, BOPCBlocks.petals, 1, 2);
+				world.setBlock(x, y_2, z, BOPCBlocks.petals, 1, 2);
+				world.setBlock(x + 3, y_2, z, BOPCBlocks.petals, 1, 2);
+				world.setBlock(x - 3, y_2, z, BOPCBlocks.petals, 1, 2);
+				world.setBlock(x, y_2, z + 3, BOPCBlocks.petals, 1, 2);
+				world.setBlock(x, y_2, z - 3, BOPCBlocks.petals, 1, 2);
 			}
 
 			return true;

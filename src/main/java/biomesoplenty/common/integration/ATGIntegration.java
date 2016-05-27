@@ -94,7 +94,7 @@ public class ATGIntegration
 		registerATGBiome(BiomeGroup.OCEAN, BOPCBiomes.kelpForest, 0.1F);
 	}
 	
-	private static void addModifiers()
+	private static void addModifiers()//why is it here?
 	{
 		
 	}
@@ -107,7 +107,7 @@ public class ATGIntegration
 		}
 	}
 	
-	public static void registerATGSubBiome(BiomeGenBase parent, BiomeGenBase subBiome)
+	public static void registerATGSubBiome(BiomeGenBase parent, BiomeGenBase subBiome)//empty func?
 	{
 		/*if (Loader.isModLoaded("ATG"))
 		{

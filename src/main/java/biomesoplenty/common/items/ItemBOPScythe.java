@@ -110,12 +110,15 @@ public class ItemBOPScythe extends Item
     {
     	for (int aX = -radius; aX <= radius; aX++)
     	{
+    		int v_x = x + aX;
     		for (int aY = 0; aY <= radius; aY++)
     		{
+    			int v_y = y + aY;
     			for (int aZ = -radius; aZ <= radius; aZ++)
     			{
-    				Block block = world.getBlock(x + aX, y + aY, z + aZ);
-    				int meta = world.getBlockMetadata(x + aX, y + aY, z + aZ);
+    				int v_z = z + aZ;
+    				Block block = world.getBlock(v_x, v_y, v_z);
+    				int meta = world.getBlockMetadata(v_x, v_y, v_z);
 
     				if (block != null && block != Blocks.air)
     				{
@@ -123,29 +126,29 @@ public class ItemBOPScythe extends Item
     					{
     						if (meta == 1)
     						{
-    							block.dropBlockAsItem(world, x + aX, y + aY, z + aZ, meta, 0);
-    							world.setBlockToAir(x + aX, y + aY, z + aZ);
+    							block.dropBlockAsItem(world, v_x, v_y, v_z, meta, 0);
+    							world.setBlockToAir(v_x, v_y, v_z);
     						}
     						else if (meta == 2)
     						{
-    							block.dropBlockAsItem(world, x + aX, y + aY, z + aZ, meta, 0);
-    							world.setBlock(x + aX, y + aY, z + aZ, BOPCBlocks.foliage, 1, 2);
+    							block.dropBlockAsItem(world, v_x, v_y, v_z, meta, 0);
+    							world.setBlock(v_x, v_y, v_z, BOPCBlocks.foliage, 1, 2);
     						}
-    						else if (meta == 6)
+    						else/* if (meta == 6)*/
     						{
-    							block.dropBlockAsItem(world, x + aX, y + aY, z + aZ, meta, 0);
-    							world.setBlockToAir(x + aX, y + aY, z + aZ);
+    							block.dropBlockAsItem(world, v_x, v_y, v_z, meta, 0);
+    							world.setBlockToAir(v_x, v_y, v_z);
     						}
     					}
     					else if (block == Blocks.tallgrass)
     					{
-    						block.dropBlockAsItem(world, x + aX, y + aY, z + aZ, meta, 0);
-    						world.setBlock(x + aX, y + aY, z + aZ, BOPCBlocks.foliage, 2, 2);
+    						block.dropBlockAsItem(world, v_x, v_y, v_z, meta, 0);
+    						world.setBlock(v_x, v_y, v_z, BOPCBlocks.foliage, 2, 2);
     					}
     					else if (block != Blocks.waterlily && block instanceof BlockFlower)
     					{
-    						block.dropBlockAsItem(world, x + aX, y + aY, z + aZ, meta, 0);
-    						world.setBlockToAir(x + aX, y + aY, z + aZ);
+    						block.dropBlockAsItem(world, v_x, v_y, v_z, meta, 0);
+    						world.setBlockToAir(v_x, v_y, v_z);
     					}
     				}
     			}
@@ -157,16 +160,19 @@ public class ItemBOPScythe extends Item
     {
     	for (int aX = -radius; aX <= radius; aX++)
     	{
+    		int v_x = x + aX;
     		for (int aY = -radius; aY <= radius; aY++)
     		{
+    			int v_y = y+ aY;
     			for (int aZ = -radius; aZ <= radius; aZ++)
     			{
-    				Block block = world.getBlock(x + aX, y + aY, z + aZ);
-    				int meta = world.getBlockMetadata(x + aX, y + aY, z + aZ);
+    				int v_z = z + aZ;
+    				Block block = world.getBlock(v_x, v_y, v_z);
+    				int meta = world.getBlockMetadata(v_x, v_y, v_z);
 
     				if (block != null)
     				{    					
-    					if (block.isLeaves(world, x + aX, y + aY, z + aZ))
+    					if (block.isLeaves(world, v_x, v_y, v_z))
     					{
         					if (toolMaterial == ToolMaterial.IRON || toolMaterial == ToolMaterial.GOLD)
         					{
@@ -198,8 +204,8 @@ public class ItemBOPScythe extends Item
         			        	return;
         			        }
 
-    						block.dropBlockAsItem(world, x + aX, y + aY, z + aZ, meta, 0);
-    						world.setBlockToAir(x + aX, y + aY, z + aZ);
+    						block.dropBlockAsItem(world, v_x, v_y, v_z, meta, 0);
+    						world.setBlockToAir(v_x, v_y, v_z);
     					}
     				}
     			}
@@ -211,14 +217,18 @@ public class ItemBOPScythe extends Item
     {
     	for (int aX = -radius; aX <= radius; aX++)
     	{
+    		int v_x = x + aX;
     		for (int aY = 0; aY <= radius; aY++)
     		{
+    			int v_y = y + aY;
     			for (int aZ = -radius; aZ <= radius; aZ++)
     			{
-    				if ((aX + aZ < radius * 2) && (-aX + aZ < radius * 2) && (aX + -aZ < radius * 2) && (-aX + -aZ < radius * 2))
+    				int v_z = z + aZ;
+    				int v_r = radius * 2;
+    				if ((aX + aZ < v_r) && (-aX + aZ < v_r) && (aX + -aZ < v_r) && (-aX + -aZ < v_r))
     				{
-        				Block block = world.getBlock(x + aX, y + aY, z + aZ);
-    					int meta = world.getBlockMetadata(x + aX, y + aY, z + aZ);
+        				Block block = world.getBlock(v_x, v_y, v_z);
+    					int meta = world.getBlockMetadata(v_x, v_y, v_z);
 
     					if (block != null && block != Blocks.air)
     					{
@@ -252,29 +262,29 @@ public class ItemBOPScythe extends Item
     						{
     							if (meta == 1)
     							{
-    								block.dropBlockAsItem(world, x + aX, y + aY, z + aZ, meta, 0);
-    								world.setBlockToAir(x + aX, y + aY, z + aZ);
+    								block.dropBlockAsItem(world, v_x, v_y, v_z, meta, 0);
+    								world.setBlockToAir(v_x, v_y, v_z);
     							}
     							else if (meta == 2)
     							{
-    								block.dropBlockAsItem(world, x + aX, y + aY, z + aZ, meta, 0);
-    								world.setBlock(x + aX, y + aY, z + aZ, BOPCBlocks.foliage, 1, 2);
+    								block.dropBlockAsItem(world, v_x, v_y, v_z, meta, 0);
+    								world.setBlock(v_x, v_y, v_z, BOPCBlocks.foliage, 1, 2);
     							}
-    							else if (meta == 6)
+    							else/* if (meta == 6)*/
     							{
-    								block.dropBlockAsItem(world, x + aX, y + aY, z + aZ, meta, 0);
-    								world.setBlockToAir(x + aX, y + aY, z + aZ);
+    								block.dropBlockAsItem(world, v_x, v_y, v_z, meta, 0);
+    								world.setBlockToAir(v_x, v_y, v_z);
     							}
     						}
     						else if (block == Blocks.tallgrass)
     						{
-    							block.dropBlockAsItem(world, x + aX, y + aY, z + aZ, meta, 0);
-    							world.setBlock(x + aX, y + aY, z + aZ, BOPCBlocks.foliage, 2, 2);
+    							block.dropBlockAsItem(world, v_x, v_y, v_z, meta, 0);
+    							world.setBlock(v_x, v_y, v_z, BOPCBlocks.foliage, 2, 2);
     						}
     						else if (block != Blocks.waterlily && block instanceof BlockFlower)
     						{
-    							block.dropBlockAsItem(world, x + aX, y + aY, z + aZ, meta, 0);
-    							world.setBlockToAir(x + aX, y + aY, z + aZ);
+    							block.dropBlockAsItem(world, v_x, v_y, v_z, meta, 0);
+    							world.setBlockToAir(v_x, v_y, v_z);
     						}
     					}
     				}

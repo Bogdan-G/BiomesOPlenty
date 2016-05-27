@@ -27,7 +27,7 @@ import cpw.mods.fml.common.Mod.Instance;
 import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
-import cpw.mods.fml.common.event.FMLPreInitializationEvent;
+import cpw.mods.fml.common.event.FMLPreInitializationEvent;import java.util.Locale;
 
 @Mod(modid = BOPModInfo.modID, name = BOPModInfo.modName, dependencies = "after:Natura; required-after:Forge@[10.13.4.1566,)")
 public class BiomesOPlenty
@@ -45,6 +45,7 @@ public class BiomesOPlenty
     public void preInit(FMLPreInitializationEvent event)
     {
         configPath = event.getModConfigurationDirectory() + "/biomesoplenty/";
+        Locale.setDefault(Locale.ENGLISH);//info: https://github.com/Glitchfiend/BiomesOPlenty/pull/768
         BOPConfiguration.init(configPath);
         tabBiomesOPlenty = new CreativeTabsBOP(CreativeTabs.getNextID(), "tabBiomesOPlenty");
         BOPPacketHandler.init();

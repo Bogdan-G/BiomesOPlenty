@@ -13,6 +13,8 @@ import biomesoplenty.client.render.RenderUtils;
 
 public class BlockGrave extends Block
 {	
+	private static final float fzero = 0.0F;private static final float fone = 1.0F;
+	
 	public BlockGrave()
 	{
 		super(Material.rock);
@@ -36,19 +38,19 @@ public class BlockGrave extends Block
 		switch (meta)
 		{
 			case 0:
-		this.setBlockBounds(0.0F, 0.0F, 0.31F, 1.0F, 1.6875F, 0.69F);
+		this.setBlockBounds(fzero, fzero, 0.31F, fone, 1.6875F, 0.69F);
 				break;
 
 			case 1:
-		this.setBlockBounds(0.0F, -1.0F, 0.31F, 1.0F, 0.6875F, 0.69F);
+		this.setBlockBounds(fzero, -fone, 0.31F, fone, 0.6875F, 0.69F);
 				break;
 				
 			case 2:
-		this.setBlockBounds(0.31F, 0.0F, 0.0F, 0.69F, 1.6875F, 1.0F);
+		this.setBlockBounds(0.31F, fzero, fzero, 0.69F, 1.6875F, fone);
 				break;
 
 			case 3:
-		this.setBlockBounds(0.31F, -1.0F, 0.0F, 0.69F, 0.6875F, 1.0F);
+		this.setBlockBounds(0.31F, -fone, fzero, 0.69F, 0.6875F, fone);
 				break;
 		}
 	}

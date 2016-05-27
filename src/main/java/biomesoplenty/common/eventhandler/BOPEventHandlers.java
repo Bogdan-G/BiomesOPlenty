@@ -83,6 +83,6 @@ public class BOPEventHandlers
 	private static void registerClientEventHandlers()
 	{
 		MinecraftForge.EVENT_BUS.register(new FogHandler());
-		FMLCommonHandler.instance().bus().register(new FlowerScatterEventHandler());
+		//FMLCommonHandler.instance().bus().register(new FlowerScatterEventHandler());
 	}
 }

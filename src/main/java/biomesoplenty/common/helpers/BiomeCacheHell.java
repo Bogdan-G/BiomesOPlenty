@@ -81,7 +81,7 @@ public class BiomeCacheHell
 				{
 					cache.remove(var5--);cache_sS=cache.size();
 					long var9 = var6.xPosition & 4294967295L | (var6.zPosition & 4294967295L) << 32;
-					cacheMap.remove(var9);cache_sS=cache.size();
+					cacheMap.remove(var9);//cache_sS=cache.size();
 				}
 			}
 		}

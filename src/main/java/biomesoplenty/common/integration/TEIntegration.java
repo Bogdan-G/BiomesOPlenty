@@ -46,8 +46,8 @@ public class TEIntegration
 		pulverizerCompound.setTag("secondaryOutput", new NBTTagCompound());
 		input.writeToNBT(pulverizerCompound.getCompoundTag("input"));
 		primaryOutput.writeToNBT(pulverizerCompound.getCompoundTag("primaryOutput"));
-		if (secondaryOutput != null) secondaryOutput.writeToNBT(pulverizerCompound.getCompoundTag("secondaryOutput"));
-		if (secondaryOutput != null && secondaryChance != 0) pulverizerCompound.setInteger("secondaryChance", secondaryChance);
+		if (secondaryOutput != null) {secondaryOutput.writeToNBT(pulverizerCompound.getCompoundTag("secondaryOutput"));
+		if (secondaryChance != 0) pulverizerCompound.setInteger("secondaryChance", secondaryChance);}
 
 		FMLInterModComms.sendMessage("ThermalExpansion", "PulverizerRecipe", pulverizerCompound);
 	}

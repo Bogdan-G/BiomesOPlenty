@@ -188,7 +188,7 @@ public class BlockBOPPlant extends BOPBlockWorldDecor implements IShearable
         if (metadata == 5 || metadata == 13 || metadata == 15)
         	return this.isValidPosition(world, x, y, z, metadata);
         else
-        	return (world.getFullBlockLightValue(x, y, z) >= 8 && world.getFullBlockLightValue(x, y, z) < 16 || world.canBlockSeeTheSky(x, y, z)) && this.isValidPosition(world, x, y, z, metadata);
+        	return (world.getFullBlockLightValue(x, y, z) >= 8 || world.canBlockSeeTheSky(x, y, z)) && this.isValidPosition(world, x, y, z, metadata);
 	}
 
 	@Override
@@ -260,7 +260,7 @@ public class BlockBOPPlant extends BOPBlockWorldDecor implements IShearable
 		switch (meta)
 		{
 		case 9:
-			return new ItemStack(this, 1, 7);
+			//return new ItemStack(this, 1, 7);
 
 		case 10:
 			return new ItemStack(this, 1, 7);

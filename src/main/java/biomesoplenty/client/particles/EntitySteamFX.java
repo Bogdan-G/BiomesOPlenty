@@ -88,10 +88,14 @@ public class EntitySteamFX extends EntityFX
 		tessellator.setBrightness(10);
         
         tessellator.setColorRGBA_F(this.particleRed * f14, this.particleGreen * f14, this.particleBlue * f14, this.particleAlpha);
-        tessellator.addVertexWithUV((double)(f11 - par3 * f10 - par6 * f10), (double)(f12 - par4 * f10), (double)(f13 - par5 * f10 - par7 * f10), (double)f7, (double)f9);
-        tessellator.addVertexWithUV((double)(f11 - par3 * f10 + par6 * f10), (double)(f12 + par4 * f10), (double)(f13 - par5 * f10 + par7 * f10), (double)f7, (double)f8);
-        tessellator.addVertexWithUV((double)(f11 + par3 * f10 + par6 * f10), (double)(f12 + par4 * f10), (double)(f13 + par5 * f10 + par7 * f10), (double)f6, (double)f8);
-        tessellator.addVertexWithUV((double)(f11 + par3 * f10 - par6 * f10), (double)(f12 - par4 * f10), (double)(f13 + par5 * f10 - par7 * f10), (double)f6, (double)f9);
+        float pf0 = par3 * f10;float pf1 = par6 * f10;float pf2 = par4 * f10;float pf3 = par5 * f10;float pf4 = par7 * f10;
+        float pp0 = pf0 - pf1;float pp1 = pf0 + pf1;
+        float pp2 = f12 - pf2;float pp3 = f12 + pf2;
+        float pp4 = pf3 - pf4;float pp5 = pf3 + pf4;
+        tessellator.addVertexWithUV((double)(f11 - pp0), (double)(pp2), (double)(f13 - pp4), (double)f7, (double)f9);
+        tessellator.addVertexWithUV((double)(f11 - pp1), (double)(pp3), (double)(f13 - pp5), (double)f7, (double)f8);
+        tessellator.addVertexWithUV((double)(f11 + pp1), (double)(pp3), (double)(f13 + pp5), (double)f6, (double)f8);
+        tessellator.addVertexWithUV((double)(f11 + pp0), (double)(pp2), (double)(f13 + pp4), (double)f6, (double)f9);
         
 		tessellator.draw();
 

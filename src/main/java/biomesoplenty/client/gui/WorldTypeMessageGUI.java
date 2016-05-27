@@ -26,7 +26,7 @@ public class WorldTypeMessageGUI extends GuiScreen
     private File nameHashFile;
     private String nameHash;
     
-    private String link = "http://www.reddit.com/r/biomesoplenty/comments/1v5ly1/logical_bug_reporting/";
+    //private String link = "http://www.reddit.com/r/biomesoplenty/comments/1v5ly1/logical_bug_reporting/";
     
     private static final ResourceLocation bopLogoTexture = new ResourceLocation("biomesoplenty:textures/gui/logo256.png");
     

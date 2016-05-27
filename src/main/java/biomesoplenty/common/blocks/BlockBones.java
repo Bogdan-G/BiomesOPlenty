@@ -20,6 +20,7 @@ public class BlockBones extends Block
 	//Meta 3 & 4 used by alternate small bone rotations, 5 & 6 are used by alternate medium bone rotations
 	private static final String[] boneTypes = new String[] {"bones_small", "bones_medium", "bones_large"};
 	private IIcon[] textures;
+	private static final double[] d_num_arr = {0.187D, 0.374D, 0.626D, 0.813D, 1.0D, 1.00D};
 
 	public BlockBones()
 	{
@@ -65,25 +66,25 @@ public class BlockBones extends Block
 		switch (meta)
 		{
 		case 0:
-			return AxisAlignedBB.getBoundingBox(x + 0.374D, y, z + 0.374D, x + 0.626D, y + 1.0D, z + 0.626D);
+			return AxisAlignedBB.getBoundingBox(x + d_num_arr[1], y, z + d_num_arr[1], x + d_num_arr[2], y + d_num_arr[4], z + d_num_arr[2]);
 
 		case 1:
-			return AxisAlignedBB.getBoundingBox(x + 0.187D, y, z + 0.187D, x + 0.813D, y + 1.0D, z + 0.813D);
+			return AxisAlignedBB.getBoundingBox(x + d_num_arr[0], y, z + d_num_arr[0], x + d_num_arr[3], y + d_num_arr[4], z + d_num_arr[3]);
 
 		case 3:
-			return AxisAlignedBB.getBoundingBox(x + 0.374D, y + 0.374D, z, x + 0.626D, y + 0.626D, z + 1.00D);
+			return AxisAlignedBB.getBoundingBox(x + d_num_arr[1], y + d_num_arr[1], z, x + d_num_arr[2], y + d_num_arr[2], z + d_num_arr[5]);
 
 		case 4:
-			return AxisAlignedBB.getBoundingBox(x, y + 0.374D, z + 0.374D, x + 1.00D, y + 0.626D, z + 0.626D);
+			return AxisAlignedBB.getBoundingBox(x, y + d_num_arr[1], z + d_num_arr[1], x + d_num_arr[5], y + d_num_arr[2], z + d_num_arr[2]);
 
 		case 5:
-			return AxisAlignedBB.getBoundingBox(x + 0.187D, y + 0.187D, z, x + 0.813D, y + 0.813D, z + 1.00D);
+			return AxisAlignedBB.getBoundingBox(x + d_num_arr[0], y + d_num_arr[0], z, x + d_num_arr[3], y + d_num_arr[3], z + d_num_arr[5]);
 
 		case 6:
-			return AxisAlignedBB.getBoundingBox(x, y + 0.187D, z + 0.187D, x + 1.00D, y + 0.813D, z + 0.813D);
+			return AxisAlignedBB.getBoundingBox(x, y + d_num_arr[0], z + d_num_arr[0], x + d_num_arr[5], y + d_num_arr[3], z + d_num_arr[3]);
 
 		default:
-			return AxisAlignedBB.getBoundingBox(x, y, z, x + 1.0D, y + 1.0D, z + 1.0D);
+			return AxisAlignedBB.getBoundingBox(x, y, z, x + d_num_arr[4], y + d_num_arr[4], z + d_num_arr[4]);
 		}
 	}
 
@@ -95,25 +96,25 @@ public class BlockBones extends Block
 		switch (meta)
 		{
 		case 0:
-			return AxisAlignedBB.getBoundingBox(x + 0.374D, y, z + 0.374D, x + 0.626D, y + 1.0D, z + 0.626D);
+			return AxisAlignedBB.getBoundingBox(x + d_num_arr[1], y, z + d_num_arr[1], x + d_num_arr[2], y + d_num_arr[4], z + d_num_arr[2]);
 
 		case 1:
-			return AxisAlignedBB.getBoundingBox(x + 0.187D, y, z + 0.187D, x + 0.813D, y + 1.0D, z + 0.813D);
+			return AxisAlignedBB.getBoundingBox(x + d_num_arr[0], y, z + d_num_arr[0], x + d_num_arr[3], y + d_num_arr[4], z + d_num_arr[3]);
 
 		case 3:
-			return AxisAlignedBB.getBoundingBox(x + 0.374D, y + 0.374D, z, x + 0.626D, y + 0.626D, z + 1.00D);
+			return AxisAlignedBB.getBoundingBox(x + d_num_arr[1], y + d_num_arr[1], z, x + d_num_arr[2], y + d_num_arr[2], z + d_num_arr[5]);
 
 		case 4:
-			return AxisAlignedBB.getBoundingBox(x, y + 0.374D, z + 0.374D, x + 1.00D, y + 0.626D, z + 0.626D);
+			return AxisAlignedBB.getBoundingBox(x, y + d_num_arr[1], z + d_num_arr[1], x + d_num_arr[5], y + d_num_arr[2], z + d_num_arr[2]);
 
 		case 5:
-			return AxisAlignedBB.getBoundingBox(x + 0.187D, y + 0.187D, z, x + 0.813D, y + 0.813D, z + 1.00D);
+			return AxisAlignedBB.getBoundingBox(x + d_num_arr[0], y + d_num_arr[0], z, x + d_num_arr[3], y + d_num_arr[3], z + d_num_arr[5]);
 
 		case 6:
-			return AxisAlignedBB.getBoundingBox(x, y + 0.187D, z + 0.187D, x + 1.00D, y + 0.813D, z + 0.813D);
+			return AxisAlignedBB.getBoundingBox(x, y + d_num_arr[0], z + d_num_arr[0], x + d_num_arr[5], y + d_num_arr[3], z + d_num_arr[3]);
 
 		default:
-			return AxisAlignedBB.getBoundingBox(x, y, z, x + 1.0D, y + 1.0D, z + 1.0D);
+			return AxisAlignedBB.getBoundingBox(x, y, z, x + d_num_arr[4], y + d_num_arr[4], z + d_num_arr[4]);
 		}
 	}
 

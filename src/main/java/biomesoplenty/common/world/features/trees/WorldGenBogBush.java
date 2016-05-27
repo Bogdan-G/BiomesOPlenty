@@ -35,7 +35,8 @@ public class WorldGenBogBush extends WorldGenAbstractTree
             {
                 for (int var8 = -2; var8 <= 2; ++var8)
                 {
-                    if (world.isAirBlock(x + var7, y - 1, z + var8) && world.isAirBlock(x + var7, y - 2, z + var8))
+                    int v_0 = x + var7;int v_1 = z + var8;
+                    if (world.isAirBlock(v_0, y - 1, v_1) && world.isAirBlock(v_0, y - 2, v_1))
                         return false;
                 }
             }

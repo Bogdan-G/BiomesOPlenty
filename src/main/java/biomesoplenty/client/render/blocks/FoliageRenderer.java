@@ -13,7 +13,7 @@ import cpw.mods.fml.client.registry.ISimpleBlockRenderingHandler;
 
 public class FoliageRenderer implements ISimpleBlockRenderingHandler
 {
-	private final int FLAXTOP = 6;
+	private static final int FLAXTOP = 6;
 
 	@Override
 	public void renderInventoryBlock(Block block, int metadata, int modelID, RenderBlocks renderer)
@@ -114,14 +114,16 @@ public class FoliageRenderer implements ISimpleBlockRenderingHandler
         float f2 = (float)z + 0.5F;
         float f3 = (float)(i1 & 1) * 0.5F * (float)(1 - i1 / 2 % 2 * 2);
         float f4 = (float)(i1 + 1 & 1) * 0.5F * (float)(1 - (i1 + 1) / 2 % 2 * 2);
-        tessellator.addVertexWithUV((double)(f1 + f3 - f4), (double)((float)y + f), (double)(f2 + f3 + f4), d0, d1);
-        tessellator.addVertexWithUV((double)(f1 + f3 + f4), (double)((float)y + f), (double)(f2 - f3 + f4), d2, d1);
-        tessellator.addVertexWithUV((double)(f1 - f3 + f4), (double)((float)y + f), (double)(f2 - f3 - f4), d2, d3);
-        tessellator.addVertexWithUV((double)(f1 - f3 - f4), (double)((float)y + f), (double)(f2 + f3 - f4), d0, d3);
-        tessellator.addVertexWithUV((double)(f1 - f3 - f4), (double)((float)y + f), (double)(f2 + f3 - f4), d0, d3);
-        tessellator.addVertexWithUV((double)(f1 - f3 + f4), (double)((float)y + f), (double)(f2 - f3 - f4), d2, d3);
-        tessellator.addVertexWithUV((double)(f1 + f3 + f4), (double)((float)y + f), (double)(f2 - f3 + f4), d2, d1);
-        tessellator.addVertexWithUV((double)(f1 + f3 - f4), (double)((float)y + f), (double)(f2 + f3 + f4), d0, d1);
+        float f_0 = f3 - f4;float f_1 = f3 + f4;
+        double f_2 = (double)((float)y + f);
+        tessellator.addVertexWithUV((double)(f1 + f_0), f_2, (double)(f2 + f_1), d0, d1);
+        tessellator.addVertexWithUV((double)(f1 + f_1), f_2, (double)(f2 - f_1), d2, d1);
+        tessellator.addVertexWithUV((double)(f1 - f_1), f_2, (double)(f2 - f_0), d2, d3);
+        tessellator.addVertexWithUV((double)(f1 - f_0), f_2, (double)(f2 + f_0), d0, d3);
+        tessellator.addVertexWithUV((double)(f1 - f_0), f_2, (double)(f2 + f_0), d0, d3);
+        tessellator.addVertexWithUV((double)(f1 - f_1), f_2, (double)(f2 - f_0), d2, d3);
+        tessellator.addVertexWithUV((double)(f1 + f_1), f_2, (double)(f2 - f_1), d2, d1);
+        tessellator.addVertexWithUV((double)(f1 + f_0), f_2, (double)(f2 + f_1), d0, d1);
         return true;
     }
     
@@ -175,14 +177,18 @@ public class FoliageRenderer implements ISimpleBlockRenderingHandler
         float f2 = (float)z + 0.5F;
         float f3 = (float)(i1 & 1) * 0.5F * (float)(1 - i1 / 2 % 2 * 2);
         float f4 = (float)(i1 + 1 & 1) * 0.5F * (float)(1 - (i1 + 1) / 2 % 2 * 2);
-        tessellator.addVertexWithUV((double)(f1 + f3 - f4), (double)((float)y + f), (double)(f2 + f3 + f4), d0, d1);
-        tessellator.addVertexWithUV((double)(f1 + f3 + f4), (double)((float)y + f), (double)(f2 - f3 + f4), d2, d1);
-        tessellator.addVertexWithUV((double)(f1 - f3 + f4), (double)((float)y + f), (double)(f2 - f3 - f4), d2, d3);
-        tessellator.addVertexWithUV((double)(f1 - f3 - f4), (double)((float)y + f), (double)(f2 + f3 - f4), d0, d3);
-        tessellator.addVertexWithUV((double)(f1 - f3 - f4), (double)((float)y + f), (double)(f2 + f3 - f4), d0, d3);
-        tessellator.addVertexWithUV((double)(f1 - f3 + f4), (double)((float)y + f), (double)(f2 - f3 - f4), d2, d3);
-        tessellator.addVertexWithUV((double)(f1 + f3 + f4), (double)((float)y + f), (double)(f2 - f3 + f4), d2, d1);
-        tessellator.addVertexWithUV((double)(f1 + f3 - f4), (double)((float)y + f), (double)(f2 + f3 + f4), d0, d1);
+        float f_0 = f3 - f4;float f_1 = f3 + f4;
+        double f_2 = (double)((float)y + f);
+        double f_3 = (double)(f1 + f_0);double f_4 = (double)(f1 + f_1);double f_5 = (double)(f1 - f_0);double f_6 = (double)(f1 - f_1);
+        double f_7 = (double)(f2 + f_0);double f_8 = (double)(f2 + f_1);double f_9 = (double)(f2 - f_0);double f_10 = (double)(f2 - f_1);
+        tessellator.addVertexWithUV(f_3, f_2, f_8, d0, d1);
+        tessellator.addVertexWithUV(f_4, f_2, f_10, d2, d1);
+        tessellator.addVertexWithUV(f_6, f_2, f_9, d2, d3);
+        tessellator.addVertexWithUV(f_5, f_2, f_7, d0, d3);
+        tessellator.addVertexWithUV(f_5, f_2, f_7, d0, d3);
+        tessellator.addVertexWithUV(f_6, f_2, f_9, d2, d3);
+        tessellator.addVertexWithUV(f_4, f_2, f_10, d2, d1);
+        tessellator.addVertexWithUV(f_3, f_2, f_8, d0, d1);
         return true;
     }
     
@@ -233,14 +239,16 @@ public class FoliageRenderer implements ISimpleBlockRenderingHandler
         float f2 = (float)z + 0.5F;
         float f3 = (float)(i1 & 1) * 0.5F * (float)(1 - i1 / 2 % 2 * 2);
         float f4 = (float)(i1 + 1 & 1) * 0.5F * (float)(1 - (i1 + 1) / 2 % 2 * 2);
-        tessellator.addVertexWithUV((double)(f1 + f3 - f4), (double)((float)y + f), (double)(f2 + f3 + f4), d0, d1);
-        tessellator.addVertexWithUV((double)(f1 + f3 + f4), (double)((float)y + f), (double)(f2 - f3 + f4), d2, d1);
-        tessellator.addVertexWithUV((double)(f1 - f3 + f4), (double)((float)y + f), (double)(f2 - f3 - f4), d2, d3);
-        tessellator.addVertexWithUV((double)(f1 - f3 - f4), (double)((float)y + f), (double)(f2 + f3 - f4), d0, d3);
-        tessellator.addVertexWithUV((double)(f1 - f3 - f4), (double)((float)y + f), (double)(f2 + f3 - f4), d0, d3);
-        tessellator.addVertexWithUV((double)(f1 - f3 + f4), (double)((float)y + f), (double)(f2 - f3 - f4), d2, d3);
-        tessellator.addVertexWithUV((double)(f1 + f3 + f4), (double)((float)y + f), (double)(f2 - f3 + f4), d2, d1);
-        tessellator.addVertexWithUV((double)(f1 + f3 - f4), (double)((float)y + f), (double)(f2 + f3 + f4), d0, d1);
+        float f_0 = f3 - f4;float f_1 = f3 + f4;
+        double f_2 = (double)((float)y + f);
+        tessellator.addVertexWithUV((double)(f1 + f_0), f_2, (double)(f2 + f_1), d0, d1);
+        tessellator.addVertexWithUV((double)(f1 + f_1), f_2, (double)(f2 - f_1), d2, d1);
+        tessellator.addVertexWithUV((double)(f1 - f_1), f_2, (double)(f2 - f_0), d2, d3);
+        tessellator.addVertexWithUV((double)(f1 - f_0), f_2, (double)(f2 + f_0), d0, d3);
+        tessellator.addVertexWithUV((double)(f1 - f_0), f_2, (double)(f2 + f_0), d0, d3);
+        tessellator.addVertexWithUV((double)(f1 - f_1), f_2, (double)(f2 - f_0), d2, d3);
+        tessellator.addVertexWithUV((double)(f1 + f_1), f_2, (double)(f2 - f_1), d2, d1);
+        tessellator.addVertexWithUV((double)(f1 + f_0), f_2, (double)(f2 + f_1), d0, d1);
         return true;
     }
     
@@ -290,14 +298,16 @@ public class FoliageRenderer implements ISimpleBlockRenderingHandler
         float f2 = (float)z + 0.5F;
         float f3 = (float)(i1 & 1) * 0.5F * (float)(1 - i1 / 2 % 2 * 2);
         float f4 = (float)(i1 + 1 & 1) * 0.5F * (float)(1 - (i1 + 1) / 2 % 2 * 2);
-        tessellator.addVertexWithUV((double)(f1 + f3 - f4), (double)((float)y + f), (double)(f2 + f3 + f4), d0, d1);
-        tessellator.addVertexWithUV((double)(f1 + f3 + f4), (double)((float)y + f), (double)(f2 - f3 + f4), d2, d1);
-        tessellator.addVertexWithUV((double)(f1 - f3 + f4), (double)((float)y + f), (double)(f2 - f3 - f4), d2, d3);
-        tessellator.addVertexWithUV((double)(f1 - f3 - f4), (double)((float)y + f), (double)(f2 + f3 - f4), d0, d3);
-        tessellator.addVertexWithUV((double)(f1 - f3 - f4), (double)((float)y + f), (double)(f2 + f3 - f4), d0, d3);
-        tessellator.addVertexWithUV((double)(f1 - f3 + f4), (double)((float)y + f), (double)(f2 - f3 - f4), d2, d3);
-        tessellator.addVertexWithUV((double)(f1 + f3 + f4), (double)((float)y + f), (double)(f2 - f3 + f4), d2, d1);
-        tessellator.addVertexWithUV((double)(f1 + f3 - f4), (double)((float)y + f), (double)(f2 + f3 + f4), d0, d1);
+        float f_0 = f3 - f4;float f_1 = f3 + f4;
+        double f_2 = (double)((float)y + f);
+        tessellator.addVertexWithUV((double)(f1 + f_0), f_2, (double)(f2 + f_1), d0, d1);
+        tessellator.addVertexWithUV((double)(f1 + f_1), f_2, (double)(f2 - f_1), d2, d1);
+        tessellator.addVertexWithUV((double)(f1 - f_1), f_2, (double)(f2 - f_0), d2, d3);
+        tessellator.addVertexWithUV((double)(f1 - f_0), f_2, (double)(f2 + f_0), d0, d3);
+        tessellator.addVertexWithUV((double)(f1 - f_0), f_2, (double)(f2 + f_0), d0, d3);
+        tessellator.addVertexWithUV((double)(f1 - f_1), f_2, (double)(f2 - f_0), d2, d3);
+        tessellator.addVertexWithUV((double)(f1 + f_1), f_2, (double)(f2 - f_1), d2, d1);
+        tessellator.addVertexWithUV((double)(f1 + f_0), f_2, (double)(f2 + f_1), d0, d1);
         return true;
     }
     
@@ -348,14 +358,16 @@ public class FoliageRenderer implements ISimpleBlockRenderingHandler
         float f2 = (float)z + 0.5F;
         float f3 = (float)(i1 & 1) * 0.5F * (float)(1 - i1 / 2 % 2 * 2);
         float f4 = (float)(i1 + 1 & 1) * 0.5F * (float)(1 - (i1 + 1) / 2 % 2 * 2);
-        tessellator.addVertexWithUV((double)(f1 + f3 - f4), (double)((float)y + f), (double)(f2 + f3 + f4), d0, d1);
-        tessellator.addVertexWithUV((double)(f1 + f3 + f4), (double)((float)y + f), (double)(f2 - f3 + f4), d2, d1);
-        tessellator.addVertexWithUV((double)(f1 - f3 + f4), (double)((float)y + f), (double)(f2 - f3 - f4), d2, d3);
-        tessellator.addVertexWithUV((double)(f1 - f3 - f4), (double)((float)y + f), (double)(f2 + f3 - f4), d0, d3);
-        tessellator.addVertexWithUV((double)(f1 - f3 - f4), (double)((float)y + f), (double)(f2 + f3 - f4), d0, d3);
-        tessellator.addVertexWithUV((double)(f1 - f3 + f4), (double)((float)y + f), (double)(f2 - f3 - f4), d2, d3);
-        tessellator.addVertexWithUV((double)(f1 + f3 + f4), (double)((float)y + f), (double)(f2 - f3 + f4), d2, d1);
-        tessellator.addVertexWithUV((double)(f1 + f3 - f4), (double)((float)y + f), (double)(f2 + f3 + f4), d0, d1);
+        float f_0 = f3 - f4;float f_1 = f3 + f4;
+        double f_2 = (double)((float)y + f);
+        tessellator.addVertexWithUV((double)(f1 + f_0), f_2, (double)(f2 + f_1), d0, d1);
+        tessellator.addVertexWithUV((double)(f1 + f_1), f_2, (double)(f2 - f_1), d2, d1);
+        tessellator.addVertexWithUV((double)(f1 - f_1), f_2, (double)(f2 - f_0), d2, d3);
+        tessellator.addVertexWithUV((double)(f1 - f_0), f_2, (double)(f2 + f_0), d0, d3);
+        tessellator.addVertexWithUV((double)(f1 - f_0), f_2, (double)(f2 + f_0), d0, d3);
+        tessellator.addVertexWithUV((double)(f1 - f_1), f_2, (double)(f2 - f_0), d2, d3);
+        tessellator.addVertexWithUV((double)(f1 + f_1), f_2, (double)(f2 - f_1), d2, d1);
+        tessellator.addVertexWithUV((double)(f1 + f_0), f_2, (double)(f2 + f_1), d0, d1);
         return true;
     }
 

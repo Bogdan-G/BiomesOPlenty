@@ -34,28 +34,28 @@ public class BonemealEventHandler
 
 			if (!world.isRemote)
 			{
-				double chance = 0D;
+				double chance = 0F;
 
 				switch (meta)
 				{
 				case 3: // Magic Sapling
-					chance = 0.1D;
+					chance = 0.1F;
 					break;
 
 				case 7: // Ethereal Sapling
-					chance = 0.15D;
+					chance = 0.15F;
 					break;
 
 				case 9: // Origin Sapling
-					chance = 1D;
+					chance = 1F;
 					break;
 
 				default:
-					chance = 0.45D;
+					chance = 0.45F;
 					break;
 				}
 
-				if (world.rand.nextFloat() < chance)
+				if (world.rand.nextFloat() < chance)//float vs double, wut? nope ->
 				{
 					((BlockBOPSapling)BOPCBlocks.saplings).func_149878_d(event.world, x, y, z, event.world.rand);
 				}

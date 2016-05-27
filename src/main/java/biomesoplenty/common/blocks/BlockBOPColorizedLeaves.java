@@ -364,7 +364,7 @@ public class BlockBOPColorizedLeaves extends BlockLeavesBase implements IShearab
     private static int getTypeFromMeta(int meta)
     {
         meta = meta & 3;
-        if (meta < 0 || meta >= leaves.length) {
+        if (/*meta < 0 || */meta >= leaves.length) {
             meta = 0;
         }
         return meta;

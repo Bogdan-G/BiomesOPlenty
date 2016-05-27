@@ -33,15 +33,15 @@ public class PerlinNoise
 	private Random rand;
 	
     // Constants for setting up the Perlin-1 noise functions
-    private final int B = 0x1000;
-    private final int BM = 0xff;
+    private static final int B = 0x1000;
+    private static final int BM = 0xff;
 
-    private final int N = 0x1000;
-    private final int NP = 12;   /* 2^N */
-    private final int NM = 0xfff;
+    private static final int N = 0x1000;
+    private static final int NP = 12;   /* 2^N */
+    private static final int NM = 0xfff;
 
     /** Default sample size to work with */
-    private final int DEFAULT_SAMPLE_SIZE = 256;
+    private static final int DEFAULT_SAMPLE_SIZE = 256;
 
     /** The log of 1/2 constant. Used Everywhere */
     private final float LOG_HALF = (float)Math.log(0.5);

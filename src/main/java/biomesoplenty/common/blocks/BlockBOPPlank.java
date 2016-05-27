@@ -67,7 +67,7 @@ public class BlockBOPPlank extends Block
 	{
 		Block block = BOPCBlocks.planks;
 
-		if (block == BOPCBlocks.planks && world.getBlockMetadata(x, y, z) == 12)
+		if (/*block == BOPCBlocks.planks && */world.getBlockMetadata(x, y, z) == 12)
 		{
 			return 0;
 		}
@@ -82,7 +82,7 @@ public class BlockBOPPlank extends Block
 	{
 		Block block = BOPCBlocks.planks;
 
-		if (block == BOPCBlocks.planks && world.getBlockMetadata(x, y, z) == 12)
+		if (/*block == BOPCBlocks.planks && */world.getBlockMetadata(x, y, z) == 12)
 		{
 			return 0;
 		}
@@ -97,7 +97,7 @@ public class BlockBOPPlank extends Block
 	{
 		Block block = BOPCBlocks.planks;
 
-		if (block == BOPCBlocks.planks && world.getBlockMetadata(x, y, z) == 12)
+		if (/*block == BOPCBlocks.planks && */world.getBlockMetadata(x, y, z) == 12)
 		{
 			return false;
 		}

@@ -95,34 +95,37 @@ public class WorldGenBayou2 extends WorldGenAbstractTree
             }
             else
             {
-                Block block1 = world.getBlock(x, y - 1, z);
-                Block block2 = world.getBlock(x + 1, y - 1, z);
-                Block block3 = world.getBlock(x - 1, y - 1, z);
-                Block block4 = world.getBlock(x, y - 1, z + 1);
-                Block block5 = world.getBlock(x, y - 1, z - 1);
+                int y_0 = y - 1;int y_1 = y + 1;
+                int x_0 = x + 1;int x_1 = x - 1;
+                int z_0 = z + 1;int z_1 = z - 1;
+                Block block1 = world.getBlock(x, y_0, z);
+                Block block2 = world.getBlock(x_0, y_0, z);
+                Block block3 = world.getBlock(x_1, y_0, z);
+                Block block4 = world.getBlock(x, y_0, z_0);
+                Block block5 = world.getBlock(x, y_0, z_1);
 
-                boolean isSoil = block1.canSustainPlant(world, x, y - 1, z, ForgeDirection.UP, (BlockSapling)Blocks.sapling) &&
-                        block2.canSustainPlant(world, x + 1, y - 1, z, ForgeDirection.UP, (BlockSapling)Blocks.sapling) &&
-                        block3.canSustainPlant(world, x - 1, y - 1, z, ForgeDirection.UP, (BlockSapling)Blocks.sapling) &&
-                        block4.canSustainPlant(world, x, y - 1, z + 1, ForgeDirection.UP, (BlockSapling)Blocks.sapling) &&
-                        block5.canSustainPlant(world, x, y - 1, z - 1, ForgeDirection.UP, (BlockSapling)Blocks.sapling);
+                boolean isSoil = block1.canSustainPlant(world, x, y_0, z, ForgeDirection.UP, (BlockSapling)Blocks.sapling) &&
+                        block2.canSustainPlant(world, x_0, y_0, z, ForgeDirection.UP, (BlockSapling)Blocks.sapling) &&
+                        block3.canSustainPlant(world, x_1, y_0, z, ForgeDirection.UP, (BlockSapling)Blocks.sapling) &&
+                        block4.canSustainPlant(world, x, y_0, z_0, ForgeDirection.UP, (BlockSapling)Blocks.sapling) &&
+                        block5.canSustainPlant(world, x, y_0, z_1, ForgeDirection.UP, (BlockSapling)Blocks.sapling);
 
                 if (isSoil && y < 256 - l - 1)
                 {
-                    block1.onPlantGrow(world, x, y - 1, z, x, y, z);
-                    block1.onPlantGrow(world, x + 1, y - 1, z, x + 1, y, z);
-                    block1.onPlantGrow(world, x - 1, y - 1, z, x - 1, y, z);
-                    block1.onPlantGrow(world, x, y - 1, z + 1, x, y, z + 1);
-                    block1.onPlantGrow(world, x, y - 1, z - 1, x, y, z - 1);
+                    block1.onPlantGrow(world, x, y_0, z, x, y, z);
+                    block1.onPlantGrow(world, x_0, y_0, z, x_0, y, z);
+                    block1.onPlantGrow(world, x_1, y_0, z, x_1, y, z);
+                    block1.onPlantGrow(world, x, y_0, z_0, x, y, z_0);
+                    block1.onPlantGrow(world, x, y_0, z_1, x, y, z_1);
 
-                    this.setBlockAndNotifyAdequately(world, x - 1, y, z, this.wood, this.woodMeta);
-                    this.setBlockAndNotifyAdequately(world, x + 1, y, z, this.wood, this.woodMeta);
-                    this.setBlockAndNotifyAdequately(world, x, y, z - 1, this.wood, this.woodMeta);
-                    this.setBlockAndNotifyAdequately(world, x, y, z + 1, this.wood, this.woodMeta);
-                    this.setBlockAndNotifyAdequately(world, x - 1, y + 1, z, this.wood, this.woodMeta);
-                    this.setBlockAndNotifyAdequately(world, x + 1, y + 1, z, this.wood, this.woodMeta);
-                    this.setBlockAndNotifyAdequately(world, x, y + 1, z - 1, this.wood, this.woodMeta);
-                    this.setBlockAndNotifyAdequately(world, x, y + 1, z + 1, this.wood, this.woodMeta);
+                    this.setBlockAndNotifyAdequately(world, x_1, y, z, this.wood, this.woodMeta);
+                    this.setBlockAndNotifyAdequately(world, x_0, y, z, this.wood, this.woodMeta);
+                    this.setBlockAndNotifyAdequately(world, x, y, z_1, this.wood, this.woodMeta);
+                    this.setBlockAndNotifyAdequately(world, x, y, z_0, this.wood, this.woodMeta);
+                    this.setBlockAndNotifyAdequately(world, x_1, y_1, z, this.wood, this.woodMeta);
+                    this.setBlockAndNotifyAdequately(world, x_0, y_1, z, this.wood, this.woodMeta);
+                    this.setBlockAndNotifyAdequately(world, x, y_1, z_1, this.wood, this.woodMeta);
+                    this.setBlockAndNotifyAdequately(world, x, y_1, z_0, this.wood, this.woodMeta);
 
                     int l1;
                     int l2;
@@ -151,11 +154,12 @@ public class WorldGenBayou2 extends WorldGenAbstractTree
 
                     for (k2 = 0; k2 < l; ++k2)
                     {
-                        Block block6 = world.getBlock(x, y + k2, z);
+                        int y_00 = y + k2;
+                        Block block6 = world.getBlock(x, y_00, z);
 
-                        if (block6.isAir(world, x, y + k2, z) || block6.isLeaves(world, x, y + k2, z) || block6 == Blocks.flowing_water || block6 == Blocks.water)
+                        if (block6.isAir(world, x, y_00, z) || block6.isLeaves(world, x, y_00, z) || block6 == Blocks.flowing_water || block6 == Blocks.water)
                         {
-                            this.setBlockAndNotifyAdequately(world, x, y + k2, z, this.wood, this.woodMeta);
+                            this.setBlockAndNotifyAdequately(world, x, y_00, z, this.wood, this.woodMeta);
                         }
                     }
 
@@ -170,24 +174,28 @@ public class WorldGenBayou2 extends WorldGenAbstractTree
                             {
                                 if (world.getBlock(l2, k2, l1).isLeaves(world, l2, k2, l1))
                                 {
-                                    if (random.nextInt(4) == 0 && world.getBlock(l2 - 1, k2, l1).isAir(world, l2 - 1, k2, l1))
+                                    int l_0 = l2 - 1;
+                                    if (random.nextInt(4) == 0 && world.getBlock(l_0, k2, l1).isAir(world, l_0, k2, l1))
                                     {
-                                        this.generateVines(world, l2 - 1, k2, l1, 8);
+                                        this.generateVines(world, l_0, k2, l1, 8);
                                     }
 
-                                    if (random.nextInt(4) == 0 && world.getBlock(l2 + 1, k2, l1).isAir(world, l2 + 1, k2, l1))
+                                    int l_2 = l2 + 1;
+                                    if (random.nextInt(4) == 0 && world.getBlock(l_2, k2, l1).isAir(world, l_2, k2, l1))
                                     {
-                                        this.generateVines(world, l2 + 1, k2, l1, 2);
+                                        this.generateVines(world, l_2, k2, l1, 2);
                                     }
 
-                                    if (random.nextInt(4) == 0 && world.getBlock(l2, k2, l1 - 1).isAir(world, l2, k2, l1 - 1))
+                                    int l_1 = l1 - 1;
+                                    if (random.nextInt(4) == 0 && world.getBlock(l2, k2, l_1).isAir(world, l2, k2, l_1))
                                     {
-                                        this.generateVines(world, l2, k2, l1 - 1, 1);
+                                        this.generateVines(world, l2, k2, l_1, 1);
                                     }
 
-                                    if (random.nextInt(4) == 0 && world.getBlock(l2, k2, l1 + 1).isAir(world, l2, k2, l1 + 1))
+                                    int l_3 = l1 + 1;
+                                    if (random.nextInt(4) == 0 && world.getBlock(l2, k2, l_3).isAir(world, l2, k2, l_3))
                                     {
-                                        this.generateVines(world, l2, k2, l1 + 1, 4);
+                                        this.generateVines(world, l2, k2, l_3, 4);
                                     }
                                 }
                             }

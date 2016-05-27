@@ -22,6 +22,7 @@ public class BlockBOPGrass extends Block
 {
 	public static final String[] types = new String[] {"spectralmoss", "smolderinggrass"};
 	private IIcon[][] icon = new IIcon[2][6];
+	private static final double dzero = 0.0D;
 
 	public BlockBOPGrass()
 	{
@@ -105,8 +106,8 @@ public class BlockBOPGrass extends Block
 
 				for (int l = 0; l < 8; ++l)
 				{
-					world.spawnParticle("flame", x + Math.random(), y + Math.random(), z + Math.random(), 0.0D, 0.0D, 0.0D);
-					world.spawnParticle("smoke", x + Math.random(), y + Math.random(), z + Math.random(), 0.0D, 0.0D, 0.0D);
+					world.spawnParticle("flame", x + Math.random(), y + Math.random(), z + Math.random(), dzero, dzero, dzero);
+					world.spawnParticle("smoke", x + Math.random(), y + Math.random(), z + Math.random(), dzero, dzero, dzero);
 				}
 			}
 		}
@@ -124,12 +125,12 @@ public class BlockBOPGrass extends Block
 		{
 			if (random.nextInt(4) == 0) 
 			{
-				world.spawnParticle("smoke", x + random.nextFloat(), y + 1.1F, z + random.nextFloat(), 0.0D, 0.0D, 0.0D);
+				world.spawnParticle("smoke", x + random.nextFloat(), y + 1.1F, z + random.nextFloat(), dzero, dzero, dzero);
 			}
 
 			if (random.nextInt(6) == 0) 
 			{
-				world.spawnParticle("flame", x + random.nextFloat(), y + 1.1F, z + random.nextFloat(), 0.0D, 0.0D, 0.0D);
+				world.spawnParticle("flame", x + random.nextFloat(), y + 1.1F, z + random.nextFloat(), dzero, dzero, dzero);
 			}
 		}
 	}

@@ -10,7 +10,7 @@ import net.minecraft.world.gen.layer.GenLayer;
 import net.minecraft.world.gen.layer.GenLayerBiome;
 import net.minecraft.world.gen.layer.IntCache;
 import net.minecraftforge.common.BiomeManager;
-import net.minecraftforge.common.BiomeManager.BiomeEntry;
+import net.minecraftforge.common.BiomeManager.BiomeEntry;import cpw.mods.fml.common.FMLLog;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -80,11 +80,11 @@ public class GenLayerBiomeBOP extends GenLayerBiome
                 int l1 = (currentBiomeID & 3840) >> 8;
                 currentBiomeID &= -3841;
                 
-                if (BOPBiomes.onlyBiome != null)
+                /*if (BOPBiomes.onlyBiome != null)
                 {
                 	outputBiomeIDs[j1 + i1 * width] = BOPBiomes.onlyBiome.biomeID;
                 	continue;
-                }
+                }*/
                 
                 if (isBiomeOceanicAndEnabled(currentBiomeID))
                 {
@@ -186,7 +186,7 @@ public class GenLayerBiomeBOP extends GenLayerBiome
     	{
     		int weight = nextInt(totalWeights[listId]);
 
-    		return ((BiomeEntry)WeightedRandom.getItem(biomeLists[listId], weight)).biome.biomeID;
+    		try { return ((BiomeEntry)WeightedRandom.getItem(biomeLists[listId], weight)).biome.biomeID; } catch (Throwable e) {FMLLog.warning("%s", e);return 0;}
     	}
     	else throw new RuntimeException("No biomes are enabled!");
     }
@@ -207,10 +207,10 @@ public class GenLayerBiomeBOP extends GenLayerBiome
     		}
     	}
     	
-    	while (mixedList.size() < maxSize)
+    	try{ while (mixedList.size() < maxSize)
     	{
     		mixedList.add((BiomeEntry)WeightedRandom.getItem(combinedList, this.nextInt(WeightedRandom.getTotalWeight(combinedList))));
-    	}
+    	}} catch (Throwable e) {FMLLog.warning("%s", e);}
     	
     	return mixedList;
     }
