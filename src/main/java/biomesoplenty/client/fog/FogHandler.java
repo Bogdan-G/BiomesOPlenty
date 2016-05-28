@@ -96,10 +96,11 @@ public class FogHandler
 		{
 			for (int z = -distance; z <= distance; ++z)
 			{
-				BiomeGenBase biome = world.getBiomeGenForCoords(playerX + x, playerZ + z);
+				int p_x = playerX + x;int p_z = playerZ + z;
+				BiomeGenBase biome = world.getBiomeGenForCoords(p_x, p_z);
 				if (biome instanceof IBiomeFog)
                 {
-					float distancePart = ((IBiomeFog)biome).getFogDensity(playerX + x, playerY, playerZ + z);
+					float distancePart = ((IBiomeFog)biome).getFogDensity(p_x, playerY, p_z);
 					float weightPart = 1;
 
 					if (x == -distance)
@@ -191,20 +192,23 @@ public class FogHandler
 			// Find scale to bring r, g, or b to 1.0
 			// Vanilla will actually set the colors to +Infinity if all components are 0, explaining the terrible
 			// interaction between the blindness and night vision potion effects.
-			float scale = 1 / r;
-			scale = Math.min(scale, 1 / g);
-			scale = Math.min(scale, 1 / b);
+			//float scale = 1 / r;
+			//scale = Math.min(scale, 1 / g);
+			//scale = Math.min(scale, 1 / b);
+			float scale_mix = Math.min(Math.min(1 / r, 1 / g), 1 / b) * brightness;
+			float ob = 1 - brightness;
 
-			r = r * (1 - brightness) + r * scale * brightness;
-			g = g * (1 - brightness) + g * scale * brightness;
-			b = b * (1 - brightness) + b * scale * brightness;
+			r = r * (ob) + r * scale_mix;
+			g = g * (ob) + g * scale_mix;
+			b = b * (ob) + b * scale_mix;
 		}
 
 		if (Minecraft.getMinecraft().gameSettings.anaglyph)
 		{
-			float aR = (r * 30 + g * 59 + b * 11) / 100;
-			float aG = (r * 30 + g * 70) / 100;
-			float aB = (r * 30 + b * 70) / 100;
+			float r_0 = r * 30;
+			float aR = (r_0 + g * 59 + b * 11) / 100;
+			float aG = (r_0 + g * 70) / 100;
+			float aB = (r_0 + b * 70) / 100;
 
 			r = aR;
 			g = aG;
@@ -368,22 +372,25 @@ public class FogHandler
 		float celestialAngle = world.getCelestialAngle((float)renderPartialTicks);
 		float baseScale = MathHelper.clamp_float(MathHelper.cos(celestialAngle * (float)Math.PI * 2.0F) * 2.0F + 0.5F, 0, 1);
 
-		float rScale = baseScale * 0.94F + 0.06F;
-		float gScale = baseScale * 0.94F + 0.06F;
+		float f_2 = baseScale * 0.94F + 0.06F;
+		float rScale = f_2;
+		float gScale = f_2;
 		float bScale = baseScale * 0.91F + 0.09F;
 
 		float rainStrength = world.getRainStrength((float)renderPartialTicks);
 		if (rainStrength > 0) {
-			rScale *= 1 - rainStrength * 0.5f;
-			gScale *= 1 - rainStrength * 0.5f;
+			float t_0 = 1 - rainStrength * 0.5f;
+			rScale *= t_0;
+			gScale *= t_0;
 			bScale *= 1 - rainStrength * 0.4f;
 		}
 
 		float thunderStrength = world.getWeightedThunderStrength((float) renderPartialTicks);
 		if (thunderStrength > 0) {
-			rScale *= 1 - thunderStrength * 0.5f;
-			gScale *= 1 - thunderStrength * 0.5f;
-			bScale *= 1 - thunderStrength * 0.5f;
+			float t_1 = 1 - thunderStrength * 0.5f;
+			rScale *= t_1;
+			gScale *= t_1;
+			bScale *= t_1;
 		}
 
 		// Apply post-processing to BiomeFog component.  Default color was already processed by Vanilla.

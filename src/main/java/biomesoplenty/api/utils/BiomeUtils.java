@@ -35,6 +35,8 @@ public class BiomeUtils
 					 break;
 			case 14: if(BOPConfigurationTerrainGen.genAmberOre) return true;
 			         break;
+			case 15: if(BOPConfigurationTerrainGen.genEmeraldOre) return true;
+			         break;
 		}
 		
 		return false;

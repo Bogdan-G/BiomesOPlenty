@@ -25,9 +25,10 @@ public class BambooRenderer implements ISimpleBlockRenderingHandler
 
         if (EntityRenderer.anaglyphEnable)
         {
-            float f3 = (f * 30.0F + f1 * 59.0F + f2 * 11.0F) / 100.0F;
-            float f4 = (f * 30.0F + f1 * 70.0F) / 100.0F;
-            float f5 = (f * 30.0F + f2 * 70.0F) / 100.0F;
+            float f_0 = f * 30.0F;
+            float f3 = (f_0 + f1 * 59.0F + f2 * 11.0F) / 100.0F;
+            float f4 = (f_0 + f1 * 70.0F) / 100.0F;
+            float f5 = (f_0 + f2 * 70.0F) / 100.0F;
             f = f3;
             f1 = f4;
             f2 = f5;
@@ -68,20 +69,21 @@ public class BambooRenderer implements ISimpleBlockRenderingHandler
             renderer.renderFaceYPos(block, (double)x, (double)y, (double)z, renderer.getBlockIcon(block, world, x, y, z, 1));
         }
 
+        float p_0 = pixel * 4;
         tessellator.setBrightness(m);
         tessellator.setColorOpaque_F(f9, f13, f17);
         tessellator.addTranslation(0.0F, 0.0F, pixel);
-        renderer.renderFaceZNeg(block, (double)x, (double)y, (double)z + (pixel * 4), renderer.getBlockIcon(block, world, x, y, z, 2));
+        renderer.renderFaceZNeg(block, (double)x, (double)y, (double)z + (p_0), renderer.getBlockIcon(block, world, x, y, z, 2));
         tessellator.addTranslation(0.0F, 0.0F, -pixel);
         tessellator.addTranslation(0.0F, 0.0F, -pixel);
-        renderer.renderFaceZPos(block, (double)x, (double)y, (double)z - (pixel * 4), renderer.getBlockIcon(block, world, x, y, z, 3));
+        renderer.renderFaceZPos(block, (double)x, (double)y, (double)z - (p_0), renderer.getBlockIcon(block, world, x, y, z, 3));
         tessellator.addTranslation(0.0F, 0.0F, pixel);
         tessellator.setColorOpaque_F(f10, f14, f18);
         tessellator.addTranslation(pixel, 0.0F, 0.0F);
-        renderer.renderFaceXNeg(block, (double)x + (pixel * 4), (double)y, (double)z, renderer.getBlockIcon(block, world, x, y, z, 4));
+        renderer.renderFaceXNeg(block, (double)x + (p_0), (double)y, (double)z, renderer.getBlockIcon(block, world, x, y, z, 4));
         tessellator.addTranslation(-pixel, 0.0F, 0.0F);
         tessellator.addTranslation(-pixel, 0.0F, 0.0F);
-        renderer.renderFaceXPos(block, (double)x - (pixel * 4), (double)y, (double)z, renderer.getBlockIcon(block, world, x, y, z, 5));
+        renderer.renderFaceXPos(block, (double)x - (p_0), (double)y, (double)z, renderer.getBlockIcon(block, world, x, y, z, 5));
         tessellator.addTranslation(pixel, 0.0F, 0.0F);
         
         return true;

@@ -10,7 +10,7 @@ import net.minecraft.world.gen.layer.GenLayer;
 import net.minecraft.world.gen.layer.GenLayerBiome;
 import net.minecraft.world.gen.layer.IntCache;
 import net.minecraftforge.common.BiomeManager;
-import net.minecraftforge.common.BiomeManager.BiomeEntry;import cpw.mods.fml.common.FMLLog;
+import net.minecraftforge.common.BiomeManager.BiomeEntry;import cpw.mods.fml.common.FMLLog;import org.apache.logging.log4j.Level;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -210,7 +210,7 @@ public class GenLayerBiomeBOP extends GenLayerBiome
     	try{ while (mixedList.size() < maxSize)
     	{
     		mixedList.add((BiomeEntry)WeightedRandom.getItem(combinedList, this.nextInt(WeightedRandom.getTotalWeight(combinedList))));
-    	}} catch (Throwable e) {FMLLog.warning("%s", e);}
+    	}} catch (Throwable e) {FMLLog.log(Level.WARN, e, "BOP Exception interception!");}
     	
     	return mixedList;
     }

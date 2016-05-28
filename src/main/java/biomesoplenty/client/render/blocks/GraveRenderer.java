@@ -18,82 +18,86 @@ public class GraveRenderer implements ISimpleBlockRenderingHandler
 
 			if (meta == 0)
 			{
+				float p_0 = pixel*5;float p_1 = pixel*11;
 				//Base
-				renderer.setRenderBounds(pixel*5, 0, pixel*5, pixel*11, pixel*3, pixel*11);
+				renderer.setRenderBounds(p_0, 0, p_0, p_1, pixel*3, p_1);
 				renderer.renderStandardBlock(block, x, y, z);
 				
 				//Base pole
-				renderer.setRenderBounds(pixel*6, pixel*3, pixel*6, pixel*10, pixel*11, pixel*10);
+				renderer.setRenderBounds(pixel*6, pixel*3, pixel*6, pixel*10, p_1, pixel*10);
 				renderer.renderStandardBlock(block, x, y, z);
 				
 				//Head horizontal bottom 
-				renderer.setRenderBounds(0, pixel*11, pixel*5, pixel*16, pixel*14, pixel*11);
+				renderer.setRenderBounds(0, p_1, p_0, pixel*16, pixel*14, p_1);
 				renderer.renderStandardBlock(block, x, y, z);
 			}
 			else if (meta == 1)
 			{
+				float p_0 = pixel*5;float p_1 = pixel*11;float p_2 = pixel*7;
 				//Head vertical side 0
-				renderer.setRenderBounds(pixel*13, pixel*-2, pixel*5, pixel*16, pixel*8, pixel*11);
+				renderer.setRenderBounds(pixel*13, pixel*-2, p_0, pixel*16, pixel*8, p_1);
 				renderer.renderStandardBlock(block, x, y, z);
 				
 				//Head vertical side 1
-				renderer.setRenderBounds(0, pixel*-2, pixel*5, pixel*3, pixel*8, pixel*11);
+				renderer.setRenderBounds(0, pixel*-2, p_0, pixel*3, pixel*8, p_1);
 				renderer.renderStandardBlock(block, x, y, z);
 				
 				//Cross vertical side 1
-				renderer.setRenderBounds(pixel*6, pixel*-3, pixel*7, pixel*10, pixel*14, pixel*9);
+				renderer.setRenderBounds(pixel*6, pixel*-3, p_2, pixel*10, pixel*14, pixel*9);
 				renderer.renderStandardBlock(block, x, y, z);
 				
 				//Head horizontal middle 0 
-				renderer.setRenderBounds(pixel*-4, pixel*1, pixel*7, pixel*6, pixel*5, pixel*9);
+				renderer.setRenderBounds(pixel*-4, pixel*1, p_2, pixel*6, p_0, pixel*9);
 				renderer.renderStandardBlock(block, x, y, z);
 				
 				//Head horizontal middle 1 
-				renderer.setRenderBounds(pixel*10, pixel*1, pixel*7, pixel*20, pixel*5, pixel*9);
+				renderer.setRenderBounds(pixel*10, pixel*1, p_2, pixel*20, p_0, pixel*9);
 				renderer.renderStandardBlock(block, x, y, z);
 				
 				//Head horizontal top 
-				renderer.setRenderBounds(0, pixel*8, pixel*5, pixel*16, pixel*11, pixel*11);
+				renderer.setRenderBounds(0, pixel*8, p_0, pixel*16, p_1, p_1);
 				renderer.renderStandardBlock(block, x, y, z);
 			}
 			else if (meta == 2)
 			{
+				float p_0 = pixel*5;float p_1 = pixel*11;
 				//Base
-				renderer.setRenderBounds(pixel*5, 0, pixel*5, pixel*11, pixel*3, pixel*11);
+				renderer.setRenderBounds(p_0, 0, p_0, p_1, pixel*3, p_1);
 				renderer.renderStandardBlock(block, x, y, z);
 				
 				//Base pole
-				renderer.setRenderBounds(pixel*6, pixel*3, pixel*6, pixel*10, pixel*11, pixel*10);
+				renderer.setRenderBounds(pixel*6, pixel*3, pixel*6, pixel*10, p_1, pixel*10);
 				renderer.renderStandardBlock(block, x, y, z);
 				
 				//Head horizontal bottom 
-				renderer.setRenderBounds(pixel*5, pixel*11, 0, pixel*11, pixel*14, pixel*16);
+				renderer.setRenderBounds(p_0, p_1, 0, p_1, pixel*14, pixel*16);
 				renderer.renderStandardBlock(block, x, y, z);
 			}
 			else if (meta == 3)
 			{
+				float p_0 = pixel*5;float p_1 = pixel*11;float p_2 = pixel*7;
 				//Head vertical side 0
-				renderer.setRenderBounds(pixel*5, pixel*-2, pixel*13, pixel*11, pixel*8, pixel*16);
+				renderer.setRenderBounds(p_0, pixel*-2, pixel*13, p_1, pixel*8, pixel*16);
 				renderer.renderStandardBlock(block, x, y, z);
 				
 				//Head vertical side 1
-				renderer.setRenderBounds(pixel*5, pixel*-2, 0, pixel*11, pixel*8, pixel*3);
+				renderer.setRenderBounds(p_0, pixel*-2, 0, p_1, pixel*8, pixel*3);
 				renderer.renderStandardBlock(block, x, y, z);
 				
 				//Cross vertical side 1
-				renderer.setRenderBounds(pixel*7, pixel*-3, pixel*6, pixel*9, pixel*14, pixel*10);
+				renderer.setRenderBounds(p_2, pixel*-3, pixel*6, pixel*9, pixel*14, pixel*10);
 				renderer.renderStandardBlock(block, x, y, z);
 				
 				//Head horizontal middle 0 
-				renderer.setRenderBounds(pixel*7, pixel*1, pixel*-4, pixel*9, pixel*5, pixel*6);
+				renderer.setRenderBounds(p_2, pixel*1, pixel*-4, pixel*9, p_0, pixel*6);
 				renderer.renderStandardBlock(block, x, y, z);
 				
 				//Head horizontal middle 1 
-				renderer.setRenderBounds(pixel*7, pixel*1, pixel*10, pixel*9, pixel*5, pixel*20);
+				renderer.setRenderBounds(p_2, pixel*1, pixel*10, pixel*9, p_0, pixel*20);
 				renderer.renderStandardBlock(block, x, y, z);
 				
 				//Head horizontal top 
-				renderer.setRenderBounds(pixel*5, pixel*8, 0, pixel*11, pixel*11, pixel*16);
+				renderer.setRenderBounds(p_0, pixel*8, 0, p_1, p_1, pixel*16);
 				renderer.renderStandardBlock(block, x, y, z);
 			}
 		}

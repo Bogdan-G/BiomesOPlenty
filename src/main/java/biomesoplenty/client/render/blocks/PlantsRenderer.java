@@ -24,32 +24,32 @@ public class PlantsRenderer implements ISimpleBlockRenderingHandler
 		if (modelId == RenderUtils.plantsModel)
 		{
 			int meta = world.getBlockMetadata(x, y, z);
-			if (meta < 5)
+			if ((meta < 5) || (meta == 12) || (meta == 15))
 				return renderCrossedSquares(block, x, y, z, renderer, true);
 			if (meta == 5)
 				return renderer.renderCrossedSquares(block, x, y, z);
 			if (meta == 6)
 				return renderBlockCrops(block, x, y, z, renderer);
-			if (meta == 7)
+			if ((meta >= 7 && meta <= 11) || meta == 13)
 				return renderer.renderBlockCrops(block, x, y, z);
-			if (meta == 8)
-				return renderer.renderBlockCrops(block, x, y, z);
-			if (meta == 9)
-				return renderer.renderBlockCrops(block, x, y, z);
-			if (meta == 10)
-				return renderer.renderBlockCrops(block, x, y, z);
-			if (meta == 11)
-				return renderer.renderBlockCrops(block, x, y, z);
-			if (meta == 12)
-				return renderCrossedSquares(block, x, y, z, renderer, true);
-			if (meta == 13)
-				return renderer.renderBlockCrops(block, x, y, z);
+			//if (meta == 8)
+				//return renderer.renderBlockCrops(block, x, y, z);
+			//if (meta == 9)
+				//return renderer.renderBlockCrops(block, x, y, z);
+			//if (meta == 10)
+				//return renderer.renderBlockCrops(block, x, y, z);
+			//if (meta == 11)
+				//return renderer.renderBlockCrops(block, x, y, z);
+			//if (meta == 12)
+				//return renderCrossedSquares(block, x, y, z, renderer, true);
+			//if (meta == 13)
+				//return renderer.renderBlockCrops(block, x, y, z);
 			if (meta == 14)
 			{
 				return renderCrossedSquares(block, x, y, z, renderer, false);
 			}
-			if (meta == 15)
-				return renderCrossedSquares(block, x, y, z, renderer, true);
+			//if (meta == 15)
+				//return renderCrossedSquares(block, x, y, z, renderer, true);
 		}
 		return true;
 	}
@@ -100,9 +100,10 @@ public class PlantsRenderer implements ISimpleBlockRenderingHandler
 
 		if (EntityRenderer.anaglyphEnable)
 		{
-			float f4 = (f1 * 30.0F + f2 * 59.0F + f3 * 11.0F) / 100.0F;
-			float f5 = (f1 * 30.0F + f2 * 70.0F) / 100.0F;
-			float f6 = (f1 * 30.0F + f3 * 70.0F) / 100.0F;
+			float f_0 = f1 * 30.0F;
+			float f4 = (f_0 + f2 * 59.0F + f3 * 11.0F) / 100.0F;
+			float f5 = (f_0 + f2 * 70.0F) / 100.0F;
+			float f6 = (f_0 + f3 * 70.0F) / 100.0F;
 			f1 = f4;
 			f2 = f5;
 			f3 = f6;

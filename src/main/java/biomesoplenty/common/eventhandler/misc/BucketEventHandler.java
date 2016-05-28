@@ -25,7 +25,7 @@ import biomesoplenty.common.items.ItemBOPBucket;
 import cpw.mods.fml.common.eventhandler.Event.Result;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;import cpw.mods.fml.common.FMLLog;
+import cpw.mods.fml.relauncher.SideOnly;import cpw.mods.fml.common.FMLLog;import org.apache.logging.log4j.Level;
 
 public class BucketEventHandler 
 {
@@ -79,7 +79,7 @@ public class BucketEventHandler
 				event.result = bopBucketStack;
 				event.setResult(Result.ALLOW);
 			}
-		}} catch (Throwable e) {FMLLog.warning("%s", e);}
+		}} catch (Throwable e) {FMLLog.log(Level.WARN, e, "BOP Exception interception!");}
 	}
 
 	@SubscribeEvent

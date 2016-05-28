@@ -16,9 +16,9 @@ public class RenderNewGrass implements ISimpleBlockRenderingHandler
 	@Override
 	public void renderInventoryBlock(Block block, int metadata, int modelId, RenderBlocks renderer) 
 	{
-		float inset = 0.0001F;
+		float inset = 0.0001F;float fi_0 = 0.9999F;//1F - inset
 		
-        renderer.setRenderBounds(inset, inset, inset, 1F - inset, 1F - inset, 1F - inset);
+        renderer.setRenderBounds(inset, inset, inset, fi_0, fi_0, fi_0);
         RenderUtils.renderStandardInvBlock(renderer, Blocks.grass, 0);
         
         renderer.setRenderBounds(0F, 0F, 0F, 1F, 1F, 1F);

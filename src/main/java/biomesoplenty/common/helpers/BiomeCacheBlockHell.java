@@ -24,11 +24,11 @@ public class BiomeCacheBlockHell
 
 	/** The BiomeCache object that contains this BiomeCacheBlock */
 	final BiomeCacheHell theBiomeCache;
-	private static final int n_0 = 16;
-	private static final int n_1 = 256;
 
 	public BiomeCacheBlockHell(BiomeCacheHell par1BiomeCache, int par2, int par3)
 	{
+		int n_0 = 16;
+		int n_1 = 256;
 		theBiomeCache = par1BiomeCache;
 		temperatureValues = new float[n_1];
 		rainfallValues = new float[n_1];

@@ -5,6 +5,7 @@ import java.util.Random;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
+import biomesoplenty.api.utils.BiomeUtils;
 import biomesoplenty.common.biome.BOPOverworldBiome;
 
 public class BiomeGenAlps extends BOPOverworldBiome
@@ -43,7 +44,7 @@ public class BiomeGenAlps extends BOPOverworldBiome
             
             Block block = world.getBlock(x, y, z);
 
-            if (block != null && block.isReplaceableOreGen(world, x, y, z, Blocks.stone))
+            if (block != null && block.isReplaceableOreGen(world, x, y, z, Blocks.stone) && BiomeUtils.oreWithMetaEnabled(15))
             {
                 world.setBlock(x, y, z, Blocks.emerald_ore, 0, 2);
             }

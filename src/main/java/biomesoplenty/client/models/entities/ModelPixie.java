@@ -59,8 +59,9 @@ public class ModelPixie extends ModelBase
   {
       super.setRotationAngles(f, f1, f2, f3, f4, f5, entity); 
       
-      RightWing.rotateAngleY = -(MathHelper.cos(f2 * 1.7F) * (float)Math.PI * 0.5F);
-      LeftWing.rotateAngleY = MathHelper.cos(f2 * 1.7F) * (float)Math.PI * 0.5F;  
+      float m_0 = MathHelper.cos(f2 * 1.7F) * (float)Math.PI * 0.5F;
+      RightWing.rotateAngleY = -(m_0);
+      LeftWing.rotateAngleY = m_0;  
   }
 
 }

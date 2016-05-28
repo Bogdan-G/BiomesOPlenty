@@ -158,21 +158,22 @@ public class ModelWasp extends ModelBase
     {
         super.setRotationAngles(f, f1, f2, f3, f4, f5, entity); 
         
-        float headspeed = 0.1F * (float)(entity.ticksExisted % 10);
-        Head.rotateAngleX = MathHelper.sin(f2 * headspeed) * 2.5F * (float)Math.PI / 180.0F;
-        Head.rotateAngleZ = MathHelper.cos(f2 * headspeed) * 1.5F * (float)Math.PI / 180.0F;
+        float e_0 = (float)(entity.ticksExisted % 10);float m_0 = (float)Math.PI / 180.0F;float m_1 = 2.5F * m_0;float m_2 = 1.5F * m_0;
+        float headspeed = 0.1F * e_0;
+        Head.rotateAngleX = MathHelper.sin(f2 * headspeed) * m_1;
+        Head.rotateAngleZ = MathHelper.cos(f2 * headspeed) * m_2;
         
-        float thoraxspeed = 0.075F * (float)(entity.ticksExisted % 10);
-        Thorax.rotateAngleX = MathHelper.sin(f2 * thoraxspeed) * 2.5F * (float)Math.PI / 180.0F;
-        Thorax.rotateAngleZ = MathHelper.cos(f2 * thoraxspeed) * 1.5F * (float)Math.PI / 180.0F;
+        float thoraxspeed = 0.075F * e_0;
+        Thorax.rotateAngleX = MathHelper.sin(f2 * thoraxspeed) * m_1;
+        Thorax.rotateAngleZ = MathHelper.cos(f2 * thoraxspeed) * m_2;
         
         Right_Wing.rotateAngleY = MathHelper.cos(f2 * 1.7F) * (float)Math.PI * 0.25F;
         Left_Wing.rotateAngleY = -Right_Wing.rotateAngleY;  
         Right_Wing.rotateAngleZ = Right_Wing.rotateAngleY;
         Left_Wing.rotateAngleZ = -Right_Wing.rotateAngleY;
         
-        float abdomenspeed = 0.6F * (float)(entity.ticksExisted % 10);
-        Abdomen.rotateAngleX = MathHelper.sin(f2 * abdomenspeed) * 2.5F * (float)Math.PI / 180.0F;
-        Abdomen.rotateAngleZ = MathHelper.cos(f2 * abdomenspeed) * 1.5F * (float)Math.PI / 180.0F;
+        float abdomenspeed = 0.6F * e_0;
+        Abdomen.rotateAngleX = MathHelper.sin(f2 * abdomenspeed) * m_1;
+        Abdomen.rotateAngleZ = MathHelper.cos(f2 * abdomenspeed) * m_2;
     }
 }
