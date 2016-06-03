@@ -18,6 +18,7 @@ import net.minecraft.util.WeightedRandomChestContent;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import net.minecraftforge.common.ChestGenHooks;
+import org.bogdang.modifications.random.XSTR;
 
 import java.util.HashMap;
 import java.util.Map.Entry;
@@ -25,7 +26,7 @@ import java.util.Random;
 
 public class BOPVanillaCompat
 {
-    private static Random random = new Random();
+    private static Random random = new XSTR();
     
 	public static void init()
 	{

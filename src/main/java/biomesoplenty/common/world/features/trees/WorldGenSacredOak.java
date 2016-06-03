@@ -8,6 +8,7 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 import biomesoplenty.api.content.BOPCBlocks;
+import org.bogdang.modifications.random.XSTR;
 
 public class WorldGenSacredOak extends WorldGenAbstractTree
 {
@@ -18,7 +19,7 @@ public class WorldGenSacredOak extends WorldGenAbstractTree
 	static final byte[] otherCoordPairs = new byte[] {(byte)2, (byte)0, (byte)0, (byte)1, (byte)2, (byte)1};
 
 	/** random seed for GenBigTree */
-	Random rand = new Random();
+	Random rand = new XSTR();
 
 	/** Reference to the World object. */
 	World worldObj;

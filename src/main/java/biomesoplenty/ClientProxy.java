@@ -43,6 +43,7 @@ import biomesoplenty.common.entities.EntityWasp;
 import biomesoplenty.common.entities.projectiles.EntityDart;
 import biomesoplenty.common.entities.projectiles.EntityMudball;
 import cpw.mods.fml.client.registry.RenderingRegistry;
+import org.bogdang.modifications.random.XSTR;
 
 public class ClientProxy extends CommonProxy 
 {
@@ -85,7 +86,7 @@ public class ClientProxy extends CommonProxy
 	{
 		EntityFX entityfx = null;
 		
-		Random rand = new Random();
+		Random rand = new XSTR();
 		
 		//if (!(string == null || string == "null")) {
 		if (string.equals("mud")) 

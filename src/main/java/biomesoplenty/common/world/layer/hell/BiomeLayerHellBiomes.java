@@ -7,7 +7,7 @@ import net.minecraft.util.WeightedRandom;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.layer.IntCache;
 import net.minecraftforge.common.BiomeManager.BiomeEntry;
-import biomesoplenty.common.world.BOPBiomeManager;import cpw.mods.fml.common.FMLLog;import org.apache.logging.log4j.Level;
+import biomesoplenty.common.world.BOPBiomeManager;//import cpw.mods.fml.common.FMLLog;import org.apache.logging.log4j.Level;
 
 public class BiomeLayerHellBiomes extends BiomeLayerHell
 {

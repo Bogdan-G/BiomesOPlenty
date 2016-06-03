@@ -9,12 +9,13 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 import net.minecraftforge.common.util.ForgeDirection;
+import org.bogdang.modifications.random.XSTR;
 
 public class WorldGenBOPBigTree extends WorldGenAbstractTree
 {
 	static final byte[] otherCoordPairs = new byte[] {(byte)2, (byte)0, (byte)0, (byte)1, (byte)2, (byte)1};
 
-	Random rand = new Random();
+	Random rand = new XSTR();
 
 	World worldObj;
 	int[] basePos = new int[] {0, 0, 0};

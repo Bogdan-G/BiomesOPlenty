@@ -8,6 +8,7 @@ import net.minecraft.world.World;
 import org.lwjgl.opengl.GL11;
 
 import cpw.mods.fml.client.FMLClientHandler;
+import org.bogdang.modifications.random.XSTR;
 
 public class EntityMagicTreeFX extends EntityFX
 {
@@ -33,7 +34,7 @@ public class EntityMagicTreeFX extends EntityFX
         this.particleScale *= 0.75F;
         this.particleScale *= par14;
         this.magicTreeParticleScale = this.particleScale;
-        this.particleMaxAge = (int)((8.0D / (Math.random() * 0.8D + 0.2D)) * 64);
+        this.particleMaxAge = (int)((8.0D / ((new XSTR()).nextDouble() * 0.8D + 0.2D)) * 64);
         this.particleMaxAge = (int)((float)this.particleMaxAge * par14);
         this.particleAge = (particleMaxAge / 16) + (int)((particleMaxAge / 16) * par1World.rand.nextInt(7));
         this.noClip = false;

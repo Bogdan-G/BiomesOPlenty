@@ -8,6 +8,7 @@ import net.minecraft.world.World;
 import org.lwjgl.opengl.GL11;
 
 import cpw.mods.fml.client.FMLClientHandler;
+import org.bogdang.modifications.random.XSTR;
 
 public class EntityDandelionFX extends EntityFX
 {
@@ -21,10 +22,10 @@ public class EntityDandelionFX extends EntityFX
 		motionY *= 0.10000000149011612D;
 		motionZ *= 0.20000000149011612D;
 
-		float f4 = (float)Math.random() * 0.4F + 0.6F;
+		float f4 = (float)(new XSTR()).nextDouble() * 0.4F + 0.6F;
 		particleScale *= 0.25F;
 		particleScale *= par8;
-		particleMaxAge = (int)(8.0D / (Math.random() * 0.8D + 0.2D));
+		particleMaxAge = (int)(8.0D / ((new XSTR()).nextDouble() * 0.8D + 0.2D));
 		particleMaxAge = (int)(particleMaxAge * par8);
 		noClip = false;
 

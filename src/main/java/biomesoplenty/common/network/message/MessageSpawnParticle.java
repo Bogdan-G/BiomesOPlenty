@@ -8,10 +8,11 @@ import cpw.mods.fml.common.network.ByteBufUtils;
 import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import cpw.mods.fml.common.network.simpleimpl.IMessageHandler;
 import cpw.mods.fml.common.network.simpleimpl.MessageContext;
+import org.bogdang.modifications.random.XSTR;
 
 public class MessageSpawnParticle implements IMessage, IMessageHandler<MessageSpawnParticle, IMessage>
 {
-	private Random random = new Random();
+	private Random random = new XSTR();
 	
 	public String particleName;
 	public float posX;

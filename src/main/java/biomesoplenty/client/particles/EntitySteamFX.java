@@ -8,6 +8,7 @@ import net.minecraft.world.World;
 import org.lwjgl.opengl.GL11;
 
 import cpw.mods.fml.client.FMLClientHandler;
+import org.bogdang.modifications.random.XSTR;
 
 public class EntitySteamFX extends EntityFX
 {
@@ -30,11 +31,11 @@ public class EntitySteamFX extends EntityFX
         this.motionX += par8;
         this.motionY += par10;
         this.motionZ += par12;
-        this.particleRed = this.particleGreen = this.particleBlue = (float)(Math.random() * 0.30000001192092896D);
+        this.particleRed = this.particleGreen = this.particleBlue = (float)((new XSTR()).nextDouble() * 0.30000001192092896D);
         this.particleScale *= 0.75F;
         this.particleScale *= par14;
         this.steamParticleScale = this.particleScale;
-        this.particleMaxAge = (int)(8.0D / (Math.random() * 0.8D + 0.2D));
+        this.particleMaxAge = (int)(8.0D / ((new XSTR()).nextDouble() * 0.8D + 0.2D));
         this.particleMaxAge = (int)((float)this.particleMaxAge * par14);
         this.noClip = false;
 	}

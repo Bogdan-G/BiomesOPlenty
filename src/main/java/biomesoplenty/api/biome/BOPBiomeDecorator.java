@@ -15,6 +15,7 @@ import net.minecraftforge.event.terraingen.TerrainGen;
 import biomesoplenty.common.utils.RandomForcedPositiveOwned;
 import biomesoplenty.common.world.generation.IBOPWorldGenerator;
 import biomesoplenty.common.world.generation.WorldGenFieldAssociation;
+import org.bogdang.modifications.random.XSTR;
 
 public class BOPBiomeDecorator<T extends BiomeFeatures> extends BiomeDecorator
 {
@@ -94,7 +95,7 @@ public class BOPBiomeDecorator<T extends BiomeFeatures> extends BiomeDecorator
             completeWeight += Double.parseDouble(String.valueOf(weight));
         }
 
-        double random = Math.random() * completeWeight;
+        double random = (new XSTR()).nextDouble() * completeWeight;
         double countWeight = 0D;
 
         for (Map.Entry<T, ? extends Number> entry : worldGeneratorMap.entrySet())

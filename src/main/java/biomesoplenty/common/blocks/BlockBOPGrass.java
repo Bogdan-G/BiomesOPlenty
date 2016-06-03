@@ -17,6 +17,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.util.ForgeDirection;
 import biomesoplenty.BiomesOPlenty;
 import biomesoplenty.api.content.BOPCBlocks;
+import org.bogdang.modifications.random.XSTR;
 
 public class BlockBOPGrass extends Block
 {
@@ -102,12 +103,12 @@ public class BlockBOPGrass extends Block
 		{
 			if (world.provider.isHellWorld)
 			{
-				world.playSound(x, y, z, "mob.ghast.death", 20.0F, 0.95F + (float)Math.random() * 0.1F, true);
+				world.playSound(x, y, z, "mob.ghast.death", 20.0F, 0.95F + (float)(new XSTR()).nextDouble() * 0.1F, true);
 
 				for (int l = 0; l < 8; ++l)
 				{
-					world.spawnParticle("flame", x + Math.random(), y + Math.random(), z + Math.random(), dzero, dzero, dzero);
-					world.spawnParticle("smoke", x + Math.random(), y + Math.random(), z + Math.random(), dzero, dzero, dzero);
+					world.spawnParticle("flame", x + (new XSTR()).nextDouble(), y + (new XSTR()).nextDouble(), z + (new XSTR()).nextDouble(), dzero, dzero, dzero);
+					world.spawnParticle("smoke", x + (new XSTR()).nextDouble(), y + (new XSTR()).nextDouble(), z + (new XSTR()).nextDouble(), dzero, dzero, dzero);
 				}
 			}
 		}
