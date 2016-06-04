@@ -12,6 +12,7 @@
 package biomesoplenty.common.utils;
 
 import java.util.Random;
+import org.bogdang.modifications.random.XSTR;
 
 /**
  * Computes Perlin Noise for three dimensions.
@@ -74,7 +75,7 @@ public class PerlinNoise
         p_imp = new int[DEFAULT_SAMPLE_SIZE << 1];
 
         int i, j, k;
-        rand = new Random(seed);
+        rand = new XSTR(seed);
 
         // Calculate the table of psuedo-random coefficients.
         for(i = 0; i < DEFAULT_SAMPLE_SIZE; i++)

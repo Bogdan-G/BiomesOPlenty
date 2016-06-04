@@ -38,6 +38,7 @@ import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.terraingen.DecorateBiomeEvent;
 import net.minecraftforge.event.terraingen.PopulateChunkEvent;
 import net.minecraftforge.event.terraingen.TerrainGen;
+import org.bogdang.modifications.random.XSTR;
 
 public class ChunkProviderBOPHell implements IChunkProvider
 {
@@ -71,7 +72,7 @@ public class ChunkProviderBOPHell implements IChunkProvider
 	public ChunkProviderBOPHell(World par1World, long par2)
 	{
 		worldObj = par1World;
-		hellRNG = new Random(par2);
+		hellRNG = new XSTR(par2);
 		netherNoiseGen1 = new NoiseGeneratorOctaves(hellRNG, 16);
 		netherNoiseGen2 = new NoiseGeneratorOctaves(hellRNG, 16);
 		netherNoiseGen3 = new NoiseGeneratorOctaves(hellRNG, 8);

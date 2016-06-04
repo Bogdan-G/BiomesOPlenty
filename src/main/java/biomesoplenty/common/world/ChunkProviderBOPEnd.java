@@ -15,6 +15,7 @@ import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.chunk.Chunk;
 import net.minecraft.world.chunk.IChunkProvider;
+import org.bogdang.modifications.random.XSTR;
 
 public class ChunkProviderBOPEnd implements IChunkProvider
 {
@@ -26,7 +27,7 @@ public class ChunkProviderBOPEnd implements IChunkProvider
     public ChunkProviderBOPEnd(World world, long l)
     {
         worldObj = world;
-        rand = new Random(l);
+        rand = new XSTR(l);
         perlin = new PerlinNoise(l);
     }
 
