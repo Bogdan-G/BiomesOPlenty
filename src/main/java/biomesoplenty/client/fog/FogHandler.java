@@ -25,6 +25,9 @@ import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 
 public class FogHandler 
 {
+	private static double ppX0, ppY0, ppZ0 = 0;
+	private static int ppXe0, ppYe0, ppZe0 = 0;
+	
 	@SubscribeEvent
 	public void onGetFogColour(FogColors event)
 	{
@@ -38,9 +41,12 @@ public class FogHandler
 			EntityPlayer player = (EntityPlayer)event.entity;
 			World world = player.worldObj;
 
-			int x = MathHelper.floor_double(player.posX);
-			int y = MathHelper.floor_double(player.posY);
-			int z = MathHelper.floor_double(player.posZ);
+			//int x = MathHelper.floor_double(player.posX);
+			//int y = MathHelper.floor_double(player.posY);
+			//int z = MathHelper.floor_double(player.posZ);
+			if (((ppX0 - player.posX) < 2.5D) || (ppX0 != player.posX)) {ppX0 = player.posX; ppXe0 = MathHelper.floor_double(ppX0);}
+			if (((ppY0 - player.posY) < 2.5D) || (ppY0 != player.posY)) {ppY0 = player.posY; ppYe0 = MathHelper.floor_double(ppY0);}
+			if (((ppZ0 - player.posZ) < 2.5D) || (ppZ0 != player.posZ)) {ppZ0 = player.posZ; ppZe0 = MathHelper.floor_double(ppZ0);}
 
 			Block blockAtEyes = ActiveRenderInfo.getBlockAtEntityViewpoint(world, event.entity, (float)event.renderPartialTicks);
 			if (blockAtEyes.getMaterial() == Material.lava)
@@ -51,11 +57,11 @@ public class FogHandler
 			Vec3 mixedColor;
 			if (blockAtEyes.getMaterial() == Material.water)
 			{
-				mixedColor = getFogBlendColorWater(world, player, x, y, z, event.renderPartialTicks);
+				mixedColor = getFogBlendColorWater(world, player, ppXe0, ppYe0, ppZe0, event.renderPartialTicks);
 			}
 			else
 			{
-				mixedColor = getFogBlendColour(world, player, x, y, z, event.red, event.green, event.blue, event.renderPartialTicks);
+				mixedColor = getFogBlendColour(world, player, ppXe0, ppYe0, ppZe0, event.red, event.green, event.blue, event.renderPartialTicks);
 			}
 
 			event.red = (float)mixedColor.xCoord;
@@ -68,6 +74,8 @@ public class FogHandler
 
     private static boolean fogInit;
     private static float fogFarPlaneDistance;
+    private static double ppX1, ppY1, ppZ1 = 0;
+    private static int ppXe1, ppYe1, ppZe1 = 0;
 	
 	@SubscribeEvent
 	public void onRenderFog(EntityViewRenderEvent.RenderFogEvent event)
@@ -75,11 +83,14 @@ public class FogHandler
 		Entity entity = event.entity;
         World world = entity.worldObj;
         
-        int playerX = MathHelper.floor_double(entity.posX);
-        int playerY = MathHelper.floor_double(entity.posY);
-        int playerZ = MathHelper.floor_double(entity.posZ);
+        //int playerX = MathHelper.floor_double(entity.posX);
+        //int playerY = MathHelper.floor_double(entity.posY);
+        //int playerZ = MathHelper.floor_double(entity.posZ);
+        if (((ppX1 - entity.posX) < 2.5D) || (ppX1 != entity.posX)) {ppX1 = entity.posX; ppXe1 = MathHelper.floor_double(ppX1);}
+        if (((ppY1 - entity.posY) < 2.5D) || (ppY1 != entity.posY)) {ppY1 = entity.posY; ppYe1 = MathHelper.floor_double(ppY1);}
+        if (((ppZ1 - entity.posZ) < 2.5D) || (ppZ1 != entity.posZ)) {ppZ1 = entity.posZ; ppZe1 = MathHelper.floor_double(ppZ1);}
         
-        if (playerX == fogX && playerZ == fogZ && fogInit)
+        if (ppXe1 == fogX && ppZe1 == fogZ && fogInit)
         {
     		renderFog(event.fogMode, fogFarPlaneDistance, 0.75f);
         	return;
@@ -94,48 +105,55 @@ public class FogHandler
         
 		for (int x = -distance; x <= distance; ++x)
 		{
+			//if (x < -15 || x > 15) {
+			int p_x = ppXe1 + x;
 			for (int z = -distance; z <= distance; ++z)
 			{
-				int p_x = playerX + x;int p_z = playerZ + z;
+				//if (z < -15 || z > 15) {
+				int p_z = ppZe1 + z;
 				BiomeGenBase biome = world.getBiomeGenForCoords(p_x, p_z);
 				if (biome instanceof IBiomeFog)
-                {
-					float distancePart = ((IBiomeFog)biome).getFogDensity(p_x, playerY, p_z);
+				{
+					float distancePart = ((IBiomeFog)biome).getFogDensity(p_x, ppYe1, p_z);
 					float weightPart = 1;
 
 					if (x == -distance)
 					{
-						double xDiff = 1 - (entity.posX - playerX);
+						float xDiff = (float)(1 - (entity.posX - ppXe1));
 						distancePart *= xDiff;
 						weightPart *= xDiff;
 					}
-					else if (x == distance)
+					else if (x == distance+5)
 					{
-						double xDiff = (entity.posX - playerX);
+						float xDiff = (float)(entity.posX - ppXe1);
 						distancePart *= xDiff;
 						weightPart *= xDiff;
 					}
 
 					if (z == -distance)
 					{
-						double zDiff = 1 - (entity.posZ - playerZ);
+						float zDiff = (float)(1 - (entity.posZ - ppZe1));
 						distancePart *= zDiff;
 						weightPart *= zDiff;
 					}
 					else if (z == distance)
 					{
-						double zDiff = (entity.posZ - playerZ);
+						float zDiff = (float)(entity.posZ - ppZe1);
 						distancePart *= zDiff;
 						weightPart *= zDiff;
 					}
 
 					fpDistanceBiomeFog += distancePart;
 					weightBiomeFog += weightPart;
-                }
+				}
+				//z++;
+				//}
 			}
+			//x++;
+			//}
 		}
 
-		float weightMixed = (distance * 2) * (distance * 2);
+		float weightMixed = 1600;//(distance * 2) * (distance * 2);
 		float weightDefault = weightMixed - weightBiomeFog;
 
 		float fpDistanceBiomeFogAvg = (weightBiomeFog == 0) ? 0 : fpDistanceBiomeFog / weightBiomeFog;
@@ -146,7 +164,7 @@ public class FogHandler
 
 		fogX = entity.posX;
 		fogZ = entity.posZ;
-        fogFarPlaneDistance = Math.min(farPlaneDistance, event.farPlaneDistance);
+		fogFarPlaneDistance = Math.min(farPlaneDistance, event.farPlaneDistance);
 
 		renderFog(event.fogMode, fogFarPlaneDistance, farPlaneDistanceScale);
 	}
@@ -167,7 +185,7 @@ public class FogHandler
 
 	private static Vec3 postProcessColor (World world, EntityLivingBase player, float r, float g, float b, double renderPartialTicks)
 	{
-		double darkScale = (player.lastTickPosY + (player.posY - player.lastTickPosY) * renderPartialTicks) * world.provider.getVoidFogYFactor();
+		float darkScale = (float) ((player.lastTickPosY + (player.posY - player.lastTickPosY) * renderPartialTicks) * world.provider.getVoidFogYFactor());
 
 		if (player.isPotionActive(Potion.blindness))
 		{
@@ -187,7 +205,8 @@ public class FogHandler
 		{
 			// Get night vision brightness, accounting for wavering at end of potion effect
 			int duration = player.getActivePotionEffect(Potion.nightVision).getDuration();
-			float brightness = (duration > 200) ? 1 : 0.7f + MathHelper.sin((float)((duration - renderPartialTicks) * Math.PI * 0.2f)) * 0.3f;
+			//float brightness = ((duration > 200) ? 10 : 7 + (int)(Math.sin((double)((duration - renderPartialTicks) * 0.628f)/*3.142f * 0.2f*/) *10) * 3) / 10;
+			float brightness = (duration > 200) ? 1 : 0.7f + (float)Math.sin(((duration - renderPartialTicks) * 0.628f)) * 0.3f;
 
 			// Find scale to bring r, g, or b to 1.0
 			// Vanilla will actually set the colors to +Infinity if all components are 0, explaining the terrible
@@ -195,7 +214,7 @@ public class FogHandler
 			//float scale = 1 / r;
 			//scale = Math.min(scale, 1 / g);
 			//scale = Math.min(scale, 1 / b);
-			float scale_mix = Math.min(Math.min(1 / r, 1 / g), 1 / b) * brightness;
+			float scale_mix = (1 / Math.max(Math.max(r, g), b)) * brightness;
 			float ob = 1 - brightness;
 
 			r = r * (ob) + r * scale_mix;
@@ -238,14 +257,14 @@ public class FogHandler
 
 				if (x == -distance)
 				{
-					double xDiff = 1 - (playerEntity.posX - playerX);
+					float xDiff = (float)(1 - (playerEntity.posX - playerX));
 					rPart *= xDiff;
 					gPart *= xDiff;
 					bPart *= xDiff;
 				}
 				else if (x == distance)
 				{
-					double xDiff = playerEntity.posX - playerX;
+					float xDiff = (float)(playerEntity.posX - playerX);
 					rPart *= xDiff;
 					gPart *= xDiff;
 					bPart *= xDiff;
@@ -253,14 +272,14 @@ public class FogHandler
 
 				if (z == -distance)
 				{
-					double zDiff = 1 - (playerEntity.posZ - playerZ);
+					float zDiff = (float)(1 - (playerEntity.posZ - playerZ));
 					rPart *= zDiff;
 					gPart *= zDiff;
 					bPart *= zDiff;
 				}
 				else if (z == distance)
 				{
-					double zDiff = playerEntity.posZ - playerZ;
+					float zDiff = (float)(playerEntity.posZ - playerZ);
 					rPart *= zDiff;
 					gPart *= zDiff;
 					bPart *= zDiff;
@@ -276,7 +295,7 @@ public class FogHandler
 		gBiomeFog /= 255f;
 		bBiomeFog /= 255f;
 
-		float weight = (distance * 2) * (distance * 2);
+		float weight = 16;//(distance * 2) * (distance * 2);
 		float respirationLevel = (float)EnchantmentHelper.getRespiration(playerEntity) * 0.2F;
 
 		float rMixed = (rBiomeFog * 0.02f + respirationLevel) / weight;
@@ -303,14 +322,16 @@ public class FogHandler
 
 		for (int x = -distance; x <= distance; ++x)
 		{
+			int p_x = playerX + x;
 			for (int z = -distance; z <= distance; ++z)
 			{
-				BiomeGenBase biome = world.getBiomeGenForCoords(playerX + x, playerZ + z);
+				int p_z = playerZ + z;
+				BiomeGenBase biome = world.getBiomeGenForCoords(p_x, p_z);
 
 				if (biome instanceof IBiomeFog)
 				{
 					IBiomeFog biomeFog = (IBiomeFog)biome;
-					int fogColour = biomeFog.getFogColour(playerX + x, playerY, playerZ + z);
+					int fogColour = biomeFog.getFogColour(p_x, playerY, p_z);
 
 					float rPart = (fogColour & 0xFF0000) >> 16;
 					float gPart = (fogColour & 0x00FF00) >> 8;
@@ -319,7 +340,7 @@ public class FogHandler
 
 					if (x == -distance)
 					{
-						double xDiff = 1 - (playerEntity.posX - playerX);
+						float xDiff = (float)(1 - (playerEntity.posX - playerX));
 						rPart *= xDiff;
 						gPart *= xDiff;
 						bPart *= xDiff;
@@ -327,7 +348,7 @@ public class FogHandler
 					}
 					else if (x == distance)
 					{
-						double xDiff = playerEntity.posX - playerX;
+						float xDiff = (float)(playerEntity.posX - playerX);
 						rPart *= xDiff;
 						gPart *= xDiff;
 						bPart *= xDiff;
@@ -336,7 +357,7 @@ public class FogHandler
 
 					if (z == -distance)
 					{
-						double zDiff = 1 - (playerEntity.posZ - playerZ);
+						float zDiff = (float)(1 - (playerEntity.posZ - playerZ));
 						rPart *= zDiff;
 						gPart *= zDiff;
 						bPart *= zDiff;
@@ -344,7 +365,7 @@ public class FogHandler
 					}
 					else if (z == distance)
 					{
-						double zDiff = playerEntity.posZ - playerZ;
+						float zDiff = (float)(playerEntity.posZ - playerZ);
 						rPart *= zDiff;
 						gPart *= zDiff;
 						bPart *= zDiff;
@@ -370,7 +391,7 @@ public class FogHandler
 
 		// Calculate day / night / weather scale for BiomeFog component
 		float celestialAngle = world.getCelestialAngle((float)renderPartialTicks);
-		float baseScale = MathHelper.clamp_float(MathHelper.cos(celestialAngle * (float)Math.PI * 2.0F) * 2.0F + 0.5F, 0, 1);
+		float baseScale = MathHelper.clamp_float((float)Math.cos(celestialAngle * 6.283F) * 2.0F + 0.5F, 0, 1);
 
 		float f_2 = baseScale * 0.94F + 0.06F;
 		float rScale = f_2;

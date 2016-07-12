@@ -16,9 +16,9 @@ buildscript {
 }
 
 
-plugins {
+/*plugins {
     id "com.matthewprenger.cursegradle" version "1.0.5"
-}
+}*/
 
 apply plugin: "maven"
 apply plugin: "forge"
@@ -120,16 +120,16 @@ artifacts {
     archives deobfJar
 }
 
-curseforge {
+/*curseforge {
     apiKey = "$System.env.curse_api_key"
     project {
         id = '220318'
         changelog = file('build/libs/' + project.getName() + '-' + project.version + '-changelog.txt');
         releaseType = 'beta'
     }
-}
+}*/
 
-uploadArchives {
+/*uploadArchives {
     repositories {
         mavenDeployer {
 			if (project.hasProperty('forgeMavenPassword'))
@@ -199,4 +199,4 @@ uploadArchives {
             }
 		}
 	}
-}
+}*/
