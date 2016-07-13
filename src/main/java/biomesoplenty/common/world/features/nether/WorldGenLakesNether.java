@@ -32,12 +32,12 @@ public class WorldGenLakesNether extends WorldGeneratorBOP
 
 			for (i1 = 0; i1 < l; ++i1)
 			{
-				double d0 = rand.nextDouble() * 6.0D + 3.0D;
-				double d1 = rand.nextDouble() * 4.0D + 2.0D;
-				double d2 = rand.nextDouble() * 6.0D + 3.0D;
-				double d3 = rand.nextDouble() * (16.0D - d0 - 2.0D) + 1.0D + d0 / 2.0D;
-				double d4 = rand.nextDouble() * (8.0D - d1 - 4.0D) + 2.0D + d1 / 2.0D;
-				double d5 = rand.nextDouble() * (16.0D - d2 - 2.0D) + 1.0D + d2 / 2.0D;
+				float d0 = rand.nextFloat() * 6.0F + 3.0F;
+				float d1 = rand.nextFloat() * 4.0F + 2.0F;
+				float d2 = rand.nextFloat() * 6.0F + 3.0F;
+				float d3 = rand.nextFloat() * (16.0F - d0 - 2.0F) + 1.0F + d0 / 2.0F;
+				float d4 = rand.nextFloat() * (8.0F - d1 - 4.0F) + 2.0F + d1 / 2.0F;
+				float d5 = rand.nextFloat() * (16.0F - d2 - 2.0F) + 1.0F + d2 / 2.0F;
 
 				for (int k1 = 1; k1 < 15; ++k1)
 				{
@@ -45,12 +45,12 @@ public class WorldGenLakesNether extends WorldGeneratorBOP
 					{
 						for (int i2 = 1; i2 < 7; ++i2)
 						{
-							double d6 = ((double)k1 - d3) / (d0 / 2.0D);
-							double d7 = ((double)i2 - d4) / (d1 / 2.0D);
-							double d8 = ((double)l1 - d5) / (d2 / 2.0D);
-							double d9 = d6 * d6 + d7 * d7 + d8 * d8;
+							float d6 = ((float)k1 - d3) / (d0 / 2.0F);
+							float d7 = ((float)i2 - d4) / (d1 / 2.0F);
+							float d8 = ((float)l1 - d5) / (d2 / 2.0F);
+							float d9 = d6 * d6 + d7 * d7 + d8 * d8;
 
-							if (d9 < 1.0D)
+							if (d9 < 1.0F)
 							{
 								aboolean[(k1 * 16 + l1) * 8 + i2] = true;
 							}

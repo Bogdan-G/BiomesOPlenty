@@ -38,7 +38,7 @@ public class EntityPixieTrailFX extends EntityFX
         this.particleScale *= 0.75F;
         this.particleScale *= par14;
         this.pixieTrailParticleScale = this.particleScale;
-        this.particleMaxAge = (int)((8.0D / ((new XSTR()).nextDouble() * 0.8D + 0.2D)) * 8);
+        this.particleMaxAge = (int)((8.0F / ((new XSTR()).nextFloat() * 0.8F + 0.2F)) * 8);
         this.particleMaxAge = (int)((float)this.particleMaxAge * par14);
         this.particleAge = (particleMaxAge / 2) + (int)((particleMaxAge / 2) * par1World.rand.nextInt(7));
         this.noClip = false;
@@ -52,9 +52,7 @@ public class EntityPixieTrailFX extends EntityFX
         if (f < 0.0F)
         {
             f = 0.0F;
-        }
-
-        if (f > 1.0F)
+        } else if (f > 1.0F)
         {
             f = 1.0F;
         }

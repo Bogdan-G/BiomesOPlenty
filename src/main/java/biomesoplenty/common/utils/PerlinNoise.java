@@ -600,21 +600,21 @@ public class PerlinNoise
         {
             p[i] = i;
 
-            g1[i] = (float)(((rand.nextDouble() * Integer.MAX_VALUE) % (B + B)) - B) / B;
+            g1[i] = (((rand.nextFloat() * Integer.MAX_VALUE) % (B + B)) - B) / B;
 
             for(j = 0; j < 2; j++)
-                g2[i][j] = (float)(((rand.nextDouble() * Integer.MAX_VALUE) % (B + B)) - B) / B;
+                g2[i][j] = (((rand.nextFloat() * Integer.MAX_VALUE) % (B + B)) - B) / B;
             normalize2(g2[i]);
 
             for(j = 0; j < 3; j++)
-                g3[i][j] = (float)(((rand.nextDouble() * Integer.MAX_VALUE) % (B + B)) - B) / B;
+                g3[i][j] = (((rand.nextFloat() * Integer.MAX_VALUE) % (B + B)) - B) / B;
             normalize3(g3[i]);
         }
 
         while(--i > 0)
         {
             k = p[i];
-            j = (int)((rand.nextDouble() * Integer.MAX_VALUE) % B);
+            j = (int)((rand.nextFloat() * Integer.MAX_VALUE) % B);
             p[i] = p[j];
             p[j] = k;
         }

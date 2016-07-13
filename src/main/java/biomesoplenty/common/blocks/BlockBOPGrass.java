@@ -103,12 +103,12 @@ public class BlockBOPGrass extends Block
 		{
 			if (world.provider.isHellWorld)
 			{
-				world.playSound(x, y, z, "mob.ghast.death", 20.0F, 0.95F + (float)(new XSTR()).nextDouble() * 0.1F, true);
+				world.playSound(x, y, z, "mob.ghast.death", 20.0F, 0.95F + (new XSTR()).nextFloat() * 0.1F, true);
 
 				for (int l = 0; l < 8; ++l)
 				{
-					world.spawnParticle("flame", x + (new XSTR()).nextDouble(), y + (new XSTR()).nextDouble(), z + (new XSTR()).nextDouble(), dzero, dzero, dzero);
-					world.spawnParticle("smoke", x + (new XSTR()).nextDouble(), y + (new XSTR()).nextDouble(), z + (new XSTR()).nextDouble(), dzero, dzero, dzero);
+					world.spawnParticle("flame", x + (new XSTR()).nextFloat(), y + (new XSTR()).nextFloat(), z + (new XSTR()).nextFloat(), dzero, dzero, dzero);
+					world.spawnParticle("smoke", x + (new XSTR()).nextFloat(), y + (new XSTR()).nextFloat(), z + (new XSTR()).nextFloat(), dzero, dzero, dzero);
 				}
 			}
 		}

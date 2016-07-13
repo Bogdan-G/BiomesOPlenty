@@ -190,9 +190,9 @@ public class ChunkProviderBOPHell implements IChunkProvider
 			 {
 				 BiomeGenBase biomegenbase = par4ArrayOfBiomeGenBase[l + k * 16];
 
-				 boolean flag = slowsandNoise[k + l * 16] + hellRNG.nextDouble() * 0.2D > 0.0D;
-				 boolean flag1 = gravelNoise[k + l * 16] + hellRNG.nextDouble() * 0.2D > 0.0D;
-				 int i1 = (int)(netherrackExclusivityNoise[k + l * 16] / 3.0D + 3.0D + hellRNG.nextDouble() * 0.25D);
+				 boolean flag = slowsandNoise[k + l * 16] + hellRNG.nextFloat() * 0.2F > 0.0F;
+				 boolean flag1 = gravelNoise[k + l * 16] + hellRNG.nextFloat() * 0.2F > 0.0F;
+				 int i1 = (int)(netherrackExclusivityNoise[k + l * 16] / 3.0F + 3.0F + hellRNG.nextFloat() * 0.25F);
 				 int j1 = -1;
 				 Block b1 = biomegenbase.topBlock;
 				 Block b2 = biomegenbase.fillerBlock;

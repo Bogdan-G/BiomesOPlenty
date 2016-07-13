@@ -31,11 +31,11 @@ public class EntitySteamFX extends EntityFX
         this.motionX += par8;
         this.motionY += par10;
         this.motionZ += par12;
-        this.particleRed = this.particleGreen = this.particleBlue = (float)((new XSTR()).nextDouble() * 0.30000001192092896D);
+        this.particleRed = this.particleGreen = this.particleBlue = (float)((new XSTR()).nextFloat() * 0.30000001192092896F);
         this.particleScale *= 0.75F;
         this.particleScale *= par14;
         this.steamParticleScale = this.particleScale;
-        this.particleMaxAge = (int)(8.0D / ((new XSTR()).nextDouble() * 0.8D + 0.2D));
+        this.particleMaxAge = (int)(8.0F / ((new XSTR()).nextFloat() * 0.8F + 0.2F));
         this.particleMaxAge = (int)((float)this.particleMaxAge * par14);
         this.noClip = false;
 	}
@@ -48,9 +48,7 @@ public class EntitySteamFX extends EntityFX
 		if (f < 0.0F)
 		{
 			f = 0.0F;
-		}
-
-		if (f > 1.0F)
+		} else if (f > 1.0F)
 		{
 			f = 1.0F;
 		}
@@ -80,9 +78,9 @@ public class EntitySteamFX extends EntityFX
             f9 = this.particleIcon.getMaxV();
         }
 
-        float f11 = (float)(this.prevPosX + (this.posX - this.prevPosX) * (double)par2 - interpPosX);
-        float f12 = (float)(this.prevPosY + (this.posY - this.prevPosY) * (double)par2 - interpPosY);
-        float f13 = (float)(this.prevPosZ + (this.posZ - this.prevPosZ) * (double)par2 - interpPosZ);
+        float f11 = (float)(this.prevPosX + (this.posX - this.prevPosX) * par2 - interpPosX);
+        float f12 = (float)(this.prevPosY + (this.posY - this.prevPosY) * par2 - interpPosY);
+        float f13 = (float)(this.prevPosZ + (this.posZ - this.prevPosZ) * par2 - interpPosZ);
         float f14 = 1.0F;
         
 		tessellator.startDrawingQuads();

@@ -51,7 +51,7 @@ public class EntityPhantom extends EntityMob
 
     	for (int i = 0; i < 9; i++)
     	{
-    		this.worldObj.spawnParticle("mobSpell", this.posX + (this.rand.nextDouble()) * (double)this.width, this.posY + this.rand.nextDouble() * (double)this.height - (double)this.yOffset, this.posZ + (this.rand.nextDouble()) * (double)this.width, 0, 0, 0);
+    		this.worldObj.spawnParticle("mobSpell", this.posX + (this.rand.nextFloat()) * (double)this.width, this.posY + this.rand.nextFloat() * (double)this.height - (double)this.yOffset, this.posZ + (this.rand.nextFloat()) * (double)this.width, 0, 0, 0);
     	}
     }
     
@@ -81,7 +81,7 @@ public class EntityPhantom extends EntityMob
 	{
 		for (int i = 0; i < 9; i++)
 		{
-			this.worldObj.spawnParticle("mobSpell", this.posX + (this.rand.nextDouble()) * (double)this.width, this.posY + this.rand.nextDouble() * (double)this.height - (double)this.yOffset, this.posZ + (this.rand.nextDouble()) * (double)this.width, 66, 0, 0);
+			this.worldObj.spawnParticle("mobSpell", this.posX + (this.rand.nextFloat()) * (double)this.width, this.posY + this.rand.nextFloat() * (double)this.height - (double)this.yOffset, this.posZ + (this.rand.nextFloat()) * (double)this.width, 66, 0, 0);
 		}
 
 		return super.attackEntityFrom(par1DamageSource, par2);

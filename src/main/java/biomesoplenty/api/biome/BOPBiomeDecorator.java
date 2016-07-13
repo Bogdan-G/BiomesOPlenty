@@ -95,7 +95,7 @@ public class BOPBiomeDecorator<T extends BiomeFeatures> extends BiomeDecorator
             completeWeight += Double.parseDouble(String.valueOf(weight));
         }
 
-        double random = (new XSTR()).nextDouble() * completeWeight;
+        double random = (new XSTR()).nextFloat() * completeWeight;
         double countWeight = 0D;
 
         for (Map.Entry<T, ? extends Number> entry : worldGeneratorMap.entrySet())
