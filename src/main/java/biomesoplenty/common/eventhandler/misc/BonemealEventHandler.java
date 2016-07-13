@@ -34,7 +34,7 @@ public class BonemealEventHandler
 
 			if (!world.isRemote)
 			{
-				double chance = 0F;
+				float chance = 0F;
 
 				switch (meta)
 				{
@@ -67,7 +67,7 @@ public class BonemealEventHandler
 
 			if (!world.isRemote)
 			{
-				if (world.rand.nextFloat() < 0.45D)
+				if (world.rand.nextFloat() < 0.45F)
 				{
 					((BlockBOPColorizedSapling)BOPCBlocks.colorizedSaplings).func_149878_d(event.world, x, y, z, event.world.rand);
 				}
@@ -82,7 +82,7 @@ public class BonemealEventHandler
 				switch (meta)
 				{
 				case 7:
-					if (event.world.rand.nextFloat() < 0.45D)
+					if (event.world.rand.nextFloat() < 0.45F)
 					{
 						world.setBlock(x, y, z, BOPCBlocks.plants, 10, 2);
 						world.setBlock(x, y + 1, z, BOPCBlocks.plants, 9, 2);
@@ -90,7 +90,7 @@ public class BonemealEventHandler
 					break;
 				
 				case 12:
-					if (world.rand.nextFloat() < 0.45D)
+					if (world.rand.nextFloat() < 0.45F)
 					{
 						world.setBlock(x, y, z, Blocks.cactus);
 					}
@@ -102,36 +102,27 @@ public class BonemealEventHandler
 		{
 			event.setResult(Result.ALLOW);
 
-			if (!event.world.isRemote)
+			if ((!event.world.isRemote) && (event.world.rand.nextFloat() < 0.45F))
 			{
-				if (event.world.rand.nextFloat() < 0.45D)
-				{
-					WorldGenGiantFlower worldgengiantflower = new WorldGenGiantFlower(0);
-					worldgengiantflower.generate(event.world, event.world.rand, event.x, event.y - 1, event.z);
-				}
+				WorldGenGiantFlower worldgengiantflower = new WorldGenGiantFlower(0);
+				worldgengiantflower.generate(event.world, event.world.rand, event.x, event.y - 1, event.z);
 			}
 		}
 		else if (block == Blocks.yellow_flower)
 		{
 			event.setResult(Result.ALLOW);
 
-			if (!event.world.isRemote)
+			if ((!event.world.isRemote) && (event.world.rand.nextFloat() < 0.45F))
 			{
-				if (event.world.rand.nextFloat() < 0.45D)
-				{
-					WorldGenGiantFlower worldgengiantflower = new WorldGenGiantFlower(1);
-					worldgengiantflower.generate(event.world, event.world.rand, event.x, event.y - 1, event.z);
-				}
+				WorldGenGiantFlower worldgengiantflower = new WorldGenGiantFlower(1);
+				worldgengiantflower.generate(event.world, event.world.rand, event.x, event.y - 1, event.z);
 			}
 		}
 		else if (block == BOPCBlocks.turnip)
 		{
-			if (event.world.getBlockMetadata(x, y, z) != 7)
+			if ((event.world.getBlockMetadata(x, y, z) != 7) && (!event.world.isRemote))
 			{
-				if (!event.world.isRemote)
-				{
-					((BlockCrops)BOPCBlocks.turnip).func_149863_m(event.world, x, y, z);
-				}
+				((BlockCrops)BOPCBlocks.turnip).func_149863_m(event.world, x, y, z);
 			}
 		}
 		else if (block == BOPCBlocks.bopGrass && event.world.getBlockMetadata(x, y, z) == 0)
@@ -148,16 +139,13 @@ public class BonemealEventHandler
 					z += event.world.rand.nextInt(3) - 1;
 				}
 
-				if (event.world.getBlock(x, var14, z).isAir(world, x, var14, z))
+				if (event.world.getBlock(x, var14, z).isAir(world, x, var14, z) && BOPCBlocks.plants.canReplace(world, x, var14, z, 0, new ItemStack(BOPCBlocks.plants, 1, 4)))
 				{
-					if (BOPCBlocks.plants.canReplace(world, x, var14, z, 0, new ItemStack(BOPCBlocks.plants, 1, 4)))
-					{
-						event.setResult(Result.ALLOW);
+					event.setResult(Result.ALLOW);
 
-						if (!event.world.isRemote)
-						{
-							event.world.setBlock(x, var14, z, BOPCBlocks.plants, 4, 2);
-						}
+					if (!event.world.isRemote)
+					{
+						event.world.setBlock(x, var14, z, BOPCBlocks.plants, 4, 2);
 					}
 				}
 			}

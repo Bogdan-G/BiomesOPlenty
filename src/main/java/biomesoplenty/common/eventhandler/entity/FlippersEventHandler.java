@@ -31,7 +31,7 @@ public class FlippersEventHandler
 			}
 		}
 
-		if (event.entity instanceof EntityPlayer)
+		if (event.entity instanceof EntityPlayer)//player double boost? C:
 		{
 			EntityPlayer player = (EntityPlayer)event.entity;
 

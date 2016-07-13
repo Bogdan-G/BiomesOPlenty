@@ -21,9 +21,7 @@ public class FurnaceBurnTimeEventHandler {
 			if (block == BOPCBlocks.saplings || block == BOPCBlocks.colorizedSaplings) {
 				event.burnTime = 100;
 				event.setResult(Result.ALLOW);
-			}
-
-			if (block == BOPCBlocks.woodenSingleSlab1 || block == BOPCBlocks.woodenSingleSlab2) {
+			} else if (block == BOPCBlocks.woodenSingleSlab1 || block == BOPCBlocks.woodenSingleSlab2) {
 				event.burnTime = 150;
 				event.setResult(Result.ALLOW);
 			}
@@ -31,29 +29,19 @@ public class FurnaceBurnTimeEventHandler {
 			if (fuel.isItemEqual(new ItemStack(BOPCItems.misc, 0, 1))) {
 				event.burnTime = 400;
 				event.setResult(Result.ALLOW);
-			}
-
-			if (fuel.isItemEqual(new ItemStack(BOPCBlocks.woodenSingleSlab2, 0, 3))) {
+			} else if (fuel.isItemEqual(new ItemStack(BOPCBlocks.woodenSingleSlab2, 0, 3))) {
 				event.burnTime = 0;
 				event.setResult(Result.DENY);
-			}
-
-			if (fuel.isItemEqual(new ItemStack(BOPCBlocks.woodenDoubleSlab2, 0, 3))) {
+			} else if (fuel.isItemEqual(new ItemStack(BOPCBlocks.woodenDoubleSlab2, 0, 3))) {
 				event.burnTime = 0;
 				event.setResult(Result.DENY);
-			}
-
-			if (fuel.isItemEqual(new ItemStack(BOPCBlocks.logs4, 0, 1))) {
+			} else if (fuel.isItemEqual(new ItemStack(BOPCBlocks.logs4, 0, 1))) {
 				event.burnTime = 0;
 				event.setResult(Result.DENY);
-			}
-
-			if (fuel.isItemEqual(new ItemStack(BOPCBlocks.planks, 0, 12))) {
+			} else if (fuel.isItemEqual(new ItemStack(BOPCBlocks.planks, 0, 12))) {
 				event.burnTime = 0;
 				event.setResult(Result.DENY);
-			}
-
-			if (fuel.isItemEqual(new ItemStack(BOPCBlocks.saplings, 0, 13))) {
+			} else if (fuel.isItemEqual(new ItemStack(BOPCBlocks.saplings, 0, 13))) {
 				event.burnTime = 0;
 				event.setResult(Result.DENY);
 			}

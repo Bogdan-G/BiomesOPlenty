@@ -19,10 +19,10 @@ public class BiomeSizeEventHandler
 				//DimensionManager.registerProviderType(-1, WorldProviderBOPhell.class, true);
 			//}
 		}
-		else
-		{
+		//else
+		//{
 			//DimensionManager.unregisterProviderType(-1);
 			//DimensionManager.registerProviderType(-1, WorldProviderHell.class, true);
-		}
+		//}
 	}
 }

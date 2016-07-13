@@ -24,9 +24,15 @@ public class DyeEventHandler
 		{
 			int itemDamage = itemstack.getItemDamage();
 
-			if (itemstack.getItem() == BOPCItems.misc && (itemDamage == 5 || itemDamage == 6 || itemDamage == 7 || itemDamage == 8 || itemDamage == 9))    
+			l: if (itemstack.getItem() == BOPCItems.misc/* && (itemDamage == 5 || itemDamage == 6 || itemDamage == 7 || itemDamage == 8 || itemDamage == 9)*/)    
 			{
-				int dyeMeta = convertToDyeMeta(itemDamage);
+				int dyeMeta = 0;//convertToDyeMeta(itemDamage);
+				if (itemDamage == 5) dyeMeta = 4;
+				else if (itemDamage == 6) dyeMeta = 3;
+				else if (itemDamage == 7) dyeMeta = 2;
+				else if (itemDamage == 8) dyeMeta = 15;
+				else if (itemDamage == 9) ;
+				else break l;
 				int i = BlockColored.func_150032_b(dyeMeta);
 
 				if (entity instanceof EntityWolf)
@@ -81,8 +87,8 @@ public class DyeEventHandler
 		case 8:
 			return 15;
 
-		case 9:
-			return 0;
+		//case 9:
+			//return 0;
 
 		default:
 			return 0;

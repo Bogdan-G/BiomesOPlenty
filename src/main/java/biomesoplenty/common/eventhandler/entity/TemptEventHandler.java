@@ -28,21 +28,14 @@ public class TemptEventHandler
 		
 		if (entity instanceof EntityChicken) 
 		{
-			
 			tasks.addTask(3, new EntityAITemptArmor((EntityCreature)entity, 1F, BOPCItems.flowerBand, 0, false));
-		}
-
-		if (entity instanceof EntitySheep) 
+		} else if (entity instanceof EntitySheep) 
 		{
 			tasks.addTask(3, new EntityAITemptArmor((EntityCreature)entity, 1F, BOPCItems.flowerBand, 1, false));
-		}
-
-		if (entity instanceof EntityPig) 
+		} else if (entity instanceof EntityPig) 
 		{
 			tasks.addTask(4, new EntityAITemptArmor((EntityCreature)entity, 1F, BOPCItems.flowerBand, 2, false));
-		}
-
-		if (entity instanceof EntityCow) 
+		} else if (entity instanceof EntityCow) 
 		{
 			tasks.addTask(3, new EntityAITemptArmor((EntityCreature)entity, 1F, BOPCItems.flowerBand, 3, false));
 		}

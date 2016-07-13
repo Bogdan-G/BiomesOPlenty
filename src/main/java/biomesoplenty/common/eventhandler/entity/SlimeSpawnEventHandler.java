@@ -23,15 +23,15 @@ public class SlimeSpawnEventHandler
 	{
 		World world = event.world;
 		EntityLivingBase entity = event.entityLiving;
-		
+
 		if (event.entityLiving instanceof EntitySlime)
 		{
-            BiomeGenBase biome = world.getBiomeGenForCoords(MathHelper.floor_double(entity.posX), MathHelper.floor_double(entity.posZ));
-            
-            if (BiomeDictionary.isBiomeOfType(biome, BiomeDictionary.Type.SWAMP))
-            {
-            	if (canSlimeSpawn((EntitySlime)entity)) event.setResult(Result.ALLOW);
-            }
+		BiomeGenBase biome = world.getBiomeGenForCoords(MathHelper.floor_double(entity.posX), MathHelper.floor_double(entity.posZ));
+
+		if (BiomeDictionary.isBiomeOfType(biome, BiomeDictionary.Type.SWAMP) && canSlimeSpawn((EntitySlime)entity))
+		{
+            	event.setResult(Result.ALLOW);
+		}
 		}
 	}
 	

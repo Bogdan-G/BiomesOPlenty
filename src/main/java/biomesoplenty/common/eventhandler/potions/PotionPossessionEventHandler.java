@@ -18,13 +18,13 @@ public class PotionPossessionEventHandler
 			
 			Random rand = entity.worldObj.rand;
 
-			double posX = entity.posX;
-			double posY = entity.posY;
-			double posZ = entity.posZ;
+			float posX = (float)entity.posX;
+			float posY = (float)entity.posY;
+			float posZ = (float)entity.posZ;
 
-			double randX = 1.0 - (rand.nextDouble() * 2.0);
-			double randY = (double) rand.nextInt(3);
-			double randZ = 1.0 - (rand.nextDouble() * 2.0);
+			float randX = 1.0f - (rand.nextFloat() * 2.0f);
+			float randY = rand.nextInt(3);
+			float randZ = 1.0f - (rand.nextFloat() * 2.0f);
 
 			entity.motionX = 0.0;        
 			entity.motionY = 0.0;
