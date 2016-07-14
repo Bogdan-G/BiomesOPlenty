@@ -34,20 +34,20 @@ public class WorldGenSplotches extends WorldGeneratorBOP
     @Override
     public boolean generate(World world, Random random, int x, int y, int z)
     {
-        float match_pi = 3.1416F;
+        float match_pi = 3.1416F;float mh_2=match_pi / numberOfBlocks;
         float var6 = random.nextFloat() * match_pi;
         float var1c = numberOfBlocks / 8.0F;
         float mh_s_0 = MathHelper.sin(var6) * var1c;
         float mh_c_0 = MathHelper.cos(var6) * var1c;
         int x_0 = x + 8;int z_0 = z + 8;
         float var7 = x_0 + mh_s_0;
-        float var9 = x_0 - mh_s_0;
+        //float var9 = x_0 - mh_s_0;
         float var11 = z_0 + mh_c_0;
-        float var13 = z_0 - mh_c_0;
+        //float var13 = z_0 - mh_c_0;
         int temp_r_0 = random.nextInt(3);int temp_r_1 = random.nextInt(3);
         int temp_0 = temp_r_1 - temp_r_0;
         float var15 = y + temp_r_0 - 2;
-        float var17 = y + temp_r_1  - 2;
+        //float var17 = y + temp_r_1  - 2;
         float mh_0 = -2*mh_s_0;float mh_1 = -2*mh_c_0;
 
         for (int var19 = 0; var19 <= numberOfBlocks; ++var19)
@@ -58,7 +58,7 @@ public class WorldGenSplotches extends WorldGeneratorBOP
             float var22 = var15 + (temp_0) * var2c;
             float var24 = var11 + (mh_1) * var2c;
             float var26 = random.nextFloat() * numberOfBlocks / 16.0F;
-            float var28 = (MathHelper.sin(var19 * match_pi / numberOfBlocks) + 1.0F) * var26 + 1.0F;
+            float var28 = (MathHelper.sin(var19 * mh_2) + 1.0F) * var26 + 1.0F;
             //float var30 = var28;//(MathHelper.sin(var19 * match_pi / numberOfBlocks) + 1.0F) * var26 + 1.0F;
             float var3c = var28 / 2.0F;
             int var32 = MathHelper.floor_float(var20 - var3c);
