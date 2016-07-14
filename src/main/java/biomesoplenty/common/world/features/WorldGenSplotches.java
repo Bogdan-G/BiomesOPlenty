@@ -59,7 +59,7 @@ public class WorldGenSplotches extends WorldGeneratorBOP
             float var24 = var11 + (mh_1) * var2c;
             float var26 = random.nextFloat() * numberOfBlocks / 16.0F;
             float var28 = (MathHelper.sin(var19 * match_pi / numberOfBlocks) + 1.0F) * var26 + 1.0F;
-            float var30 = var28;//(MathHelper.sin(var19 * match_pi / numberOfBlocks) + 1.0F) * var26 + 1.0F;
+            //float var30 = var28;//(MathHelper.sin(var19 * match_pi / numberOfBlocks) + 1.0F) * var26 + 1.0F;
             float var3c = var28 / 2.0F;
             int var32 = MathHelper.floor_float(var20 - var3c);
             int var33 = MathHelper.floor_float(var22 - var3c);
@@ -78,8 +78,8 @@ public class WorldGenSplotches extends WorldGeneratorBOP
                     for (int var41 = var33; var41 <= var36; ++var41)
                     {
                         float var42 = (var41 + 0.5F - var22) / (var3c);
-                        float var42degree2 = var42 * var42;
-                        float var39d2_var42d2_sum = var39degree2 + var42degree2;
+                        //float var42degree2 = var42 * var42;
+                        float var39d2_var42d2_sum = var39degree2 + var42 * var42;
 
                         if (var39d2_var42d2_sum < 1.0F)
                         {
