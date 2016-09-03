@@ -60,6 +60,11 @@ minecraft {
 // add some stuff to the version
 version = "${config.minecraft_version}-${config.mod_version}.${System.getenv().BUILD_NUMBER}"
 
+dependencies
+{
+	compile fileTree(dir: "libs", include: "*.jar")
+}
+
 processResources {
     // replace stuff in the files we want.
     from(sourceSets.main.resources.srcDirs) {

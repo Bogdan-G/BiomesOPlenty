@@ -9,6 +9,7 @@ import net.minecraft.block.BlockLeavesBase;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -393,4 +394,16 @@ public class BlockBOPColorizedLeaves extends BlockLeavesBase implements IShearab
     {
         return true;
     }
+
+	@Override
+	public void harvestBlock(World p_149636_1_, EntityPlayer p_149636_2_, int p_149636_3_, int p_149636_4_, int p_149636_5_, int p_149636_6_)
+	{
+            if (!p_149636_1_.isRemote && p_149636_2_.getCurrentEquippedItem() != null && p_149636_2_.getCurrentEquippedItem().getItem() instanceof net.minecraft.item.ItemShears)
+            {
+            }
+            else
+            {
+            super.harvestBlock(p_149636_1_, p_149636_2_, p_149636_3_, p_149636_4_, p_149636_5_, p_149636_6_);
+            }
+	}
 }

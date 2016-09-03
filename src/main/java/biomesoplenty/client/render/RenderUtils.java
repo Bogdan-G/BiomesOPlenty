@@ -32,6 +32,7 @@ public class RenderUtils
 	{
 		boolean flag = block == BOPCBlocks.newBopGrass;
 		
+		GL11.glPushMatrix();
 		GL11.glRotatef(90F, 0.0F, 1.0F, 0.0F);
 		
 		Tessellator tessellator = Tessellator.instance;
@@ -82,6 +83,7 @@ public class RenderUtils
 		tessellator.draw();
 		
 		GL11.glTranslatef(0.5F, 0.5F, 0.5F);
+		GL11.glPopMatrix();
 	}
 	
     public static void renderIcon(IIcon icon, double size, double z, float nx, float ny, float nz) 
@@ -94,6 +96,7 @@ public class RenderUtils
         if (icon == null) icon = getMissingIcon(TextureMap.locationItemsTexture);
 
         Tessellator tessellator = Tessellator.instance;
+        GL11.glPushMatrix();
 
         tessellator.startDrawingQuads();
         tessellator.setNormal(nx, ny, nz);
@@ -114,11 +117,13 @@ public class RenderUtils
         }
 
         tessellator.draw();
+        GL11.glPopMatrix();
     }
     
     public static void renderIcon(int indexX, int indexY, float minU, float maxU, float minV, float maxV, double z) 
     {
         Tessellator tessellator = Tessellator.instance;
+        GL11.glPushMatrix();
 
         tessellator.startDrawingQuads();
         tessellator.setNormal(0.0F, 0.0F, -1.0F);
@@ -131,6 +136,7 @@ public class RenderUtils
         tessellator.addVertexWithUV(0D, 0D, z, minU, minV);
 
         tessellator.draw();
+        GL11.glPopMatrix();
     }
 
     public static IIcon getMissingIcon(ResourceLocation textureSheet) 

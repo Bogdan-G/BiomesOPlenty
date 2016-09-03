@@ -23,8 +23,10 @@ public class RenderWasp extends RenderLiving
     @Override
     protected void preRenderCallback(EntityLivingBase entity, float partialTickTime)
     {
+        GL11.glPushMatrix();
         GL11.glRotatef(180F, 0.0F, 1.0F, 0.0F);
         GL11.glTranslatef(0.0F, 0.75F, 0.0F);
+        GL11.glPopMatrix();
     }
 
     @Override

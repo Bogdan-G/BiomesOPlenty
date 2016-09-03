@@ -343,4 +343,16 @@ public class BlockBOPAppleLeaves extends BlockLeavesBase implements IShearable
 	{
 		return true;
 	}
+
+	@Override
+	public void harvestBlock(World p_149636_1_, EntityPlayer p_149636_2_, int p_149636_3_, int p_149636_4_, int p_149636_5_, int p_149636_6_)
+	{
+            if (!p_149636_1_.isRemote && p_149636_2_.getCurrentEquippedItem() != null && p_149636_2_.getCurrentEquippedItem().getItem() instanceof net.minecraft.item.ItemShears)
+            {
+            }
+            else
+            {
+            super.harvestBlock(p_149636_1_, p_149636_2_, p_149636_3_, p_149636_4_, p_149636_5_, p_149636_6_);
+            }
+	}
 }
