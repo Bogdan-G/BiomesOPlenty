@@ -7,6 +7,8 @@ import net.minecraft.world.IBlockAccess;
 import biomesoplenty.client.render.RenderUtils;
 import cpw.mods.fml.client.registry.ISimpleBlockRenderingHandler;
 
+import org.lwjgl.opengl.GL11;
+
 public class SmallBlockRenderer implements ISimpleBlockRenderingHandler
 {
 	@Override
@@ -19,38 +21,52 @@ public class SmallBlockRenderer implements ISimpleBlockRenderingHandler
 			//0.062 Approx (Per pixel)
 			if (meta == 0)
 			{
+				GL11.glPushMatrix();
 				renderer.setRenderBounds(0.374F, 0.0F, 0.374F, 0.626F, 1.0F, 0.626F);
 				renderer.renderStandardBlock(block, x, y, z);
+				GL11.glPopMatrix();
 			}
 			else if (meta == 1)
 			{
+				GL11.glPushMatrix();
 				renderer.setRenderBounds(0.187F, 0.0F, 0.187F, 0.813F, 1.0F, 0.813F);
 				renderer.renderStandardBlock(block, x, y, z);
+				GL11.glPopMatrix();
 			}
 			else if (meta == 3)
 			{
+				GL11.glPushMatrix();
 				renderer.setRenderBounds(0.374F, 0.374F, 0.0F, 0.626F, 0.626F, 1.0F);
 				renderer.renderStandardBlock(block, x, y, z);
+				GL11.glPopMatrix();
 			}
 			else if (meta == 4)
 			{
+				GL11.glPushMatrix();
 				renderer.setRenderBounds(0.0F, 0.374F, 0.374F, 1.0F, 0.626F, 0.626F);
 				renderer.renderStandardBlock(block, x, y, z);
+				GL11.glPopMatrix();
 			}
 			else if (meta == 5)
 			{
+				GL11.glPushMatrix();
 				renderer.setRenderBounds(0.187F, 0.187F, 0.0F, 0.813F, 0.813F, 1.0F);
 				renderer.renderStandardBlock(block, x, y, z);
+				GL11.glPopMatrix();
 			}
 			else if (meta == 6)
 			{
+				GL11.glPushMatrix();
 				renderer.setRenderBounds(0.0F, 0.187F, 0.187F, 1.0F, 0.813F, 0.813F);
 				renderer.renderStandardBlock(block, x, y, z);
+				GL11.glPopMatrix();
 			}
 			else
 			{
+				GL11.glPushMatrix();
 				renderer.setRenderBounds(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
 				renderer.renderStandardBlock(block, x, y, z);
+				GL11.glPopMatrix();
 			}
 		}
 		return true;
@@ -62,6 +78,7 @@ public class SmallBlockRenderer implements ISimpleBlockRenderingHandler
 		if (modelID == RenderUtils.bonesModel)
 		{
 			Tessellator tessellator = Tessellator.instance;
+			GL11.glPushMatrix();
 
 			if (metadata == 0)
 			{
@@ -98,6 +115,7 @@ public class SmallBlockRenderer implements ISimpleBlockRenderingHandler
 				renderer.setRenderBounds(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
 				RenderUtils.renderStandardInvBlock(renderer, block, metadata);
 			}
+			GL11.glPopMatrix();
 		}
 	}
 

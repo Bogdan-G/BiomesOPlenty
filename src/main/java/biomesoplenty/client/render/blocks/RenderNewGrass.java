@@ -28,6 +28,7 @@ public class RenderNewGrass implements ISimpleBlockRenderingHandler
 	@Override
 	public boolean renderWorldBlock(IBlockAccess world, int x, int y, int z, Block block, int modelId, RenderBlocks renderer) 
 	{
+		GL11.glPushMatrix();
 		if (renderer.hasOverrideBlockTexture()) 
 		{
 			renderer.renderBlockUsingTexture(Blocks.grass, x, y, z, renderer.overrideBlockTexture);
@@ -37,6 +38,7 @@ public class RenderNewGrass implements ISimpleBlockRenderingHandler
 			renderer.renderStandardBlock(Blocks.grass, x, y, z);
 			renderer.renderStandardBlock(block, x, y, z);
 		}
+		GL11.glPopMatrix();
 		
 		return true;
 	}

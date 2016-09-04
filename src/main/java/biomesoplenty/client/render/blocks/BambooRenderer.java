@@ -8,6 +8,8 @@ import net.minecraft.world.IBlockAccess;
 import biomesoplenty.client.render.RenderUtils;
 import cpw.mods.fml.client.registry.ISimpleBlockRenderingHandler;
 
+import org.lwjgl.opengl.GL11;
+
 public class BambooRenderer implements ISimpleBlockRenderingHandler
 {
 	@Override
@@ -34,6 +36,7 @@ public class BambooRenderer implements ISimpleBlockRenderingHandler
             f2 = f5;
         }
         
+        GL11.glPushMatrix();
         Tessellator tessellator = Tessellator.instance;
         boolean flag = false;
         float f3 = 0.5F;
@@ -85,6 +88,7 @@ public class BambooRenderer implements ISimpleBlockRenderingHandler
         tessellator.addTranslation(-pixel, 0.0F, 0.0F);
         renderer.renderFaceXPos(block, (double)x - (p_0), (double)y, (double)z, renderer.getBlockIcon(block, world, x, y, z, 5));
         tessellator.addTranslation(pixel, 0.0F, 0.0F);
+        GL11.glPopMatrix();
         
         return true;
 	}

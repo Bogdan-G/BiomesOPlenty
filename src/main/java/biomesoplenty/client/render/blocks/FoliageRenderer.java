@@ -11,6 +11,8 @@ import biomesoplenty.client.render.RenderUtils;
 import biomesoplenty.common.blocks.BlockBOPFoliage;
 import cpw.mods.fml.client.registry.ISimpleBlockRenderingHandler;
 
+import org.lwjgl.opengl.GL11;
+
 public class FoliageRenderer implements ISimpleBlockRenderingHandler
 {
 	private static final int FLAXTOP = 6;
@@ -66,6 +68,7 @@ public class FoliageRenderer implements ISimpleBlockRenderingHandler
 	
     public boolean renderBlockAlgae(RenderBlocks renderer, Block block, int x, int y, int z)
     {
+        GL11.glPushMatrix();
         Tessellator tessellator = Tessellator.instance;
 
 		IBlockAccess world = renderer.blockAccess;
@@ -124,11 +127,13 @@ public class FoliageRenderer implements ISimpleBlockRenderingHandler
         tessellator.addVertexWithUV((double)(f1 - f_1), f_2, (double)(f2 - f_0), d2, d3);
         tessellator.addVertexWithUV((double)(f1 + f_1), f_2, (double)(f2 - f_1), d2, d1);
         tessellator.addVertexWithUV((double)(f1 + f_0), f_2, (double)(f2 + f_1), d0, d1);
+        GL11.glPopMatrix();
         return true;
     }
     
     public boolean renderBlockLily(RenderBlocks renderer, Block block, int meta, int x, int y, int z)
     {
+        GL11.glPushMatrix();
         Tessellator tessellator = Tessellator.instance;
 
 		IBlockAccess world = renderer.blockAccess;
@@ -189,11 +194,13 @@ public class FoliageRenderer implements ISimpleBlockRenderingHandler
         tessellator.addVertexWithUV(f_6, f_2, f_9, d2, d3);
         tessellator.addVertexWithUV(f_4, f_2, f_10, d2, d1);
         tessellator.addVertexWithUV(f_3, f_2, f_8, d0, d1);
+        GL11.glPopMatrix();
         return true;
     }
     
     public boolean renderBlockClover(RenderBlocks renderer, Block block, int x, int y, int z)
     {
+        GL11.glPushMatrix();
         Tessellator tessellator = Tessellator.instance;
 
 		IBlockAccess world = renderer.blockAccess;
@@ -249,11 +256,13 @@ public class FoliageRenderer implements ISimpleBlockRenderingHandler
         tessellator.addVertexWithUV((double)(f1 - f_1), f_2, (double)(f2 - f_0), d2, d3);
         tessellator.addVertexWithUV((double)(f1 + f_1), f_2, (double)(f2 - f_1), d2, d1);
         tessellator.addVertexWithUV((double)(f1 + f_0), f_2, (double)(f2 + f_1), d0, d1);
+        GL11.glPopMatrix();
         return true;
     }
     
     public boolean renderBlockLeafPile(RenderBlocks renderer, Block block, int x, int y, int z)
     {
+        GL11.glPushMatrix();
         Tessellator tessellator = Tessellator.instance;
 
 		IBlockAccess world = renderer.blockAccess;
@@ -308,11 +317,13 @@ public class FoliageRenderer implements ISimpleBlockRenderingHandler
         tessellator.addVertexWithUV((double)(f1 - f_1), f_2, (double)(f2 - f_0), d2, d3);
         tessellator.addVertexWithUV((double)(f1 + f_1), f_2, (double)(f2 - f_1), d2, d1);
         tessellator.addVertexWithUV((double)(f1 + f_0), f_2, (double)(f2 + f_1), d0, d1);
+        GL11.glPopMatrix();
         return true;
     }
     
     public boolean renderBlockDeadLeafPile(RenderBlocks renderer, Block block, int x, int y, int z)
     {
+        GL11.glPushMatrix();
         Tessellator tessellator = Tessellator.instance;
 
 		IBlockAccess world = renderer.blockAccess;
@@ -368,11 +379,13 @@ public class FoliageRenderer implements ISimpleBlockRenderingHandler
         tessellator.addVertexWithUV((double)(f1 - f_1), f_2, (double)(f2 - f_0), d2, d3);
         tessellator.addVertexWithUV((double)(f1 + f_1), f_2, (double)(f2 - f_1), d2, d1);
         tessellator.addVertexWithUV((double)(f1 + f_0), f_2, (double)(f2 + f_1), d0, d1);
+        GL11.glPopMatrix();
         return true;
     }
 
 	private boolean renderCrossedSquares(Block par1Block, int par2, int par3, int par4, RenderBlocks renderer)
 	{
+		GL11.glPushMatrix();
 		Tessellator tessellator = Tessellator.instance;
 
 		IBlockAccess world = renderer.blockAccess;
@@ -449,12 +462,13 @@ public class FoliageRenderer implements ISimpleBlockRenderingHandler
 
 			renderer.drawCrossedSquares(par1Block.getIcon(0, world.getBlockMetadata(par2, par3, par4)), d0, d1, d2, 1.0F);
 		}
-		
+		GL11.glPopMatrix();
 		return true;
 	}
 	
 	private static void renderBerryBush(double par1, double par2, double par3, float par4, float par5, float par6, float par7, RenderBlocks renderer)
 	{
+        GL11.glPushMatrix();
         Tessellator tessellator = Tessellator.instance;
 
         IIcon berryBush = renderer.getBlockIconFromSideAndMetadata(BOPCBlocks.foliage, 0, 8);
@@ -466,10 +480,12 @@ public class FoliageRenderer implements ISimpleBlockRenderingHandler
 		tessellator.setColorOpaque_F(par4, par4, par4);
 
 		renderer.drawCrossedSquares(berryBushBerry, par1, par2, par3, par4);
+		GL11.glPopMatrix();
 	}
 	
 	private static void renderShrub(double par1, double par2, double par3, float par4, float par5, float par6, float par7, RenderBlocks renderer)
 	{
+        GL11.glPushMatrix();
         Tessellator tessellator = Tessellator.instance;
 
         IIcon shrubLeaf = renderer.getBlockIconFromSideAndMetadata(BOPCBlocks.foliage, 0, 9);
@@ -481,10 +497,12 @@ public class FoliageRenderer implements ISimpleBlockRenderingHandler
 		tessellator.setColorOpaque_F(par4, par4, par4);
 
         renderer.drawCrossedSquares(shrubBranch, par1, par2, par3, par4);
+        GL11.glPopMatrix();
 	}
 	
 	private static void renderFlax(double par1, double par2, double par3, float par4, float par5, float par6, float par7, RenderBlocks renderer)
 	{
+        GL11.glPushMatrix();
         Tessellator tessellator = Tessellator.instance;
 
         IIcon flaxStem = renderer.getBlockIconFromSideAndMetadata(BOPCBlocks.foliage, 0, 6);
@@ -496,5 +514,6 @@ public class FoliageRenderer implements ISimpleBlockRenderingHandler
 		tessellator.setColorOpaque_F(par4, par4, par4);
 
         renderer.drawCrossedSquares(flaxFlowers, par1, par2, par3, par4);
+        GL11.glPopMatrix();
 	}
 }

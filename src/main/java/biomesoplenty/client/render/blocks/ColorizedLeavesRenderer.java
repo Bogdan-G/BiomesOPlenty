@@ -12,6 +12,8 @@ import net.minecraft.init.Blocks;
 import net.minecraft.world.IBlockAccess;
 import cpw.mods.fml.client.registry.ISimpleBlockRenderingHandler;
 
+import org.lwjgl.opengl.GL11;
+
 public class ColorizedLeavesRenderer implements ISimpleBlockRenderingHandler
 {
 	@Override
@@ -41,12 +43,15 @@ public class ColorizedLeavesRenderer implements ISimpleBlockRenderingHandler
 		
 		if (block == BOPCBlocks.colorizedLeaves2 && metadata % 4 == 3 && renderer.hasOverrideBlockTexture()) 
 		{
+			GL11.glPushMatrix();
 			renderer.setOverrideBlockTexture(renderer.overrideBlockTexture);
 			renderer.renderStandardBlock(block, x, y, z);
 			renderer.clearOverrideBlockTexture();
+			GL11.glPopMatrix();
 		}
 		else
 		{
+			GL11.glPushMatrix();
 			renderer.renderStandardBlock(block, x, y, z);
 			
 			if (block == BOPCBlocks.colorizedLeaves2 && metadata % 4 == 3)
@@ -55,6 +60,7 @@ public class ColorizedLeavesRenderer implements ISimpleBlockRenderingHandler
 				renderer.renderStandardBlock(Blocks.stone, x, y, z);
 				renderer.clearOverrideBlockTexture();
 			}
+			GL11.glPopMatrix();
 		}
 		
 		return true;

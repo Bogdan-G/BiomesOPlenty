@@ -10,6 +10,8 @@ import biomesoplenty.client.render.RenderUtils;
 import biomesoplenty.common.blocks.BlockBOPPlant;
 import cpw.mods.fml.client.registry.ISimpleBlockRenderingHandler;
 
+import org.lwjgl.opengl.GL11;
+
 public class PlantsRenderer implements ISimpleBlockRenderingHandler
 {
 	@Override
@@ -68,6 +70,7 @@ public class PlantsRenderer implements ISimpleBlockRenderingHandler
 
 	private boolean renderBlockCrops(Block block, int x, int y, int z, RenderBlocks renderer)
 	{
+		GL11.glPushMatrix();
 		Tessellator tessellator = Tessellator.instance;
 		IBlockAccess world = renderer.blockAccess;
 		tessellator.setBrightness(block.getMixedBrightnessForBlock(world, x, y, z));
@@ -84,11 +87,13 @@ public class PlantsRenderer implements ISimpleBlockRenderingHandler
 		d2 += ((i1 >> 24 & 15L) / 15.0F - 0.5D) * 0.125D;
 
 		renderer.renderBlockCropsImpl(block, world.getBlockMetadata(x, y, z), d0, y - 0.0625F, d2);
+		GL11.glPopMatrix();
 		return true;
 	}
 
 	private boolean renderCrossedSquares(Block block, int x, int y, int z, RenderBlocks renderer, boolean colourMultiply)
 	{
+		GL11.glPushMatrix();
 		Tessellator tessellator = Tessellator.instance;
 		IBlockAccess world = renderer.blockAccess;
 		tessellator.setBrightness(block.getMixedBrightnessForBlock(world, x, y, z));
@@ -149,6 +154,7 @@ public class PlantsRenderer implements ISimpleBlockRenderingHandler
 		{
 			renderer.drawCrossedSquares(block.getIcon(0, world.getBlockMetadata(x, y, z)), d0, d1, d2, 1.0F);
 		}
+		GL11.glPopMatrix();
 		return true;
 	}
 }

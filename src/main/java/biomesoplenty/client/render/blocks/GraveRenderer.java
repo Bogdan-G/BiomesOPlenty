@@ -6,6 +6,8 @@ import net.minecraft.world.IBlockAccess;
 import biomesoplenty.client.render.RenderUtils;
 import cpw.mods.fml.client.registry.ISimpleBlockRenderingHandler;
 
+import org.lwjgl.opengl.GL11;
+
 public class GraveRenderer implements ISimpleBlockRenderingHandler
 {
 	@Override
@@ -19,6 +21,7 @@ public class GraveRenderer implements ISimpleBlockRenderingHandler
 			if (meta == 0)
 			{
 				float p_0 = pixel*5;float p_1 = pixel*11;
+				GL11.glPushMatrix();
 				//Base
 				renderer.setRenderBounds(p_0, 0, p_0, p_1, pixel*3, p_1);
 				renderer.renderStandardBlock(block, x, y, z);
@@ -30,10 +33,12 @@ public class GraveRenderer implements ISimpleBlockRenderingHandler
 				//Head horizontal bottom 
 				renderer.setRenderBounds(0, p_1, p_0, pixel*16, pixel*14, p_1);
 				renderer.renderStandardBlock(block, x, y, z);
+				GL11.glPopMatrix();
 			}
 			else if (meta == 1)
 			{
 				float p_0 = pixel*5;float p_1 = pixel*11;float p_2 = pixel*7;
+				GL11.glPushMatrix();
 				//Head vertical side 0
 				renderer.setRenderBounds(pixel*13, pixel*-2, p_0, pixel*16, pixel*8, p_1);
 				renderer.renderStandardBlock(block, x, y, z);
@@ -57,10 +62,12 @@ public class GraveRenderer implements ISimpleBlockRenderingHandler
 				//Head horizontal top 
 				renderer.setRenderBounds(0, pixel*8, p_0, pixel*16, p_1, p_1);
 				renderer.renderStandardBlock(block, x, y, z);
+				GL11.glPopMatrix();
 			}
 			else if (meta == 2)
 			{
 				float p_0 = pixel*5;float p_1 = pixel*11;
+				GL11.glPushMatrix();
 				//Base
 				renderer.setRenderBounds(p_0, 0, p_0, p_1, pixel*3, p_1);
 				renderer.renderStandardBlock(block, x, y, z);
@@ -72,10 +79,12 @@ public class GraveRenderer implements ISimpleBlockRenderingHandler
 				//Head horizontal bottom 
 				renderer.setRenderBounds(p_0, p_1, 0, p_1, pixel*14, pixel*16);
 				renderer.renderStandardBlock(block, x, y, z);
+				GL11.glPopMatrix();
 			}
 			else if (meta == 3)
 			{
 				float p_0 = pixel*5;float p_1 = pixel*11;float p_2 = pixel*7;
+				GL11.glPushMatrix();
 				//Head vertical side 0
 				renderer.setRenderBounds(p_0, pixel*-2, pixel*13, p_1, pixel*8, pixel*16);
 				renderer.renderStandardBlock(block, x, y, z);
@@ -99,6 +108,7 @@ public class GraveRenderer implements ISimpleBlockRenderingHandler
 				//Head horizontal top 
 				renderer.setRenderBounds(p_0, pixel*8, 0, p_1, p_1, pixel*16);
 				renderer.renderStandardBlock(block, x, y, z);
+				GL11.glPopMatrix();
 			}
 		}
 		return true;
