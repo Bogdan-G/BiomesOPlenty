@@ -35,10 +35,10 @@ public class OverworldBiomeFeatures extends BiomeFeaturesBase
     @BiomeFeature public int leafPilesPerChunk = 0;
     @BiomeFeature public int deadLeafPilesPerChunk = 0;
     @BiomeFeature public int lavenderPerChunk = 0;
-    //@BiomeFeature public int stalagmitesPerChunk = 3;
-    //@BiomeFeature public int stalactitesPerChunk = 6;
-    @BiomeFeature public int stalagmitesPerChunk = 0;
-    @BiomeFeature public int stalactitesPerChunk = 0;
+    @BiomeFeature public int stalagmitesPerChunk = 3;
+    @BiomeFeature public int stalactitesPerChunk = 6;
+    //@BiomeFeature public int stalagmitesPerChunk = 0;
+    //@BiomeFeature public int stalactitesPerChunk = 0;
     @BiomeFeature public int desertGrassPerChunk = 0;
     @BiomeFeature public int desertSproutsPerChunk = 0;
     @BiomeFeature public int bromeliadsPerChunk = 0;

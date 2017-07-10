@@ -21,7 +21,7 @@ public class BiomeCacheHell
 	private LongHashMap cacheMap = new LongHashMap();
 
 	/** The list of cached BiomeCacheBlocks */
-	@SuppressWarnings("rawtypes")
+	//@//SuppressWarnings("rawtypes")
 	private List cache = new ArrayList();
 
 	public BiomeCacheHell(WorldChunkManagerBOPHell par1WorldChunkManager)
@@ -32,7 +32,7 @@ public class BiomeCacheHell
 	/**
 	 * Returns a biome cache block at location specified.
 	 */
-	@SuppressWarnings("unchecked")
+	//@//SuppressWarnings("unchecked")
 	public BiomeCacheBlockHell getBiomeCacheBlock(int par1, int par2)
 	{
 		par1 >>= 4;

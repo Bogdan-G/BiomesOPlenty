@@ -198,4 +198,10 @@ public class BlockBOPFlower2 extends BOPBlockWorldDecor
 	{
 		return meta & 15;
 	}
+
+    @Override
+    public int tickRate(World p_149738_1_)
+    {
+        return 20;
+    }
 }

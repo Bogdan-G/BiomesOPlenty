@@ -198,4 +198,10 @@ public class BlockBOPGrass extends Block
 		return metadata == 0 ? Item.getItemFromBlock(Blocks.end_stone) : Item.getItemFromBlock(Blocks.dirt);
 	}
 
+    @Override
+    public int tickRate(World p_149738_1_)
+    {
+        return 20;
+    }
+
 }

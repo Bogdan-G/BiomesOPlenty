@@ -20,8 +20,8 @@ public class BiomeGenOasis extends BOPSubBiome
 	{
 		super(biomeID);
 
-		this.zoom = 0.5D;
-		this.threshold = 0.5D;
+		this.zoom = 0.5F;
+		this.threshold = 0.5F;
 		
         this.setHeight(biomeHeight);
 		this.setColor(7712283);

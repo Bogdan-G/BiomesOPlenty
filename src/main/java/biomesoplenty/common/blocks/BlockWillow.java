@@ -4,6 +4,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.BlockVine;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import biomesoplenty.BiomesOPlenty;
+import net.minecraft.world.World;
 
 public class BlockWillow extends BlockVine
 {
@@ -23,4 +24,10 @@ public class BlockWillow extends BlockVine
 	{
 		this.blockIcon = iconRegister.registerIcon("biomesoplenty:willow");
 	}
+
+    @Override
+    public int tickRate(World p_149738_1_)
+    {
+        return 20;
+    }
 }

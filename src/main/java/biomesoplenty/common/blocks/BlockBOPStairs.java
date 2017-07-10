@@ -8,6 +8,7 @@ import net.minecraft.block.BlockStairs;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.util.IIcon;
 import biomesoplenty.BiomesOPlenty;
+import net.minecraft.world.World;
 
 public class BlockBOPStairs extends BlockStairs
 {
@@ -137,4 +138,10 @@ public class BlockBOPStairs extends BlockStairs
 
 		return textures[adjCat];
 	}
+
+    @Override
+    public int tickRate(World p_149738_1_)
+    {
+        return 20;
+    }
 }

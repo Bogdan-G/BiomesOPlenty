@@ -21,8 +21,8 @@ public class BiomeGenMangrove extends BOPSubBiome
 	{
 		super(biomeID);
 		
-        this.zoom = 0.01D;
-		this.threshold = 0.5D;
+        this.zoom = 0.01F;
+		this.threshold = 0.5F;
         this.setHeight(biomeHeight);
         this.setColor(7251289);
         this.setTemperatureRainfall(0.8F, 0.9F);

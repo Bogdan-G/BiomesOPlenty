@@ -22,8 +22,8 @@ public class BiomeGenScrubland extends BOPSubBiome
 	{
 		super(biomeID);
 		
-		this.zoom = 0.25D;
-		this.threshold = 0D;
+		this.zoom = 0.25F;
+		this.threshold = 0F;
 		
         this.setHeight(biomeHeight);
 		this.setColor(11445290);

@@ -47,7 +47,7 @@ public class WorldChunkManagerBOPHell extends WorldChunkManager
 	 * Gets the list of valid biomes for the player to spawn in.
 	 */
 	@Override
-	@SuppressWarnings("rawtypes")
+	//@//SuppressWarnings("rawtypes")
 	public List getBiomesToSpawnIn()
 	{
 		return biomesToSpawnIn;
@@ -203,7 +203,7 @@ public class WorldChunkManagerBOPHell extends WorldChunkManager
 	 * checks given Chunk's Biomes against List of allowed ones
 	 */
 	@Override
-	@SuppressWarnings("rawtypes")
+	//@//SuppressWarnings("rawtypes")
 	public boolean areBiomesViable(int par1, int par2, int par3, List par4List)
 	{
 		IntCache.resetIntCache();
@@ -231,7 +231,7 @@ public class WorldChunkManagerBOPHell extends WorldChunkManager
 	 * Strongly favors positive y positions.
 	 */
 	@Override
-	@SuppressWarnings("rawtypes")
+	//@//SuppressWarnings("rawtypes")
 	public ChunkPosition findBiomePosition(int par1, int par2, int par3, List par4List, Random par5Random)
 	{
 		IntCache.resetIntCache();

@@ -144,4 +144,10 @@ public class BlockBOPRocks extends Block
 
 		return resistance / 5.0F;
 	}
+
+    @Override
+    public int tickRate(World p_149738_1_)
+    {
+        return 20;
+    }
 }

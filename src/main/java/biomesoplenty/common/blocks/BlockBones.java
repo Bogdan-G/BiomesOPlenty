@@ -243,4 +243,10 @@ public class BlockBones extends Block
 		}
 		return meta;
 	}
+
+    @Override
+    public int tickRate(World p_149738_1_)
+    {
+        return 20;
+    }
 }

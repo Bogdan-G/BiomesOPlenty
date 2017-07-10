@@ -218,4 +218,10 @@ public class BlockBOPCoral extends BOPBlock
 	{
 		return category.ordinal() == category.values().length - 1 ? coral.length - category.ordinal() * 8 : 8;
 	}
+
+    @Override
+    public int tickRate(World p_149738_1_)
+    {
+        return 20;
+    }
 }

@@ -10,7 +10,7 @@ import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
-import net.minecraft.world.IBlockAccess;
+import net.minecraft.world.*;
 import net.minecraftforge.common.util.ForgeDirection;
 import biomesoplenty.BiomesOPlenty;
 import biomesoplenty.api.content.BOPCBlocks;
@@ -53,7 +53,7 @@ public class BlockBOPPlank extends Block
 	}
 
 	@Override
-	@SuppressWarnings({ "rawtypes", "unchecked" })
+	//@//SuppressWarnings({ "rawtypes", "unchecked" })
 	public void getSubBlocks(Item block, CreativeTabs creativeTabs, List list) 
 	{
 		for (int i = 0; i < woodTypes.length; ++i) 
@@ -65,7 +65,7 @@ public class BlockBOPPlank extends Block
 	@Override
 	public int getFlammability(IBlockAccess world, int x, int y, int z, ForgeDirection face)
 	{
-		Block block = BOPCBlocks.planks;
+		//Block block = BOPCBlocks.planks;
 
 		if (/*block == BOPCBlocks.planks && */world.getBlockMetadata(x, y, z) == 12)
 		{
@@ -80,7 +80,7 @@ public class BlockBOPPlank extends Block
 	@Override
 	public int getFireSpreadSpeed(IBlockAccess world, int x, int y, int z, ForgeDirection face)
 	{
-		Block block = BOPCBlocks.planks;
+		//Block block = BOPCBlocks.planks;
 
 		if (/*block == BOPCBlocks.planks && */world.getBlockMetadata(x, y, z) == 12)
 		{
@@ -95,7 +95,7 @@ public class BlockBOPPlank extends Block
 	@Override
 	public boolean isFlammable(IBlockAccess world, int x, int y, int z, ForgeDirection face)
 	{
-		Block block = BOPCBlocks.planks;
+		//Block block = BOPCBlocks.planks;
 
 		if (/*block == BOPCBlocks.planks && */world.getBlockMetadata(x, y, z) == 12)
 		{
@@ -112,4 +112,10 @@ public class BlockBOPPlank extends Block
 	{
 		return meta;
 	}
+
+    @Override
+    public int tickRate(World p_149738_1_)
+    {
+        return 20;
+    }
 }

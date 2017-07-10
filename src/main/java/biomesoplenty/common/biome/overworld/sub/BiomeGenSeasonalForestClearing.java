@@ -25,8 +25,8 @@ public class BiomeGenSeasonalForestClearing extends BOPSubBiome implements IBiom
     {
         super(id);
         
-        this.zoom = 0.5D;
-		this.threshold = 0.5D;
+        this.zoom = 0.5F;
+		this.threshold = 0.5F;
 
         this.setHeight(biomeHeight);
         this.setColor(13620065);

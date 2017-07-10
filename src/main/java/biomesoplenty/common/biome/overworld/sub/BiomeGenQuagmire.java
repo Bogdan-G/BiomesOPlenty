@@ -21,8 +21,8 @@ public class BiomeGenQuagmire extends BOPSubBiome
     {
         super(id);
         
-        this.zoom = 0.5D;
-		this.threshold = 0D;
+        this.zoom = 0.5F;
+		this.threshold = 0F;
         
         this.setHeight(biomeHeight);
         this.setColor(5257771);

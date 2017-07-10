@@ -20,8 +20,8 @@ public class BiomeGenAlpsForest extends BOPSubBiome
 	{
 		super(id);
 		
-		this.zoom = 0.25D;
-		this.threshold = 0.25D;
+		this.zoom = 0.25F;
+		this.threshold = 0.25F;
 
         this.setHeight(biomeHeight);
         this.setColor(8034682);

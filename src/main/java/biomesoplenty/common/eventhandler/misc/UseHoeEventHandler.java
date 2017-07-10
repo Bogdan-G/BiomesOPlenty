@@ -13,8 +13,7 @@ public class UseHoeEventHandler
 	@SubscribeEvent(priority=EventPriority.LOWEST)
 	public void useHoe(UseHoeEvent event)
 	{
-		if (event.getResult() != Result.DEFAULT || event.isCanceled())
-			return;
+		if (event.getResult() != Result.DEFAULT || event.isCanceled()) return;
 		
 		int meta = event.world.getBlockMetadata(event.x, event.y, event.z);
 		Block block = event.world.getBlock(event.x, event.y, event.z);

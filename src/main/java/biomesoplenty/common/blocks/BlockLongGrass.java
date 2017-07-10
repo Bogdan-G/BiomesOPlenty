@@ -121,4 +121,10 @@ public class BlockLongGrass extends Block
 	{
 		return Blocks.dirt.getItemDropped(izero, random, fortune);
 	}
+
+    @Override
+    public int tickRate(World p_149738_1_)
+    {
+        return 20;
+    }
 }

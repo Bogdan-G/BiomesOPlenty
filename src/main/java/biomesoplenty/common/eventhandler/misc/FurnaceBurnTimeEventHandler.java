@@ -9,7 +9,7 @@ import biomesoplenty.api.content.BOPCItems;
 import cpw.mods.fml.common.eventhandler.Event.Result;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 
-@SuppressWarnings("deprecation")
+//@//SuppressWarnings("deprecation")
 public class FurnaceBurnTimeEventHandler {
 
 	@SubscribeEvent
@@ -29,19 +29,7 @@ public class FurnaceBurnTimeEventHandler {
 			if (fuel.isItemEqual(new ItemStack(BOPCItems.misc, 0, 1))) {
 				event.burnTime = 400;
 				event.setResult(Result.ALLOW);
-			} else if (fuel.isItemEqual(new ItemStack(BOPCBlocks.woodenSingleSlab2, 0, 3))) {
-				event.burnTime = 0;
-				event.setResult(Result.DENY);
-			} else if (fuel.isItemEqual(new ItemStack(BOPCBlocks.woodenDoubleSlab2, 0, 3))) {
-				event.burnTime = 0;
-				event.setResult(Result.DENY);
-			} else if (fuel.isItemEqual(new ItemStack(BOPCBlocks.logs4, 0, 1))) {
-				event.burnTime = 0;
-				event.setResult(Result.DENY);
-			} else if (fuel.isItemEqual(new ItemStack(BOPCBlocks.planks, 0, 12))) {
-				event.burnTime = 0;
-				event.setResult(Result.DENY);
-			} else if (fuel.isItemEqual(new ItemStack(BOPCBlocks.saplings, 0, 13))) {
+			} else if (fuel.isItemEqual(new ItemStack(BOPCBlocks.woodenSingleSlab2, 0, 3)) || fuel.isItemEqual(new ItemStack(BOPCBlocks.woodenDoubleSlab2, 0, 3)) || fuel.isItemEqual(new ItemStack(BOPCBlocks.logs4, 0, 1)) || fuel.isItemEqual(new ItemStack(BOPCBlocks.planks, 0, 12)) || fuel.isItemEqual(new ItemStack(BOPCBlocks.saplings, 0, 13))) {
 				event.burnTime = 0;
 				event.setResult(Result.DENY);
 			}

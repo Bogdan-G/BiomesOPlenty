@@ -21,8 +21,8 @@ public class BiomeGenSpruceWoods extends BOPSubBiome
     {
         super(id);
         
-        this.zoom = 0.25D;
-		this.threshold = 0.25D;
+        this.zoom = 0.25F;
+		this.threshold = 0.25F;
 
         this.setColor(6396257);
         this.setTemperatureRainfall(0.7F, 0.8F);

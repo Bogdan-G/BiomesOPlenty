@@ -236,4 +236,10 @@ public class BlockBOPNewGrass extends BlockGrass implements ISubLocalization
             return material != Material.snow && material != Material.craftedSnow ? grassIcons[2 * meta] : grassIcons[2 * meta + 1];
     	}
     }
+
+    @Override
+    public int tickRate(World p_149738_1_)
+    {
+        return 20;
+    }
 }

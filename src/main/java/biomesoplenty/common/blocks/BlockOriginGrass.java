@@ -120,4 +120,10 @@ public class BlockOriginGrass extends Block
 	{
 		return Blocks.dirt.getItemDropped(0, random, fortune);
 	}
+
+    @Override
+    public int tickRate(World p_149738_1_)
+    {
+        return 20;
+    }
 }

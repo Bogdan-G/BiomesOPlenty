@@ -26,8 +26,8 @@ public class BiomeGenTropics extends BOPSubBiome
     {
         super(id);
         
-        this.zoom = 0.01D;
-		this.threshold = 0.5D;
+        this.zoom = 0.01F;
+		this.threshold = 0.5F;
         
         this.setHeight(biomeHeight);
         this.setColor(2211330);

@@ -174,4 +174,10 @@ public class BlockBamboo extends Block implements IPlantable
 		return world.getBlockMetadata(x, y, z);
 	}
 
+    @Override
+    public int tickRate(World p_149738_1_)
+    {
+        return 20;
+    }
+
 }

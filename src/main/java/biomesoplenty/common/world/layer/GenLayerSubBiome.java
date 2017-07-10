@@ -7,7 +7,7 @@ import net.minecraft.world.gen.layer.GenLayer;
 import net.minecraft.world.gen.layer.IntCache;
 import net.minecraftforge.common.BiomeManager.BiomeEntry;
 
-import org.apache.commons.lang3.tuple.Pair;
+//import org.apache.commons.lang3.tuple.Pair;
 
 import biomesoplenty.common.biome.BOPSubBiome;
 import biomesoplenty.common.world.BOPBiomeManager;
@@ -17,7 +17,9 @@ public class GenLayerSubBiome extends GenLayer
 {
 	private static final int OFFSET_RANGE = 500000;
 	
-	private Pair<Integer, Integer>[] offsets = new Pair[BiomeGenBase.getBiomeGenArray().length];
+	//We store primitives, we can make a two-dimensional array, but we can make the inner class, and so we can make a one-dimensional array
+	//Perhaps the array structure has less data amount(volume) than a class with 2 variables
+	private final int[] offsets = new int[BiomeGenBase.getBiomeGenArray().length*2];
 	
 	public GenLayerSubBiome(long seed, GenLayer parent) 
 	{
@@ -46,9 +48,10 @@ public class GenLayerSubBiome extends GenLayer
         		
         		if (selectedSubBiome != null)
         		{
-        			Pair<Integer, Integer> offset = getOffset(selectedSubBiome);
+        			int offsetLeft = offsets[selectedSubBiome.biomeID];//getOffset(selectedSubBiome);
+        			int offsetRight = offsets[offsets.length/2-1+selectedSubBiome.biomeID];
         			
-        			if (SimplexNoise.noise((xi + x + offset.getLeft()) * selectedSubBiome.zoom, (zi + z + offset.getRight()) * selectedSubBiome.zoom) > selectedSubBiome.threshold)  
+        			if (SimplexNoise.noise((xi + x + offsetLeft) * selectedSubBiome.zoom, (zi + z + offsetRight) * selectedSubBiome.zoom) > selectedSubBiome.threshold)  
         			{
         				outputBiomeIDs[xi + zi * width] = selectedSubBiome.biomeID;
         			}
@@ -64,16 +67,20 @@ public class GenLayerSubBiome extends GenLayer
         return outputBiomeIDs;
     }
     
-    private Pair<Integer, Integer> getOffset(BiomeGenBase biome)
+    /*private Pair<Integer, Integer> getOffset(BiomeGenBase biome)
     {
     	return offsets[biome.biomeID];
-    }
+    }*/
 
     private void setOffsets()
     {
     	for (int i = 0; i< offsets.length; i++)
     	{
-    		offsets[i] = Pair.of(this.nextInt(OFFSET_RANGE) - (OFFSET_RANGE / 2), this.nextInt(OFFSET_RANGE) - (OFFSET_RANGE / 2));
+    		//offsets[i] = Pair.of(this.nextInt(OFFSET_RANGE) - (OFFSET_RANGE / 2), this.nextInt(OFFSET_RANGE) - (OFFSET_RANGE / 2));
+    		offsets[i] = this.nextInt(OFFSET_RANGE) - (OFFSET_RANGE / 2);
+    		i++;
+    		offsets[i] = this.nextInt(OFFSET_RANGE) - (OFFSET_RANGE / 2);
+    		//offsets[offsets.length+i] = this.nextInt(OFFSET_RANGE) - (OFFSET_RANGE / 2);
     	}
     }
 }

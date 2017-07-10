@@ -92,7 +92,7 @@ public class BlockBOPSlab extends BlockSlab
 	}
 
 	@Override
-	@SuppressWarnings({ "rawtypes", "unchecked" })
+	//@//SuppressWarnings({ "rawtypes", "unchecked" })
 	public void getSubBlocks(Item block, CreativeTabs creativeTabs, List list) 
 	{
 		int max = 0;
@@ -274,4 +274,10 @@ public class BlockBOPSlab extends BlockSlab
 	{
 		return meta & 7;
 	}
+
+    @Override
+    public int tickRate(World p_149738_1_)
+    {
+        return 20;
+    }
 }

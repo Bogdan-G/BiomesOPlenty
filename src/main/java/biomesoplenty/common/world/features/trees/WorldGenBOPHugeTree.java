@@ -54,14 +54,14 @@ public class WorldGenBOPHugeTree extends WorldGenAbstractTree
 
 	void generateLeafNodeList()
 	{
-		this.height = (int)((double)this.heightLimit * this.heightAttenuation);
+		this.height = (int)(this.heightLimit * this.heightAttenuation);
 
 		if (this.height >= this.heightLimit)
 		{
 			this.height = this.heightLimit - 1;
 		}
 
-		int i = (int)(1.382D + Math.pow(this.leafDensity * (double)this.heightLimit / 16.0D, 2.0D));
+		int i = (int)(1.382D + Math.pow(this.leafDensity * this.heightLimit / 16.0D, 2.0D));
 
 		if (i < 1)
 		{
@@ -91,28 +91,28 @@ public class WorldGenBOPHugeTree extends WorldGenAbstractTree
 			}
 			else
 			{
-				for (double d0 = 0.5D; j1 < i; ++j1)
+				for (float d0 = 0.5F; j1 < i; ++j1)
 				{
-					double d1 = this.scaleWidth * (double)f * ((double)this.rand.nextFloat() + 0.328D);
-					double d2 = (double)this.rand.nextFloat() * 2.0D * Math.PI;
-					int k1 = MathHelper.floor_double(d1 * Math.sin(d2) + (double)this.basePos[0] + d0);
-					int l1 = MathHelper.floor_double(d1 * Math.cos(d2) + (double)this.basePos[2] + d0);
+					float d1 = (float)this.scaleWidth * f * (this.rand.nextFloat() + 0.328F);
+					float d2 = this.rand.nextFloat() * 2.0F * (float)Math.PI;
+					int k1 = MathHelper.floor_float(d1 * (float)Math.sin(d2) + this.basePos[0] + d0);
+					int l1 = MathHelper.floor_float(d1 * (float)Math.cos(d2) + this.basePos[2] + d0);
 					int[] aint1 = new int[] {k1, j, l1};
 					int[] aint2 = new int[] {k1, j + this.leafDistanceLimit, l1};
 
 					if (this.checkBlockLine(aint1, aint2) == -1)
 					{
 						int[] aint3 = new int[] {this.basePos[0], this.basePos[1], this.basePos[2]};
-						double d3 = Math.sqrt(Math.pow((double)Math.abs(this.basePos[0] - aint1[0]), 2.0D) + Math.pow((double)Math.abs(this.basePos[2] - aint1[2]), 2.0D));
-						double d4 = d3 * this.branchSlope;
+						float d3 = (float)Math.sqrt(Math.pow(Math.abs(this.basePos[0] - aint1[0]), 2.0F) + Math.pow(Math.abs(this.basePos[2] - aint1[2]), 2.0F));
+						float d4 = d3 * (float)this.branchSlope;
 
-						if ((double)aint1[1] - d4 > (double)l)
+						if (aint1[1] - d4 > l)
 						{
 							aint3[1] = l;
 						}
 						else
 						{
-							aint3[1] = (int)((double)aint1[1] - d4);
+							aint3[1] = (int)(aint1[1] - d4);
 						}
 
 						if (this.checkBlockLine(aint3, aint1) == -1)
@@ -137,7 +137,7 @@ public class WorldGenBOPHugeTree extends WorldGenAbstractTree
 
 	void func_150529_a(int p_150529_1_, int p_150529_2_, int p_150529_3_, float p_150529_4_, byte p_150529_5_, Block p_150529_6_)
 	{
-		int l = (int)((double)p_150529_4_ + 0.618D);
+		int l = (int)(p_150529_4_ + 0.618F);
 		byte b1 = otherCoordPairs[p_150529_5_];
 		byte b2 = otherCoordPairs[p_150529_5_ + 3];
 		int[] aint = new int[] {p_150529_1_, p_150529_2_, p_150529_3_};
@@ -152,9 +152,9 @@ public class WorldGenBOPHugeTree extends WorldGenAbstractTree
 
 			while (j1 <= l)
 			{
-				double d0 = Math.pow((double)Math.abs(i1) + 0.5D, 2.0D) + Math.pow((double)Math.abs(j1) + 0.5D, 2.0D);
+				float d0 = (float)(Math.pow(Math.abs(i1) + 0.5F, 2.0F) + Math.pow(Math.abs(j1) + 0.5F, 2.0F));
 
-				if (d0 > (double)(p_150529_4_ * p_150529_4_))
+				if (d0 > (p_150529_4_ * p_150529_4_))
 				{
 					++j1;
 				}
@@ -180,32 +180,27 @@ public class WorldGenBOPHugeTree extends WorldGenAbstractTree
 	// JAVADOC METHOD $$ layerSize
 	float layerSize(int par1)
 	{
-		if ((double)par1 < (double)((float)this.heightLimit) * 0.3D)
+		if (par1 < (this.heightLimit) * 0.3F) return -1.618F;
+
+		final float f = this.heightLimit / 2.0F;
+		final float f1 = this.heightLimit / 2.0F - par1;
+		float f2;
+
+		if (f1 == 0.0F)
 		{
-			return -1.618F;
+			f2 = f;
+		}
+		else if (Math.abs(f1) >= f)
+		{
+			f2 = 0.0F;
 		}
 		else
 		{
-			float f = (float)this.heightLimit / 2.0F;
-			float f1 = (float)this.heightLimit / 2.0F - (float)par1;
-			float f2;
-
-			if (f1 == 0.0F)
-			{
-				f2 = f;
-			}
-			else if (Math.abs(f1) >= f)
-			{
-				f2 = 0.0F;
-			}
-			else
-			{
-				f2 = (float)Math.sqrt(Math.pow((double)Math.abs(f), 2.0D) - Math.pow((double)Math.abs(f1), 2.0D));
-			}
-
-			f2 *= 0.5F;
-			return f2;
+			f2 = (float)Math.sqrt(Math.pow(Math.abs(f), 2.0F) - Math.pow(Math.abs(f1), 2.0F));
 		}
+
+		f2 *= 0.5F;
+		return f2;
 	}
 
 	float leafSize(int par1)
@@ -256,16 +251,16 @@ public class WorldGenBOPHugeTree extends WorldGenAbstractTree
 				b4 = -1;
 			}
 
-			double d0 = (double)aint2[b2] / (double)aint2[b1];
-			double d1 = (double)aint2[b3] / (double)aint2[b1];
+			float d0 = aint2[b2] / (float)aint2[b1];
+			float d1 = aint2[b3] / (float)aint2[b1];
 			int[] aint3 = new int[] {0, 0, 0};
 			int i = 0;
 
 			for (int j = aint2[b1] + b4; i != j; i += b4)
 			{
-				aint3[b1] = MathHelper.floor_double((double)(p_150530_1_[b1] + i) + 0.5D);
-				aint3[b2] = MathHelper.floor_double((double)p_150530_1_[b2] + (double)i * d0 + 0.5D);
-				aint3[b3] = MathHelper.floor_double((double)p_150530_1_[b3] + (double)i * d1 + 0.5D);
+				aint3[b1] = MathHelper.floor_float((p_150530_1_[b1] + i) + 0.5F);
+				aint3[b2] = MathHelper.floor_float(p_150530_1_[b2] + i * d0 + 0.5F);
+				aint3[b3] = MathHelper.floor_float(p_150530_1_[b3] + i * d1 + 0.5F);
 				byte b5 = (byte)metaWood;
 				int k = Math.abs(aint3[0] - p_150530_1_[0]);
 				int l = Math.abs(aint3[2] - p_150530_1_[2]);
@@ -351,94 +346,59 @@ public class WorldGenBOPHugeTree extends WorldGenAbstractTree
 	}
 
 	// JAVADOC METHOD $$ checkBlockLine
-	int checkBlockLine(int[] par1ArrayOfInteger, int[] par2ArrayOfInteger)
+	int checkBlockLine(final int[] par1ArrayOfInteger, final int[] par2ArrayOfInteger)
 	{
 		int[] aint2 = new int[] {0, 0, 0};
-		byte b0 = 0;
-		byte b1;
+		byte b1 = 0;
 
-		for (b1 = 0; b0 < 3; ++b0)
+		aint2[0] = par2ArrayOfInteger[0] - par1ArrayOfInteger[0];
+		aint2[1] = par2ArrayOfInteger[1] - par1ArrayOfInteger[1];
+		if (Math.abs(aint2[1]) > Math.abs(aint2[0])) b1 = 1;
+		aint2[2] = par2ArrayOfInteger[2] - par1ArrayOfInteger[2];
+		if (Math.abs(aint2[2]) > Math.abs(aint2[b1])) b1 = 2;
+
+		if (aint2[b1] == 0) return -1;
+
+		byte b2 = otherCoordPairs[b1];
+		byte b3 = otherCoordPairs[b1 + 3];
+		byte b4;
+
+		if (aint2[b1] > 0) b4 = 1;
+		else b4 = -1;
+
+		float d0 = aint2[b2] / (float)aint2[b1];
+		float d1 = aint2[b3] / (float)aint2[b1];
+		int[] aint3 = new int[] {0, 0, 0};
+		int i = 0;
+		int j;
+
+		for (j = aint2[b1] + b4; i != j; i += b4)
 		{
-			aint2[b0] = par2ArrayOfInteger[b0] - par1ArrayOfInteger[b0];
+			aint3[b1] = par1ArrayOfInteger[b1] + i;
+			aint3[b2] = MathHelper.floor_float(par1ArrayOfInteger[b2] + i * d0);
+			aint3[b3] = MathHelper.floor_float(par1ArrayOfInteger[b3] + i * d1);
+			//useless get -> not a full Forge patch, call getBlock() is not cheap, 
+			//especially when there are a lot of them, they slow down thus the speed of generation of the world
+			//Block block = this.worldObj.getBlock(aint3[0], aint3[1], aint3[2]);
 
-			if (Math.abs(aint2[b0]) > Math.abs(aint2[b1]))
-			{
-				b1 = b0;
-			}
+			if (!this.isReplaceable(worldObj, aint3[0], aint3[1], aint3[2])) break;
 		}
 
-		if (aint2[b1] == 0)
-		{
-			return -1;
-		}
-		else
-		{
-			byte b2 = otherCoordPairs[b1];
-			byte b3 = otherCoordPairs[b1 + 3];
-			byte b4;
-
-			if (aint2[b1] > 0)
-			{
-				b4 = 1;
-			}
-			else
-			{
-				b4 = -1;
-			}
-
-			double d0 = (double)aint2[b2] / (double)aint2[b1];
-			double d1 = (double)aint2[b3] / (double)aint2[b1];
-			int[] aint3 = new int[] {0, 0, 0};
-			int i = 0;
-			int j;
-
-			for (j = aint2[b1] + b4; i != j; i += b4)
-			{
-				aint3[b1] = par1ArrayOfInteger[b1] + i;
-				aint3[b2] = MathHelper.floor_double((double)par1ArrayOfInteger[b2] + (double)i * d0);
-				aint3[b3] = MathHelper.floor_double((double)par1ArrayOfInteger[b3] + (double)i * d1);
-				Block block = this.worldObj.getBlock(aint3[0], aint3[1], aint3[2]);
-
-				if (!this.isReplaceable(worldObj, aint3[0], aint3[1], aint3[2]))
-				{
-					break;
-				}
-			}
-
-			return i == j ? -1 : Math.abs(i);
-		}
+		return i == j ? -1 : Math.abs(i);
 	}
 
 	// JAVADOC METHOD $$ validTreeLocation
 	boolean validTreeLocation()
 	{
-		int[] aint = new int[] {this.basePos[0], this.basePos[1], this.basePos[2]};
-		int[] aint1 = new int[] {this.basePos[0], this.basePos[1] + this.heightLimit - 1, this.basePos[2]};
-		Block block = this.worldObj.getBlock(this.basePos[0], this.basePos[1] - 1, this.basePos[2]);
+		final int[] aint = new int[] {this.basePos[0], this.basePos[1], this.basePos[2]};
+		final int[] aint1 = new int[] {this.basePos[0], this.basePos[1] + this.heightLimit - 1, this.basePos[2]};
+		if (!this.worldObj.getBlock(this.basePos[0], this.basePos[1] - 1, this.basePos[2]).canSustainPlant(worldObj, basePos[0], basePos[1] - 1, basePos[2], ForgeDirection.UP, (BlockSapling)Blocks.sapling)) return false;
 
-		boolean isSoil = block.canSustainPlant(worldObj, basePos[0], basePos[1] - 1, basePos[2], ForgeDirection.UP, (BlockSapling)Blocks.sapling);
-		if (!isSoil)
-		{
-			return false;
-		}
-		else
-		{
-			int i = this.checkBlockLine(aint, aint1);
-
-			if (i == -1)
-			{
-				return true;
-			}
-			else if (i < 6)
-			{
-				return false;
-			}
-			else
-			{
-				this.heightLimit = i;
-				return true;
-			}
-		}
+		final int i = this.checkBlockLine(aint, aint1);
+		if (i == -1) return true;
+		if (i < 6) return false;
+		this.heightLimit = i;
+		return true;
 	}
 
 	@Override
@@ -459,8 +419,8 @@ public class WorldGenBOPHugeTree extends WorldGenAbstractTree
 	public boolean generate(World par1World, Random par2Random, int par3, int par4, int par5)
 	{
 		this.worldObj = par1World;
-		long l = par2Random.nextLong();
-		this.rand.setSeed(l);
+		//long l = par2Random.nextLong();
+		this.rand.setSeed(par2Random.nextLong());
 		this.basePos[0] = par3;
 		this.basePos[1] = par4;
 		this.basePos[2] = par5;
@@ -472,15 +432,15 @@ public class WorldGenBOPHugeTree extends WorldGenAbstractTree
 
 		if (!this.validTreeLocation())
 		{
+			this.worldObj = null; //Fix vanilla Mem leak, holds latest world
 			return false;
 		}
-		else
-		{
-			this.generateLeafNodeList();
-			this.generateLeaves();
-			this.generateTrunk();
-			this.generateLeafNodeBases();
-			return true;
-		}
+
+		this.generateLeafNodeList();
+		this.generateLeaves();
+		this.generateTrunk();
+		this.generateLeafNodeBases();
+		this.worldObj = null; //Fix vanilla Mem leak, holds latest world
+		return true;
 	}
 }

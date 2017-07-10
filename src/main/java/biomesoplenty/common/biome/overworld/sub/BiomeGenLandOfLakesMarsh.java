@@ -22,8 +22,8 @@ public class BiomeGenLandOfLakesMarsh extends BOPSubBiome
 	{
 		super(id);
 		
-		this.zoom = 0.5D;
-		this.threshold = 0.25D;
+		this.zoom = 0.5F;
+		this.threshold = 0.25F;
 
         this.setHeight(biomeHeight);
         this.setColor(6725742);

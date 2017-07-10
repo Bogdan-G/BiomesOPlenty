@@ -70,6 +70,7 @@ processResources {
     from(sourceSets.main.resources.srcDirs) {
         include '**/*.info'
         include '**/*.properties'
+        include 'META-INF/bop_at.cfg'
 
         // replaces
         expand ([
@@ -90,13 +91,16 @@ processResources {
 
 jar {
     classifier = 'universal'
+    manifest {
+        attributes 'FMLAT': 'bop_at.cfg'
+    }
 }
 
 import net.minecraftforge.gradle.tasks.dev.ChangelogTask
 import net.minecraftforge.gradle.common.Constants
 import net.minecraftforge.gradle.delayed.*
 
-task createChangelog(type: ChangelogTask) {
+/*task createChangelog(type: ChangelogTask) {
     def jobName = "${System.getenv().JOB_NAME}"
     def buildNumber = "${System.getenv().BUILD_NUMBER}"
 
@@ -106,7 +110,7 @@ task createChangelog(type: ChangelogTask) {
     setAuthPassword(new DelayedString(project, 'dc6d48ca20a474beeac280a9a16a926e'));
     setTargetBuild({buildNumber.toString()});
     setOutput(new DelayedFile(project, 'build/libs/' + project.getName() + '-' + project.version + '-changelog.txt'));
-}
+}*/
 
 //tasks.build.dependsOn('createChangelog')
 

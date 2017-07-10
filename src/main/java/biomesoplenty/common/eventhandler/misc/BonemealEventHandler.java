@@ -118,14 +118,11 @@ public class BonemealEventHandler
 				worldgengiantflower.generate(event.world, event.world.rand, event.x, event.y - 1, event.z);
 			}
 		}
-		else if (block == BOPCBlocks.turnip)
+		else if (block == BOPCBlocks.turnip && (meta != 7) && (!event.world.isRemote))
 		{
-			if ((event.world.getBlockMetadata(x, y, z) != 7) && (!event.world.isRemote))
-			{
-				((BlockCrops)BOPCBlocks.turnip).func_149863_m(event.world, x, y, z);
-			}
+			((BlockCrops)BOPCBlocks.turnip).func_149863_m(event.world, x, y, z);
 		}
-		else if (block == BOPCBlocks.bopGrass && event.world.getBlockMetadata(x, y, z) == 0)
+		else if (block == BOPCBlocks.bopGrass && meta == 0)
 		{
 			int var14 = y + 1;
 

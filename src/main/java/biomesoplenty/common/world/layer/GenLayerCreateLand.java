@@ -22,14 +22,7 @@ public class GenLayerCreateLand extends GenLayer
         	{
         		this.initChunkSeed((long)(x + xItr), (long)(z + zItr));
         		
-        		if (this.nextInt(100) < BOPConfigurationTerrainGen.landmassPercentage)
-        		{
-        			outputBiomeIds[xItr + zItr * length] = 1;
-        		}
-        		else
-        		{
-        			outputBiomeIds[xItr + zItr * length] = 0;
-        		}
+        		outputBiomeIds[xItr + zItr * length] = (this.nextInt(100) < BOPConfigurationTerrainGen.landmassPercentage) ? 1 : 0;
         	}
         }
 

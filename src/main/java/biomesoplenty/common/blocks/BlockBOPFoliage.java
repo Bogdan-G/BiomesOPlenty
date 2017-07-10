@@ -386,4 +386,10 @@ public class BlockBOPFoliage extends BOPBlockWorldDecor implements IShearable
 
 		return ret;
 	}
+
+    @Override
+    public int tickRate(World p_149738_1_)
+    {
+        return 20;
+    }
 }

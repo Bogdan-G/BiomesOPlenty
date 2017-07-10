@@ -23,8 +23,8 @@ public class BiomeGenSilkglades extends BOPSubBiome
     {
         super(id);
         
-        this.zoom = 0.25D;
-		this.threshold = 0.25D;
+        this.zoom = 0.25F;
+		this.threshold = 0.25F;
         
         this.setHeight(biomeHeight);
         this.setColor(13420973);

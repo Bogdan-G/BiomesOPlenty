@@ -217,6 +217,6 @@ public class GenLayerBiomeBOP extends GenLayerBiome
     
     private boolean isBiomeOceanicAndEnabled(int biomeId)
     {
-        return (biomeId == BiomeGenBase.ocean.biomeID  && BOPConfigurationBiomeGen.oceanGen)|| (biomeId == BiomeGenBase.deepOcean.biomeID && BOPConfigurationBiomeGen.deepOceanGen) || (biomeId == BiomeGenBase.frozenOcean.biomeID && BOPConfigurationBiomeGen.frozenOceanGen);
+        return (biomeId == BiomeGenBase.ocean.biomeID && BOPConfigurationBiomeGen.oceanGen) || (biomeId == BiomeGenBase.deepOcean.biomeID && BOPConfigurationBiomeGen.deepOceanGen) || (biomeId == BiomeGenBase.frozenOcean.biomeID && BOPConfigurationBiomeGen.frozenOceanGen);
     }
 }

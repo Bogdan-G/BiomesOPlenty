@@ -12,6 +12,7 @@ public class WorldGenBOPUndergroundDecoration extends WorldGeneratorBOP
 {
     private Block tallGrass;
     private int tallGrassMetadata;
+    private int moreGen = 10;
 
     public WorldGenBOPUndergroundDecoration(Block p_i45466_1_, int p_i45466_2_)
     {
@@ -22,6 +23,9 @@ public class WorldGenBOPUndergroundDecoration extends WorldGeneratorBOP
     @Override
 	public boolean generate(World world, Random random, int x, int y, int z)
     {
+        if (moreGen<10 || random.nextInt(8)==0) {
+        if (random.nextInt(10)==0) moreGen=-1;
+        if (moreGen<10) moreGen++;
         Block block;
 
         do
@@ -44,7 +48,7 @@ public class WorldGenBOPUndergroundDecoration extends WorldGeneratorBOP
             {
                 world.setBlock(i1, j1, k1, this.tallGrass, this.tallGrassMetadata, 2);
             }
-        }
+        }}
 
         return true;
     }
