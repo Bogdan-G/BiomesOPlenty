@@ -55,10 +55,8 @@ public class WorldTypeMessageGUI extends GuiScreen
     @Override
     protected void actionPerformed(GuiButton button)
     {
-        if (button.enabled)
+        if (button.enabled && button.id == 0)
         {
-            if (button.id == 0)
-            {
                 try
                 {
                     nameHashFile.createNewFile();
@@ -70,7 +68,6 @@ public class WorldTypeMessageGUI extends GuiScreen
                 }
                 
                 this.mc.displayGuiScreen(this.parentGuiScreen);
-            }
         }
     }
     

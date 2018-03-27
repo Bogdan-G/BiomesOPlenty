@@ -141,12 +141,7 @@ public class BlockBOPNewFarmland extends BlockFarmland implements ISubLocalizati
 	public void onNeighborBlockChange(World world, int x, int y, int z, Block block)
 	{
 		super.onNeighborBlockChange(world, x, y, z, block);
-		Material material = world.getBlock(x, y + 1, z).getMaterial();
-
-		if (material.isSolid())
-		{
-			world.setBlock(x, y, z, BOPCBlocks.newBopDirt, (world.getBlockMetadata(x, y, z) / 2) * 2, 2);
-		}
+		if (world.getBlock(x, y + 1, z).getMaterial().isSolid()) world.setBlock(x, y, z, BOPCBlocks.newBopDirt, (world.getBlockMetadata(x, y, z) / 2) * 2, 2);
 	}
 
 	public void onFallenUpon(World world, int x, int y, int z, Entity entity, float fallDistance)
@@ -179,11 +174,9 @@ public class BlockBOPNewFarmland extends BlockFarmland implements ISubLocalizati
 	{
 		EnumPlantType plantType = plantable.getPlantType(world, x, y + 1, z);
 
-		switch (plantType)
-		{
-			case Crop:
+		if (plantType==EnumPlantType.Crop) {
 				return true;
-			default:
+		} else {
 				return super.canSustainPlant(world, x, y, z, direction, plantable);
 		}
 	}

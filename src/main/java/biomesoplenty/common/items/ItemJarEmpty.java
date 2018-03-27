@@ -96,10 +96,10 @@ public class ItemJarEmpty extends Item
     			{
     				par2EntityPlayer.worldObj.spawnEntityInWorld(entityitem);
     				
-    				//if (!(par2EntityPlayer instanceof FakePlayer))
-    				//{
+    				if (!(par2EntityPlayer instanceof FakePlayer))
+    				{
     					entityitem.onCollideWithPlayer(par2EntityPlayer);
-    				//}
+    				}
     			}
 			}
     		else

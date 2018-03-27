@@ -95,19 +95,12 @@ public class BlockBOPPlant extends BOPBlockWorldDecor implements IShearable
 		float d0 = (float)(((i1 >> 16 & 15L) / 15.0F - 0.5D) * 0.5D);
 		float d2 = (float)(((i1 >> 24 & 15L) / 15.0F - 0.5D) * 0.5D);
 
-		switch (meta)
-		{
-		case 7:
+		if (meta==7) {
 			this.setBlockBounds(0.125F, 0.0F, 0.125F, 0.875F, 1.00F, 0.875F);
-			break;
-			
-		case 12:
+		} else if (meta==12) {
 			this.setBlockBounds(0.3F + d0, 0.0F, 0.3F + d2, 0.7F + d0, 0.4F, 0.7F + d2);
-			break;
-
-		default:
+		} else {
 			this.setBlockBounds(0.1F, 0.0F, 0.1F, 0.9F, 0.8F, 0.9F);
-			break;
 		}
 	}
 
@@ -130,52 +123,35 @@ public class BlockBOPPlant extends BOPBlockWorldDecor implements IShearable
 		Block root = world.getBlock(x, y + 1, z);
 		Block reedwater = world.getBlock(x, y - 2, z);
 		
-		switch (metadata)
-		{
-		case 0: // Dead Grass
+		if(metadata==0) { // Dead Grass
 		return block == BOPCBlocks.driedDirt || block == Blocks.sand;
-
-		case 1: // Desert Grass
+		} else if(metadata==1) { // Desert Grass
 			return block == Blocks.hardened_clay;
-
-		case 2: // Desert Sprouts
-		case 3: // Dune Grass
+		} else if(metadata==2 || metadata==3) { // Dune Grass // Desert Sprouts
 			return block == Blocks.sand;
-
-		case 4: // Spectral Fern
+		} else if(metadata==4) { // Spectral Fern
 			return block == BOPCBlocks.bopGrass;
-
-		case 5: // Thorns
-			return block == Blocks.grass|| block == Blocks.dirt || block == Blocks.soul_sand || block.canSustainPlant(world, x, y - 1, z, ForgeDirection.UP, this);
-			
-		case 6: // Wild Rice
+		} else if(metadata==5) { // Thorns
+			return block == Blocks.grass || block == Blocks.dirt || block == Blocks.soul_sand || block.canSustainPlant(world, x, y - 1, z, ForgeDirection.UP, this);
+		} else if(metadata==6) { // Wild Rice
 			return block == Blocks.grass || block == Blocks.dirt || block.canSustainPlant(world, x, y - 1, z, ForgeDirection.UP, this);
-
-		case 7: // Cattail
-			return block != Blocks.grass && block != BOPCBlocks.newBopGrass ? false : (world.getBlock(x - 1, y - 1, z).getMaterial() == Material.water ? true : (world.getBlock(x + 1, y - 1, z).getMaterial() == Material.water ? true : (world.getBlock(x, y - 1, z - 1).getMaterial() == Material.water ? true : world.getBlock(x, y - 1, z + 1).getMaterial() == Material.water)));
-
-		case 8: // River Cane
+		} else if(metadata==7) { // Cattail
+			return !(block != Blocks.grass && block != BOPCBlocks.newBopGrass) && (world.getBlock(x - 1, y - 1, z).getMaterial() == Material.water || (world.getBlock(x + 1, y - 1, z).getMaterial() == Material.water || (world.getBlock(x, y - 1, z - 1).getMaterial() == Material.water || world.getBlock(x, y - 1, z + 1).getMaterial() == Material.water)));
+		} else if(metadata==8) { // River Cane
 			return block == this || block == Blocks.grass || block.canSustainPlant(world, x, y - 1, z, ForgeDirection.UP, this);
-			
-		case 9:
+		} else if(metadata==9) {
 			return block == this;
-
-		case 10: // High Cattail Bottom
-			return block != Blocks.grass && block != BOPCBlocks.newBopGrass ? false : (world.getBlock(x - 1, y - 1, z).getMaterial() == Material.water ? true : (world.getBlock(x + 1, y - 1, z).getMaterial() == Material.water ? true : (world.getBlock(x, y - 1, z - 1).getMaterial() == Material.water ? true : world.getBlock(x, y - 1, z + 1).getMaterial() == Material.water)));
-
-		case 12: // Tiny Cactus
+		} else if(metadata==10) { // High Cattail Bottom
+			return !(block != Blocks.grass && block != BOPCBlocks.newBopGrass) && (world.getBlock(x - 1, y - 1, z).getMaterial() == Material.water ||  (world.getBlock(x + 1, y - 1, z).getMaterial() == Material.water || (world.getBlock(x, y - 1, z - 1).getMaterial() == Material.water || world.getBlock(x, y - 1, z + 1).getMaterial() == Material.water)));
+		} else if(metadata==12) { // Tiny Cactus
 			return block == Blocks.sand || block == Blocks.hardened_clay || block == Blocks.soul_sand;
-			
-		case 13: // Wither Wart
+		} else if(metadata==13) { // Wither Wart
 			return block == Blocks.soul_sand;
-			
-		case 14: // Reed
+		} else if(metadata==14) { // Reed
 			return block == Blocks.water && reedwater != Blocks.water;
-			
-		case 15: // Root
+		} else if(metadata==15) { // Root
 			return root != Blocks.air && (root == Blocks.grass || root == Blocks.dirt || root == Blocks.farmland || root == BOPCBlocks.longGrass || root == BOPCBlocks.newBopGrass || root == BOPCBlocks.newBopDirt);
-			
-		default:
+		} else {
 			return block == Blocks.grass || block == Blocks.dirt || block == Blocks.farmland || block == BOPCBlocks.overgrownNetherrack || block.canSustainPlant(world, x, y - 1, z, ForgeDirection.UP, this);
 		}
 	}
@@ -196,19 +172,20 @@ public class BlockBOPPlant extends BOPBlockWorldDecor implements IShearable
 	{
 		super.onNeighborBlockChange(world, x, y, z, neighborBlock);
 
-		if (world.getBlockMetadata(x, y, z) == CATTAILTOP && world.getBlock(x, y - 1, z) == this && world.getBlockMetadata(x, y - 1, z) != CATTAILBOTTOM) 
+		int meta = world.getBlockMetadata(x, y, z);
+		if (meta == CATTAILTOP && world.getBlock(x, y - 1, z) == this && world.getBlockMetadata(x, y - 1, z) != CATTAILBOTTOM) 
 		{
 			world.setBlockToAir(x, y, z);
 		}
-		else if (world.getBlockMetadata(x, y, z) == CATTAILBOTTOM && world.getBlock(x, y + 1, z) != this) 
+		else if (meta == CATTAILBOTTOM && world.getBlock(x, y + 1, z) != this) 
 		{
 			world.setBlockToAir(x, y, z);
 		}
-		else if (world.getBlockMetadata(x, y, z) == 8) 
+		else if (meta == 8) 
 		{
 			if (!this.canReplace(world, x, y, z, 0, new ItemStack(BOPCBlocks.plants, 1, 8)))
 			{
-				this.dropBlockAsItem(world, x, y, z, world.getBlockMetadata(x, y, z), 0);
+				this.dropBlockAsItem(world, x, y, z, meta, 0);
 				world.setBlockToAir(x, y, z);
 			}
 		}
@@ -233,8 +210,7 @@ public class BlockBOPPlant extends BOPBlockWorldDecor implements IShearable
 			{
 				entity.attackEntityFrom(DamageSource.cactus, 1);
 			}
-		}
-		if (meta == 12)
+		} else if (meta == 12)
 		{
 			if (entity instanceof EntityPlayer)
 			{
@@ -257,15 +233,9 @@ public class BlockBOPPlant extends BOPBlockWorldDecor implements IShearable
 	{
 		int meta = world.getBlockMetadata(x, y, z);
 
-		switch (meta)
-		{
-		case 9:
-			//return new ItemStack(this, 1, 7);
-
-		case 10:
+		if(meta==9 || meta==10) {
 			return new ItemStack(this, 1, 7);
-
-		case 11:
+		} else if(meta==11) {
 			return new ItemStack(BOPCItems.food, 1, 2);
 		}
 
@@ -351,12 +321,9 @@ public class BlockBOPPlant extends BOPBlockWorldDecor implements IShearable
 		
 		if (equippedItem != null)
 		{
-			if (equippedItem.getItem() != Items.shears)
+			if (equippedItem.getItem() != Items.shears && meta == 5)
 			{
-				if (meta == 5)
-				{
-					player.attackEntityFrom(DamageSource.cactus, 2);
-				}
+				player.attackEntityFrom(DamageSource.cactus, 2);
 			}
 		}
 		else

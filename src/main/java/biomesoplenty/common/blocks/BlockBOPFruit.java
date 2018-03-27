@@ -93,11 +93,11 @@ public class BlockBOPFruit extends BOPBlockWorldDecor
 	{
 		Block block = world.getBlock(x, y + 1, z);
 		
-		switch (metadata)
-		{
-		default:
+		//switch (metadata)
+		//{
+		//default:
 			return block == Blocks.leaves || block == Blocks.leaves2 || block == BOPCBlocks.leaves1 || block == BOPCBlocks.leaves2 || block == BOPCBlocks.leaves3 || block == BOPCBlocks.leaves4;
-		}
+		//}
 	}
 
 	@Override
@@ -113,21 +113,15 @@ public class BlockBOPFruit extends BOPBlockWorldDecor
 	{
 		int meta = world.getBlockMetadata(x, y, z);
 
-		switch (meta)
-		{
-		case 0:
+		if(meta==0) {
 			return new ItemStack(Items.apple, 1, 0);
-
-		case 1:
+		} else if(meta==1) {
 			return new ItemStack(BOPCItems.food, 1, 8);
-			
-		case 2:
+		} else if(meta==2) {
 			return new ItemStack(BOPCItems.food, 1, 3);
-		
-		case 3:
+		} else if(meta==3) {
 			return new ItemStack(BOPCItems.food, 1, 12);
-			
-		case 4:
+		} else if(meta==4) {
 			return new ItemStack(BOPCItems.misc, 1, 13);
 		}
 

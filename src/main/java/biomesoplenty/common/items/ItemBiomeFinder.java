@@ -181,10 +181,7 @@ public class ItemBiomeFinder extends Item
     @Override
     public void addInformation(ItemStack itemStack, EntityPlayer player, List infoList, boolean advancedItemTooltips)
     {
-        if (itemStack.hasTagCompound())
-        {
-            if (itemStack.getTagCompound().hasKey("biomeIDToFind")) 
-            {
+        if (itemStack.hasTagCompound() && itemStack.getTagCompound().hasKey("biomeIDToFind")) {
                 BiomeGenBase biome = BiomeGenBase.getBiomeGenArray()[itemStack.getTagCompound().getInteger("biomeIDToFind")];
 
                 if (biome != null)
@@ -204,7 +201,6 @@ public class ItemBiomeFinder extends Item
                         else infoList.add(String.valueOf(EnumChatFormatting.DARK_GRAY) + EnumChatFormatting.ITALIC + StatCollector.translateToLocal("biomeRadar.scanBiome"));
                     }
                 }
-            }
         }
     }
     
@@ -235,9 +231,7 @@ public class ItemBiomeFinder extends Item
     	if (d6 < -1.0D)
     	{
     		d6 = -1.0D;
-    	}
-
-    	if (d6 > 1.0D)
+    	} else if (d6 > 1.0D)
     	{
     		d6 = 1.0D;
     	}

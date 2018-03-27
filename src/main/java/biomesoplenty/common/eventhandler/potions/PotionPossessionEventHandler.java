@@ -30,9 +30,7 @@ public class PotionPossessionEventHandler
 			entity.motionY = 0.0;
 			entity.motionZ = 0.0;
 
-			if (rand.nextInt(5) == 0)
-			{
-				if (!entity.worldObj.checkBlockCollision(entity.boundingBox.offset(randX, randY, randZ)))
+			if (rand.nextInt(5) == 0 && !entity.worldObj.checkBlockCollision(entity.boundingBox.offset(randX, randY, randZ))) {
 					entity.setPosition(posX + randX, posY + randY, posZ + randZ);
 			}
 

@@ -67,14 +67,14 @@ public class BlockStoneFormations extends BOPBlockWorldDecor implements ISubLoca
 	@Override
 	public void setBlockBoundsBasedOnState(IBlockAccess world, int x, int y, int z)
 	{
-		int meta = world.getBlockMetadata(x, y, z);
+		//int meta = world.getBlockMetadata(x, y, z);
 
-		switch (meta)
-		{
-		default:
+		//switch (meta)
+		//{
+		//default:
 		this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
-			break;
-		}
+			//break;
+		//}
 	}
 
 	@Override
@@ -92,15 +92,11 @@ public class BlockStoneFormations extends BOPBlockWorldDecor implements ISubLoca
 		Block blockBottom = world.getBlock(x, y - 1, z);
 		Block blockTop = world.getBlock(x, y + 1, z);
 		
-		switch (metadata)
-		{
-		case 0: // Stalagmite
+		if(metadata==0) { // Stalagmite
 			return blockBottom instanceof BlockStone;
-			
-		case 1: // Stalactite
+		} else if(metadata==1) { // Stalactite
 		    return blockTop instanceof BlockStone;
-
-		default:
+		} else {
 		    return blockBottom instanceof BlockStone;
 		}
 	}
@@ -139,4 +135,10 @@ public class BlockStoneFormations extends BOPBlockWorldDecor implements ISubLoca
 		if (meta>1) meta=0;
 		return baseName + "." + forms[meta];
 	}
+
+    @Override
+    public int tickRate(World p_149738_1_)
+    {
+        return 100;
+    }
 }

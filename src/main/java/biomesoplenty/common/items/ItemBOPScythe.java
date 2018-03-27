@@ -38,9 +38,7 @@ public class ItemBOPScythe extends Item
         
         if (toolMaterial == ToolMaterial.IRON || toolMaterial == ToolMaterial.GOLD)
         {
-        	if (block != null)
-        	{
-        		if (block.isLeaves(world, x, y, z))
+        	if (block != null && block.isLeaves(world, x, y, z)) {
         			height = 4;
         	}
         	
@@ -48,9 +46,7 @@ public class ItemBOPScythe extends Item
         }
         else if (toolMaterial == ToolMaterial.EMERALD)
         {
-        	if (block != null)
-        	{
-        		if (block.isLeaves(world, x, y, z))
+        	if (block != null && block.isLeaves(world, x, y, z)) {
         			height = 5;
         	}
         	
@@ -58,9 +54,7 @@ public class ItemBOPScythe extends Item
         }
         else if (toolMaterial == BOPItemHelper.toolMaterialAmethyst)
         {
-        	if (block != null)
-        	{
-        		if (block.isLeaves(world, x, y, z))
+        	if (block != null && block.isLeaves(world, x, y, z)) {
         			height = 6;
         	}
         	
@@ -68,9 +62,7 @@ public class ItemBOPScythe extends Item
         }
         else
         {
-        	if (block != null)
-        	{
-        		if (block.isLeaves(world, x, y, z))
+        	if (block != null && block.isLeaves(world, x, y, z)) {
         			height = 0;
         	}
         }
@@ -170,10 +162,7 @@ public class ItemBOPScythe extends Item
     				Block block = world.getBlock(v_x, v_y, v_z);
     				int meta = world.getBlockMetadata(v_x, v_y, v_z);
 
-    				if (block != null)
-    				{    					
-    					if (block.isLeaves(world, v_x, v_y, v_z))
-    					{
+    				if (block != null && block.isLeaves(world, v_x, v_y, v_z)) {
         					if (toolMaterial == ToolMaterial.IRON || toolMaterial == ToolMaterial.GOLD)
         					{
         						if (world.rand.nextInt(26) == 0)
@@ -206,7 +195,6 @@ public class ItemBOPScythe extends Item
 
     						block.dropBlockAsItem(world, v_x, v_y, v_z, meta, 0);
     						world.setBlockToAir(v_x, v_y, v_z);
-    					}
     				}
     			}
     		}

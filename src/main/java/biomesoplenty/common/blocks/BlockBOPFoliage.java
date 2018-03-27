@@ -102,13 +102,7 @@ public class BlockBOPFoliage extends BOPBlockWorldDecor implements IShearable
 	{
 		ArrayList<ItemStack> ret = new ArrayList<ItemStack>();
 
-		switch (meta)
-		{
-		case 1:
-		case 2:
-		case 3:
-		case 10:
-		case 11:
+		if (meta==1 || meta==2 || meta==3 || meta==10 || meta==11) {
 			if (world.rand.nextInt(8) != 0)
 				return ret;
 
@@ -116,9 +110,7 @@ public class BlockBOPFoliage extends BOPBlockWorldDecor implements IShearable
 			if (item != null) {
 				ret.add(item);
 			}
-			break;
-
-		case 5:
+		} else if(meta==5) {
 			if (world.rand.nextInt(50) != 0)
 				return ret;
 
@@ -128,9 +120,7 @@ public class BlockBOPFoliage extends BOPBlockWorldDecor implements IShearable
 			} else {
 				ret.add(new ItemStack(Items.potato, 1));
 			}
-			break;
-			
-		case 12:
+		} else if(meta==12) {
 			if (world.rand.nextInt(32) != 0)
 				return ret;
 
@@ -138,11 +128,8 @@ public class BlockBOPFoliage extends BOPBlockWorldDecor implements IShearable
 			{
 				ret.add(turnipSeedStack.copy());
 			}
-			break;
-			
-		case 8:
+		} else if(meta==8) {
 		    ret.add(new ItemStack(BOPCItems.food, 1, 0));
-		    break;
 		}
 
 		return ret;
@@ -152,23 +139,14 @@ public class BlockBOPFoliage extends BOPBlockWorldDecor implements IShearable
 	{
 		Block block = world.getBlock(x, y - 1, z);
 		
-    	if (block == Blocks.air && world.provider.dimensionId != -1 ? (world.getFullBlockLightValue(x, y, z) >= 8 || world.canBlockSeeTheSky(x, y, z)) : false) return false;
+    	if (block == Blocks.air && world.provider.dimensionId != -1 && (world.getFullBlockLightValue(x, y, z) >= 8 || world.canBlockSeeTheSky(x, y, z))) return false;
 		
-		switch (metadata)
-		{
-		case FLAXTOP:
+		if (metadata==FLAXTOP) {
 			return block == this;
-
-		case 0: //Duckweed
+		} else if(metadata==0) { //Duckweed
 			return block == Blocks.water;
-			
-		//case 14: // Leaf Pile
-			//return block == Blocks.grass || block == Blocks.dirt || block == Blocks.farmland || block == BOPCBlocks.longGrass || block == BOPCBlocks.overgrownNetherrack || block.canSustainPlant(world, x, y - 1, z, ForgeDirection.UP, this);
-			
-		//case 15: // Dead Leaf Pile
-			//return block == Blocks.grass || block == Blocks.dirt || block == Blocks.farmland || block == BOPCBlocks.longGrass || block == BOPCBlocks.overgrownNetherrack || block.canSustainPlant(world, x, y - 1, z, ForgeDirection.UP, this);
-
-		default:
+		} else {
+			// include // Leaf Pile && // Dead Leaf Pile
 			return block == Blocks.grass || block == Blocks.dirt || block == Blocks.farmland || block == BOPCBlocks.longGrass || block == BOPCBlocks.overgrownNetherrack || block.canSustainPlant(world, x, y - 1, z, ForgeDirection.UP, this);
 		}
 	}
@@ -184,13 +162,8 @@ public class BlockBOPFoliage extends BOPBlockWorldDecor implements IShearable
         double d1 = (double)(i >> 8 & 255) / 255.0D;
         double d2 = (double)(i >> 0 & 255) / 255.0D;
 
-		if (meta == 7)
-		{
-			if (random.nextInt(32) == 0)
-			{
-				
-				world.spawnParticle("mobSpell", x + random.nextFloat(), y + random.nextFloat(), z + random.nextFloat(), d0, d1, d2);
-			}
+		if (meta == 7 && random.nextInt(32) == 0) {
+			world.spawnParticle("mobSpell", x + random.nextFloat(), y + random.nextFloat(), z + random.nextFloat(), d0, d1, d2);
 		}
 	}
 
@@ -201,11 +174,11 @@ public class BlockBOPFoliage extends BOPBlockWorldDecor implements IShearable
 		
 	    int metadata = world.getBlockMetadata(x, y, z);
 	    
-	    if (world.getBlockMetadata(x, y, z) == FLAXBOTTOM) 
+	    if (metadata == FLAXBOTTOM) 
 	    {
 	        if (world.getBlock(x, y + 1, z) != this)
 	        {
-	        	this.dropBlockAsItem(world, x, y, z, world.getBlockMetadata(x, y, z), 0);
+	        	this.dropBlockAsItem(world, x, y, z, metadata, 0);
 	        	world.setBlockToAir(x, y, z);
 	        }
 	        else if (!this.isValidPosition(world, x, y, z, metadata))
@@ -267,12 +240,13 @@ public class BlockBOPFoliage extends BOPBlockWorldDecor implements IShearable
 	@Override
     public int colorMultiplier(IBlockAccess world, int x, int y, int z)
 	{
-		if (world.getBlockMetadata(x, y, z) == 9 || world.getBlockMetadata(x, y, z) == 14)
+		int meta = world.getBlockMetadata(x, y, z);
+		if (meta == 9 || meta == 14)
 		{
 			return world.getBiomeGenForCoords(x, z).getBiomeFoliageColor(x, y, z);
 		}
 		
-		if (world.getBlockMetadata(x, y, z) == 15)
+		if (meta == 15)
 		{
 			return 16777215;
 		}
@@ -308,32 +282,15 @@ public class BlockBOPFoliage extends BOPBlockWorldDecor implements IShearable
 	{
 		int meta = world.getBlockMetadata(x, y, z);
 
-		switch (meta)
-		{
-		case 0: //Duckweed
+		if(meta==0 || meta==13 || meta==14 || meta==15) { //Duckweed
+			// include //Clover Patch & //Leaf Pile & //Dead Leaf Pile
 			this.setBlockBounds(0F, 0F, 0F, 1F, 0.015625F, 1F);
-			break;
-			
-		case 1: //Short Grass
+		} else if(meta==1) { //Short Grass
 			this.setBlockBounds(0.1F, 0F, 0.1F, 0.9F, 0.25F, 0.9F);
-			break;
-			
-		case 2: //Medium Grass
+		} else if(meta==2) { //Medium Grass
 			this.setBlockBounds(0.1F, 0F, 0.1F, 0.9F, 0.6F, 0.9F);
-			break;
-			
-		case 13: //Clover Patch
-			//this.setBlockBounds(0F, 0F, 0F, 1F, 0.015625F, 1F);
-			//break;
-			
-		case 14: //Leaf Pile
-		case 15: //Dead Leaf Pile
-			this.setBlockBounds(0F, 0F, 0F, 1F, 0.015625F, 1F);
-			break;
-			
-		default:
+		} else {
 			this.setBlockBounds(0.1F, 0F, 0.1F, 0.9F, 0.8F, 0.9F);
-			break;
 		}
 	}
 
@@ -351,7 +308,7 @@ public class BlockBOPFoliage extends BOPBlockWorldDecor implements IShearable
 			if (!world.isRemote)
 			{
 				world.spawnEntityInWorld(entityitem);
-				//if (!(player instanceof FakePlayer))
+				if (!(player instanceof FakePlayer))
                     entityitem.onCollideWithPlayer(player);
 			}
 			return true;
@@ -371,17 +328,18 @@ public class BlockBOPFoliage extends BOPBlockWorldDecor implements IShearable
 	{
 		ArrayList<ItemStack> ret = new ArrayList<ItemStack>();
 
-		if (world.getBlockMetadata(x, y, z) == FLAXTOP) 
+		int meta = world.getBlockMetadata(x, y, z);
+		if (meta == FLAXTOP) 
 		{
 			ret.add(new ItemStack(BOPCBlocks.foliage, 1, 3));
 		} 
-		else if (world.getBlockMetadata(x, y, z) == 8) 
+		else if (meta == 8) 
 		{
 			ret.add(new ItemStack(BOPCBlocks.foliage, 1, 4));
 		} 
 		else 
 		{
-			ret.add(new ItemStack(this, 1, world.getBlockMetadata(x, y, z)));
+			ret.add(new ItemStack(this, 1, meta));
 		}
 
 		return ret;

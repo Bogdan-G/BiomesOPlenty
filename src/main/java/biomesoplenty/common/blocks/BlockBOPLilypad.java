@@ -126,14 +126,14 @@ public class BlockBOPLilypad extends BOPBlockWorldDecor
 	{
 		Block block = world.getBlock(x, y - 1, z);
 		
-    	if (block == Blocks.air && world.provider.dimensionId != -1 ? (world.getFullBlockLightValue(x, y, z) >= 8 || world.canBlockSeeTheSky(x, y, z)) : false) return false;
+    	if (block == Blocks.air && world.provider.dimensionId != -1 && (world.getFullBlockLightValue(x, y, z) >= 8 || world.canBlockSeeTheSky(x, y, z))) return false;
 		
-		switch (metadata)
-		{
+		//switch (metadata)
+		//{
 
-		default:
+		//default:
 			return block == Blocks.water;
-		}
+		//}
 	}
 
 	@Override

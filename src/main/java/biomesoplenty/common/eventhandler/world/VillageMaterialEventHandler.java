@@ -14,19 +14,11 @@ public class VillageMaterialEventHandler
 	@SubscribeEvent
 	public void getVillageBlockID(BiomeEvent.GetVillageBlockID event)
 	{
-		//Brushland
-		if (event.biome == BOPCBiomes.brushland)
-		{
-			//Gravel
-			if (event.original == Blocks.gravel)
-			{
+		//Brushland //Gravel
+		if (event.biome == BOPCBiomes.brushland && event.original == Blocks.gravel) {
 				event.replacement = Blocks.sand;
 				event.setResult(Result.DENY);
-			}
-		}
-		
-		//Grove
-		if (event.biome == BOPCBiomes.grove)
+		} else if (event.biome == BOPCBiomes.grove) //Grove
 		{	
 			//Logs
 			if (event.original == Blocks.log)
@@ -41,10 +33,7 @@ public class VillageMaterialEventHandler
 				event.replacement = Blocks.dark_oak_stairs;
 				event.setResult(Result.DENY);
 			}
-		}
-		
-		//Heathland
-		if (event.biome == BOPCBiomes.heathland)
+		} else if (event.biome == BOPCBiomes.heathland) //Heathland
 		{
 			//Logs
 			if (event.original == Blocks.log)
@@ -73,21 +62,10 @@ public class VillageMaterialEventHandler
 				event.replacement = Blocks.sand;
 				event.setResult(Result.DENY);
 			}
-		}
-		
-		//Meadow
-		if (event.biome == BOPCBiomes.meadow)
-		{	
-			//Wooden Stairs
-			if (event.original == Blocks.oak_stairs)
-			{
+		} else if (event.biome == BOPCBiomes.meadow && event.original == Blocks.oak_stairs) { //Meadow //Wooden Stairs
 				event.replacement = Blocks.spruce_stairs;
 				event.setResult(Result.DENY);
-			}
-		}
-		
-		//Outback
-		if (event.biome == BOPCBiomes.outback)
+		} else if (event.biome == BOPCBiomes.outback) //Outback
 		{
 			//Logs
 			if (event.original == Blocks.log)
@@ -116,17 +94,9 @@ public class VillageMaterialEventHandler
 				event.replacement = Blocks.sand;
 				event.setResult(Result.DENY);
 			}
-		}
-		
-		//Prairie
-		if (event.biome == BOPCBiomes.prairie)
-		{
-			//Gravel
-			if (event.original == Blocks.gravel)
-			{
+		} else if (event.biome == BOPCBiomes.prairie && event.original == Blocks.gravel) { //Prairie //Gravel
 				event.replacement = Blocks.sand;
 				event.setResult(Result.DENY);
-			}
 		}
 	}
 	
@@ -149,10 +119,7 @@ public class VillageMaterialEventHandler
 				event.replacement = 5;
 				event.setResult(Result.DENY);
 			}
-		}
-		
-		//Heathland
-		if (event.biome == BOPCBiomes.heathland)
+		} else if (event.biome == BOPCBiomes.heathland) //Heathland
 		{
 			//Logs
 			if (event.original == Blocks.log)
@@ -167,10 +134,7 @@ public class VillageMaterialEventHandler
 				event.replacement = 13;
 				event.setResult(Result.DENY);
 			}
-		}
-		
-		//Meadow
-		if (event.biome == BOPCBiomes.meadow)
+		} else if (event.biome == BOPCBiomes.meadow) //Meadow
 		{
 			//Logs
 			if (event.original == Blocks.log)
@@ -185,17 +149,9 @@ public class VillageMaterialEventHandler
 				event.replacement = 1;
 				event.setResult(Result.DENY);
 			}
-		}
-		
-		//Outback
-		if (event.biome == BOPCBiomes.outback)
-		{
-			//Wooden Planks
-			if (event.original == Blocks.planks)
-			{
+		} else if (event.biome == BOPCBiomes.outback && event.original == Blocks.planks) { //Outback //Wooden Planks
 				event.replacement = 4;
 				event.setResult(Result.DENY);
-			}
 		}
 	}
 }

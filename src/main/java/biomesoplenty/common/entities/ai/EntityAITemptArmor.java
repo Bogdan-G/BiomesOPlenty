@@ -58,7 +58,7 @@ public class EntityAITemptArmor extends EntityAIBase
 		else
 		{
 			ItemStack itemstack = temptingPlayer.inventory.armorInventory[3];
-			return itemstack == null ? false : (itemstack.getItem() == armorItem) && (itemstack.getItemDamage() >= armorMeta);
+			return !(itemstack == null) && ((itemstack.getItem() == armorItem) && (itemstack.getItemDamage() >= armorMeta));
 		}
 	}
 
@@ -69,10 +69,7 @@ public class EntityAITemptArmor extends EntityAIBase
 		{
 			if (temptedEntity.getDistanceSqToEntity(temptingPlayer) < 36.0D)
 			{
-				if (temptingPlayer.getDistanceSq(targetX, targetY, targetZ) > 0.010000000000000002D)
-					return false;
-
-				if (Math.abs(temptingPlayer.rotationPitch - field_75278_f) > 5.0D || Math.abs(temptingPlayer.rotationYaw - field_75279_g) > 5.0D)
+				if (temptingPlayer.getDistanceSq(targetX, targetY, targetZ) > 0.010000000000000002D || Math.abs(temptingPlayer.rotationPitch - field_75278_f) > 5.0D || Math.abs(temptingPlayer.rotationYaw - field_75279_g) > 5.0D)
 					return false;
 			}
 			else

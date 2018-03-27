@@ -137,20 +137,11 @@ public class BlockBOPLog extends Block
 		int type = getTypeFromMeta(meta);
 		byte orientation = 0;
 
-		switch (side)
-		{
-		case 0:
-		case 1:
+		if (side==0 || side==1) {
 			orientation = 0;
-			break;
-
-		case 2:
-		case 3:
+		} else if (side==2 || side==3) {
 			orientation = 8;
-			break;
-
-		case 4:
-		case 5:
+		} else if (side==4 || side==5) {
 			orientation = 4;
 		}
 

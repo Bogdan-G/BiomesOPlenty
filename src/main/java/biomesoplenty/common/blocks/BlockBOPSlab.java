@@ -188,21 +188,13 @@ public class BlockBOPSlab extends BlockSlab
 
 		if (category == SlabCategory.STONE)
 		{
-			switch (getTypeFromMeta(meta))
-			{
-			case 0:
-			case 3:
+			int meta_0 = getTypeFromMeta(meta);
+			if (meta_0==0 || meta_0==3) {
 				hardness = 1.6F;
-				break;
-
-			case 1:
-			case 4:
+			} else if (meta_0==1 || meta_0==4) {
 				hardness = 1.1F;
-				break;
-
-			case 2:
+			} else if (meta_0==2) {
 				hardness = 1.0F;
-				break;
 			}
 		}
 
@@ -217,21 +209,13 @@ public class BlockBOPSlab extends BlockSlab
 
 		if (category == SlabCategory.STONE)
 		{
-			switch (getTypeFromMeta(meta))
-			{
-			case 0:
-			case 3:
+			int meta_0 = getTypeFromMeta(meta);
+			if(meta_0==0 || meta_0==3) {
 				resistance = 7.0F;
-				break;
-
-			case 1:
-			case 4:
+			} else if(meta_0==1 || meta_0==4) {
 				resistance = 7.5F;
-				break;
-
-			case 2:
+			} else if(meta_0==2) {
 				resistance = 2.0F;
-				break;
 			}
 		}
 

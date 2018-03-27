@@ -447,4 +447,10 @@ public class BlockBOPLeaves extends BlockLeavesBase implements IShearable
             super.harvestBlock(p_149636_1_, p_149636_2_, p_149636_3_, p_149636_4_, p_149636_5_, p_149636_6_);
             }
 	}
+
+    @Override
+    public int tickRate(World p_149738_1_)
+    {
+        return 20;
+    }
 }

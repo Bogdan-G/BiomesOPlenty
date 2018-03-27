@@ -137,14 +137,12 @@ public class BlockBOPPersimmonLeaves extends BlockLeavesBase implements IShearab
 			return;
 
 		int meta = world.getBlockMetadata(x, y, z);
-		if (random.nextInt(25) == 0)
-			if (meta > 0)
-				if ((meta & 3) < 3) 
+		if (random.nextInt(25) == 0 && meta > 0 && (meta & 3) < 3) 
 				{
 					world.setBlock(x, y, z, this, ++meta, 3);
 				}
 
-		if ((meta & 8) != 0/* && (meta & 4) == 0*/)
+		if ((meta & 8) != 0 && (meta & 4) == 0)
 		{
 			byte b0 = 4;
 			int i1 = b0 + 1;
@@ -266,7 +264,7 @@ public class BlockBOPPersimmonLeaves extends BlockLeavesBase implements IShearab
 			if (!world.isRemote) 
 			{
 				world.spawnEntityInWorld(entityitem);
-				//if (!(player instanceof FakePlayer))
+				if (!(player instanceof FakePlayer))
 					entityitem.onCollideWithPlayer(player);
 			}
 			return true;
@@ -354,4 +352,10 @@ public class BlockBOPPersimmonLeaves extends BlockLeavesBase implements IShearab
             super.harvestBlock(p_149636_1_, p_149636_2_, p_149636_3_, p_149636_4_, p_149636_5_, p_149636_6_);
             }
 	}
+
+    @Override
+    public int tickRate(World p_149738_1_)
+    {
+        return 20;
+    }
 }

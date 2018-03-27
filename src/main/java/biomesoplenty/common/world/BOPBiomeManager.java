@@ -29,10 +29,7 @@ public class BOPBiomeManager
 		{
 			BiomeEntry entry = new BiomeEntry(biome, getConfiguredWeight(biome, biomeType, weight));
 
-			if (BOPConfigurationBiomeGen.config.get(biomeType + " Biomes To Generate", biome.biomeName, true).getBoolean(false))
-			{
-				if (biomeList != null) biomeList.add(entry);
-			}
+			if (BOPConfigurationBiomeGen.config.get(biomeType + " Biomes To Generate", biome.biomeName, true).getBoolean(false) && biomeList != null) biomeList.add(entry);
 
 			return biome;
 		}

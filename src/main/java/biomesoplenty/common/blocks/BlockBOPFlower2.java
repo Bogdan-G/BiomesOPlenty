@@ -84,27 +84,23 @@ public class BlockBOPFlower2 extends BOPBlockWorldDecor
 	@Override
 	public void setBlockBoundsBasedOnState(IBlockAccess world, int x, int y, int z)
 	{
-		int meta = world.getBlockMetadata(x, y, z);
+		//int meta = world.getBlockMetadata(x, y, z);
 
-		switch (meta)
-		{
-		default:
+		//switch (meta)
+		//{
+		//default:
 			this.setBlockBounds(0.1F, 0.0F, 0.1F, 0.9F, 0.8F, 0.9F);
-			break;
-		}
+			//break;
+		//}
 	}
 
 	@Override
 	public void onEntityCollidedWithBlock(World world, int x, int y, int z, Entity entity)
 	{
-		if (world.getBlockMetadata(x, y, z) == 2)
-		{
-			if (entity instanceof EntityPlayer)
-			{
-				InventoryPlayer inventory = ((EntityPlayer)entity).inventory;
+		if (world.getBlockMetadata(x, y, z) == 2 && entity instanceof EntityPlayer) {
+				//InventoryPlayer inventory = ((EntityPlayer)entity).inventory;
 
 				entity.setFire(1);
-			}
 		}
 	}
 
@@ -117,12 +113,8 @@ public class BlockBOPFlower2 extends BOPBlockWorldDecor
 
 		if (equippedItem != null)
 		{
-			if (equippedItem.getItem() != Items.shears)
-			{
-				if (meta == 2)
-				{
-					player.setFire(5);
-				}
+			if (equippedItem.getItem() != Items.shears && meta == 2) {
+				player.setFire(5);
 			}
 		}
 		else
@@ -169,18 +161,13 @@ public class BlockBOPFlower2 extends BOPBlockWorldDecor
 	{
 		Block block = world.getBlock(x, y - 1, z);
 		
-		switch (metadata)
-		{
-		case 2: // Burning Blossom
+		if (metadata==2) { // Burning Blossom
 			return block == Blocks.netherrack || block == BOPCBlocks.overgrownNetherrack;
-
-		case 6: // Miner's Delight
+		} else if(metadata==6) { // Miner's Delight
 			return block == Blocks.stone;
-			
-		case 8: // Rose
+		} else if(metadata==8) { // Rose
 			return block == Blocks.grass || block == Blocks.dirt || block == Blocks.farmland || block == BOPCBlocks.longGrass || block == BOPCBlocks.overgrownNetherrack || block == BOPCBlocks.originGrass || block.canSustainPlant(world, x, y - 1, z, ForgeDirection.UP, this);
-
-		default:
+		} else {
 			return block == Blocks.grass || block == Blocks.dirt || block == Blocks.farmland || block == BOPCBlocks.longGrass || block == BOPCBlocks.overgrownNetherrack || block.canSustainPlant(world, x, y - 1, z, ForgeDirection.UP, this);
 		}
 	}

@@ -16,14 +16,10 @@ public class WorldGenBOPFlowerManager extends WorldGeneratorBOP
     @Override
     public boolean generate(World world, Random random, int x, int y, int z)
     {
-        if (biomeFeatures != null)
-        {
-            if (biomeFeatures.weightedFlowerGen != null && !biomeFeatures.weightedFlowerGen.isEmpty())
-            {
+        if (biomeFeatures != null && biomeFeatures.weightedFlowerGen != null && !biomeFeatures.weightedFlowerGen.isEmpty()) {
                 WorldGenBOPFlora flowerGenerator = (WorldGenBOPFlora)BOPBiomeDecorator.getRandomWeightedWorldGenerator(biomeFeatures.weightedFlowerGen);
 
                 return flowerGenerator.generate(world, random, x, y, z);
-            }
         }
 
         return false;

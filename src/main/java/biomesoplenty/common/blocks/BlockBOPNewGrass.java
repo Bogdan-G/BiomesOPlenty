@@ -49,11 +49,12 @@ public class BlockBOPNewGrass extends BlockGrass implements ISubLocalization
     {
         if (!world.isRemote)
         {
-            if (world.getBlockLightValue(x, y + 1, z) < 4 && world.getBlockLightOpacity(x, y + 1, z) > 2)
+            int block_light = world.getBlockLightValue(x, y + 1, z);
+            if (block_light < 4 && world.getBlockLightOpacity(x, y + 1, z) > 2)
             {
                 world.setBlock(x, y, z, BOPCBlocks.newBopDirt, world.getBlockMetadata(x, y, z) * 2, 2);
             }
-            else if (world.getBlockLightValue(x, y + 1, z) >= 9)
+            else if (block_light >= 9)
             {
                 for (int l = 0; l < 4; ++l)
                 {
@@ -61,15 +62,16 @@ public class BlockBOPNewGrass extends BlockGrass implements ISubLocalization
                     int randY = y + random.nextInt(5) - 3;
                     int randZ = z + random.nextInt(3) - 1;
                     
-                    Block block = world.getBlock(randX, randY + 1, randZ);
+                    //Block block = world.getBlock(randX, randY + 1, randZ);
 
                     if (world.getBlockLightValue(randX, randY + 1, randZ) >= 4 && world.getBlockLightOpacity(randX, randY + 1, randZ) <= 2)
                     {
-                    	if (world.getBlock(randX, randY, randZ) == Blocks.dirt && world.getBlockMetadata(randX, randY, randZ) == 0)
+                    	Block block = world.getBlock(randX, randY, randZ);
+                    	if (block == Blocks.dirt && world.getBlockMetadata(randX, randY, randZ) == 0)
                     	{
                     		world.setBlock(randX, randY, randZ, Blocks.grass);
                     	}
-                    	else if (world.getBlock(randX, randY, randZ) == BOPCBlocks.newBopDirt)
+                    	else if (block == BOPCBlocks.newBopDirt)
                     	{
                     		int dirtMeta = world.getBlockMetadata(randX, randY, randZ);
                     		if((dirtMeta & 1) == 0) {
@@ -88,18 +90,14 @@ public class BlockBOPNewGrass extends BlockGrass implements ISubLocalization
         Block plant = plantable.getPlant(world, x, y + 1, z);
         EnumPlantType plantType = plantable.getPlantType(world, x, y + 1, z);
 
-        switch (plantType)
-        {
-            case Cave:   return isSideSolid(world, x, y, z, UP);
-            case Plains: return true;
-            case Beach:
+        if (plantType==EnumPlantType.Cave) { return isSideSolid(world, x, y, z, UP);
+        } else if (plantType==EnumPlantType.Plains) { return true;
+        } else if (plantType==EnumPlantType.Beach) {
                 boolean hasWater = (world.getBlock(x - 1, y, z    ).getMaterial() == Material.water ||
                                     world.getBlock(x + 1, y, z    ).getMaterial() == Material.water ||
                                     world.getBlock(x,     y, z - 1).getMaterial() == Material.water ||
                                     world.getBlock(x,     y, z + 1).getMaterial() == Material.water);
                 return hasWater;
-		default:
-			break;
         }
 
         return super.canSustainPlant(world, x, y, z, direction, plantable);

@@ -14,6 +14,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
+import net.minecraft.world.World;
 import net.minecraftforge.common.IShearable;
 import biomesoplenty.BiomesOPlenty;
 
@@ -97,4 +98,10 @@ public class BlockBOPPetals extends BlockLeavesBase implements IShearable
 		ret.add(new ItemStack(this, 1, world.getBlockMetadata(x, y, z) & 15));
 		return ret;
 	}
+
+    @Override
+    public int tickRate(World p_149738_1_)
+    {
+        return 20;
+    }
 }

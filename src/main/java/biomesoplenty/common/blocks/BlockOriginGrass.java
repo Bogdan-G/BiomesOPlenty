@@ -93,18 +93,19 @@ public class BlockOriginGrass extends Block
 	{
 		if (!world.isRemote)
 		{
-			if (world.getBlockLightValue(x, y + 1, z) < 4 && world.getBlockLightOpacity(x, y + 1, z) > 2)
+			int block_light = world.getBlockLightValue(x, y + 1, z);
+			if (block_light < 4 && world.getBlockLightOpacity(x, y + 1, z) > 2)
 			{
 				world.setBlock(x, y, z, Blocks.dirt, 0, 2);
 			}
-			else if (world.getBlockLightValue(x, y + 1, z) >= 9)
+			else if (block_light >= 9)
 			{
 				for (int var6 = 0; var6 < 4; ++var6)
 				{
 					int rX = x + random.nextInt(3) - 1;
 					int rY = y + random.nextInt(5) - 3;
 					int rZ = z + random.nextInt(3) - 1;
-                    Block block = world.getBlock(rX, rY + 1, rZ);
+                    //Block block = world.getBlock(rX, rY + 1, rZ);
 
 					if (world.getBlock(rX, rY, rZ) == Blocks.dirt && world.getBlockLightValue(rX, rY + 1, rZ) >= 4 && world.getBlockLightOpacity(rX, rY + 1, rZ) <= 2)
 					{

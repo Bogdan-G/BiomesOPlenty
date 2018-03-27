@@ -60,12 +60,8 @@ public class EntityPhantom extends EntityMob
 	{
 		if (super.attackEntityAsMob(par1Entity))
 		{
-			if (par1Entity instanceof EntityLivingBase)
-			{
-				if (worldObj.difficultySetting != EnumDifficulty.PEACEFUL && worldObj.difficultySetting != EnumDifficulty.EASY)
-				{
-					((EntityLivingBase)par1Entity).addPotionEffect(new PotionEffect(BOPCPotions.possession.id, 30, 0));
-				}
+			if (worldObj.difficultySetting != EnumDifficulty.PEACEFUL && worldObj.difficultySetting != EnumDifficulty.EASY && par1Entity instanceof EntityLivingBase) {
+				((EntityLivingBase)par1Entity).addPotionEffect(new PotionEffect(BOPCPotions.possession.id, 30, 0));
 			}
 
 			return true;

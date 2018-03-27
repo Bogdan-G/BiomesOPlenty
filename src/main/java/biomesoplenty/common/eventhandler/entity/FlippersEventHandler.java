@@ -17,17 +17,11 @@ public class FlippersEventHandler
 		if (event.entity instanceof EntityLiving)
 		{
 			EntityLiving entity = (EntityLiving)event.entity;
-
 			ItemStack itemstack = entity.getEquipmentInSlot(1);
-
-			if (entity.isInWater())
-			{
-				if (itemstack != null && itemstack.getItem() == BOPCItems.flippers)
-				{
+			if (entity.isInWater() && itemstack != null && itemstack.getItem() == BOPCItems.flippers) {
 					entity.motionX *= 1.125D;
 					entity.motionY *= 1.1D;
 					entity.motionZ *= 1.125D;
-				}
 			}
 		}
 

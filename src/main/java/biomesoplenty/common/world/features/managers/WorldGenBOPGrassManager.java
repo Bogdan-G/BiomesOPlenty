@@ -17,14 +17,10 @@ public class WorldGenBOPGrassManager extends WorldGeneratorBOP
     @Override
     public boolean generate(World world, Random random, int x, int y, int z)
     {
-        if (biomeFeatures != null)
-        {
-            if (biomeFeatures.weightedGrassGen != null && !biomeFeatures.weightedGrassGen.isEmpty())
-            {
+        if (biomeFeatures != null && biomeFeatures.weightedGrassGen != null && !biomeFeatures.weightedGrassGen.isEmpty()) {
             	WorldGenerator grassGenerator = BOPBiomeDecorator.getRandomWeightedWorldGenerator(biomeFeatures.weightedGrassGen);
 
                 return grassGenerator.generate(world, random, x, y, z);
-            }
         }
 
         return false;

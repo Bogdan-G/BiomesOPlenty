@@ -137,9 +137,7 @@ public class BlockBOPAppleLeaves extends BlockLeavesBase implements IShearable
 			return;
 
 		int meta = world.getBlockMetadata(x, y, z);
-		if (random.nextInt(25) == 0)
-			if (meta > 0)
-				if ((meta & 3) < 3) 
+		if (random.nextInt(25) == 0 && meta > 0 && (meta & 3) < 3) 
 				{
 					world.setBlock(x, y, z, this, ++meta, 3);
 				}
@@ -267,7 +265,7 @@ public class BlockBOPAppleLeaves extends BlockLeavesBase implements IShearable
 
 			if (!world.isRemote) {
 				world.spawnEntityInWorld(entityitem);
-				//if (!(player instanceof FakePlayer))
+				if (!(player instanceof FakePlayer))
 					entityitem.onCollideWithPlayer(player);
 			}
 			return true;

@@ -31,19 +31,22 @@ public class BlockMoss extends BlockVine
 	@Override
     public boolean canPlaceBlockOnSide(World world, int x, int y, int z, int side)
     {
-        switch (side)
-        {
-            case 1:
-                return (world.getBlock(x, y + 1, z).isWood(world, x, y + 1, z) || world.getBlock(x, y + 1, z) == Blocks.stone);
-            case 2:
-            	return (world.getBlock(x, y, z + 1).isWood(world, x, y, z + 1) || world.getBlock(x, y, z + 1) == Blocks.stone);
-            case 3:
-            	return (world.getBlock(x, y, z - 1).isWood(world, x, y, z - 1) || world.getBlock(x, y, z - 1) == Blocks.stone);
-            case 4:
-            	return (world.getBlock(x + 1, y, z).isWood(world, x + 1, y, z) || world.getBlock(x + 1, y, z) == Blocks.stone);
-            case 5:
-            	return (world.getBlock(x - 1, y, z).isWood(world, x - 1, y, z) || world.getBlock(x - 1, y, z) == Blocks.stone);
-            default:
+        if(side==1) {
+                Block block = world.getBlock(x, y + 1, z);
+                return (block.isWood(world, x, y + 1, z) || block == Blocks.stone);
+        } else if(side==2) {
+            	Block block = world.getBlock(x, y, z + 1);
+            	return (block.isWood(world, x, y, z + 1) || block == Blocks.stone);
+        } else if(side==3) {
+            	Block block = world.getBlock(x, y, z - 1);
+            	return (block.isWood(world, x, y, z - 1) || block == Blocks.stone);
+        } else if(side==4) {
+            	Block block = world.getBlock(x + 1, y, z);
+            	return (block.isWood(world, x + 1, y, z) || block == Blocks.stone);
+        } else if(side==5) {
+            	Block block = world.getBlock(x - 1, y, z);
+            	return (block.isWood(world, x - 1, y, z) || block == Blocks.stone);
+        } else {
                 return false;
         }
     }

@@ -33,27 +33,18 @@ public class WorldGenWaspHive extends WorldGeneratorBOP
 			float chance = 0.0F;
 			int meta = 0;
 
-			switch (cubeno)
-			{
-			case 0:
+			if (cubeno==0) {
 				chance = 0.25F;
 				meta = 0;
-				break;
-
-			case 1:
+			} else if(cubeno==1) {
 				chance = 1.0F;
 				meta = 0;
-				break;
-
-			case 2:
+			} else if(cubeno==2) {
 				chance = 1.0F;
 				meta = 1;
-				break;
-
-			case 3:
+			} else if(cubeno==3) {
 				chance = 0.5F;
 				meta = 1;
-				break;
 			}
 
 			int honeychance = rand.nextInt(2);
@@ -174,14 +165,7 @@ public class WorldGenWaspHive extends WorldGeneratorBOP
 			int spawny = y - rand.nextInt(24);
 			int spawnz = (z - 12) + rand.nextInt(24);
 
-			if (world.getBlock(spawnx, spawny, spawnz) == BOPCBlocks.hive)
-			{
-				if (world.getBlockMetadata(spawnx, spawny, spawnz) == 1)
-				{
-					if (world.getBlock(spawnx - 1, spawny, spawnz) == BOPCBlocks.hive && world.getBlock(spawnx + 1, spawny, spawnz) == BOPCBlocks.hive && world.getBlock(spawnx, spawny, spawnz - 1) == BOPCBlocks.hive && world.getBlock(spawnx, spawny, spawnz + 1) == BOPCBlocks.hive && world.getBlock(spawnx, spawny - 1, spawnz) == BOPCBlocks.hive && world.getBlock(spawnx, spawny + 1, spawnz) == BOPCBlocks.hive)
-					{
-						if (world.getBlockMetadata(spawnx - 1, spawny, spawnz) == 1 && world.getBlockMetadata(spawnx + 1, spawny, spawnz) == 1 && world.getBlockMetadata(spawnx, spawny, spawnz - 1) == 1 && world.getBlockMetadata(spawnx, spawny, spawnz + 1) == 1 && world.getBlockMetadata(spawnx, spawny - 1, spawnz) == 1 && world.getBlockMetadata(spawnx, spawny + 1, spawnz) == 1)
-						{
+			if ((world.getBlock(spawnx, spawny, spawnz) == BOPCBlocks.hive) && (world.getBlockMetadata(spawnx, spawny, spawnz) == 1) && (world.getBlock(spawnx - 1, spawny, spawnz) == BOPCBlocks.hive && world.getBlock(spawnx + 1, spawny, spawnz) == BOPCBlocks.hive && world.getBlock(spawnx, spawny, spawnz - 1) == BOPCBlocks.hive && world.getBlock(spawnx, spawny, spawnz + 1) == BOPCBlocks.hive && world.getBlock(spawnx, spawny - 1, spawnz) == BOPCBlocks.hive && world.getBlock(spawnx, spawny + 1, spawnz) == BOPCBlocks.hive) && (world.getBlockMetadata(spawnx - 1, spawny, spawnz) == 1 && world.getBlockMetadata(spawnx + 1, spawny, spawnz) == 1 && world.getBlockMetadata(spawnx, spawny, spawnz - 1) == 1 && world.getBlockMetadata(spawnx, spawny, spawnz + 1) == 1 && world.getBlockMetadata(spawnx, spawny - 1, spawnz) == 1 && world.getBlockMetadata(spawnx, spawny + 1, spawnz) == 1)) {
 							world.setBlock(spawnx, spawny, spawnz, Blocks.mob_spawner);
 							TileEntityMobSpawner tileentitymobspawner = (TileEntityMobSpawner)world.getTileEntity(spawnx, spawny, spawnz);
 
@@ -190,9 +174,6 @@ public class WorldGenWaspHive extends WorldGeneratorBOP
 								//					 getSpawnerLogic()
 								tileentitymobspawner.func_145881_a().setEntityName("BiomesOPlenty.Wasp");
 							}
-						}
-					}
-				}
 			}
 		}
 	}
@@ -223,13 +204,7 @@ public class WorldGenWaspHive extends WorldGeneratorBOP
 			int spawny = y - rand.nextInt(12);
 			int spawnz = (z - 8) + rand.nextInt(16);
 
-			if (world.getBlock(spawnx, spawny, spawnz) == BOPCBlocks.hive)
-			{
-				if (world.getBlockMetadata(spawnx, spawny, spawnz) == 0)
-				{
-					world.setBlock(spawnx, spawny, spawnz, BOPCBlocks.hive, 3, 2);
-				}
-			}
+			if ((world.getBlock(spawnx, spawny, spawnz) == BOPCBlocks.hive) && (world.getBlockMetadata(spawnx, spawny, spawnz) == 0)) world.setBlock(spawnx, spawny, spawnz, BOPCBlocks.hive, 3, 2);
 		}
 	}
 }

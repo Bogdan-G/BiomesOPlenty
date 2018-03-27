@@ -89,12 +89,9 @@ public class BlockBOPSapling extends BlockSapling
 	{
 		Block block = world.getBlock(x, y - 1, z);
 
-		switch (metadata)
-		{
-		case 7: // Ethereal
+		if (metadata==7) { // Ethereal
 			return block == BOPCBlocks.bopGrass;
-
-		default:
+		} else {
 			return block == Blocks.grass || block == Blocks.dirt || block == Blocks.farmland || block.canSustainPlant(world, x, y - 1, z, ForgeDirection.UP, this);
 		}
 	}
@@ -116,7 +113,7 @@ public class BlockBOPSapling extends BlockSapling
 		if (!world.isRemote)
 		{
 			this.checkAndDropBlock(world, x, y, z);
-			if (world.getBlockLightValue(x, y + 1, z) >= 9 && random.nextInt(7) == 0) 
+			if (random.nextInt(7) == 0 && world.getBlockLightValue(x, y + 1, z) >= 9) 
 			{
 				this.func_149878_d(world, x, y, z, random);
 			}
@@ -132,81 +129,45 @@ public class BlockBOPSapling extends BlockSapling
 
 		if (obj == null)
 		{
-			switch (meta)
-			{
-			case 0: // Apple Tree
+			if(meta==0) { // Apple Tree
 				obj = new WorldGenOriginalTree(Blocks.log, BOPCBlocks.appleLeaves, 0, 0, 0);
-				break;
-
-			case 1: // Autumn Tree
+			} else if(meta==1) { // Autumn Tree
 				obj = new WorldGenOriginalTree(Blocks.log, BOPCBlocks.leaves1, 2, 0, false, 5, 3, false);
-				break;
-
-			case 2: // Bamboo Tree
+			} else if(meta==2) { // Bamboo Tree
 				rnd = random.nextInt(8);
-
 				if (rnd == 0) {
 					obj = new WorldGenBulbTree(BOPCBlocks.bamboo, BOPCBlocks.leaves1, 0, 1, false, 10, 12, false);
 				} else {
 					obj = new WorldGenBulbTree(BOPCBlocks.bamboo, BOPCBlocks.leaves1, 0, 1, false, 11, 3, false);
 				}
-				break;
-
-			case 3: // Magic Tree
+			} else if(meta==3) { // Magic Tree
 				obj = new WorldGenOriginalTree(BOPCBlocks.logs2, BOPCBlocks.leaves1, 1, 2, false, 5, 3, false);
-				break;
-
-			case 4: // Dark Tree
+			} else if(meta==4) { // Dark Tree
 				rnd = random.nextInt(8);
-
 				if (rnd == 0) obj = new WorldGenBOPSwampTree(BOPCBlocks.logs1, BOPCBlocks.leaves1, 2, 3, 5, 4);
 				else obj = new WorldGenBOPTaiga2(BOPCBlocks.logs1, BOPCBlocks.leaves1, 2, 3, false, 14, 6, 0, -1);
-
-				break;
-
-			case 5: // Dead Tree
+			} else if(meta==5) { // Dead Tree
 				obj = new WorldGenOriginalTree(Blocks.log, BOPCBlocks.leaves2, 0, 0, false, 5, 3, false);
-				break;
-
-			case 6: // Fir Tree
+			} else if(meta==6) { // Fir Tree
 				obj = new WorldGenBOPTaiga2(BOPCBlocks.logs1, BOPCBlocks.leaves2, 3, 1, false, 10, 10, 5, 4);
-				break;
-
-				/*case 7: // Ethereal Tree
-				obj = new WorldGenPromisedTree(false);
-				break;*/
-
-			case 8: // Autumn Tree
+				/*} else if(meta==7) { // Ethereal Tree
+				obj = new WorldGenPromisedTree(false);*/
+			} else if(meta==8) { // Autumn Tree
 				obj = new WorldGenOriginalTree(Blocks.log2, BOPCBlocks.leaves2, 1, 3, false, 5, 3, false);
-				break;
-
-			case 9: // Origin Tree
+			} else if(meta==9) { // Origin Tree
 				obj = new WorldGenOriginalTree(Blocks.log, BOPCBlocks.leaves3, 0, 0, false, 5, 3, false);
-				break;
-
-			case 10: // Pink Cherry Tree
+			} else if(meta==10) { // Pink Cherry Tree
 				obj = new WorldGenBOPBigTree(BOPCBlocks.logs1, BOPCBlocks.leaves3, 1, 1);
-				break;
-
-			case 11: // Maple Tree
+			} else if(meta==11) { // Maple Tree
 				obj = new WorldGenOriginalTree(Blocks.log, BOPCBlocks.leaves3, 0, 2, false, 5, 3, false);
-				break;
-
-			case 12: // White Cherry Tree
+			} else if(meta==12) { // White Cherry Tree
 				obj = new WorldGenBOPBigTree(BOPCBlocks.logs1, BOPCBlocks.leaves3, 1, 3);
-				break;
-
-			case 13: // Hellbark
+			} else if(meta==13) { // Hellbark
 				obj = new WorldGenMiniShrub(BOPCBlocks.logs4, BOPCBlocks.leaves4, 1, 0, BOPCBlocks.overgrownNetherrack);
-				break;
-
-			case 14: // Jacaranda
+			} else if(meta==14) { // Jacaranda
 				obj = new WorldGenOriginalTree(BOPCBlocks.logs4, BOPCBlocks.leaves4, 2, 1);
-				break;
-
-			case 15: // Persimmon
+			} else if(meta==15) { // Persimmon
 				obj = new WorldGenOriginalTree(Blocks.log, BOPCBlocks.persimmonLeaves, 0, 0, 1);
-				break;
 			}
 		}
 

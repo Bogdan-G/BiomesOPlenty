@@ -37,16 +37,8 @@ public class SlimeSpawnEventHandler
 	
 	private boolean canSlimeSpawn(EntitySlime slime)
 	{
-        if (!slime.worldObj.getWorldInfo().getTerrainType().handleSlimeSpawnReduction(slime.getRNG(), slime.worldObj))
-        {
-            if (slime.getSlimeSize() == 1 || slime.worldObj.difficultySetting != EnumDifficulty.PEACEFUL)
-            {
-                if (slime.posY > 50.0D && slime.posY < 70.0D && slime.getRNG().nextFloat() < 0.5F && slime.getRNG().nextFloat() < slime.worldObj.getCurrentMoonPhaseFactor() && slime.worldObj.getBlockLightValue(MathHelper.floor_double(slime.posX), MathHelper.floor_double(slime.posY), MathHelper.floor_double(slime.posZ)) <= slime.getRNG().nextInt(8))
-                {
+        if ((!slime.worldObj.getWorldInfo().getTerrainType().handleSlimeSpawnReduction(slime.getRNG(), slime.worldObj)) && (slime.getSlimeSize() == 1 || slime.worldObj.difficultySetting != EnumDifficulty.PEACEFUL) && (slime.posY > 50.0D && slime.posY < 70.0D && slime.getRNG().nextFloat() < 0.5F && slime.getRNG().nextFloat() < slime.worldObj.getCurrentMoonPhaseFactor() && slime.worldObj.getBlockLightValue(MathHelper.floor_double(slime.posX), MathHelper.floor_double(slime.posY), MathHelper.floor_double(slime.posZ)) <= slime.getRNG().nextInt(8))) {
                     return getCanSpawnHere(slime);
-                }
-
-            }
         }
         
         return false;

@@ -82,15 +82,10 @@ public class BlockBOPMushroom extends BlockBush
 	{
 		int meta = world.getBlockMetadata(x, y, z);
 
-		switch (meta)
-		{
-		case 0:
+		if (meta ==0) {
 			this.setBlockBounds(0.3F, 0.0F, 0.3F, 0.7F, 0.4F, 0.7F);
-			break;
-
-		default:
+		} else {
 			this.setBlockBounds(0.3F, 0.0F, 0.3F, 0.7F, 0.4F, 0.7F);
-			break;
 		}
 	}
 
@@ -107,25 +102,18 @@ public class BlockBOPMushroom extends BlockBush
 	{
 		Block block = world.getBlock(x, y - 1, z);
 		
-		switch (metadata)
-		{
-		case 0: // Toadstool
-			return block == Blocks.grass || block == Blocks.dirt || block == Blocks.mycelium || block == Blocks.netherrack || block == BOPCBlocks.overgrownNetherrack;
-
-		case 1: // Portobello
-			//return block == Blocks.grass || block == Blocks.dirt || block == Blocks.mycelium;
-
-		case 2: // Blue Milk Cap
-			return block == Blocks.grass || block == Blocks.dirt || block == Blocks.mycelium;
-
-		case 3: // Glowshroom
-			return block == Blocks.grass || block == Blocks.dirt || block == Blocks.mycelium || block == Blocks.stone || block == Blocks.netherrack || block == BOPCBlocks.overgrownNetherrack;
-
-		case 5: // Shadow Shroom
-			return block == Blocks.grass || block == Blocks.dirt || block == Blocks.mycelium || block == Blocks.end_stone || block == BOPCBlocks.bopGrass;
-			
-		default:
-			return block == Blocks.grass || block == Blocks.dirt || block == Blocks.mycelium || block == BOPCBlocks.overgrownNetherrack || block == BOPCBlocks.bopGrass;
+		if (block == Blocks.grass || block == Blocks.dirt || block == Blocks.mycelium) return true;
+		else if(metadata==0) { // Toadstool
+			return block == Blocks.netherrack || block == BOPCBlocks.overgrownNetherrack;
+		} else if(metadata==1 || metadata==2) { // Blue Milk Cap
+			// include // Portobello
+			return false;
+		} else if(metadata==3) { // Glowshroom
+			return block == Blocks.stone || block == Blocks.netherrack || block == BOPCBlocks.overgrownNetherrack;
+		} else if(metadata==5) { // Shadow Shroom
+			return block == Blocks.end_stone || block == BOPCBlocks.bopGrass;
+		} else {
+			return block == BOPCBlocks.overgrownNetherrack || block == BOPCBlocks.bopGrass;
 		}
 	}
 

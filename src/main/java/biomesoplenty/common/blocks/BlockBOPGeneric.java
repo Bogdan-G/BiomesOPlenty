@@ -35,120 +35,71 @@ public class BlockBOPGeneric extends Block
 		
 		this.setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
 
-		switch (type)
-		{
-		case ASH_STONE:
+		if(type==BlockType.ASH_STONE) {
 			this.setHardness(1.0F);		
 			this.setStepSound(Block.soundTypePiston);
-			break;
-
-		case CRAG_ROCK:
+		} else if(type==BlockType.CRAG_ROCK) {
 			this.setHardness(1.0F);
 			this.setStepSound(Block.soundTypeStone);
-			break;
-
-		case DRIED_DIRT:
+		} else if(type==BlockType.DRIED_DIRT) {
 			this.setHardness(0.1F);		
 			this.setHarvestLevel("pickaxe", 0);
-			
 			this.setStepSound(Block.soundTypePiston);
-			break;
-
-		case HARD_DIRT:
+		} else if(type==BlockType.HARD_DIRT) {
 			this.setHardness(0.9F);
 			this.setStepSound(Block.soundTypePiston);
-			break;
-
-		case HARD_ICE:
+		} else if(type==BlockType.HARD_ICE) {
 			this.setHardness(0.75F);		
 			this.setStepSound(Block.soundTypePiston);
-			break;
-
-		case HARD_SAND:
+		} else if(type==BlockType.HARD_SAND) {
 			this.setHardness(0.7F);
 			this.setHarvestLevel("shovel", 0);
-			
 			this.setStepSound(Block.soundTypeSand);
-			break;
-
-		case MUD_BRICK:
+		} else if(type==BlockType.MUD_BRICK) {
 			this.setHardness(1.0F);
 			this.setResistance(2.0F);	
 			this.setStepSound(Block.soundTypePiston);
-			break;
-
-		case BIOME_BLOCK:
+		} else if(type==BlockType.BIOME_BLOCK) {
 			this.setHardness(0.6F);
 			this.setStepSound(soundTypeGlass);
-			break;
-
-		case CRYSTAL:
+		} else if(type==BlockType.CRYSTAL) {
 			this.setHardness(0.15F);
 			this.setResistance(5.0F);
 			this.setLightLevel(1.0F);
 			this.setStepSound(Block.soundTypeGlass);
-			break;
-
-		default:
-			break;
 		}
 	}
 
 	@Override
 	public void registerBlockIcons(IIconRegister iconRegister)
 	{
-		switch (type)
-		{
-		case ASH_STONE:
+		if(type==BlockType.ASH_STONE) {
 			texture = iconRegister.registerIcon("biomesoplenty:ashstone");
-			break;
-
-		case CRAG_ROCK:
+		} else if(type==BlockType.CRAG_ROCK) {
 			texture = iconRegister.registerIcon("biomesoplenty:cragrock");
-			break;
-
-		case DRIED_DIRT:
+		} else if(type==BlockType.DRIED_DIRT) {
 			texture = iconRegister.registerIcon("biomesoplenty:drieddirt");
-			break;
-
-		case HARD_DIRT:
+		} else if(type==BlockType.HARD_DIRT) {
 			texture = iconRegister.registerIcon("biomesoplenty:harddirt");
-			break;
-
-		case HARD_ICE:
+		} else if(type==BlockType.HARD_ICE) {
 			texture = iconRegister.registerIcon("biomesoplenty:hardice");
-			break;
-
-		case HARD_SAND:
+		} else if(type==BlockType.HARD_SAND) {
 			texture = iconRegister.registerIcon("biomesoplenty:hardsand");
-			break;
-
-		case MUD_BRICK:
+		} else if(type==BlockType.MUD_BRICK) {
 			texture = iconRegister.registerIcon("biomesoplenty:mudbrick");
-			break;
-
-		case BIOME_BLOCK:
+		} else if(type==BlockType.BIOME_BLOCK) {
 			texture = iconRegister.registerIcon("biomesoplenty:biomeblock");
-			break;
-
-		case CRYSTAL:
+		} else if(type==BlockType.CRYSTAL) {
 			texture = iconRegister.registerIcon("biomesoplenty:crystal");
-			break;
-
-		default:
-			break;
 		}
 	}
 
 	@Override
 	public Item getItemDropped(int metadata, Random random, int fortune)
 	{
-		switch (type)
-		{
-		case CRYSTAL:
+		if(type==BlockType.CRYSTAL) {
 			return BOPCItems.misc;
-
-		default:
+		} else {
 			return super.getItemDropped(metadata, random, fortune);
 		}
 	}
@@ -156,9 +107,7 @@ public class BlockBOPGeneric extends Block
 	@Override
 	public void dropBlockAsItemWithChance(World world, int x, int y, int z, int metadata, float chance, int fortune)
 	{
-		switch (type)
-		{
-		case BIOME_BLOCK:
+		if(type==BlockType.BIOME_BLOCK) {
 			for (BiomeGenBase biome : BiomeGenBase.getBiomeGenArray())
 			{
 			    if (biome != null)
@@ -182,23 +131,17 @@ public class BlockBOPGeneric extends Block
 			    	}
 			    }
 			}
-			break;
-			
-		default:
+		} else {
 			super.dropBlockAsItemWithChance(world, x, y, z, metadata, chance, fortune);
-			break;
 		}
 	}
 
 	@Override
 	public int damageDropped(int meta)
 	{
-		switch (type)
-		{
-		case CRYSTAL:
+		if(type==BlockType.CRYSTAL) {
 			return 4;
-
-		default:
+		} else {
 			return meta;
 		}
 	}
@@ -206,12 +149,9 @@ public class BlockBOPGeneric extends Block
 	@Override
 	public int quantityDropped(int meta, int fortune, Random random)
 	{
-		switch (type)
-		{
-		case CRYSTAL:
+		if(type==BlockType.CRYSTAL) {
 			return 4;
-
-		default:
+		} else {
 			return 1;
 		}
 	}

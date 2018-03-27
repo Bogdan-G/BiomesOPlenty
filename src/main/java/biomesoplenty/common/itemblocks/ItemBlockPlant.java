@@ -95,23 +95,16 @@ public class ItemBlockPlant extends ItemBlock
 				int j = movingobjectposition.blockY;
 				int k = movingobjectposition.blockZ;
 
-				if (!world.canMineBlock(player, i, j, k))
+				if (!world.canMineBlock(player, i, j, k) || !player.canPlayerEdit(i, j, k, movingobjectposition.sideHit, itemStack))
 					return itemStack;
 
-				if (!player.canPlayerEdit(i, j, k, movingobjectposition.sideHit, itemStack))
-					return itemStack;
-
-				if (world.getBlock(i, j, k).getMaterial() == Material.water && world.getBlockMetadata(i, j, k) == 0 && world.isAirBlock(i, j + 1, k))
-				{
-					if (world.getBlock(i, j - 1, k).getMaterial() != Material.water)
-					{
+				if (world.getBlock(i, j, k).getMaterial() == Material.water && world.getBlockMetadata(i, j, k) == 0 && world.isAirBlock(i, j + 1, k) && world.getBlock(i, j - 1, k).getMaterial() != Material.water) {
 						world.setBlock(i, j + 1, k, field_150939_a, 14, 2);
 	
 						if (!player.capabilities.isCreativeMode)
 						{
 							--itemStack.stackSize;
 						}
-					}
 				}
 			}
 

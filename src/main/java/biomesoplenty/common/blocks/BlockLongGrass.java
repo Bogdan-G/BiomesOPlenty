@@ -94,11 +94,12 @@ public class BlockLongGrass extends Block
 	{
 		if (!world.isRemote)
 		{
-			if (world.getBlockLightValue(x, y + ione, z) < ifour && world.getBlockLightOpacity(x, y + ione, z) > itwo)
+			int block_light = world.getBlockLightValue(x, y + ione, z);
+			if (block_light < ifour && world.getBlockLightOpacity(x, y + ione, z) > itwo)
 			{
 				world.setBlock(x, y, z, Blocks.dirt, izero, itwo);
 			}
-			else if (world.getBlockLightValue(x, y + ione, z) >= 9)
+			else if (block_light >= 9)
 			{
 				for (int var6 = 0; var6 < ifour; ++var6)
 				{

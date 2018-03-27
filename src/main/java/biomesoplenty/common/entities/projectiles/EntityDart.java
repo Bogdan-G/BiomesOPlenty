@@ -166,12 +166,8 @@ public class EntityDart extends EntityArrow
 
 				if (movingobjectposition.entityHit.attackEntityFrom(damagesource, damage))
 				{
-					if (movingobjectposition.entityHit instanceof EntityLivingBase)
-					{
-						if (shootingEntity != null && movingobjectposition.entityHit != shootingEntity && movingobjectposition.entityHit instanceof EntityPlayer && shootingEntity instanceof EntityPlayerMP)
-						{
+					if (movingobjectposition.entityHit instanceof EntityLivingBase && shootingEntity != null && movingobjectposition.entityHit != shootingEntity && movingobjectposition.entityHit instanceof EntityPlayer && shootingEntity instanceof EntityPlayerMP) {
 							((EntityPlayerMP)shootingEntity).playerNetServerHandler.sendPacket(new S2BPacketChangeGameState(6, 0.0F));
-						}
 					}
 
 					this.playSound("random.bowhit", 1.0F, 1.2F / (rand.nextFloat() * 0.2F + 0.9F));

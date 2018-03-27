@@ -60,12 +60,10 @@ public class BlockBOPColorizedSapling extends BlockSapling
     {
 		Block block = world.getBlock(x, y - 1, z);
 
-		switch (metadata)
-		{
-		case 1: // Mangrove
+		int meta =  metadata & 7;
+		if (meta == 1) { // Mangrove
 			return block == Blocks.sand;
-
-		default:
+		} else {
 			return block == Blocks.grass || block == Blocks.dirt || block == Blocks.farmland || block.canSustainPlant(world, x, y - 1, z, ForgeDirection.UP, this);
 		}
     }
@@ -120,43 +118,24 @@ public class BlockBOPColorizedSapling extends BlockSapling
 
 		if (obj == null)
 		{
-			switch (meta)
-			{
-			    case 0: // Sacred Oak Tree
+			if (meta==0) { // Sacred Oak Tree
 			        obj = new WorldGenSacredOak(false);
-			        break;
-
-			    case 1: // Mangrove Tree
+			} else if (meta==1) { // Mangrove Tree
 			        obj = new WorldGenMangrove();
-			        break;
-
-			    case 2: // Palm Tree
+			} else if (meta==2) { // Palm Tree
 			        rnd = random.nextInt(4);
-
 			        if (rnd == 0) obj = new WorldGenPalmTree1();
 			        else obj = new WorldGenPalmTree1(25, 8, 1.5D);
-
-			        break;
-
-			    case 3: // Redwood Tree
+			} else if (meta==3) { // Redwood Tree
 			        obj = new WorldGenRedwoodTree2(BOPCBlocks.logs3, BOPCBlocks.colorizedLeaves1, 0, 3, false, 20, 15);
-			        break;
-
-			    case 4: // Willow Tree
+			} else if (meta==4) { // Willow Tree
 			        obj = new WorldGenBOPSwampTree(BOPCBlocks.logs3, BOPCBlocks.colorizedLeaves2, 1, 0, 6, 9, BOPCBlocks.colorizedLeaves2, 0);
-			        break;
-
-			    case 5: // Pine Tree
+			} else if (meta==5) { // Pine Tree
 			        obj = new WorldGenPineTree();
-			        break;
-			        
-			    case 6: //Mahogany Tree
+			} else if (meta==6) { //Mahogany Tree
 			    	obj = new WorldGenRainforestTree1(BOPCBlocks.logs4, BOPCBlocks.colorizedLeaves2, 3, 2, false, 8, 8);
-			    	break;
-			    	
-			    case 7: //Flowering Oak Tree
+			} else if (meta==7) { //Flowering Oak Tree
 			    	obj = new WorldGenMixedTree(Blocks.log, Blocks.leaves, 0, 0, BOPCBlocks.colorizedLeaves2, 3);
-			    	break;
 			}
 		}
 

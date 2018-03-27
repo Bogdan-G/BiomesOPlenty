@@ -88,19 +88,19 @@ public class BOPBiomeDecorator<T extends BiomeFeatures> extends BiomeDecorator
     
     public static <T extends WorldGenerator> T getRandomWeightedWorldGenerator(HashMap<T, ? extends Number> worldGeneratorMap)
     {
-        double completeWeight = 0D;
+        float completeWeight = 0F;
 
         for (Number weight : worldGeneratorMap.values())
         {
-            completeWeight += Double.parseDouble(String.valueOf(weight));
+            completeWeight += Float.parseFloat(String.valueOf(weight));
         }
 
-        double random = (new XSTR()).nextFloat() * completeWeight;
-        double countWeight = 0D;
+        float random = (new XSTR()).nextFloat() * completeWeight;
+        float countWeight = 0F;
 
         for (Map.Entry<T, ? extends Number> entry : worldGeneratorMap.entrySet())
         {
-            countWeight += Double.parseDouble(String.valueOf(entry.getValue()));
+            countWeight += Float.parseFloat(String.valueOf(entry.getValue()));
 
             if (countWeight >= random) { return entry.getKey(); }
         }

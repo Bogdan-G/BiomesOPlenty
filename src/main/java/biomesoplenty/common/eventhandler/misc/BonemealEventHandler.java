@@ -36,23 +36,14 @@ public class BonemealEventHandler
 			{
 				float chance = 0F;
 
-				switch (meta)
-				{
-				case 3: // Magic Sapling
+				if(meta==3) { // Magic Sapling
 					chance = 0.1F;
-					break;
-
-				case 7: // Ethereal Sapling
+				} else if(meta==7) { // Ethereal Sapling
 					chance = 0.15F;
-					break;
-
-				case 9: // Origin Sapling
+				} else if(meta==9) { // Origin Sapling
 					chance = 1F;
-					break;
-
-				default:
+				} else {
 					chance = 0.45F;
-					break;
 				}
 
 				if (world.rand.nextFloat() < chance)//float vs double, wut? nope ->
@@ -65,12 +56,8 @@ public class BonemealEventHandler
 		{
 			event.setResult(Result.ALLOW);
 
-			if (!world.isRemote)
-			{
-				if (world.rand.nextFloat() < 0.45F)
-				{
+			if (!world.isRemote && world.rand.nextFloat() < 0.45F) {
 					((BlockBOPColorizedSapling)BOPCBlocks.colorizedSaplings).func_149878_d(event.world, x, y, z, event.world.rand);
-				}
 			}
 		}
 		else if (block == BOPCBlocks.plants)
@@ -79,22 +66,17 @@ public class BonemealEventHandler
 			
 			if (!event.world.isRemote)
 			{
-				switch (meta)
-				{
-				case 7:
+				if (meta==7) {
 					if (event.world.rand.nextFloat() < 0.45F)
 					{
 						world.setBlock(x, y, z, BOPCBlocks.plants, 10, 2);
 						world.setBlock(x, y + 1, z, BOPCBlocks.plants, 9, 2);
 					}
-					break;
-				
-				case 12:
+				} else if(meta==12) {
 					if (world.rand.nextFloat() < 0.45F)
 					{
 						world.setBlock(x, y, z, Blocks.cactus);
 					}
-					break;
 				}
 			}
 		}

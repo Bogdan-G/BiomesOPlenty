@@ -17,12 +17,12 @@ public class DecorationModificationEventHandler
 	{
 		World world = event.world;
 
-		int chunkX = event.chunkX;
-		int chunkZ = event.chunkZ;
+		//int chunkX = event.chunkX;
+		//int chunkZ = event.chunkZ;
 
-		Random random = event.rand;
+		//Random random = event.rand;
 		
-		BiomeGenBase biome = world.getBiomeGenForCoordsBody(chunkX + 16, chunkZ + 16);
+		BiomeGenBase biome = world.getBiomeGenForCoordsBody(event.chunkX + 16, event.chunkZ + 16);
 		
 		if (biome instanceof BOPBiome)
 		{
@@ -34,15 +34,8 @@ public class DecorationModificationEventHandler
 	            return;
 	        }
 			
-	        if (bopBiome.theBiomeDecorator instanceof BOPOverworldBiomeDecorator)
-	        {
-	        	if (event.type == Decorate.EventType.PUMPKIN)
-	        	{
-	        		if (!(Boolean)bopBiome.theBiomeDecorator.bopFeatures.getFeature("generatePumpkins"))
-	        		{
-	        			event.setResult(Result.DENY);
-	        		}
-	        	}
+	        if (bopBiome.theBiomeDecorator instanceof BOPOverworldBiomeDecorator && event.type == Decorate.EventType.PUMPKIN && !(Boolean)bopBiome.theBiomeDecorator.bopFeatures.getFeature("generatePumpkins")) {
+	        	event.setResult(Result.DENY);
 	        }
 		}
 	}

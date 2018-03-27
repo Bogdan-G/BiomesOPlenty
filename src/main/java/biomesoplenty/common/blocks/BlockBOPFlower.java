@@ -97,39 +97,22 @@ public class BlockBOPFlower extends BOPBlockWorldDecor
 	{
 		int meta = world.getBlockMetadata(x, y, z);
 
-		switch (meta)
-		{
-		case 0:
+		if (meta==0) {
 			this.setBlockBounds(fzero, fzero, fzero, 1.0F, 0.015625F, 1.0F);
-			break;
-
-		case 5:
+		} else if(meta==5) {
 			this.setBlockBounds(fzt, fzero, fzt, fzs, fze, fzs);
-			break;
-
-		case 6:
+		} else if(meta==6) {
 			this.setBlockBounds(fzt, fzero, fzt, fzs, 0.6F, fzs);
-			break;
-
-		case 9:
+		} else if(meta==9) {
 			this.setBlockBounds(fzt, fzero, fzt, fzs, fzf, fzs);
-			break;
-
-		case 10:
+		} else if(meta==10) {
 			this.setBlockBounds(fzero, fzero, fzero, fzero, fzero, fzero);
-			break;
-
-		case 11:
+		} else if(meta==11) {
 			this.setBlockBounds(fzt, fzero, fzt, fzs, 0.4F, fzs);
-			break;
-
-		case 15:
+		} else if(meta==15) {
 			this.setBlockBounds(fzt, fzero, fzt, fzs, 0.6F, fzs);
-			break;
-
-		default:
+		} else {
 			this.setBlockBounds(fzo, fzero, fzo, 0.9F, fze, 0.9F);
-			break;
 		}
 	}
 
@@ -194,27 +177,18 @@ public class BlockBOPFlower extends BOPBlockWorldDecor
 	{
 		Block block = world.getBlock(x, y - 1, z);
 		
-		switch (metadata)
-		{
-		case 6: // Tulip
-			return block == Blocks.grass || block == Blocks.dirt || block == Blocks.farmland || block == BOPCBlocks.longGrass || block == BOPCBlocks.overgrownNetherrack || block.canSustainPlant(world, x, y - 1, z, ForgeDirection.UP, this);
-
-		case 10: // Lily Flower
+		if(metadata==10) { // Lily Flower
 			return block == Blocks.waterlily;
-
-		case 11: // Enderlotus
+		} else if(metadata==11) { // Enderlotus
 			return block == BOPCBlocks.bopGrass;
-
-		case 12: // Bromeliad
+		} else if(metadata==12) { // Bromeliad
 			return block == BOPCBlocks.hardDirt || block == Blocks.hardened_clay || block == Blocks.sand;
-			
-		case 13: // Eyebulb Bottom
+		} else if(metadata==13) { // Eyebulb Bottom
 			 return block == Blocks.netherrack || block == BOPCBlocks.overgrownNetherrack || block == BOPCBlocks.flesh;
-
-		case 14: // Eyebulb Top
+		} else if(metadata==14) { // Eyebulb Top
 			return block == this;
-
-		default:
+		} else {
+			// include // Tulip
 			return block == Blocks.grass || block == Blocks.dirt || block == Blocks.farmland || block == BOPCBlocks.longGrass || block == BOPCBlocks.overgrownNetherrack || block.canSustainPlant(world, x, y - 1, z, ForgeDirection.UP, this);
 		}
 	}
@@ -223,11 +197,12 @@ public class BlockBOPFlower extends BOPBlockWorldDecor
 	{
 		super.onNeighborBlockChange(world, x, y, z, neighborBlock);
 
-		if (world.getBlockMetadata(x, y, z) == EYEBULBTOP && world.getBlock(x, y - 1, z) == this && world.getBlockMetadata(x, y - 1, z) != EYEBULBBOTTOM) 
+		int meta = world.getBlockMetadata(x, y, z);
+		if (meta == EYEBULBTOP && world.getBlock(x, y - 1, z) == this && world.getBlockMetadata(x, y - 1, z) != EYEBULBBOTTOM) 
 		{
 			world.setBlockToAir(x, y, z);
 		}
-		if (world.getBlockMetadata(x, y, z) == EYEBULBBOTTOM && world.getBlock(x, y + 1, z) != this) 
+		if (meta == EYEBULBBOTTOM && world.getBlock(x, y + 1, z) != this) 
 		{
 			world.setBlockToAir(x, y, z);
 		}
@@ -268,25 +243,14 @@ public class BlockBOPFlower extends BOPBlockWorldDecor
 
 		if (equippedItem != null)
 		{
-			if (equippedItem.getItem() != Items.shears)
-			{
-				if (meta == 2)
-				{
-					if (!world.isRemote) 
-					{
-						player.addPotionEffect(new PotionEffect(Potion.wither.id, 300));
-					}
-				}
+			if (equippedItem.getItem() != Items.shears && meta == 2 && !world.isRemote) {
+				player.addPotionEffect(new PotionEffect(Potion.wither.id, 300));
 			}
 		}
 		else
 		{
-			if (meta == 2)
-			{
-				if (!world.isRemote) 
-				{
-					player.addPotionEffect(new PotionEffect(Potion.wither.id, 300));
-				}
+			if (meta == 2 && !world.isRemote) {
+				player.addPotionEffect(new PotionEffect(Potion.wither.id, 300));
 			}
 		}
 	}

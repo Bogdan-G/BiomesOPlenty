@@ -136,12 +136,8 @@ public class WorldGenCypress extends WorldGenAbstractTree
                             {
                                 int k3 = j3 - z;
 
-                                if ((Math.abs(i3) != l3 || Math.abs(k3) != l3 || l3 <= 0) && world.getBlock(l2, k2, j3).canBeReplacedByLeaves(world, l2, k2, j3))
-                                {
-                                    if (random.nextInt(2) != 0)
-                                    {
+                                if ((random.nextInt(2) != 0) && ((Math.abs(i3) != l3 || Math.abs(k3) != l3 || l3 <= 0) && world.getBlock(l2, k2, j3).canBeReplacedByLeaves(world, l2, k2, j3))) {
                                         this.setBlockAndNotifyAdequately(world, l2, k2, j3, leaves, this.metaLeaves);
-                                    }
                                 }
                             }
                         }

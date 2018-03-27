@@ -124,10 +124,7 @@ public class ItemBlockFoliage extends ItemColored
     @Override
 	public boolean placeBlockAt(ItemStack stack, EntityPlayer player, World world, int x, int y, int z, int side, float hitX, float hitY, float hitZ, int metadata)
     {
-    	if (metadata == 3) 
-    	{
-    		if (!placeBlockAt(stack, player, world, x, y + 1, z, side, hitX, hitY + 1, hitZ, FLAXTOP)) return false;
-    	}
+    	if (metadata == 3 && !placeBlockAt(stack, player, world, x, y + 1, z, side, hitX, hitY + 1, hitZ, FLAXTOP)) return false;
 
     	return super.placeBlockAt(stack, player, world, x, y, z, side, hitX, hitY, hitZ, metadata);
     }

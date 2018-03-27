@@ -79,31 +79,10 @@ public class BlockBOPRocks extends Block
 		int meta = world.getBlockMetadata(x, y, z);
 		float hardness = blockHardness;
 
-		switch (meta)
-		{
-		case 0:
+		if(meta==0 || meta==2 || meta==4) {
 			hardness = 3.0F;
-			break;
-
-		case 1:
+		} else if(meta==1 || meta==3 || meta==5) {
 			hardness = 1.5F;
-			break;
-
-		case 2:
-			hardness = 3.0F;
-			break;
-			
-		case 3:
-			hardness = 1.5F;
-			break;
-
-		case 4:
-			hardness = 3.0F;
-			break;
-			
-		case 5:
-			hardness = 1.5F;
-			break;
 		}
 
 		return hardness;
@@ -115,31 +94,10 @@ public class BlockBOPRocks extends Block
 		int meta = world.getBlockMetadata(x, y, z);
 		float resistance = blockResistance;
 
-		switch (meta)
-		{
-		case 0:
+		if(meta==0 || meta==2 || meta==4) {
 			resistance = 5.0F;
-			break;
-		
-		case 1:
+		} else if(meta==1 || meta==3 || meta==5) {
 			resistance = 7.0F;
-			break;
-
-		case 2:
-			resistance = 5.0F;
-			break;
-			
-		case 3:
-			resistance = 7.0F;
-			break;
-			
-		case 4:
-			resistance = 5.0F;
-			break;
-			
-		case 5:
-			resistance = 7.0F;
-			break;
 		}
 
 		return resistance / 5.0F;

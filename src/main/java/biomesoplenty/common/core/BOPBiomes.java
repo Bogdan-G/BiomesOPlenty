@@ -536,10 +536,7 @@ public class BOPBiomes
 	{
 		BiomeGenBase biome = BOPBiomeManager.createBiome(biomeClass, biomeName);
 		
-		if (biome != null)
-		{
-			if (BOPConfigurationBiomeGen.config.get("Overworld (River) Biomes To Generate", biome.biomeName, true).getBoolean(false))
-			{
+		if (biome != null && BOPConfigurationBiomeGen.config.get("Overworld (River) Biomes To Generate", biome.biomeName, true).getBoolean(false)) {
 				for (BiomeGenBase parent : parents)
 				{
 					if (parent != null)
@@ -547,7 +544,6 @@ public class BOPBiomes
 						BOPBiomeManager.overworldRiverBiomes[parent.biomeID] = biome;
 					}
 				}
-			}
 		}
 		
 		return null;

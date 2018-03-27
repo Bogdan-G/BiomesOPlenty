@@ -42,17 +42,13 @@ public class ItemBOPBiomeEssence extends Item
     @Override
     public void addInformation(ItemStack itemStack, EntityPlayer player, List infoList, boolean advancedItemTooltips)
     {
-        if (itemStack.hasTagCompound())
-        {
-            if (itemStack.getTagCompound().hasKey("biomeID")) 
-            {
+        if (itemStack.hasTagCompound() && itemStack.getTagCompound().hasKey("biomeID")) {
                 BiomeGenBase biome = BiomeGenBase.getBiomeGenArray()[itemStack.getTagCompound().getInteger("biomeID")];
 
                 if (biome != null)
                 {
                     infoList.add(biome.biomeName);
                 }
-            }
         }
     }
 
@@ -60,17 +56,13 @@ public class ItemBOPBiomeEssence extends Item
 	@SideOnly(Side.CLIENT)
 	public int getColorFromItemStack(ItemStack itemStack, int par2)
 	{
-		if (itemStack.hasTagCompound())
-        {
-            if (itemStack.getTagCompound().hasKey("biomeID"))
-            {
+		if (itemStack.hasTagCompound() && itemStack.getTagCompound().hasKey("biomeID")) {
                 BiomeGenBase biome = BiomeGenBase.getBiomeGenArray()[itemStack.getTagCompound().getInteger("biomeID")];
                 
                 if (biome != null)
                 {
                     return biome.color;
                 }
-            }
         }
 		
 		return 16777215;
